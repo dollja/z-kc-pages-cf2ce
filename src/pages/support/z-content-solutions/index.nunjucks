@@ -1,0 +1,19 @@
+<!-- index.nunjucks -->
+
+{% extends 'layout-index-dot-com.nunjucks' %}
+
+{% set title = "Landing page" %}
+{% set meta_description = meta_description | default("Content solutions provide a single place for the technical resources you need to get started with a product or function. This can include product libraries in IBM Documentation, videos, workflows, Redbooks, and more.") %}
+
+{% set meta_keywords = meta_keywords | default("z mainframe, z, z systems, system z, ibm system z, ibm z, linuxONE, Z, z/OS, it infrastucture, mainframe, technical resources, technical manuals, ibm documentation, set up, install, instructions, implementation, operating system, support, software") %}
+
+{# Solution page tiles
+Source is now being pulled from src/data/pages
+Order does not matter, they will be audomatically alphabetized by 'title' on the page.
+Attributes:
+title: Full title of page. also currently being used for alt tags on the pictograms
+pageUrl: End of url that comes after /support/z-content-solutions/, no slashes needed
+pageDescription: Short description paragraph for page
+pictogram: Full direct link to image file
+featured: If set to true, will also display in the Featured blue section at the top of the page. If you add a new page and set it to true, please be sure to make sure you choose another page to change to false, as there are only four spots in this section.
+#}

@@ -1,0 +1,38 @@
+<div class="ibm-background-black-core">
+    <ul class="ibm-textcolumns-6 ibm-center ibm-link-list" data-widget="adjustanchorlinks">
+        <li>
+            <a class="ibm-anchor-down-link ibm-textcolor-white-core ibm-padding-top-1 z-white-link" href="#intro">Introduction</a>
+        </li>
+        {% if announcements.announcementLinkText == "Contact us" %}
+        <li>
+            <a class="ibm-anchor-down-link ibm-textcolor-white-core ibm-padding-top-1 z-white-link" href="#survey">Contact us</a>
+        </li>
+        {% endif %}
+        <li>
+            <a class="ibm-anchor-down-link ibm-textcolor-white-core ibm-padding-top-1 z-white-link" href="#getstarted">How to get started</a>
+        </li>
+        {% if faqs %}
+        <li>
+            <a class="ibm-anchor-down-link ibm-textcolor-white-core ibm-padding-top-1 z-white-link" href="#faqs">FAQs</a>
+        </li>
+        {% endif %}
+        {% if faqSection %}
+        <li>
+            <a class="ibm-anchor-down-link ibm-textcolor-white-core ibm-padding-top-1 z-white-link" href="#faqs">FAQs</a>
+        </li>
+        {% endif %}
+        <li>
+            <a class="ibm-anchor-down-link ibm-textcolor-white-core ibm-padding-top-1 z-white-link" href="#resources">Technical resources</a>
+        </li>
+        {% if notes %}
+        <li>
+            <a class="ibm-anchor-down-link ibm-textcolor-white-core ibm-padding-top-1 z-white-link" href="#notes">Notes</a>
+        </li>
+        {% endif %}
+        {% if whatsnew %}
+        <li>
+            <a class="ibm-anchor-down-link ibm-textcolor-white-core ibm-padding-top-1 z-white-link" href="#new">What's new</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>

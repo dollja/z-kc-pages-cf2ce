@@ -1,0 +1,375 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "Cloud Infrastructure Center" %}
+{% set key = 11 %}
+
+{# META #}
+{% set meta_description = meta_description | default("") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "1_admtg405",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/cic/cic-video-thumbnail.jpg",
+    label: "Overview video -- Cloud Infrastructure Center",
+    noTranscript: true
+} 
+%}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Welcome to the Cloud Infrastructure Center content solution, your homepage for technical resources.</p>
+<p>IBM Cloud Infrastructure Center provides a consistent and standard experience for lifecycle management of the cloud infrastructure on IBM Z®, automation of infrastructure services, and integration of IBM Z with cloud management tooling across the enterprise. This includes provisioning of Linux distributions, including Red Hat® OpenShift® Container Platform.</p>" 
+%}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "marketing",
+        url: "https://www.ibm.com/products/cloud-infrastructure-center",
+        text: ""
+
+    }
+] %}
+{# END INTRODUCTION #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "cic" %}
+{# END FEEDBACK #}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cic/bp/cic-bp-install.svg",
+        iconPath: '<path d="M31,31.5H1c-0.3,0-0.5-0.2-0.5-0.5V23h0.9v7.5h29V23h1v8C31.5,31.3,31.3,31.5,31,31.5L31,31.5z"/>
+<polygon points="16,23.7 9.7,17.3 10.3,16.7 15.6,21.8 15.6,1 16.5,1 16.5,21.8 21.7,16.7 22.4,17.3 "/>',
+        iconAlt: "pictogram for step 1: install",
+        description: "The system administrator completes the Cloud Infrastructure Center installation process."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cic/bp/cic-bp-manage.svg",
+        iconPath:'<path id="strategy--play_1_" d="M27,18.6c-1.3,0-2.4,1.1-2.4,2.4s1.1,2.4,2.4,2.4s2.4-1.1,2.4-2.4S28.3,18.6,27,18.6z M27,22.6
+	c-0.9,0-1.6-0.7-1.6-1.6s0.7-1.6,1.6-1.6s1.6,0.7,1.6,1.6S27.9,22.6,27,22.6z M20,18.6c-1.3,0-2.4,1.1-2.4,2.4s1.1,2.4,2.4,2.4
+	s2.4-1.1,2.4-2.4S21.3,18.6,20,18.6z M20,22.6c-0.9,0-1.6-0.7-1.6-1.6s0.7-1.6,1.6-1.6s1.6,0.7,1.6,1.6S20.9,22.6,20,22.6z M20,25.6
+	c-1.3,0-2.4,1.1-2.4,2.4s1.1,2.4,2.4,2.4s2.4-1.1,2.4-2.4S21.3,25.6,20,25.6z M20,29.6c-0.9,0-1.6-0.7-1.6-1.6s0.7-1.6,1.6-1.6
+	s1.6,0.7,1.6,1.6S20.9,29.6,20,29.6z M13,23.4c1.3,0,2.4-1.1,2.4-2.4s-1.1-2.4-2.4-2.4s-2.4,1.1-2.4,2.4S11.7,23.4,13,23.4z
+	 M13,19.4c0.9,0,1.6,0.7,1.6,1.6s-0.7,1.6-1.6,1.6s-1.6-0.7-1.6-1.6S12.1,19.4,13,19.4z M10.7,5.7L12.5,4l-1.7-1.7l0.5-0.5L13,3.5
+	l1.7-1.7l0.5,0.5L13.5,4l1.7,1.7l-0.5,0.5L13,4.5l-1.7,1.7L10.7,5.7z M17.7,15.7l1.7-1.7l-1.7-1.7l0.5-0.5l1.7,1.7l1.7-1.7l0.5,0.5
+	L20.5,14l1.7,1.7l-0.5,0.5L20,14.5l-1.7,1.7L17.7,15.7z M27,10.5l1.7-1.7l0.5,0.5L27.5,11l1.7,1.7l-0.5,0.5L27,11.5l-1.7,1.7
+	l-0.5-0.5l1.7-1.7l-1.7-1.7l0.5-0.5L27,10.5z M10,27.6h6v0.7h-6c-0.1,0-5.4-0.1-5.4-5.4V5.9L3.3,7.3L2.7,6.7L5,4.5l2.3,2.3L6.7,7.3
+	L5.4,5.9V23C5.4,27.6,9.8,27.6,10,27.6z M24.4,2.9l0,2.1c0,2.7-2.2,3.4-3.4,3.4h-4c-3.6,0-3.6,3.5-3.6,3.6v5h-0.7v-5
+	c0,0,0.1-4.4,4.4-4.4h4c0.1,0,2.6,0,2.6-2.6l0-2.1l-1.4,1.4l-0.5-0.5L24,1.5l2.3,2.3l-0.5,0.5L24.4,2.9z"/>',
+        iconAlt: "pictogram for step 2: perform management tasks",
+        description: "The system administrator performs management tasks on virtual machines on IBM Z and associated resources, including Red Hat OpenShift deployment."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cic/bp/cic-bp-integrate.svg",
+        iconPath: '<path class="st0" d="M6.5,13.4V15c0,0.2,0.2,0.4,0.4,0.4h2.3c0.2,0,0.4-0.2,0.4-0.4v-1.5l1.3-0.5l1.1,1.1c0.1,0.1,0.4,0.1,0.5,0l0,0
+	l1.6-1.7c0.1-0.1,0.1-0.4,0-0.5l0,0l-1-1.1l0.5-1.4H15c0.2,0,0.4-0.2,0.4-0.4V6.8c0-0.2-0.2-0.4-0.4-0.4h-1.5L13,5.2l1.1-1.1
+	c0.1-0.1,0.1-0.2,0.1-0.3s0-0.2-0.1-0.2L12.4,2c-0.1-0.1-0.4-0.1-0.5,0l0,0l-1.1,1L9.5,2.5V1c0-0.2-0.1-0.4-0.3-0.4c0,0,0,0-0.1,0
+	H6.8C6.6,0.6,6.4,0.8,6.4,1c0,0,0,0,0,0.1v1.5L5.2,3L4.1,1.9C4,1.8,3.7,1.8,3.6,1.9l0,0L1.9,3.6C1.8,3.7,1.8,4,1.9,4.1l0,0l1.1,1
+	L2.5,6.4H1c-0.2,0-0.4,0.2-0.4,0.4l0,0v2.3c0,0.2,0.2,0.4,0.4,0.4l0,0h1.5L3,10.8l-1.1,1.1c-0.1,0.1-0.1,0.4,0,0.5l0,0L3.6,14
+	c0.1,0.1,0.4,0.1,0.5,0l0,0l1.1-1L6.5,13.4z M4.8,12.3l-1,1l-1.1-1.2l1-1c0.1-0.1,0.1-0.2,0.1-0.4L3.1,9C3,8.9,2.9,8.8,2.8,8.8H1.4
+	V7.1h1.4C2.9,7.1,3,7,3.1,6.9l0.7-1.7c0.1-0.1,0-0.3-0.1-0.4l-1-1l1.1-1.1l1,1c0.1,0.1,0.3,0.1,0.4,0.1L7,3c0.1-0.1,0.2-0.2,0.2-0.3
+	V1.3h1.6v1.4C8.8,2.8,8.9,2.9,9,3l1.7,0.7c0.1,0.1,0.3,0,0.4-0.1l1-1l1.1,1.1l-1,1c-0.1,0.1-0.1,0.3-0.1,0.4l0.7,1.7
+	C13,7,13.1,7.1,13.2,7.1h1.4v1.6h-1.4c-0.1,0-0.3,0.1-0.3,0.2l-0.7,1.8c-0.1,0.1,0,0.3,0.1,0.4l1,1l-1.1,1.1l-1-1
+	c-0.1-0.1-0.2-0.1-0.4-0.1L9,12.9c-0.1,0.1-0.2,0.2-0.2,0.3v1.4H7.2v-1.4c0-0.1-0.1-0.3-0.2-0.3l-1.8-0.7
+	C5.1,12.1,4.9,12.2,4.8,12.3z M8,10.6c1.5,0,2.7-1.2,2.7-2.7S9.5,5.2,8,5.2S5.3,6.4,5.3,7.9c0,0,0,0,0,0.1C5.3,9.5,6.5,10.6,8,10.6z
+	 M8,6c1.1,0,2,0.9,2,2s-0.9,2-2,2S6,9.1,6,8S6.9,6,8,6z M31,10.4h-1.5L29,9.2l1-1.1c0.1-0.1,0.1-0.2,0.1-0.3c0-0.1,0-0.2-0.1-0.2
+	l-1.6-1.7c-0.1-0.1-0.4-0.1-0.5,0l0,0L26.8,7l-1.3-0.6V5c0-0.2-0.2-0.4-0.4-0.4l0,0h-2.3c-0.2,0-0.4,0.2-0.4,0.4l0,0v1.5L21.2,7
+	l-1.1-1.1c-0.1-0.1-0.4-0.1-0.5,0l0,0L18,7.6c-0.1,0.1-0.1,0.4,0,0.5l0,0l1,1l-0.5,1.3H17c-0.2,0-0.4,0.2-0.4,0.4l0,0v2.3
+	c0,0.2,0.2,0.4,0.4,0.4l0,0h1.5l0.5,1.3l-1.1,1.1c-0.1,0.1-0.1,0.4,0,0.5l0,0l1.6,1.6c0.1,0.1,0.4,0.1,0.5,0l0,0l1.1-1l1.3,0.5V19
+	c0,0.2,0.2,0.4,0.4,0.4l0,0h2.3c0.2,0,0.4-0.2,0.4-0.4l0,0v-1.5l1.3-0.5l1.1,1.1c0.1,0.1,0.4,0.1,0.5,0l0,0l1.6-1.7
+	c0.1-0.1,0.1-0.4,0-0.5l0,0l-1-1.1l0.5-1.4H31c0.2,0,0.4-0.2,0.4-0.4l0,0v-2.3C31.4,10.6,31.2,10.4,31,10.4L31,10.4z M30.6,12.8
+	h-1.4c-0.1,0-0.3,0.1-0.3,0.2l-0.7,1.8c-0.1,0.1,0,0.3,0.1,0.4l1,1l-1.1,1.1l-1-1c-0.1-0.1-0.2-0.1-0.4-0.1L25,16.9
+	c-0.1,0.1-0.2,0.2-0.2,0.3v1.4h-1.6v-1.4c0-0.2-0.1-0.3-0.2-0.3l-1.8-0.7c-0.1,0-0.3,0-0.4,0.1l-1,1l-1.1-1.1l1-1
+	c0.1-0.1,0.1-0.2,0.1-0.4L19.1,13c-0.1-0.1-0.2-0.2-0.3-0.2h-1.4v-1.6h1.4c0.1,0,0.3-0.1,0.3-0.2l0.7-1.7c0.1-0.1,0-0.3-0.1-0.4
+	l-1-1l1.1-1.1l1,1c0.1,0.1,0.3,0.1,0.4,0.1L23,7c0.1-0.1,0.2-0.2,0.2-0.3V5.3h1.6v1.4c0,0.1,0.1,0.2,0.2,0.3l1.7,0.7
+	c0.1,0.1,0.3,0,0.4-0.1l1-1l1.1,1.1l-1,1c-0.1,0.1-0.1,0.3-0.1,0.4l0.7,1.7c0.1,0.1,0.2,0.2,0.3,0.2h1.4L30.6,12.8z M24,9.2
+	c-1.5,0-2.7,1.2-2.7,2.7s1.2,2.7,2.7,2.7s2.7-1.2,2.7-2.6C26.7,10.5,25.5,9.3,24,9.2C24,9.3,24,9.2,24,9.2z M24,13.9
+	c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S25.1,13.9,24,13.9z M12,21.2c-1.5,0-2.7,1.2-2.7,2.7s1.2,2.7,2.7,2.7s2.7-1.2,2.7-2.6
+	C14.7,22.5,13.5,21.3,12,21.2C12,21.3,12,21.2,12,21.2z M12,25.9c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S13.1,25.9,12,25.9z M19,22.4
+	h-1.5L17,21.2l1.1-1.1c0.1-0.1,0.1-0.2,0.1-0.3c0-0.1,0-0.2-0.1-0.2L16.4,18c-0.1-0.1-0.4-0.1-0.5,0l0,0l-1.1,1l-1.3-0.5V17
+	c0-0.2-0.2-0.4-0.4-0.4l0,0h-2.3c-0.2,0-0.4,0.2-0.4,0.4l0,0v1.5L9.2,19l-1.1-1.1c-0.1-0.1-0.4-0.1-0.5,0l0,0l-1.7,1.6
+	c-0.1,0.1-0.1,0.4,0,0.5l0,0L7,21.1l-0.5,1.3H5c-0.2,0-0.4,0.2-0.4,0.4l0,0v2.3c0,0.2,0.2,0.4,0.4,0.4l0,0h1.5L7,26.8l-1.1,1.1
+	c-0.1,0.1-0.1,0.4,0,0.5l0,0L7.6,30c0.1,0.1,0.4,0.1,0.5,0l0,0l1.1-1l1.3,0.5V31c0,0.2,0.2,0.4,0.4,0.4l0,0h2.3
+	c0.2,0,0.4-0.2,0.4-0.4l0,0v-1.5l1.3-0.5l1.1,1.1c0.1,0.1,0.4,0.1,0.5,0l0,0l1.6-1.7c0.1-0.1,0.1-0.4,0-0.5l0,0l-1-1.1l0.5-1.4H19
+	c0.2,0,0.4-0.2,0.4-0.4l0,0v-2.3C19.4,22.6,19.2,22.4,19,22.4L19,22.4z M18.6,24.8h-1.4c-0.1,0-0.3,0.1-0.3,0.2l-0.7,1.8
+	c-0.1,0.1,0,0.3,0.1,0.4l1,1l-1.1,1.1l-1-1c-0.1-0.1-0.2-0.1-0.4-0.1L13,28.9c-0.1,0.1-0.2,0.2-0.2,0.3v1.4h-1.6v-1.4
+	c0-0.2-0.1-0.3-0.2-0.3l-1.8-0.7c-0.1,0-0.3,0-0.4,0.1l-1,1l-1.1-1.2l1-1c0.1-0.1,0.1-0.2,0.1-0.4L7.1,25c-0.1-0.1-0.2-0.2-0.3-0.2
+	H5.4v-1.6h1.4c0.1,0,0.3-0.1,0.3-0.2l0.7-1.7c0.1-0.1,0-0.3-0.1-0.4l-1-1l1.1-1.1l1,1c0.1,0.1,0.3,0.1,0.4,0.1L11,19
+	c0.1-0.1,0.2-0.2,0.2-0.3v-1.4h1.6v1.4c0,0.1,0.1,0.2,0.2,0.3l1.7,0.7c0.1,0.1,0.3,0,0.4-0.1l1-1l1.1,1.1l-1,1
+	c-0.1,0.1-0.1,0.3-0.1,0.4l0.7,1.7c0.1,0.1,0.2,0.2,0.3,0.2h1.4L18.6,24.8z"/>',
+        iconAlt: "pictogram for step 3: integrate",
+        description: "The system administrator integrates IBM Z resources through OpenStack-compatible APIs with standard cloud management tools."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Install",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Cloud Infrastructure Center is a turn-key Infrastructure-as-a-Service (IaaS) solution that provides a consistent, industry-standard user experience to define, instantiate, and manage the lifecycle of virtual infrastructure, automated deployment of images (operating system and applications), and the integration to higher-level cloud management tools.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cic/1.1.3?topic=overview",
+                        linkText: "Read the overview"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cic/1.1.3?topic=getting-started-tutorials",
+                        linkText: "Explore the getting started tutorials"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning and setup",
+                subSectionContent: "<p>Effective preparation and planning will make your installation and deployment go quickly and smoothly. Review the following preinstallation requirements to prepare for your installation.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/SSLL2F_1.1.3/com.ibm.cloudin.doc/planning/system_requirements/planning_hardware_and_software_requirements_index.html",
+                        linkText: "Hardware and software requirements"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cic/1.1.3?topic=planning",
+                        linkText: "Planning steps"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Install Cloud Infrastructure Center",
+                subSectionContent: "<p>Install Cloud Infrastructure Center on your z/VM management node or KVM management node.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cic/1.1.3?topic=zvm-installing-cloud-infrastructure-center",
+                        linkText: "Install Cloud Infrastructure Center on a z/VM management node"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cic/1.1.3?topic=kvm-installing-cloud-infrastructure-center",
+                        linkText: "Install Cloud Infrastructure Center on your KVM management node"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cic/1.1.3?topic=upgrading-security-configuration",
+                        linkText: "Recommendations for avoiding security issues"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Perform administrator tasks",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Users with the administrator role can perform all tasks and have access to all resources.</p>
+                <p>An administrator might begin by reviewing the environment to be sure that it meets all <a href='https://www.ibm.com/docs/en/SSLL2F_1.1.3/com.ibm.cloudin.doc/planning/system_requirements/planning_hardware_and_software_requirements_index.html'>hardware and software requirements</a> and is configured correctly.</p>
+                They can then configure security and get started with administration tasks by registering resources.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cic/1.1.3?topic=configuring-security",
+                        linkText: "Configure security"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cic/1.1.3?topic=getting-started-as-administrator",
+                        linkText: "Get started with administration tasks"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Perform administrator tasks",
+                subSectionContent: "<p>Review the list of possible tasks to decide which services you want to make use of.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cic/1.1.3?topic=administrator-tasks",
+                        linkText: "Administrator tasks"
+                    },
+                    {
+                        linkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/gerald-hosch1/2021/05/28/how-to-manage-persistent-storage-of-multiple-datac",
+                        linkText: "Use case: Manage persistent storage of multiple datacenters in Cloud Infrastructure Center"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Integrate with cloud tools",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Cloud Infrastructure Center can integrate with cloud management tools, IaaS, or PaaS solutions that provide OpenStack integration points or plugins.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cic/1.1.3?topic=cloud-infrastructure-center-apis",
+                        linkText: "View the supported APIs"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cic/1.1.3?topic=apis-getting-started",
+                        linkText: "Get started with APIs"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Integrate through OpenStack",
+                subSectionContent: "<p>OpenStack provides a common, open standard through its API and allows integration between cloud environments.</p>
+                <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/cic/1.1.3?topic=integration-upper-layers-via-openstack-api' class='ibm-forward-link'>Integrate Cloud Infrastructure Center with cloud management tools</a></p>
+                <p> </p><p>Use the following links to learn more.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/gerald-hosch1/2021/06/14/using-the-ansible-playbook-to-operate-ibm-cloud-in?CommunityKey=e380e3c3-5a6e-406d-a7a2-a17677574d82",
+                        linkText: "Use the Ansible playbook to operate Cloud Infrastructure Center"
+                    },
+                    {
+                        linkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/gerald-hosch1/2021/06/02/installing-red-hat-openshift-container-platform-46",
+                        linkText: "Install Red Hat OpenShift with user-provisioned infrastructure through Cloud Infrastructure Center"
+                    }
+                ]
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FEATURED DOCUMENTATION #}
+{% set documentation = {
+    docTitle: "Cloud Infrastructure Center documentation",
+    docDescription: "Read more about how to get started with and use Cloud Infrastructure Center.",
+    docLinkUrl: "https://www.ibm.com/docs/en/cic",
+    docLinkText: "Explore the Cloud Infrastructure Center documentation"
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to hide tile on page temporarily.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "Other resources",
+        tabContent: [
+            {
+                resourceDescription: "This blog post describes how to manage persistent storage of multiple datacenters in IBM Cloud Infrastructure Center 1.1.3.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/gerald-hosch1/2021/05/28/how-to-manage-persistent-storage-of-multiple-datac",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "blog",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            },
+            {
+                resourceDescription: "This blog post describes how to use the Ansible playbook to operate IBM Cloud Infrastructure Center.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/gerald-hosch1/2021/06/14/using-the-ansible-playbook-to-operate-ibm-cloud-in",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "blog",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            },
+            {
+                resourceDescription: "This blog post describes how to install Red Hat OpenShift Container Platform with user-provisioned infrastructure through Cloud Infrastructure Center.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/gerald-hosch1/2021/06/02/installing-red-hat-openshift-container-platform-46",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "blog",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Video",
+        tabContent: [
+            {
+                resourceTitle: "Cloud Infrastructure Center overview",
+                resourceDescription: "See an overview of how Cloud Infrastructure Center helps you to facilitate modern cloud computing.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/IBM Cloud Infrastructure Center Overview/1_admtg405",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [14] %}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = false %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "",
+        sectionContent: ""
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "-",
+    sc_security: "-"
+}
+ %}
+{# END STATCOUNTER #}
+{# START HOTJAR #}
+{% set hotjar = {
+    site_id: "2496726"
+}
+ %}

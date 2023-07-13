@@ -1,0 +1,28 @@
+
+
+code {
+	word-wrap: break-word;
+}
+
+
+
+// UX Research custom search
+
+.ux-embedded-search {
+	position: relative;
+}
+
+.ux-embedded-search__btn {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+
+	> a {
+		padding: 5px !important;
+
+		&::before {
+			padding-left: 6px;
+			padding-top: 1px;
+		}
+	}
+}

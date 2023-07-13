@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="143px" height="107px" viewBox="0 0 143 107" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 87</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-87" transform="translate(-10.000000, -47.000000)">
+            <g id="Group-41" fill="#FFFFFF" font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="144" font-weight="500" opacity="0.203125">
+                <text id="5">
+                    <tspan x="0" y="148">5</tspan>
+                </text>
+            </g>
+            <g id="Group-86" transform="translate(66.000000, 90.000000)">
+                <g id="Group-85" fill="#FFFFFF">
+                    <rect id="Rectangle-21" x="15.5357143" y="41.7272727" width="55.9285714" height="9.27272727"></rect>
+                    <ellipse id="Oval-8" cx="18.6428571" cy="33.2272727" rx="18.6428571" ry="17.7727273"></ellipse>
+                    <ellipse id="Oval-8" cx="68.3571429" cy="33.2272727" rx="18.6428571" ry="17.7727273"></ellipse>
+                    <ellipse id="Oval-8" cx="45.8303571" cy="23.1818182" rx="24.0803571" ry="23.1818182"></ellipse>
+                </g>
+                <rect id="Rectangle-50" fill="#85A9D5" x="48" y="39" width="28" height="25"></rect>
+                <path d="M61,45.4990872 L61,45 L61.2346967,45 C61.6803645,44.1164833 61.9261802,43.8184179 61.9721438,44.1058039 C61.9733724,44.1134861 61.9755525,44.122304 61.9786839,44.1322577 L62.0698342,44 L62.6548478,45 L63,45 L63,45.6748358 C63.9099206,46.9175938 65.4232802,48.8807128 67.5400789,51.5641907 L68,52.1795376 L66.6202366,53 L66.1603154,52.3846532 L63,48.1563413 L63,60.2727273 L63,61 L61,61 L61,60.2727273 L61,48.2056777 L57.7935862,52.3991664 L57.3451896,53 L56,52.1988886 L56.4483965,51.598055 L61,45.4990872 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

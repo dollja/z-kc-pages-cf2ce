@@ -1,0 +1,12 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <META http-equiv="refresh" content="0;URL=https://www.ibm.com/support/z-content-solutions/cloud-broker/">
+   
+</head>
+        <!-- MAIN CONTAINER BEGIN -->
+        {% block content %} {% endblock %}
+        
+</body>
+</html>

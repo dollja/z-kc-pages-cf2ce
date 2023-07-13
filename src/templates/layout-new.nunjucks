@@ -1,0 +1,612 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+        <link rel="icon" href="//www.ibm.com/favicon.ico">
+        {# <link rel="canonical" href="http://izswebpage.mybluemix.net/">  #}
+
+        <meta name="description" content="{{meta_description|safe}}"/>
+        <meta name="keywords" content="{{meta_keywords|safe}}"/>
+        <meta name="dcterms.date" content="2018-07-16">
+        <meta name="dcterms.rights" content="© Copyright IBM Corp. 2018">
+        <meta name="geo.country" content="US">
+        <meta name="robots" content="index,follow">
+        <meta name="ahrefs-site-verification" content="4371a64cc6e46d03a87309ccf9b872a620009b536af292ec3ac81e0967c44738">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>IBM Z Content Solutions | {{ title }}</title>
+
+        <link rel="stylesheet" href="//1.www.s81c.com/common/v18/css/www.css" media="all"/>
+        <link rel="stylesheet" href="//1.www.s81c.com/common/v18/css/grid-fluid.css" media="all"/>
+        <link rel="stylesheet" href="//1.www.s81c.com/common/v18/css/textcolumns.css" media="all"/>
+        <link rel="stylesheet" href="https://izswebpage.mybluemix.net/css/overrides.css" media="all"/>
+
+        <script src="//1.www.s81c.com/common/stats/ida_stats.js"></script>
+        <script src="//1.www.s81c.com/common/v18/js/www.js"></script>
+        <script src="//1.www.s81c.com/common/v18/js/dyntabs.js"></script>
+
+        <script type="text/javascript">
+            IBMCore
+                .common
+                .util
+                .config
+                .set({
+                    "backtotop": {
+                        "enabled": true
+                    }
+
+                });
+        </script>
+
+        <script type="text/javascript">
+            digitalData = {
+                page: {
+                    category: {
+                        primaryCategory: "????"
+                    },
+                    pageInfo: {
+                        effectiveDate: "2018-07-16",
+                        expiryDate: "2030-07-16",
+                        hotjar: {
+                                    "enabled": true
+                                },
+                                convertro: {
+                                    "enabled": true
+                                }
+                        language: "en-US",
+                        publishDate: "2018-07-16",
+                        publisher: "IBM Corporation",
+                        version: "v18",
+                        focusArea: "WCP - Cloud services - all other",
+                        ibm: {
+                            contentDelivery: "KnowledgeCenter",
+                            contentProducer: "Pok CDD, HTML, Summer 2018",
+                            country: "US",
+                            owner: "Content Design/Poughkeepsie/IBM",
+                            type: "?????"
+                        }
+                    }
+                }
+            };
+        </script>
+        <script type="text/javascript">
+            IBMCore
+                .common
+                .util
+                .config
+                .set({
+                    "backtotop": {
+                        "enabled": true
+                    },
+                    "masthead": {
+                        "type": "alternate"
+                    },
+                    "footer": {
+                        "type": "alternate",
+                        "socialLinks": {
+                            "enabled": false
+                        }
+                    }
+                });
+        </script>
+<style type="text/css">
+        code {
+            color: #ce3945;
+            background: #efefef;
+            border-radius: 3px;
+            padding: 1px 2px;
+        }
+    </style>
+        <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Inconsolata" rel="stylesheet">
+        <link hred="https://unpkg.com/carbon-components/css/carbon-components.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+        {# ADDED FOR CONTACT MODULE <script src="https://www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js" defer></script> #}
+    </head>
+
+    <!-- MASTHEAD_BEGIN -->
+    <div id="ibm-masthead" role="banner" aria-label="IBM" class="ibm-mhtype-minimal">
+        <div id="ibm-mast-options">
+            <ul role="toolbar" aria-labelledby="ibm-masthead">
+                <li id="ibm-geo" role="presentation">
+                    <a href="http://www.ibm.com/planetwide/select/selector.html">United States</a>
+                </li>
+            </ul>
+        </div>
+        <div id="ibm-universal-nav" class="">
+
+            <div id="ibm-home">
+                <a href="http://www.ibm.com/us-en/?lnk=m">IBM®</a>
+            </div>
+            <div class="ibm-parent-site-name">
+                <a href="/support/z-content-solutions">IBM Z and LinuxONE Content Solutions</a>
+            </div>
+            <ul id="ibm-menu-links" role="toolbar" aria-label="Site map" class="ibm-hide">
+                <li>
+                    <a href="http://www.ibm.com/sitemap/us/en/">Site map</a>
+                </li>
+            </ul>
+            <div class="ibm-masthead-rightside">
+                <div id="ibm-search-module" role="search" aria-labelledby="ibm-masthead" class="ibm-has-scope">
+                    <div class="ibm-masthead-search-close">
+                        <p class="ibm-ind-link ibm-icononly ibm-padding-bottom-0">
+                            <a href="#" class="ibm-close-link ibm-nospacing">Close</a>
+                        </p>
+                    </div>
+                    <form id="ibm-search-form" action="https://www.ibm.com/Search/" method="get" aria-labelledby="ibm-masthead">
+                        <p>
+                            <label for="q">IBM</label>
+                            <input type="text" maxlength="100" value="" placeholder="Search" name="q" id="q" aria-label="Search" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="ibm-search-typeahead-container"><input name="lnk" type="hidden" value="mhsrch">
+                            <input type="hidden" value="18" name="v">
+                            <input type="hidden" value="utf" name="en">
+                            <input type="hidden" value="en" name="lang">
+                            <input type="hidden" value="us" name="cc">
+                            <button role="button" type="submit" id="ibm-search" class="ibm-search-link" value="Submit">
+                                <span class="ibm-access">Submit</span></button>
+                        </p>
+                    </form>
+                </div>
+                <div id="ibm-search-typeahead-container" aria-expanded="false" class="ibm-search-typeahead-container"></div>
+                <ul aria-label="Tools" role="menubar" class="ibm-masthead-iconsonly">
+                    <li role="presentation" class="ibm-masthead-item-signin">
+                        <button role="button" aria-haspopup="true" aria-owns="ibm-signin-minimenu-container" class="ibm-profile-link">My IBM</button>
+                        <ul id="ibm-signin-minimenu-container" role="menu" aria-label="Profile" class="ibm-dropdown-menu">
+                            <li role="presentation">
+                                <a role="menuitem" href="https://myibm.ibm.com/?lnk=mmi">My IBM</a>
+                            </li>
+                            <li role="presentation" data-linktype="signin">
+                                <a role="menuitem" href="https://idaas.iam.ibm.com/idaas/oidc/endpoint/default/authorize?response_type=token&amp;client_id=v18loginprod&amp;state=http%3A%2F%2Fnorthstarexamples.mybluemix.net%2Fv18%2Felements%2Fmasthead-search-local%2F&amp;redirect_uri=https://myibm.ibm.com/OIDCHandler.html&amp;scope=openid&amp;nonce=8675309">Log in</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li role="presentation" class="ibm-masthead-item-menu">
+                        <button role="button" aria-haspopup="true" aria-owns="ibm-burger-menu-container" class="ibm-menu-link">Site navigation</button>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!-- MASTHEAD_END -->
+</head>
+<!-- MAIN CONTAINER BEGIN -->
+<body class="ibm-type" id="ibm-com">
+    <div class="ibm-landing-page" id="ibm-top">
+        <div class="region region-content">
+            <div id="block-northstar-content">
+                <main role="main" aria-label="">
+                    <div id="ibm-pcon">
+                        <div id="ibm-content">
+                            <div id="ibm-content-body" class="ibm-padding-top-0">
+                                <div id="ibm-content-main">
+
+                                    <!-- navbar -->
+                                    {% include 'partials/navbar.njk' %}
+                                    <!-- END navbar -->
+
+                                    <!-- introduction -->
+                                    <div class="ibm-band ibm-background-white-core ibm-textcolor-default ibm-padding-top-1 ibm-padding-bottom-1" id="intro">
+                                        <div class="ibm-fluid">
+                                            <div class="ibm-col-12-4">
+                                                {% if (introMedia.type == "video") %}
+                                                {% if introMedia.youtube %}
+                                                    <div class="ibm-padding-top-1 ibm-video-player-con" data-widget="videoplayer" data-videodisplay="overlayandtrigger" data-videotype="youtube" data-videoid="{{ introMedia.videoID }}" data-overlayplayersize="large" data-showvideoduration="false" data-showvideotitle="false" imagesize="large" data-customplaceholder="true">
+                                                <a href="https://www.youtube.com/watch?v={{ introMedia.videoID }}" class="ibm-video-placeholder" aria-label="Youtube - {{ introMedia.label }}">
+                                                <img src="{{ introMedia.thumbnailUrl }}" alt="{{ introMedia.label }}" class="ibm-downsize" style="max-height:320px;">
+                                                </a>
+                                                </div>
+                                               {% else %} 
+                                                    <div class="ibm-padding-top-1 ibm-video-player-con" data-widget="videoplayer" data-videodisplay="overlayandtrigger" data-videotype="kaltura" data-videoid="{{ introMedia.videoID }}" data-overlayplayersize="large" data-showvideoduration="false" data-showvideotitle="false" data-imagesize="large" data-customplaceholder="true">
+                                                        <div>
+                                                            <a href="https://mediacenter.ibm.com/media/t/{{ introMedia.videoID }}" class="ibm-video-placeholder" aria-label="{{ introMedia.label }}">
+                                                                <img src="{{ introMedia.thumbnailUrl }}" alt="{{ introMedia.label }}" class="ibm-downsize" style="max-height:320px;">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    {% endif %}
+                                                {% if (introMedia.noTranscript != true) %}
+                                                   <a style="font-size:0.875rem" href="https://izswebpage.mybluemix.net/docs/transcripts/{{ title | replace('/', '-') | replace(' ', '-') }}-Overview-Transcript.pdf" target="_blank" alt="Open overview video transcript in pdf format">Transcript</a>
+                                                {% endif %}   
+                                                {% else %}
+                                                    <img src="{{ introMedia.thumbnailUrl }}" alt="{{ introMedia.label }}" class="ibm-downsize" style="max-height:320px; padding:20px 0;">
+                                                {% endif %}
+                                            </div>
+
+                                            <div class="ibm-col-12-8">
+                                                <h2 class="ibm-h2 ibm-padding-top-1 ibm-padding-bottom-1 ibm-textcolor-black-core">{{ title }} content solution</h2>
+                                                <div class="ibm-textcolor-black-core ibm-padding-top-1 ibm-padding-bottom-1">
+                                                    <div class="ibm-padding-bottom-1">
+
+                                                        {% from "partials/tooltip.njk" import definitionTooltip %}
+                                                        {% call definitionTooltip(introParagraphs, definitions) %}{% endcall %}
+
+                                                    </div>
+                                                    {% if introLinks %}
+                                                        {% for introLink in introLinks %}
+                                                            <p class="ibm-ind-link ibm-padding-bottom-1">
+                                                                {% if (introLink.type == "marketing") %}
+                                                                    <a target="{% if introLink.linkTarget == 'newTab' %}_blank{% endif %}" href="{{ introLink.url }}" class="ibm-margin-bottom-0 ibm-forward-link">See what {{ title }} can do for your business.</a>
+                                                                {% else %}
+                                                                    <a target="{% if introlink.linkTarget == 'newTab' %}_blank{% endif %}" href="{{ introLink.url }}" class="ibm-margin-bottom-0 ibm-forward-link">{{ introLink.text }}</a>
+                                                                {% endif %}
+                                                            </p>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END introduction -->
+                                <!-- START FEEDBACK -->
+                                <div id="ibm-contact-module" class="ibm-contact-widget ibm-contact--bg-blue-60 addtransition" aria-hidden="true">
+                                    <p class="ibm-icononly">
+                                        <a class="ibm-close-link" href="#">Close</a>
+                                    </p>
+                                    <h2 class="ibm-bold">Rate this content</h2>
+                                    <h3 class="ibm-bold">Rate this content</h3>
+                                    <ul class="ibm-live-assistance-list ibm-padding-bottom-0">
+                                        <li class="ibm-link-description">
+                                            <a class="ibm-forward-link" href="https://www.surveygizmo.com/s3/4346262/zKnowledge-Center-Content-Solutions?Page={{feedbackUrl}}">
+                                                <p>Rate this content solution</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- END FEEDBACK -->
+                                <!-- START VALUE -->
+                                {% if bannerContent %}
+                                    <div class="ibm-band ibm-background-blue-10 ibm-textcolor-default" id="survey" style="background-color: #D7E7FF; padding:24px 0;">
+                                        <div class="ibm-fluid ibm-vertical-center ibm-padding-bottom-0">
+                                            <div class="ibm-col-12-6 ibm-col-medium-12-12">
+                                                <div class="ibm-textcolor-default">
+                                                    <h5 class="ibm-h5 ibm-textcolor-black-core ibm-padding-top-0 ibm-padding-bottom-0">{{ bannerContent.bannerText | safe }}</h5>
+                                                    <div class="ibm-show-small ibm-padding-bottom-1"></div>
+                                                </div>
+                                            </div>
+                                            <div class="ibm-col-12-6 ibm-col-medium-12-12 ibm-padding-bottom-0">
+                                                <div class="ibm-textcolor-default">
+                                                   <p class="ibm-ind-link ibm-margin-top-0 ibm-padding-bottom-0">
+                                                    <a target="_blank" href="{{ bannerContent.bannerLinkUrl }}" class="ibm-forward-link ibm-btn-pri ibm-margin-bottom-0">{{ bannerContent.bannerLinkText }}</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <!-- END VALUE -->
+                                <!-- Get started -->
+                                <div class="ibm-band  {% if bigPictureSteps %}ibm-background-blue-50{% else %}ibm-background-neutral-white-30{% endif %} ibm-textcolor-default ibm-padding-top-1 ibm-padding-bottom-3" id="getstarted">
+
+                                    <!-- Big Picture -->
+                                    {% if bigPictureSteps %}
+                                        <div class="ibm-fluid">
+                                            <p class="ibm-h2 ibm-textcolor-white-core">
+                                                <span class="ibm-h2">Big Picture: {{ title }}</span>
+                                            </p>
+                                            <div style="display:flex; justify-content:space-between; flex-flow:row wrap; align-items:baseline;">
+                                                {% set numSteps = bigPictureSteps | length %}
+                                                {% for bpStep in bigPictureSteps %}
+                                                    <div class="{% if numSteps >= 5 %}ibm-col-12-2{% elseif numSteps == 4 %}ibm-col-12-3{% else %}ibm-col-12-4{% endif %} ibm-center ibm-padding-content bp-padding ibm-textcolor-white-core ibm-left">
+                                                        <div class="ibm-padding-content" style="display: flex; flex-direction: column; align-items:center;">
+                                                            <img src="{{ bpStep.iconUrl }}" alt="{{ bpStep.iconAlt }}" class="ibm-downsize" style="max-height:120px; width:auto;">
+                                                        </div>
+                                                        <p>{{ bpStep.description | safe }}</p>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    <!-- END Big Picture -->
+                                    <!-- Getting started tabs -->
+                                    <div class="ibm-fluid ibm-background-neutral-white-30">
+                                        <h2 class="ibm-h2 ibm-left ibm-padding-top-1 ibm-padding-bottom-1 ibm-textcolor-black-core">How to get started with {{ title }}</h2>
+                                        <div data-widget="dyntabs" class="ibm-graphic-tabs ibm-graphic-tabs--colored ibm-dyntabs ibm-widget-processed" @data-activetabid="#tab-1" data-remembertab="false" role="toolbar" aria-label="Tab Navigation">
+                                            <div class="ibm-nospacing ibm-background-neutral-white-40 ibm-background-blue-60">
+                                                <div class="ibm-tab-section ibm-padding-bottom-0">
+                                                    <ul class="ibm-tabs ibm-background-gray-10 ibm-border-blue-50" role="tablist" id="ibm_dyntablist_1">
+                                                        {% for getStartedTab in getStartedTabs %}
+                                                            <li class="ibm-textcolor-black-core" style="display:flex; align-items: center; justify-content: center;">
+                                                                <a role="tab" href="#tab-{{ getStartedTab.id }}" id="dtitem-tab-{{ getStartedTab.id }}" aria-controls="tab-{{ getStartedTab.id }}" class="ibm-active" aria-selected="true">
+                                                                    {{ getStartedTab.tabTitle }}
+                                                                </a>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            {% for getStartedTab in getStartedTabs %}
+                                                <div id="tab-{{ getStartedTab.id }}" class="ibm-fluid ibm-flex ibm-flex--wrap" aria-labelledby="dtitem-tab-{{ getStartedTab.id }}" role="tabpanel" aria-hidden="false" style="display: flex;">
+                                                    <div class="ibm-col-12-12 ibm-col-small-12-12">
+                                                        {% for tabSubSection in getStartedTab.tabSubSections %}
+                                                            <div class="ibm-col-12-12 ibm-background-neutral-white-10" style="padding:40px 20px 20px; margin-bottom:10px;">
+                                                                <div class="ibm-col-12-8 ibm-col-small-12-12 ibm-textcolor-default">
+                                                                    {% if tabSubSection.subSectionTitle %}
+                                                                    <h4 class="ibm-h4 ibm-bold ibm-textcolor-black-core">{{ tabSubSection.subSectionTitle }}</h4>
+                                                                    {% endif %}
+                                                                    {% if tabSubSection.subSectionContent %}
+                                                                        {% call definitionTooltip(tabSubSection.subSectionContent, definitions) %}{% endcall %}
+                                                                    {% endif %}
+                                                                    {% if tabSubSection.subSectionLinks %}
+                                                                        <div class="ibm-padding-top-1 ibm-padding-bottom-1">
+                                                                            {% for subSectionLink in tabSubSection.subSectionLinks %}
+                                                                                <p class="ibm-ind-link">
+                                                                                    <a target="{% if subSectionLink.linkTarget == 'newTab' %}_blank{% endif %}" href="{{ subSectionLink.linkUrl }}" class="ibm-margin-bottom-0 ibm-forward-link ibm-textcolor-blue-50">{{ subSectionLink.linkText }}</a>
+                                                                                </p>
+                                                                            {% endfor %}
+                                                                        </div>
+                                                                    {% endif %}
+                                                                </div>
+                                                                {% if tabSubSection.subSectionImage %}
+                                                                    <div class="ibm-col-12-4 ibm-col-small-12-12 ibm-center">
+                                                                        <img src="{{ tabSubSection.subSectionImage }}" alt="{{ tabSubSection.subSectionMediaAlt }}" class="ibm-resize ibm-vertical-center" style="max-height:350px;"/>
+                                                                        {% if tabSubSection.subSectionCaption %}
+                                                                        <p class="ibm-caption ibm-small">{{ tabSubSection.subSectionCaption }}</p>
+                                                                        {% endif %}
+                                                                    </div>
+                                                                {% endif %}
+                                                                {% if tabSubSection.subSectionVideo %}
+                                                                    <div class="ibm-col-12-4 ibm-col-small-12-12 ibm-textcolor-default">
+                                                                        <div class="ibm-padding-top-2 ibm-padding-bottom-3 ibm-video-player-con" data-widget="videoplayer" data-videodisplay="overlayandtrigger" data-videotype="kaltura" data-videoid="{{ tabSubSection.subSectionVideo }}" data-overlayplayersize="large" data-showvideoduration="false" data-showvideotitle="false" data-../../../imagesize="large" data-customplaceholder="true" style="margin:0px 10px">
+                                                                            <div>
+                                                                                <a href="https://mediacenter.ibm.com/media/{{ tabSubSection.subSectionVideo }}" class="ibm-video-placeholder" aria-label="{{ tabSubSection.subSectionMediaAlt }}">
+                                                                                    <img src="{{ tabSubSection.subSectionVideoThumbnail }}" alt="{{ tabSubSection.subSectionMediaAlt }}" class="ibm-downsize" ></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                {% endif %}
+                                                            </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <!-- END DYNATAB LIST -->
+                                    </div>
+                                </div>
+                                <!-- END Get started -->
+                                <!-- START FAQ  -->
+                                {% if faqs %}
+                                    <div class="ibm-fluid ibm-margin-top-1 ibm-padding-bottom-3" id="faqs">
+                                        <h2 class="ibm-h2 ibm-left ibm-padding-top-3 ibm-padding-bottom-2 ibm-textcolor-black-core">Frequently Asked Questions</h2>
+                                        <div class="ibm-col-12-8 ibm-col-medium-12-12" style="padding:0 40px 0 0!important;">
+                                            <div class="ibm-textcolor-default">
+                                                {% for faq in faqs %}
+                                                    <h3 class="ibm-semibold ibm-mb-1"><b>Q: {{ faq.question | safe }}</b></h3>
+                                                    <p class="ibm-mb-6 {% if not faq.linkUrl %}ibm-padding-bottom-2{% endif %}">A: {% call definitionTooltip(faq.answer, definitions) %}{% endcall %}</p>
+                                                    {% if faq.linkUrl %}
+                                                        <p class="ibm-ind-link ibm-padding-bottom-2">
+                                                            <a href="{{ faq.linkUrl }}" class="ibm-margin-bottom-0 ibm-forward-link ibm-textcolor-blue-50">{{ faq.linkText }}</a>
+                                                        </p>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        {% if learnMore %}
+                                        <div class="ibm-col-12-4 ibm-col-medium-12-12">
+                                        <h4 class="ibm-h4 ibm-bold ibm-textcolor-black-core">Learn more</h4>
+                                        {{ learnMore | safe }}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                {# For multi-section FAQ, will refactor to combine these later  #}
+                                {% if faqSection %}
+                                    <div class="ibm-fluid ibm-margin-top-1 ibm-padding-bottom-3" id="faqs">
+                                        <h2 class="ibm-h2 ibm-left ibm-padding-top-3 ibm-padding-bottom-2 ibm-textcolor-black-core">Frequently Asked Questions</h2>
+                                        <div class="ibm-col-12-8 ibm-col-medium-12-12" style="padding:0 40px 0 0!important;">
+                                            <div class="ibm-textcolor-default">
+                                                {% for aSection in faqSection %}
+                                                    <h2 class="ibm-bold">{{ aSection.section }}</h2>
+                                                    <div data-widget="showhide" data-type="panel" class="ibm-show-hide ibm-margin-bottom-2">
+                                                    {% for category in aSection.categories %}
+                                                            <h2>{{ category.catTitle }}</h2>
+                                                            <div class='ibm-container-body'>
+                                                                {% for faq in category.faqs %}
+                                                                    <h3 class="ibm-bold ibm-mb-1">
+                                                                        <b>Q: {{ faq.question | safe }}</b>
+                                                                    </h3>
+                                                                    <p class="ibm-mb-6 {% if not faq.linkUrl %}ibm-padding-bottom-2{% endif %}">A: {% call definitionTooltip(faq.answer, definitions) %}{% endcall %}</p>
+                                                                    {% if faq.linkUrl %}
+                                                                        <p class="ibm-ind-link ibm-padding-bottom-2">
+                                                                            <a href="{{ faq.linkUrl }}" class="ibm-margin-bottom-0 ibm-forward-link ibm-textcolor-blue-50">{{ faq.linkText }}</a>
+                                                                        </p>
+                                                                    {% endif %}
+                                                                {% endfor %}
+                                                            </div>
+                                                    {% endfor %}
+                                                      </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        {% if learnMore %}
+                                            <div class="ibm-col-12-4 ibm-col-medium-12-12">
+                                                <h4 class="ibm-h4 ibm-bold ibm-textcolor-black-core">Learn more</h4>
+                                                {{ learnMore | safe }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                <!-- END FAQ -->
+                                <!-- START RESOURCES SECTION -->
+                                <div class="ibm-band ibm-background-neutral-white-10 ibm-textcolor-default ibm-padding-top-1 ibm-padding-bottom-1" id="resources">
+                                    <div class="ibm-fluid">
+                                        <h2 class="ibm-h2 ibm-left ibm-padding-top-1 ibm-padding-bottom-1 ibm-textcolor-black-core">
+                                            <span>Technical resources for {{ title }}</span></h2>
+                                        <div data-widget="dyntabs" class="ibm-graphic-tabs ibm-graphic-tabs--colored ibm-dyntabs ibm-widget-processed" id="dyntabs-57807" role="toolbar" aria-label="Tab Navigation" @data-activetabid="#tr_{{ resourcesTab.id }}" data-remembertab="false">
+                                            <!--  START RESOURCES DYNATABS-2 LIST -->
+                                            <div class="ibm-nospacing ibm-background-neutral-white-40 ibm-background-blue-60">
+                                                {% if resourcesTabs[1] | length %}
+                                                <div class="ibm-tab-section ibm-padding-bottom-0">
+                                                    <ul class="ibm-tabs ibm-background-gray-10 ibm-border-blue-50" role="tablist" id="ibm_dyntablist_1">
+                                                        {% for resourcesTab in resourcesTabs %}
+                                                            <li class="ibm-textcolor-black-core" style="display:flex; align-items: center; justify-content: center;">
+                                                                <a aria-selected="true" role="tab" href="#trtab_{{ resourcesTab.id }}" id="dtitem-tr_{{ resourcesTab.id }}" aria-controls="tr_{{ resourcesTab.id }}" class="ibm-active">{{ resourcesTab.tabTitle }}</a>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                            <div class="">
+                                                <!-- START CONTENT SOLUTION TAB CONTENT -->
+                                                {% for resourcesTab in resourcesTabs %}
+                                                    <div role="tabpanel" class="ibm-tabs-content" id="trtab_{{ resourcesTab.id }}" aria-labelledby="dtitem-tr_{{ resourcesTab.id }}" aria-hidden="false">
+                                                        <div class="ibm-band ibm-background-neutral-white-10 ibm-textcolor-default ibm-padding-top-1 ibm-padding-bottom-0" id="27361">
+                                                            <div class="ibm-fluid">
+                                                                <div data-widget="setsameheight" data-always="true" data-excludesmallgrid="true" data-items=".ibm-card" class="ibm-col-12-12 ibm-widget-processed ibm-sameheight-processed">
+                                                                    {% set cardBg = cycler("ibm-background-blue-90", "ibm-background-blue-50") %}
+                                                                    {% for tabContent in resourcesTab.tabContent %}
+                                                                        {% if tabContent.resourceStatus != "hide" %}
+                                                                        <div class="ibm-col-12-4 ibm-col-medium-12-12 {{ cardBg.next() }} ibm-padding-top-1 ibm-left">
+                                                                            <div class="ibm-card ibm-no-border ibm-margin-bottom-0 background-none">
+                                                                                <div class="ibm-card__content ibm-textcolor-white-core ibm-padding-bottom-3">
+                                                                                    {% if tabContent.resourceIcon %}
+                                                                                        <p class="related-img-container ibm-center"><img src="{{ tabContent.resourceIcon }}" alt="support" height="60"></p>
+                                                                                    {% endif %}
+                                                                                    {% if tabContent.resourceTitle %}
+                                                                                        <h4 class="ibm-h4 ibm-bold ">
+                                                                                            {% if tabContent.resourceStatus %}
+                                                                                                <strong style="color:yellow;">NEW! </strong>
+                                                                                            {% endif %}
+                                                                                            {{ tabContent.resourceTitle }}
+                                                                                        </h4>
+                                                                                    {% endif %}
+                                                                                    {% if tabContent.resourceDescription %}
+                                                                                        <p class="ind-link">
+                                                                                        {% if tabContent.resourceStatus and not tabContent.resourceTitle %}
+                                                                                        <strong style="color:yellow;">NEW! </strong>
+                                                                                        {% endif %}
+                                                                                        {{ tabContent.resourceDescription | safe }}
+                                                                                        </p>
+                                                                                    {% endif %}
+                                                                                </div>
+                                                                                <div class="ibm-card__bottom">
+                                                                                    {% if tabContent.resourceLinkUrl %}
+                                                                                        <p class="ibm-ind-link ibm-textcolor-white-core ibm-padding-top-1 ibm-padding-bottom-1">
+                                                                                            <a target="{% if tabContent.linkTarget == 'newTab' %}_blank{% endif %}" href="{{ tabContent.resourceLinkUrl }}" class="{% if tabContent.resourceLinkType == 'video' %}ibm-video-link{% elseif tabContent.linkTarget == 'newTab' %}ibm-external-link{% else %}ibm-forward-link {% endif %} ibm-textcolor-white-core">{{ tabContent.resourceLinkText }}</a>
+                                                                                        {% endif %}
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        {% endif %}
+                                                                    {% endfor %}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- END CONTENT SOLUTION -->
+                                                </div>
+                                                <!-- END RESOURCES SECTION -->
+                                            {% endfor %}
+                                            <!-- START NOTES SECTION -->
+                                            {% if notes %}
+                                                    <div id="notes" class="ibm-band ibm-background-white-core ibm-textcolor-default ibm-padding-top-1 ibm-padding-bottom-1">
+                                                    <div class="ibm-fluid">
+                                                        <h2 class="ibm-h2">Notes</h2>
+                                                        <p>{{ notes }}</p>
+                                                    </div>
+                                                    </div>
+                                            {% endif %}
+                                            <!-- END NOTES SECTION -->
+                                            <!-- START WHAT'S NEW SECTION -->
+                                            {% if whatsnew %}
+                                            <div class="ibm-band ibm-background-neutral-white-10 ibm-textcolor-default ibm-padding-top-1 ibm-padding-bottom-1" id="new">
+                                                <div class="ibm-fluid">
+                                                    <h2 class="ibm-h2 ibm-left ibm-padding-top-1 ibm-padding-bottom-1 ibm-textcolor-black-core">
+                                                        <span>What's new</span></h2>
+                                                    {% if updateWhatsNewDate %}
+                                                        <p>Last updated {{ updateWhatsNewDate }}</p>
+                                                    {% endif %}
+                                                    {% for update in updateWhatsNew %}
+                                                        <div data-widget="showhide" data-type="panel" class="ibm-show-hide">
+                                                            <h2>{{ update.sectionTitle }}</h2>
+                                                            <div class="ibm-container-body">
+                                                                <div class="ibm-columns">
+                                                                    <div class="ibm-col-12-8">
+                                                                        <p class="ibm-textcolor-black-core">{{ update.sectionContent | safe }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!-- END WHAT'S NEW SECTION -->
+                                        </div>
+                                        <!-- ibm-content-main -->
+                                    </div>
+                                    <!-- ibm-content-body -->
+                                </div>
+                                <!-- ibm-content -->
+                            </div>
+                            <!-- ibm-pcon -->
+                        </main>
+                        <!-- Default Statcounter code for cloud broker http:// -->
+                        <script type="text/javascript">
+                            var sc_project = {{ statcounter.sc_project }};
+                            var sc_invisible = 1;
+                            var sc_security = "{{ statcounter.sc_security }}";
+                            var sc_https = 1;
+                        </script>
+                        <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+                        <noscript>
+                            <div class="statcounter">
+                                <a title="Web Analytics Made Easy - StatCounter" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/11952570/0/{{ statcounter.sc_security }}/1/" alt="Web Analytics Made Easy - StatCounter"></a>
+                            </div>
+                        </noscript>
+                        <!-- End of Statcounter Code -->
+                        {% if hotjar %}
+                        <!-- Default Hotjar code -->
+                        <script>
+                        (function(h,o,t,j,a,r){
+                        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                        h._hjSettings={hjid:{{ hotjar.site_id }},hjsv:6};
+                        a=o.getElementsByTagName('head')[0];
+                        r=o.createElement('script');r.async=1;
+                        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                        a.appendChild(r);
+                        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+                        </script>
+                        <!-- End of Hotjar Code -->
+                        {% endif %}
+                        <!-- MAIN CONTAINER END -->
+                        <!-- FOOTER_BEGIN -->
+                        <div id="ibm-footer-module"></div>
+                        <footer aria-label="IBM" role="contentinfo">
+                            <div id="ibm-footer">
+                                <h2 class="ibm-access">Footer links</h2>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.ibm.com/contact/us/en/">Contact</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.ibm.com/privacy/us/en/">Privacy</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.ibm.com/legal/us/en/">Terms of use</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.ibm.com/accessibility/us/en/">Accessibility</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </footer>
+                        <!-- FOOTER_END -->
+                    </div>
+                    <!-- block-northstar-content -->
+                </div>
+                <!-- region region-content -->
+            </div>
+            <!-- ibm-landing-page -->
+        </body>
+        <script>
+            import {tooltip} from 'carbon-components';
+            const tooltipElement = document.getElementById('test-tooltip');
+            const tooltipInstance = Tooltip.create(tooltipElement);
+        </script>
+
+    </html>

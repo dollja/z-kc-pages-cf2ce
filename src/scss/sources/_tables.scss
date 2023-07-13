@@ -1,0 +1,46 @@
+// table
+.dr-table {
+    width: 100%;
+    
+    @media (min-width: 674px) { 
+        margin-left: -16px; // this will have to be grid gutter var
+        width: calc(100% + 32px);
+    }
+
+
+    th,
+    td {
+        padding: 14px 16px 16px;
+    }
+
+    th {
+        background-color: color('white')
+        // commented by Umesh as per ticket #96
+        // background-color: color('gray', 10) 
+    }
+
+    td {
+        border-bottom: 1px solid color('gray', 30)
+        // commented by Umesh as per ticket #96
+        // border-bottom: 1px solid color('gray', 10)
+    }
+
+    &.color-table {
+        td {
+            vertical-align: top;
+            .two__color-indicator {
+                height: 1em;
+                display: inline-block;
+            }
+            .color__box {
+                &.color__box-border {
+                    border: 1px solid color('gray', 60);
+                }
+                height: 1em;
+                width: 1em;
+                box-sizing: border-box;
+            }
+        }
+
+    }
+}

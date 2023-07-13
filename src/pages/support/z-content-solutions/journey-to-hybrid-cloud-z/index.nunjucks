@@ -1,0 +1,496 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "Journey to hybrid cloud with IBM Z" %}
+{% set key = 14 %}
+
+{# META #}
+{% set meta_description = meta_description | default("Get started with building your hybrid cloud with IBM Z for data privacy, security, cyber resiliency and speed to modernization. Find technical resources.") %}
+{% set meta_keywords = meta_keywords | default("ibm hybrid cloud, ibm hybrid cloud architecture, ibm hybrid cloud infrastructure, ibm hybrid cloud integration, ibm hybrid cloud platform, ibm hybrid cloud strategy, hybrid cloud meaning, mixed cloud, private or public cloud, use of hybrid cloud, what is hybrid cloud, which software stack, hybrid cloud environment, hybrid cloud setup, hybrid cloud model, hybrid approach, hybrid cloud automation, hybrid explore cloud solutions") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "image",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/LP_Journey-to-Cloud.svg",
+    label: "IBM Journey to Hybrid Cloud with IBM Z"
+}
+%}
+
+{# Introduction paragraph:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Building your hybrid cloud with IBM Z® provides innovative data privacy, security, and cyber resiliency, a cloud-native experience, and speed to modernization by leveraging universal skills and tooling.</p>
+<p>This content solution page includes use cases and technical resources to help you on your journey to hybrid cloud with IBM Z.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "marketing",
+        url: "https://www.ibm.com/it-infrastructure/z/capabilities/hybrid-cloud"
+    }
+] %}
+{# END INTRODUCTION #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "hybridcloudz" %}
+{# END FEEDBACK #}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/jtc/insights.svg",
+        iconPath: '<path class="st0" d="M16,22.7c-0.7,0-1.4-0.1-2.1-0.3l0.2-0.7c0.6,0.2,1.2,0.3,1.8,0.3v0.6L16,22.7z M18.1,22.4l-0.2-0.7
+	c0.6-0.2,1.2-0.5,1.7-0.9l0.4,0.6C19.4,21.8,18.8,22.2,18.1,22.4z M12.1,21.5c-0.6-0.4-1.1-0.9-1.5-1.5l0.6-0.4
+	c0.4,0.5,0.8,0.9,1.3,1.3L12.1,21.5z M21.5,19.9l-0.6-0.4c0.4-0.5,0.7-1.1,0.8-1.7l0.7,0.2C22.2,18.6,21.9,19.3,21.5,19.9z M9.6,18
+	c-0.2-0.7-0.3-1.4-0.3-2.1H10c0,0.6,0.1,1.3,0.3,1.9L9.6,18z M22,15.9c0-0.6-0.1-1.3-0.3-1.9l0.7-0.2c0.2,0.7,0.3,1.4,0.3,2.1H22z
+	 M10.3,14.2l-0.7-0.2c0.2-0.7,0.5-1.3,0.9-1.9l0.6,0.4C10.7,12.9,10.4,13.5,10.3,14.2z M20.9,12.4c-0.4-0.5-0.8-0.9-1.3-1.3l0.4-0.6
+	c0.6,0.4,1.1,0.9,1.5,1.5L20.9,12.4z M12.4,11.2L12,10.6c0.6-0.4,1.2-0.8,1.9-1l0.2,0.7C13.5,10.4,12.9,10.8,12.4,11.2z M17.9,10.3
+	c-0.6-0.2-1.3-0.3-1.9-0.3l-0.1-0.7l0,0c0.7,0,1.4,0.1,2.1,0.3L17.9,10.3z M16,25.4c-10.3,0-14.3-9.1-14.3-9.2v-0.3
+	c0-0.1,4-9.2,14.3-9.2s14.3,9.1,14.3,9.2v0.3C30.3,16.2,26.3,25.4,16,25.4z M2.4,15.9C2.9,17,6.9,24.5,16,24.5s13.1-7.5,13.6-8.6
+	c-0.5-1.1-4.5-8.6-13.6-8.6S2.9,14.8,2.4,15.9z M16,20.3c-2.4,0-4.4-2-4.4-4.4c0-2.4,2-4.4,4.4-4.4c0.3,0,0.6,0,0.9,0.1l-0.2,0.7
+	c-0.3-0.1-0.5-0.1-0.8-0.1c-2,0-3.6,1.6-3.6,3.6c0,2,1.6,3.6,3.6,3.6s3.6-1.6,3.6-3.6c0-0.3,0-0.5-0.1-0.8l0.7-0.2
+	c0.1,0.3,0.1,0.7,0.1,1c0.2,2.3-1.5,4.3-3.8,4.5C16.2,20.3,16.1,20.4,16,20.3z"/>',
+        iconAlt: "Explore",
+        description: "Explore cloud capabilities with limited disruption. Define goals.<br /><br >Business challenges: Agility is constrained by skills,
+        budget, and resistance to change across the business.<br /><br />Value: Reduce business risk."
+
+    }, {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/jtc/growth.svg",
+        iconPath: '<path class="st0" d="M20,11.3c-1.2-0.4-2.5-0.2-3.4,0.7c-0.2,0.2-0.4,0.5-0.6,0.8c-0.1-0.3-0.3-0.6-0.6-0.8
+	c-0.9-0.9-2.2-1.2-3.4-0.7c-0.1,0-0.2,0.1-0.2,0.2c-0.4,1.2-0.2,2.5,0.7,3.4c0.6,0.6,1.4,0.9,2.2,0.9c0.3,0,0.6-0.1,0.8-0.1v13.4
+	H6.2v-4.4c0.3,0.1,0.5,0.1,0.8,0.1c1.7,0,3.1-1.4,3.1-3.1c0-0.4-0.1-0.8-0.2-1.2c0-0.1-0.1-0.2-0.2-0.2c-1.2-0.4-2.5-0.2-3.4,0.7
+	c-0.2,0.2-0.4,0.5-0.6,0.8c-0.1-0.3-0.3-0.6-0.6-0.8c-0.9-0.9-2.2-1.2-3.4-0.7c0.3,0.1,0.2,0.2,0.1,0.2c-0.4,1.2-0.2,2.5,0.7,3.4
+	c0.6,0.6,1.4,0.9,2.2,0.9c0.3,0,0.6-0.1,0.8-0.1v4.4H3v0.7h16v-0.7h-2.6v-6.5l1.9-1.9l-0.5-0.5l-1.4,1.4v-5.9
+	c0.3,0.1,0.5,0.1,0.8,0.1c1.7,0,3.1-1.4,3.1-3.1c0-0.4-0.1-0.8-0.2-1.2C20.1,11.4,20,11.4,20,11.3z M7.1,21.6
+	C7.8,21,8.7,20.7,9.6,21c0.2,0.9,0,1.8-0.6,2.5c-0.7,0.6-1.6,0.8-2.5,0.6c0-0.2-0.1-0.5-0.1-0.7v-0.1C6.4,22.6,6.7,22,7.1,21.6z
+	 M3.1,23.4c-0.6-0.7-0.8-1.6-0.6-2.5c0.9-0.2,1.8,0,2.5,0.6c0.5,0.4,0.7,1.1,0.7,1.7v0.1c0,0.3-0.1,0.5-0.1,0.7
+	C4.8,24.3,3.7,24.1,3.1,23.4z M13.1,14.4c-0.6-0.7-0.8-1.6-0.6-2.5c0.9-0.2,1.8,0,2.5,0.6c0.5,0.4,0.7,1.1,0.7,1.7v0.1
+	c0,0.3-0.1,0.5-0.1,0.7C14.8,15.3,13.7,15.1,13.1,14.4z M18.9,14.4c-0.7,0.6-1.6,0.8-2.5,0.6c0-0.2-0.1-0.5-0.1-0.7v-0.1
+	c0-0.6,0.3-1.2,0.7-1.7c0.7-0.6,1.6-0.8,2.5-0.6C19.9,12.8,19.6,13.8,18.9,14.4z M27.2,6.9c1.7,0,3.1-1.4,3.1-3.1
+	c0-0.4-0.1-0.8-0.2-1.2c0-0.1-0.1-0.2-0.2-0.2c-1.2-0.4-2.5-0.2-3.4,0.7c-0.2,0.2-0.4,0.5-0.6,0.8c-0.1-0.3-0.3-0.6-0.6-0.8
+	c-0.9-0.9-2.2-1.2-3.4-0.7c-0.1,0-0.2,0.1-0.2,0.2c-0.4,1.2-0.2,2.5,0.7,3.4c0.6,0.6,1.4,0.9,2.2,0.9c0.3,0,0.6-0.1,0.8-0.1v10.9
+	L24,16.3l-0.5,0.5l1.9,1.9v10.5H23v0.7h6v-0.7h-2.6V13.6l1.9-1.9l-0.5-0.5l-1.4,1.4V6.7C26.7,6.8,27,6.9,27.2,6.9z M27.1,3.6
+	C27.8,3,28.7,2.7,29.6,3c0.2,0.9,0,1.8-0.6,2.5c-0.7,0.6-1.6,0.8-2.5,0.6c0-0.2-0.1-0.5-0.1-0.7V5.3C26.4,4.6,26.7,4,27.1,3.6z
+	 M23.1,5.4c-0.6-0.7-0.8-1.6-0.6-2.5c0.9-0.2,1.8,0,2.5,0.6c0.5,0.4,0.7,1.1,0.7,1.7v0.1c0,0.3-0.1,0.5-0.1,0.7
+	C24.8,6.3,23.7,6.1,23.1,5.4z"/>',
+        iconAlt: "Adopt",
+        description: "Adopt a hybrid cloud strategy. Take initial steps to implement it.<br /><br />Business challenges: Technology choices drive strategy. Different solutions across silos and architectures prevent cloud expansion.<br /><br />Value: Foster universal skills and standards."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/jtc/goals.svg",
+        iconPath: '<path class="st0" d="M31,9.6h-8.1l8.4-8.3l-0.6-0.6l-8.3,8.4V1h-0.8v9.4H31V9.6z M5.6,16c0,5.7,4.7,10.4,10.4,10.4
+	S26.4,21.7,26.4,16c0-1.4-0.3-2.8-0.9-4.1l-0.7,0.3c0.5,1.2,0.8,2.6,0.8,3.9c0,5.3-4.3,9.6-9.6,9.6s-9.6-4.3-9.6-9.6
+	s4.3-9.6,9.6-9.6c0,0,0,0,0,0c1.3,0,2.7,0.3,3.9,0.8l0.3-0.7c-1.3-0.6-2.7-0.9-4.1-0.9C10.4,5.6,5.7,10.2,5.6,15.9
+	C5.6,15.9,5.6,16,5.6,16z M16,10.6c-3,0-5.4,2.4-5.4,5.4s2.4,5.4,5.4,5.4s5.4-2.4,5.4-5.4l0,0C21.4,13,19,10.6,16,10.6
+	C16,10.6,16,10.6,16,10.6z M16,20.6c-2.5,0-4.6-2-4.6-4.6c0,0,0,0,0,0c0-2.5,2.1-4.6,4.6-4.6c2.5,0,4.6,2.1,4.6,4.6
+	C20.6,18.5,18.6,20.6,16,20.6C16,20.6,16,20.6,16,20.6z M30.8,11.9l-0.7,0.2c0.4,1.3,0.5,2.6,0.5,3.9c0,8.1-6.5,14.6-14.6,14.6
+	S1.4,24.1,1.4,16S7.9,1.4,16,1.4c0,0,0,0,0,0c1.3,0,2.6,0.2,3.9,0.5l0.2-0.7c-1.3-0.4-2.7-0.6-4.1-0.6C7.5,0.6,0.6,7.5,0.6,16
+	S7.5,31.4,16,31.4S31.4,24.5,31.4,16C31.4,14.6,31.2,13.2,30.8,11.9z M16,15c0.6,0,1,0.4,1,1c0,0.6-0.4,1-1,1c-0.6,0-1-0.4-1-1
+	C15,15.4,15.4,15,16,15z"/>',
+        iconAlt: "Optimize",
+        description: "Optimize your hybrid cloud to maximize results. Business choices drive strategy.<br /><br />Business challenges: Connecting and integrating the components across platforms and architectures.<br /><br />Value: Achieve business agility and flexibility."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+    id:1,
+    tabTitle:"Containers",
+    tabSubSections:[
+        {
+        subSectionTitle:"Overview",
+        subSectionContent:"<p>Container images package software and dependencies to run consistently across infrastructures. Developers can focus solely on the application, and IT architects can deploy, manage, and scale applications across environments.</p>"
+        },
+        {
+        subSectionTitle:"Use Case",
+        subSectionContent:"<p>Run containerized software on Linux®. You can run Linux applications directly on z/OS with IBM z/OS Container Extensions (zCX), run Linux as a guest operating system with the <a href='https://www.ibm.com/it-infrastructure/z/zvm'>IBM z/VM hypervisor</a>, or run Linux on IBM LinuxONE.</p>
+        <p class='ibm-ind-link'><a href='https://mediacenter.ibm.com/media/Hybrid+Cloud+with+IBM+Z+and+LinuxONEA+Running+Linux/1_2a11u6ms' class='ibm-forward-link'>Running Linux on IBM IBM Z and LinuxONE</a></p>
+        <p>zCX uses container technology to run Linux applications directly on z/OS. This solution works best for Linux applications that connect to z/OS workloads and data. The modular nature of containers means zCX can bring applications closer to z/OS data without requiring changes to the applications.</p>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://mediacenter.ibm.com/media/t/1_6klb4xlr?_ga=2.30579519.1297208221.1603109850-1979777457.1602853207",
+            linkText:"Introduction and Planning for zCX"
+            }
+        ]
+        },
+        {
+        subSectionTitle:"Learn more",
+        subSectionContent:"<p>For more information on Linux on IBM Z and LinuxONE, see<a href='https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone'> Linux on IBM Z and LinuxONE</a>.</p>
+        <p>For more information on zCX, explore the <a href='https://www.ibm.com/support/z-content-solutions/container-extensions/'> z/OS Container Extensions (zCX) content solution.</a></p>"
+        }
+        ]
+    },
+    {
+    id:2,
+    tabTitle:"Self-service access",
+    tabSubSections:[
+        {
+        subSectionTitle:"Overview",
+        subSectionContent:"<p>Application developers can have direct, self-service access to z/OS computing resources through their supported cloud platform, which means integrating z/OS resources into cloud-native applications directly through their cloud platform by binding the z/OS services and applications together.</p>"
+        },
+        {
+        subSectionTitle:"Use Case",
+        subSectionContent:"<p>For self-service access to z/OS resources, application developers can get started with <a href='https://www.ibm.com/products/zos-cloud-broker'>z/OS Cloud Broker</a>. For example, an application developer can run a digital banking application on Red Hat® OpenShift® Container Platform with Db2® for z/OS by using z/OS Cloud Broker.</p>
+        <p class='ibm-ind-link'><a href='https://mediacenter.ibm.com/media/t/1_1sf8ncwj?_ga=2.257474315.1297208221.1603109850-1979777457.1602853207' class='ibm-forward-link'>z/OS Cloud Broker Db2 Use Case</a></p>
+        <p>A second example of how application developers can take advantage of self-service access to z/OS resources centers on creating a WebSphere® Liberty Profile server from OpenShift Container Platform through z/OS Cloud Broker.</p>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://mediacenter.ibm.com/media/t/1_7ydvqoav?_ga=2.34854305.1297208221.1603109850-1979777457.1602853207",
+            linkText:"z/OS Cloud Broker WLP Use Case"
+            }
+        ]
+        },
+        {
+        subSectionTitle:"Learn more",
+        subSectionContent:"<p>For more information about how to take advantage of self-service access in your hybrid cloud ecosystem, explore the <a href='https://www.ibm.com/support/z-content-solutions/cloud-broker/'>z/OS Cloud Broker content solution.</a></p>"
+        }
+        ]
+    },
+    {
+    id:3,
+    tabTitle:"Automation",
+    tabSubSections:[
+        {
+        subSectionTitle:"Overview",
+        subSectionContent:"<p>System programmers can leverage leading automation practices to build upon and integrate existing automation into a simple and flexible automation solution that addresses challenges across the hybrid multicloud.</p>"
+        },
+        {
+        subSectionTitle:"Use Case",
+        subSectionContent:"<p>Combining the features of <a href='https://access.redhat.com/products/ansible-tower-red-hat'>Red Hat Ansible Tower®</a> and Red Hat Ansible Certified Content for IBM Z, system programmers can quickly set up and configure an automated user management system.</p>
+        <p class='ibm-ind-link'><a href='https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/blake-becker1/2020/09/03/zos-user-management-with-ansible' class='ibm-forward-link'>Read z/OS User Management with Ansible</a></p>
+        <p>Another example of how system programmers can easily automate their enterprise environment is the provisioning of middleware systems either by leveraging Ansible in isolation or integrating it with existing automation. For example, Ansible can orchestrate existing <a href='https://www.ibm.com/products/zos-management-facility'>z/OSMF</a> workflows that provision key middleware components and plug into the broader application enablement pipeline.</p>"
+        },
+        {
+        subSectionTitle:"Learn more",
+        subSectionContent:"<p>For more information about enabling development and operations automation on z/OS and z/OS middleware, explore the <a href='https://www.ibm.com/support/z-content-solutions/ansible/'>Red Hat Ansible Certified Content for IBM Z content solution.</a></p>"
+        }
+        ]
+    },
+    {
+    id:4,
+    tabTitle:"Management",
+    tabSubSections:[
+        {
+        subSectionTitle:"Overview",
+        subSectionContent:"<p>Cloud administrators can manage the lifecycle of virtual cloud infrastructure. They can perform advanced infrastructure-as-a-service (IaaS) management by defining, instantiating, and discovering the infrastructure, define templates to automate services and make them available in the self-service portal, and integrate the IBM Z-based cloud infrastructure into standard cloud management tooling.</p>"
+        },
+        {
+        subSectionTitle:"Use Cases",
+        subSectionContent:"<p>With <a href=' https://www.ibm.com/products/cloud-infrastructure-center'>IBM Cloud Infrastructure Center</a>, cloud administrators can:</p>
+        <ul>
+        <li>Integrate cloud resources on IBM Z and IBM LinuxONE with universal skills and tooling for provisioning and orchestrating cloud workloads, including IBM Cloud Paks®, Red Hat OpenShift Container Platform, Red Hat CloudForms®, Red Hat Ansible®, Terraform, and VMware, through Cloud Infrastructure Center's support for OpenStack and other APIs.
+        <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/cic/1.1.3?topic=integration-upper-layers-via-openstack-api' class='ibm-forward-link'>Integration with plugins and providers</a></p>
+        </li>
+        <li>Instantiate, define, capture, and manage the lifecycle of virtual machines. Cloud Infrastructure Center simplifies the management of IBM <a href='https://www.ibm.com/it-infrastructure/z/zvm'>z/VM</a>®-based and Red Hat KVM-based virtual machines across the fundamental compute, network, and storage resources (cloud infrastructure as a service).
+        <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/cic/1.1.3?topic=tasks-working-virtual-machines' class='ibm-forward-link'>Working with virtual machines</a></p>
+        </li>
+        <li>Automate the deployment of  Linux operating system images. Use Cloud Infrastructure Center to create or capture images of the Linux os, which can include applications, and deploy them as new virtual machines.
+        <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/cic/1.1.3?topic=tasks-working-images' class='ibm-forward-link'>Work with images</a></p>
+        </li>
+        <li>Deploy Red Hat OpenShift clusters. Use Cloud Infrastructure Center to deploy Red Hat Enterprise Linux CoreOS as part of Red Hat OpenShift.
+        <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/cic/1.1.3?topic=images-rhcos' class='ibm-forward-link'>Provision Red Hat CoreOS images</a></p>
+        </li>
+        </ul>"
+        },
+        {
+        subSectionTitle:"Learn more",
+        subSectionContent:"<p>For more information about how to manage your virtual infrastructure in a hybrid cloud, explore the <a href='https://www.ibm.com/support/z-content-solutions/cloud-infrastructure-center/'>Cloud Infrastructure Center content solution</a>.</p>"
+        }
+        ]
+    },
+    {
+    id:5,
+    tabTitle:"Development",
+    tabSubSections:[
+        {
+        subSectionTitle:"Overview",
+        subSectionContent:"Transforming business-critical applications to encompass IBM Z and hybrid cloud environments protects and leverages IBM Z investments without sacrificing stability, security or agility. With cloud native development, application developers get a familiar experience that allows them to deliver consistent, high-quality services faster."
+        },
+        {
+        subSectionTitle:"Use Case",
+        subSectionContent:"<p>Application developers use a standard DevOps toolchain either on premises with <a href='https://www.ibm.com/products/app-delivery-foundation-for-zos'>Application Delivery Foundation for z/OS</a> or in a containerized, virtual IBM Z environment on Red Hat OpenShift running on x86 hardware with an industry-standard integrated development environment (IDE) such as Microsoft® Visual Studio Code or Eclipse.</p>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://mediacenter.ibm.com/media/Cloud+Native+Development+with+IBM+Z/1_8roweeco",
+            linkText:"Cloud Native Development with IBM Z"
+            },
+            {
+            linkUrl:"https://mediacenter.ibm.com/media/Application+Delivery+Foundation+for+IBM+Z/1_duhr53dp",
+            linkText:"Application Delivery Foundation for z/OS"
+            },
+            {
+            linkUrl:"https://mediacenter.ibm.com/media/Introducing%20IBM%20Wazi%20Developer%20for%20Red%20Hat%20CodeReady%20Workspaces%C2%A0/1_ty9zq4g5",
+            linkText:"IBM Wazi Developer for Red Hat CodeReady Workspaces"
+            }
+        ]
+        },
+        {
+        subSectionTitle:"Learn more",
+        subSectionContent:"<p>To learn more about transforming your application portfolio, explore the <a href='https://www.ibm.com/support/z-content-solutions/developer-experience-hybrid-cloud-z/'>Developer experience for hybrid cloud with IBM Z content solution</a>.</p>"
+        }
+        ]
+    },
+    {
+    id:6,
+    tabTitle:"Protection",
+    tabSubSections:[
+        {
+        subSectionTitle:"Overview",
+        subSectionContent:"<p>Protect mission-critical workloads throughout the <a href='https://www.ibm.com/cloud/learn/devsecops'>DevSecOps</a> lifecycle. Developers can leverage their modern application development skills while securely building their workloads in a confidential computing environment.</p>"
+        },
+        {
+        subSectionTitle:"Use Case",
+        subSectionContent:"<p><a href='https://www.ibm.com/products/hyper-protect-virtual-servers'>Hyper Protect Virtual Servers</a> are designed to uniquely protect workloads that are deployed on IBM Z and LinuxONE servers in hybrid multicloud environments. Developers’ solutions are signed, encrypted, and deployed while administrators manage the underlying infrastructure without access to the data.</p>"
+        },
+        {
+        subSectionTitle:"Learn more",
+        subSectionContent:"<p>Explore the Hyper Protect Data Virtual Servers <a href='https://www.ibm.com/docs/en/hpvs/2.1.x'>documentation</a>.</p>"
+        }
+    ]
+    }
+]
+%}
+{# END GETTING STARTED #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "Content solutions",
+        tabContent: [
+            {
+                resourceTitle: "z/OS Cloud Broker",
+                resourceDescription: "Get started with z/OS Cloud Broker. and find technical resources.",
+                resourceLinkUrl: "https://www.ibm.com/support/z-content-solutions/cloud-broker/",
+                resourceLinkText: "Explore the content solution",
+                resourceLinkType: "contentsolution",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "z/OS Container Extensions",
+                resourceDescription: "Get started with z/OS Container Extensions and find technical resources.",
+                resourceLinkUrl: "https://www.ibm.com/support/z-content-solutions/container-extensions/",
+                resourceLinkText: "Explore the content solution",
+                resourceLinkType: "contentsolution",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Red Hat Ansible Certified Content for IBM Z",
+                resourceDescription: "Get started with Red Hat Ansible Certified Content for IBM Z and find technical resources.",
+                resourceLinkUrl: "https://www.ibm.com/support/z-content-solutions/ansible/",
+                resourceLinkText: "Explore the content solution",
+                resourceLinkType: "contentsolution",
+                resourceIcon: false
+            },
+                        {
+                resourceTitle: "Developer experience for hybrid cloud with IBM Z",
+                resourceDescription: "Simplify life for developers building hybrid cloud applications with a cloud native experience for IBM Z.",
+                resourceLinkUrl: "https://www.ibm.com/support/z-content-solutions/developer-experience-hybrid-cloud-z/",
+                resourceLinkText: "Explore the content solution",
+                resourceLinkType: "contentsolution",
+                resourceIcon: false,
+                resourceStatus: "new"
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Other Resources",
+        tabContent: [
+            {
+                resourceTitle: "Enterprise DevOps",
+                resourceDescription: "Learn about IBM Z as a DevOps platform.",
+                resourceLinkUrl: "https://www.ibm.com/it-infrastructure/z/capabilities/enterprise-devops",
+                resourceLinkText: "Explore enterprise DevOps",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Cloud Infrastructure Center",
+                resourceDescription: "Learn how to manage hybrid cloud infrastructure",
+                resourceLinkUrl: "https://www.ibm.com/products/cloud-infrastructure-center",
+                resourceLinkText: "Explore Cloud Infrastructure Center",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "z/OS User Management with Ansible",
+                resourceDescription: "Learn how system programmers can quickly set up and configure an automated user management system.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/blake-becker1/2020/09/03/zos-user-management-with-ansible",
+                resourceLinkText: "Read the blog",
+                resourceLinkType: "blog",
+                resourceIcon: false
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Multimedia",
+        tabContent: [
+            {
+                resourceTitle: "The Cloud You Want for Enterprise Agility",
+                resourceDescription: "See how you can build, deploy, manage, orchestrate, and automate with a consistent framework on IBM Z and IBM LinuxONE.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/The+cloud+you+want+for+enterprise+agility/0_6nswj1u8",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Cloud Native Development with IBM Z",
+                resourceDescription: "See how you can use modern application development tools on IBM Z.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/Cloud+Native+Development+with+IBM+Z/1_8roweeco",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Application Delivery Foundation for IBM Z",
+                resourceDescription: "See how Application Delivery Foundation for IBM Z can help you design, build, test, and debug z/OS software.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/Application+Delivery+Foundation+for+IBM+Z/1_duhr53dp",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "z/OS Cloud Broker Db2 Use Case",
+                resourceDescription: "Learn about running digital banking applications on Red Hat OpenShift Container Platform with Db2 for z/OS, accessible through z/OS Cloud Broker.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_1sf8ncwj?_ga=2.209422161.2103982901.1604327466-1979777457.1602853207",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "z/OS Cloud Broker WebSphere Liberty Profile Use Case",
+                resourceDescription: "Learn how to create a WebSphere Liberty Profile server from OpenShift Container Platform through z/OS Cloud Broker.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_7ydvqoav",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Running Linux on IBM Z and LinuxONE",
+                resourceDescription: "Learn about options for running Linux on IBM Z and LinuxONE, including a use case with zCX.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/Hybrid+Cloud+with+IBM+Z+and+LinuxONEA+Running+Linux/1_2a11u6ms",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Cloud Infrastructure Center Overview",
+                resourceDescription: "Learn how to manage, automate and integrate your cloud infrastructure with IBM Z and LinuxONE.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/IBM%20Cloud%20Infrastructure%20Center%20Overview/1_admtg405",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: "new"
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [8,9,22,23,1] %}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "November 16, 2022",
+        sectionContent: "<p>Information about Hyper Protect Data Controller was removed, as it is withdrawn. Links to the content solution for Hyper Protect Virtual Servers now go to the Hyper Protect Virtual Servers documentation.</p>"
+    },
+    {
+        sectionTitle: "July 9, 2021",
+        sectionContent: "<p>The Management tab of the How to get started section was updated to reflect the new content solution for Cloud Infrastructure Center, and a video was added to the Technical resources section.</p>
+        <p>The Protection tab of the How to get started section was updated to reflect the name change from Data Privacy Passports to Hyper Protect Data Controller.</p>"
+    },
+    {
+        sectionTitle: "June 4, 2021",
+        sectionContent: "<p>A video overview of Cloud Infrastructure Center was added to the Multimedia tab of the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "February 26, 2021",
+        sectionContent: "<p>Updates were made to reflect the change to the name of the content solution about the developer experience, which is now Developer experience for hybrid cloud with IBM Z.</p>"
+    },
+    {
+        sectionTitle: "February 12, 2021",
+        sectionContent: "<p>Links to a new content solution about the developer experience were added.</p>
+        <p>The Management tab in the How to get started section was updated.</p>"
+    },
+    {
+        sectionTitle: "December 11, 2020",
+        sectionContent: "<p>Links to several other pages were added.</p>
+        <p>A use case for IBM Data Privacy Passports was added to the Protect tab of the How to get started on hybrid cloud with IBM Z section.</p>
+        <p>The Data Privacy Passports content solution was added to the Content Solutions tab of the technical Resources section.</p>"
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "12423191",
+    sc_security: "7c5414dd"
+}
+ %}
+{# END STATCOUNTER #}
+ {# START HOTJAR #}
+{% set hotjar = {
+    site_id: "2496728"
+}
+ %}
+ {# END HOTJAR #}

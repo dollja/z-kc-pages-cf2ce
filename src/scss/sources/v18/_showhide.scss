@@ -1,0 +1,321 @@
+// Show/hide styles - description and panel ones. 
+// Twisty has it's own CSS: twisty.scss
+
+// Show hide panel and accordion.
+.v18e {
+  .ibm-show-hide {
+    > h2 {
+      border-top: 0;
+      padding: 0;
+      width: 100%;
+
+      a {
+        border-top: 1px solid color('gray', 20);
+        padding: 20px 0 20px 30px;
+        color: $textColor;
+        display: block;
+        position: relative;
+        transition: border-color 0.4s;
+        text-decoration: none;
+
+        .ibm-alternate-background & {
+          color: inherit;
+        }
+
+        &::before {
+          // @extend %icons-pseudo-element;
+          // @extend %ibm-add-link-after;
+        }
+
+        &:hover {
+          color: $linkColor;
+          text-decoration: underline;
+
+          .ibm-alternate-background & {
+            color: color('white', 'core');
+          }
+        }
+
+        &.ibm-show-active {
+          border-color: $linkColor;
+          color: inherit !important;
+
+          .ibm-alternate-background & {
+            color: inherit;
+            border-color: inherit;
+          }
+
+          &::before {
+            // @extend %ibm-remove-link-after;
+          }
+        }
+
+        // Removes the font icon in "content".
+        &::after,
+        &.ibm-show-active::after {
+          content: '';
+        }
+      }
+
+      &.ibm-showing {
+        a {
+          color: inherit;
+        }
+      }
+    }
+
+    // Alternate bold style to replicate v17 style and our default h2-with-rule style.
+    &.ibm-alternate {
+      > h2 {
+        font-weight: $defaultBoldWeight;
+
+        a {
+          border-top: 2px solid color('gray', 10);
+
+          &.ibm-show-active {
+            border-color: $linkColor;
+          }
+        }
+      }
+    }
+
+    // Optional class to put the icon on the right for use in SMALL COLUMNS ONLY.
+    .ibm-right > a {
+      padding-right: 3rem;
+    }
+  }
+
+  // Show/hide description module..
+  .ibm-simple-show-hide {
+    .ibm-container-body {
+      padding-bottom: 4px;
+    }
+
+    p.ibm-show-hide-controls {
+      color: #666;
+      display: none;
+
+      .ibm-alternate-background & {
+        color: #aaa;
+      }
+
+      a {
+        display: inline-block;
+
+        &.ibm-active {
+          color: #666;
+          text-decoration: none;
+
+          .ibm-alternate-background & {
+            color: #aaa;
+          }
+        }
+      }
+    }
+  }
+
+  .ibm-simple-show-hide.ibm-widget-processed p.ibm-show-hide-controls {
+    color: #666;
+    display: block;
+
+    .ibm-alternate-background & {
+      color: #aaa;
+    }
+  }
+
+  $breakpoints: (
+          "sm": (
+                  "min-width": 321,
+                  "max-width": 671,
+                  "columns": 4,
+                  "page-margin": 16,
+          ),
+          "md": (
+                  "min-width": 672,
+                  "max-width": 1055,
+                  "columns": 8,
+                  "page-margin": 16,
+          ),
+          "lg": (
+                  "min-width": 1056,
+                  "max-width": 1311,
+                  "columns": 16,
+                  "page-margin": 16,
+          ),
+          "xlg": (
+                  "min-width": 1312,
+                  "max-width": 1583,
+                  "columns": 16,
+                  "page-margin": 16,
+          ),
+          "max": (
+                  "min-width": 1584,
+                  "max-width": 'null',
+                  "columns": 16,
+                  "page-margin": 24,
+          ),
+  );
+
+  @mixin focus-accordion-border() {
+    border-top-color: transparent;
+    border-top: none;
+    -webkit-box-shadow: inset -2px 0px 0px 0px carboncolor('blue', 60),
+    inset 2px 0px 0px 0px carboncolor('blue', 60),
+    inset 0px -1px 0px 0px carboncolor('blue', 60),
+    0px 1px 0px 0px carboncolor('blue', 60),
+    inset 0px 2px 0px 0px carboncolor('blue', 60);
+    -moz-box-shadow: inset -2px 0px 0px 0px carboncolor('blue', 60),
+    inset 2px 0px 0px 0px carboncolor('blue', 60),
+    inset 0px -1px 0px 0px carboncolor('blue', 60),
+    0px 1px 0px 0px carboncolor('blue', 60),
+    inset 0px 2px 0px 0px carboncolor('blue', 60);
+    box-shadow: inset -2px 0px 0px 0px carboncolor('blue', 60),
+    inset 2px 0px 0px 0px carboncolor('blue', 60),
+    inset 0px -1px 0px 0px carboncolor('blue', 60),
+    0px 1px 0px 0px carboncolor('blue', 60),
+    inset 0px 2px 0px 0px carboncolor('blue', 60);
+    z-index: 1;
+  }
+
+  .ibm-show-hide {
+    @extend .ibm-type-c !optional;
+    margin-bottom: 0;
+    -webkit-box-shadow: 0px 1px 0px 0px carboncolor('gray', 20, 'hover');
+    -moz-box-shadow: 0px 1px 0px 0px carboncolor('gray', 20, 'hover');
+    box-shadow: 0px 1px 0px 0px carboncolor('gray', 20, 'hover');
+
+    > h2 {
+      // font-size: 16px;
+      font-size: inherit;
+      margin: 0;
+
+      a {
+        // padding: 0.53125rem 2.375rem 0.40625rem 1rem;
+        padding: 0.6875rem 2.375rem 0.6875rem 1rem;
+        border: none;
+        -webkit-box-shadow: inset 0px 1px 0px 0px carboncolor('gray', 20, 'hover');
+        -moz-box-shadow: inset 0px 1px 0px 0px carboncolor('gray', 20, 'hover');
+        box-shadow: inset 0px 1px 0px 0px carboncolor('gray', 20, 'hover');
+        color: color('gray', 90);
+
+        &::before {
+          left: inherit;
+          // font-size: 1.125rem;
+          // right: 1rem;
+          right: 0.875rem;
+          font-size: 1.325rem;
+          content: "\f19c";
+          color: color('gray', 100);
+        }
+
+        &:hover {
+          // background: #e5e5e5;
+          background: carboncolor('gray', 20, 'hover');
+          text-decoration: none;
+          color: inherit;
+
+          &::before {
+            color: color('gray', 100);
+          }
+        }
+
+        &:focus {
+          outline: none;
+          @include focus-accordion-border();
+
+          &::before {
+            color: color('gray', 100);
+          }
+        }
+
+        &.ibm-show-active {
+          &::before {
+            content: "\f19f";
+          }
+
+          color: inherit;
+          border-color: color('gray', 20);
+        }
+      }
+    }
+
+    .ibm-container-body {
+      padding-top: 0.5rem;
+      padding-bottom: 1.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      // font-size: 14px;
+      font-size: inherit;
+    }
+
+    //For type c have right padding as 14px;
+    // &.ibm-type-c {
+    //   margin-bottom:0;
+    //   > h2{
+    //     font-size: inherit;
+    //     a{
+    //       padding: 0.65625rem 2.375rem 0.65625rem 1rem;
+    //       &::before {
+    //         right: 0.875rem;
+    //         font-size: 1.325rem;
+    //       }
+    //     }
+    //   }
+    //   .ibm-container-body {
+    //     font-size: inherit;
+    //   }
+    // }   
+
+    min-width: 18rem;
+    @media (min-width: #{map-get(map-get($breakpoints, 'sm'), "min-width")}px) {
+      max-width: 18rem;
+    }
+    @media (min-width: #{map-get(map-get($breakpoints, 'md'), "min-width")}px) {
+      max-width: 38rem;
+    }
+    @media (min-width: #{map-get(map-get($breakpoints, 'lg'), "min-width")}px) {
+      max-width: 30rem;
+    }
+    @media (min-width: #{map-get(map-get($breakpoints, 'xlg'), "min-width")}px) {
+      max-width: 38rem;
+    }
+    @media (min-width: #{map-get(map-get($breakpoints, 'max'), "min-width")}px) {
+      max-width: 46rem;
+    }
+
+    &.ibm-alternate {
+      > h2 {
+        a {
+          border-top: none;
+
+          &.ibm-show-active {
+            border: none;
+          }
+        }
+      }
+    }
+
+    &.disabled {
+      > h2 {
+        a {
+          cursor: not-allowed;
+          color: color('gray', 30);
+
+          &::before {
+            color: color('gray', 30);
+          }
+        }
+      }
+    }
+  }
+
+  .ibm-show-hide-group {
+    .ibm-show-hide {
+      border-bottom: none;
+
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+}

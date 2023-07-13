@@ -1,0 +1,539 @@
+$bodyFontSize : 1rem;
+
+@mixin focus-tag-border($highlightColor){
+  -webkit-box-shadow: inset 2px 0px 0px 0px $highlightColor,
+  inset -2px 0px 0px 0px $highlightColor,
+  inset 0px -2px 0px 0px $highlightColor,
+  inset 0px 2px 0px 0px $highlightColor;
+  -moz-box-shadow: inset 2px 0px 0px 0px $highlightColor,
+  inset -2px 0px 0px 0px $highlightColor,
+  inset 0px -2px 0px 0px $highlightColor,
+  inset 0px 2px 0px 0px $highlightColor;
+  box-shadow: inset 2px 0px 0px 0px $highlightColor,
+  inset -2px 0px 0px 0px $highlightColor,
+  inset 0px -2px 0px 0px $highlightColor,
+  inset 0px 2px 0px 0px $highlightColor;
+}
+
+%small-button {
+  @include px-to-rem(font-size, 14px);
+  line-height: 17.5px;
+  min-width: 75px;
+  padding: 9.5px 1em 8.5px;
+}
+
+// reusable Disabled Button styles (they were the same for both primary and secondary buttons)
+%disabledButton {
+  background-color: v19aColor('gray',30);
+  border-color: v19aColor('gray',30);
+  outline-color: v19aColor('gray',30);
+  color: v19aColor('gray',50);
+  border-width: 1px;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+%disabledSecondaryButton {
+  @extend %disabledButton;
+    box-shadow: none;
+}
+%disabledGhostButton {
+  @extend %disabledButton;
+  background-color: transparent;
+}
+
+// button styles begin ==============================================
+#ibm-pcon .v18e {
+  // These two classes are only supposed to work on: input, button, a.
+  // Button NEEDS explicit font family style, else browser will use their own for it.
+  .ibm-btn-pri,
+  .ibm-btn-sec,
+  .ibm-btn-secondary {
+    border: 1px solid;
+    margin-left: 3px !important;
+    margin-top: 3px !important;
+    min-width: 160px;
+    outline: 3px solid;
+    text-align: left;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 20px;
+    padding: 10px 16px;
+    text-decoration: none;
+    @include transition(border 0.3s, color 0.3s, background-color 0.3s);
+    white-space: normal;  // Allows wrap on input.
+
+    &:visited {
+      color: #fff;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+
+    // Removing unecessary padding in firefox.
+    &::-moz-focus-inner {
+      border: 0;
+    }
+
+    ////
+    //  Modifiers
+    ////
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus,
+    &[disabled]:focus:hover,
+    &[disabled]:active {
+      @extend %disabledButton;
+      &::before {
+        color: v19aColor('gray', 50) !important;
+      }
+    }
+
+    // SMALL button modifier (selectors are boosted to avoid important).
+    &.ibm-btn-small {
+      @extend %small-button;
+
+      // Nowrap needs less space becuase line-height is restricted/shortened.
+      &.ibm-btn-nowrap {
+        padding: 8px 1em 7px;
+      }
+    }
+
+    // NO WRAP modifier for cases where buttons should stay 1 line.
+    &.ibm-btn-nowrap  {
+      line-height: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  // PRIMARY button
+  .ibm-btn-pri {
+    background-color: v19aColor('blue',60);
+    border-color: v19aColor('blue',60);
+    outline-color: v19aColor('blue',60);
+
+    &:hover {
+      background-color: v19aColor('blue',70);
+      border-color: v19aColor('blue',70);
+      outline-color: v19aColor('blue',70);
+    }
+
+    &:focus {
+      background-color: v19aColor('blue',70);
+      border-color: #fff;
+      outline-color: v19aColor('blue',60);
+    }
+
+    &:active {
+      background-color: v19aColor('blue',80);
+      border-color: v19aColor('blue',80);
+      color: #fff;
+      outline-color: v19aColor('blue',80);
+    }
+
+    // error and warning button
+    &.ibm-btn-danger {
+      background-color: v19aColor('red',60);
+      border-color: v19aColor('red',60);
+      outline-color: v19aColor('red',60);
+      &:hover {
+        background-color: #ba1b23;
+        border-color: #ba1b23;
+        outline-color: #ba1b23;
+      }
+
+      &:focus {
+        background-color: v19aColor('red',60);
+        border-color: #fff;
+        outline-color: v19aColor('blue',60);
+      }
+
+      &:active {
+        background-color: v19aColor('red',80);
+        border-color: v19aColor('red',80);
+        outline-color: v19aColor('red',80);
+      }     
+    }
+  }
+
+
+  // ALL GRAY by default. No color choice.
+  .ibm-btn-secondary {
+    color: #fff;
+    background-color: v19aColor('gray',80);
+    border-color: v19aColor('gray',80);
+    outline-color: v19aColor('gray',80);
+
+    &:hover {
+      background-color: v19aColor('gray',90);
+      border-color: v19aColor('gray',90);
+      outline-color: v19aColor('gray',90);
+    }
+
+    &:focus {
+      background-color: v19aColor('gray',80);
+      border-color: #fff;
+      outline-color: v19aColor('blue',60);
+    }
+
+    &:active {
+      background-color: v19aColor('gray',60);
+      border-color: v19aColor('gray',60);
+      outline-color: v19aColor('gray',60);
+    }
+  }
+
+  // ALL GRAY by default. No color choice.
+  // becomes Carbon Tertiary style button https://www.carbondesignsystem.com/experimental/button/code
+  .ibm-btn-sec {
+    background-color: #fff;
+    box-shadow: inset 0 0 0 1px v19aColor('blue',60);
+    color: v19aColor('blue',60);
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    outline: 0;
+    padding-bottom: 14px;
+    padding-top: 14px;
+    border: none;
+    min-width: 166px;
+
+    &:hover {
+      color: #fff;
+      background-color: #0353e9;
+    }
+
+    &:focus {
+      background-color: #fff;
+      box-shadow: inset 0 0 0 3px v19aColor('blue',60);
+    }
+
+    &:focus:hover {
+      border-color: #fff;
+      background-color: v19aColor('blue',60);
+      color: #fff;
+      outline-width: 2px;
+    }
+
+    &:active {
+      color: v19aColor('blue',60);
+      background-color: v19aColor('blue',80);
+      border-color: v19aColor('blue',60);
+      outline-color: v19aColor('blue',60);
+    }
+
+    &.ibm-btn-transparent {
+      color: v19aColor('blue',60);
+      outline: 0;
+      box-shadow: none;
+
+      &:hover {
+        background-color: v19aColor('blue',60);
+        color: #fff;
+      }
+
+      &:focus {
+        background-color: #fff;
+        box-shadow: inset 0 0 0 3px v19aColor('blue',60);
+      }
+
+      &:focus:hover {
+        color: v19aColor('blue',60);
+        background-color: v19aColor('gray',10) !important;
+        &::before {
+          color: v19aColor('blue',60) !important;
+        }
+      }
+
+      &:active {
+        background-color: v19aColor('gray',30);
+        color: v19aColor('blue',70);
+      }
+
+      &[disabled],
+      &[disabled]:focus,
+      &[disabled]:hover,
+      &[disabled]:focus:hover {
+        @extend %disabledGhostButton;
+        background-color: transparent !important;
+        &::before {
+          color: v19aColor('gray', 50) !important;
+        }
+      }
+    }
+  }
+
+  // BUTTON LINK - a plain link styled like a button.
+  // Requires p.ibm-button-link to work/space properly.
+  .ibm-button-link {
+    padding-bottom: 8px;
+
+    a {
+      margin-bottom: 8px;
+
+      &[class*='ibm-btn-'][class*='-btn'] {
+        display: inline-block;
+
+        // Nowrap needs less space becuase line-height is restricted/shortened.
+        &.ibm-btn-nowrap {
+          margin-bottom: 0px;
+        }
+      }
+    }
+
+    &.ibm-btn-row {
+      padding-bottom: 0;
+
+      a {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .ibm-btn-tag {
+    outline: none;
+    border-radius: 40px;
+    min-width: 30px;
+    min-height: 22px; 
+    max-width: 19.13rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border:0;
+    font-size: 12px;
+    box-shadow: none;
+
+    &.ibm-btn-pri{
+      border-color: v19aColor('gray',10);
+      background: v19aColor('gray',10);
+      color: v19aColor('gray',100);
+    }
+    &:hover{
+      background: v19aColor('gray',10);
+      border-color: v19aColor('gray',10);
+      color: v19aColor('gray',100);
+    }
+    &:focus{
+      background: v19aColor('gray',30);
+      border-color: v19aColor('gray',30);
+      color: v19aColor('gray',100);
+    }
+
+    &.ibm-btn-sec{
+      border-color: v19aColor('gray',20);
+      background: transparent;
+      color: v19aColor('gray',100);
+      &:hover, &:focus{
+        background: transparent;
+      }
+    }
+
+    &:focus{
+      border-color: v19aColor('blue',50);
+      @include focus-tag-border($linkColor); 
+    }
+
+    &.selected, &.selected:hover,  &.selected:focus{
+      background: v19aColor('gray',30);
+      border-color: v19aColor('gray',30);
+      // color: v19aColor('gray',20);
+    }
+
+    &.selected:focus{
+      @include focus-tag-border(v19aColor('gray',30));
+    }
+
+    &.edit{
+      background: transparent;
+      border-color: transparent;
+      border-bottom: 2px solid v19aColor('blue',50);
+      border-radius: 0px;
+
+      &:before{
+        display:none;
+      }
+    }
+
+    // Generating all the color combinations for applying color for various states
+    @each $family, $family_map in get-carbon-colors('all') {
+      &.ibm-tag-c-#{$family}{
+        $f10 : map-get(map-get($colorsv19, $family), 10);
+        $f20 : map-get(map-get($colorsv19, $family), 20);
+        $f30 : map-get(map-get($colorsv19, $family), 30);
+        $f40 : map-get(map-get($colorsv19, $family), 40);
+        $f60 : map-get(map-get($colorsv19, $family), 60);
+        $f70 : map-get(map-get($colorsv19, $family), 70);
+
+        @if ($f10) {
+          @if ($f20) {
+            @if ($f30){
+              @if ($f40) {
+                @if ($f60) {
+                  @if ($f70) {
+                    background-color: $f10;
+                    color: $f70;
+                    &:hover {
+                      background-color: $f10;
+                      color: $f70;
+                    }
+                    &:focus {
+                      background-color: $f10;
+                      color: $f70; 
+                      @include focus-tag-border($f60);
+                    }
+                    &:active {
+                      background-color: $f30;
+                      color: $f70;
+                    }
+                    &.selected, &.selected:hover, &.selected:focus {
+                      background-color: $f60;
+                      color: $f10;
+                    }
+                    &.ibm-ind-link {
+                      a[class*="ibm-btn-"][class*="-btn"][class*="ibm-btn-tag"] {
+                        &::before {
+                          font-size: 12px;
+                        }
+                        &:hover::before {
+                          color: $f70;
+                        }
+                        &:active::before {
+                          color: $f40;
+                        }
+                        &.selected:hover::before {
+                          color: $f10;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .ibm-ind-link {
+    a[class*="ibm-btn-"][class*="-btn"][class*="ibm-btn-tag"] {
+      padding-left: .625rem;
+      padding-right: .625rem;
+      padding-top: 3px;
+      padding-bottom : 3px;
+      margin-right: 4px;
+      &:after,
+      &:before {
+        font-size: 1rem;
+        right: 5px;
+      }
+
+      // fixing tag close icon position
+      &:before {
+        left: auto;
+      }
+
+      &:hover::before, &:focus::before {
+        color: v19aColor('gray',100);
+      }           
+
+      &.selected:hover::before, &.selected:focus::before {
+        color: v19aColor('gray',100);
+      }
+
+
+      &[class*="-link"] {
+        padding-right: 1.5rem;
+      }
+      //Generating all the color combinations for link color for various states
+      @each $family, $family_map in get-carbon-colors('all') {
+        &.ibm-tag-c-#{$family} {
+          $f10 : map-get(map-get($colorsv19, $family), 10);
+          $f40 : map-get(map-get($colorsv19, $family), 40);
+          $f70 : map-get(map-get($colorsv19, $family), 70);
+    
+          @if ($f10) {
+            @if ($f70) {
+              &:hover::before, &:focus::before, &:active::before {
+                color: $f70;
+              }
+              &.selected:hover::before, &.selected:focus::before {
+                color: $f10;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // BUTTON WITH AN ICON (technically a standalone icon link with a button class added to it).
+  .ibm-ind-link a[class*='ibm-btn-'][class*='-btn'] {
+    padding-left: 2.8em;
+    margin-bottom: 5px;
+
+    // Nowrap needs less padding becuase line-height is restricted/shortened.
+    &.ibm-btn-nowrap {
+      margin-bottom: 0px;
+    }
+
+    &::before {
+      left: 0.4em;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    // icon on right
+    &.ibm-icon-after {
+      padding-left: 21px;
+      padding-right: 2.6em;
+      &::after {
+        right: 0.4em;
+      }
+    }
+  }
+
+  // SPECIAL LAYOUT: 2+ buttons in a row horizontally.
+  // If they have two buttons in a row, they NEED to put this class so that we can set the spacing
+  //  properly on the buttons for responsive collapsing.
+  .ibm-btn-row {
+    padding: 0;
+
+    &.ibm-ind-link {
+      padding: 0;
+
+      // combination of two classes above implies a row of buttons with icons. for enable a mixed row w+w/o icons we need a neutralizing class for no-icon buttons
+      // yes, this feel a bit backwards, so feel free to refactor it if you can
+      // note: class format includes -link suffix to pick up styles for alignment with real icon buttons
+      a.ibm-btn-no-icon-link {
+        padding-left: 18px;
+      }
+    }
+
+    input,
+    button,
+    a {
+      display: inline-block;
+      margin: 0 20px 20px 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &.ibm-btn-row--line-height-0 {
+      line-height: 0;
+      [class*='ibm-btn-'] {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+}
+

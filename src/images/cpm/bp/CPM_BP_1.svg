@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="146px" height="106px" viewBox="0 0 146 106" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 97</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-97" transform="translate(-7.000000, -47.000000)">
+            <g id="Group-96" fill="#FFFFFF" font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="144" font-weight="500" opacity="0.203125">
+                <g id="Group-35">
+                    <text id="1">
+                        <tspan x="0" y="148">1</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Group-95" transform="translate(49.000000, 54.000000)">
+                <g id="Group-94">
+                    <path d="M42.5357143,17.55 L30.4642857,0.45" id="Line-17" stroke="#FFFFFF" stroke-linecap="square"></path>
+                    <path d="M73.5357143,17.55 L61.4642857,0.45" id="Line-17" stroke="#FFFFFF" stroke-linecap="square" transform="translate(67.500000, 9.000000) scale(-1, 1) translate(-67.500000, -9.000000) "></path>
+                    <path d="M18.5,20.5555556 L0.5,13.4444444" id="Line-16" stroke="#FFFFFF" stroke-linecap="square"></path>
+                    <path d="M103.5,20.5555556 L85.5,13.4444444" id="Line-16" stroke="#FFFFFF" stroke-linecap="square" transform="translate(94.500000, 17.000000) scale(-1, 1) translate(-94.500000, -17.000000) "></path>
+                    <rect id="Rectangle-20" stroke="#FFFFFF" stroke-width="2" x="11" y="30" width="82" height="55"></rect>
+                    <rect id="Rectangle-22" fill="#D8D8D8" opacity="0.353459821" transform="translate(24.500000, 57.500000) scale(-1, 1) translate(-24.500000, -57.500000) " x="12" y="31" width="25" height="53"></rect>
+                    <rect id="Rectangle-22" fill="#D8D8D8" opacity="0.207924107" x="40" y="34" width="49" height="47"></rect>
+                    <path d="M16.46875,40.5 L30.53125,40.5" id="Line-15" stroke="#FFFFFF" stroke-linecap="square"></path>
+                    <path d="M16.46875,46.5 L30.53125,46.5" id="Line-15" stroke="#FFFFFF" stroke-linecap="square"></path>
+                    <path d="M16.46875,53.5 L30.53125,53.5" id="Line-15" stroke="#FFFFFF" stroke-linecap="square"></path>
+                    <path d="M16.46875,59.5 L30.53125,59.5" id="Line-15" stroke="#FFFFFF" stroke-linecap="square"></path>
+                    <path d="M16.46875,65.5 L30.53125,65.5" id="Line-15" stroke="#FFFFFF" stroke-linecap="square"></path>
+                    <path d="M16.46875,73.5 L30.53125,73.5" id="Line-15" stroke="#FFFFFF" stroke-linecap="square"></path>
+                </g>
+                <g id="Group-8" transform="translate(60.000000, 48.000000)">
+                    <g id="Group-2" transform="translate(0.000000, 12.000000)">
+                        <path d="M13.6,0 L26.4,-1.77635684e-15 C33.9110726,-3.15611849e-15 40,6.0889274 40,13.6 L40,28.2001984 C40,33.9439598 35.3437614,38.6001984 29.6,38.6001984 L10.4,38.6001984 C4.6562386,38.6001984 7.03407901e-16,33.9439598 0,28.2001984 L-3.55271368e-15,13.6 C-4.47255478e-15,6.0889274 6.0889274,-3.96595187e-16 13.6,-1.77635684e-15 Z" id="Rectangle-23" fill="#FFFFFF"></path>
+                        <path d="M17.3584906,21.7563666 C15.9898233,20.7989711 15.0943396,19.2083254 15.0943396,17.4079326 C15.0943396,14.4818913 17.4596277,12.1098662 20.3773585,12.1098662 C23.2950892,12.1098662 25.6603774,14.4818913 25.6603774,17.4079326 C25.6603774,19.2083254 24.7648937,20.7989711 23.3962264,21.7563666 L23.3962264,26.4903322 L17.3584906,26.4903322 L17.3584906,21.7563666 Z" id="Combined-Shape" fill="#4178BE"></path>
+                    </g>
+                    <path d="M6,19 C6,8.50658975 12.7157288,0 21,0 C29.2842712,0 36,8.50658975 36,19 L6,19 Z" id="Combined-Shape" stroke="#FFFFFF" stroke-width="5"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

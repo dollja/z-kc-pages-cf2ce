@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta charset="UTF-8">
+
+        <link rel="icon" href="//www.ibm.com/favicon.ico">
+        {# <link rel="canonical" href="http://izswebpage.mybluemix.net/">  #}
+
+        <meta name="description" content="{{ meta_description | safe }}"/>
+        <meta property="og:image" content="https://izswebpage.mybluemix.net/images/_intro_bgs/__{{ key }}_mobile.jpg">
+        <meta property="og:title" content="{{ title }} content solution">
+        <meta property="og:description" content="{{ meta_description }}">
+        <meta name="keywords" content="{{meta_keywords | safe}}"/>
+        <meta name="dcterms.date" content="2018-07-16">
+        <meta name="dcterms.rights" content="© Copyright IBM Corp. 2016">
+        <meta name="geo.country" content="US">
+        <meta name="robots" content="index,follow">
+        <meta name="ahrefs-site-verification" content="4371a64cc6e46d03a87309ccf9b872a620009b536af292ec3ac81e0967c44738">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>IBM Z Content Solutions | {{ title }}</title>
+
+        <!-- dot-com -->
+        <!-- dot-com-stylesheets -->
+        <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/themes.css"/>
+        <link rel="stylesheet" href="https://izswebpage.mybluemix.net/css/layout.css"/>
+
+        {% include 'partials/dc-l1-data.njk' %}
+
+        <!--<script type="module">
+            window.digitalData = {
+                page: {
+                    category: {
+                        primaryCategory: "????"
+                    },
+                    pageInfo: {
+                        effectiveDate: "2018-07-16",
+                        expiryDate: "2030-07-16",
+                        hotjar: {
+                            "enabled": true
+                        },
+                        convertro: {
+                            "enabled": true
+                        }
+                        language: 'en-US',
+                        publishDate: "2018-07-16",
+                        publisher: "IBM Corporation",
+                        version: "Carbon for IBM.com",
+                        focusArea: "WCP - Cloud services - all other",
+                        ibm: {
+                            contentDelivery: "KnowledgeCenter",
+                            contentProducer: "Pok CDD, HTML, Summer 2018",
+                            country: "US",
+                            owner: "Content Design/Poughkeepsie/IBM",
+                            type: "?????"
+                        }
+                    }
+                }
+            };
+        </script> -->
+
+        <script type="text/javascript">
+            window._ibmAnalytics = {
+                "settings": {
+                    "name": "IBM Z and LinuxONE Content Solutions",
+                    "tealiumProfileName": ""
+                }
+            };
+            digitalData = {
+                "page": {
+                    "category": {
+                        "primaryCategory": "PC130"
+                    },
+                    "pageInfo": {
+                        "effectiveDate": "2018-07-16",
+                        "expiryDate": "2030-07-16",
+                        "convertro": {
+                            "enabled": true
+                        },
+                        "language": "en-US",
+                        "publishDate": "2018-07-16",
+                        "publisher": "IBM Corporation",
+                        "version": "Carbon for IBM.com",
+                        "focusArea": "WCP - Cloud services - all other",
+                        "ibm": {
+                            "siteId": "IBM_" + _ibmAnalytics.settings.name,
+                            "contentDelivery": "KnowledgeCenter",
+                            "contentProducer": "Pok CDD, HTML, Summer 2018",
+                            "country": "US",
+                            "owner": "Content Design/Poughkeepsie/IBM",
+                            "type": "?????"
+                        }
+                    }
+                }
+            };
+        </script>
+
+        <link rel="alternate" hreflang="en-us" href="https://www.ibm.com/us-en/"/>
+        <link rel="alternate" hreflang="x-default" href="https://www.ibm.com"/>
+
+        <script src="//1.www.s81c.com/common/stats/ibm-common.js" type="text/javascript" async="async"></script>
+
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/dotcom-shell.min.js"/>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/card-group.min.js"></script>
+
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/leadspace.min.js"></script>
+
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/table-of-contents.min.js"></script>
+
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/video-cta-container.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/video-player.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/lightbox-video-player.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/link-list.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/link-with-icon.min.js"></script>
+
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/card.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/card-group.min.js"></script>
+
+        <!-- <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/scroll-animations.min.js"></script> -->
+
+        <!-- Introduction -->
+        <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v1.21.0/tooltip.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v1.21.0/tabs.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v1.21.0/code-snippet.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v1.21.0/tag.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v1.21.0/tabs.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v1.21.0/button.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v1.21.0/notification.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v1.21.0/content-switcher.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v1.21.0/accordion.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v1.21.0/data-table.min.js"></script>
+
+
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/text-cta.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/card-cta.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/card-link.min.js"></script>
+
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/image.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/image-with-caption.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/horizontal-rule.min.js"></script>
+
+        <!-- <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/content-section.min.js"></script>-->
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/content-block.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/content-block-mixed.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/content-group-simple.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/content-item.min.js"></script>
+
+        <!-- Getting started -->
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/tabs-extended.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/card-link.min.js"></script>
+
+        <!-- <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/card-section-simple.min.js"></script> -->
+
+        <!-- <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/cta-block.min.js"></script> -->
+
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/card-in-card.min.js"></script>
+
+        <!-- <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/card-section-images.min.js"></script> -->
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/tag-group.min.js"></script>
+        <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.14.1/button-group.min.js"></script>
+
+    </head>
+    <body>
+        <dds-dotcom-shell-container footer-size="micro" has-profile has-search platform="IBM Z and LinuxONE Content Solutions">
+            <main>
+                <header aria-labelledby="ibm-leadspace-title">
+                    <dds-leadspace alt="alt text" default-src="www.example.com" size="medium">
+                        <dds-leadspace-heading>{{ title }}</dds-leadspace-heading>
+                        Everything you need to get started quickly.
+                        <dds-button-group slot="action">
+                            <dds-button-cta cta-type="jump" href="#get-started" kind="tertiary" role="listitem">Get started</dds-button-cta>
+                            {% if (introMedia.type == "video") %}
+                                <dds-button-cta cta-type="jump" href="#" kind="tertiary" role="listitem" style="display:none;">-</dds-button-cta>
+
+                                <dds-video-cta-container data-autoid="dds--button-cta">
+                                    <dds-button-cta class="bx--content-item__copy" role="listitem" cta-type="video" href="{{ introMedia.videoID }}">
+                                        {% if (introMedia.videoAltButtonText) %}
+                                            {{ introMedia.videoAltButtonText }}
+                                        {% else %}
+                                    Play overview
+                                    {% endif %}
+                                    </dds-button-cta>
+                                </dds-video-cta-container>
+                                {% if (introMedia.noTranscript != true) %}
+                                    <bx-btn kind="ghost" size="" isexpressive="" href="{% if (introMedia.transcriptAltName) %}https://izswebpage.mybluemix.net/docs/transcripts/{{ introMedia.transcriptAltName }}.pdf{% else %}https://izswebpage.mybluemix.net/docs/transcripts/{{ title | replace('/', '-') | replace(' ', '-') }}-Overview-Transcript.pdf{% endif %}" target="_blank">
+                            Transcript
+                            </bx-btn>
+                                {% endif %}
+                            {% endif %}
+                        </dds-button-group>
+                        {% if key %}
+                            {% if preview %}
+                            <dds-leadspace-image slot="image" class="bx--image" alt="alt text" default-src="/images/_intro_bgs/__{{ key }}_default.jpg">
+                                <dds-image-item media="(min-width: 1584px)" srcset="/images/_intro_bgs/__{{ key }}_default.jpg"></dds-image-item>
+                                <dds-image-item media="(min-width: 1312px)" srcset="/images/_intro_bgs/__{{ key }}_default.jpg"></dds-image-item>
+                                <dds-image-item media="(min-width: 672px)" srcset="/images/_intro_bgs/__{{ key }}_default.jpg"></dds-image-item>
+                                <dds-image-item media="(min-width: 320px)" srcset="/images/_intro_bgs/__{{ key }}_mobile.jpg"></dds-image-item>
+                                <dds-image-item media="(min-width: 0px)" srcset="/images/_intro_bgs/__{{ key }}_mobile.jpg"></dds-image-item>
+                            {% else %}
+                            <dds-leadspace-image slot="image" class="bx--image" alt="alt text" default-src="https://izswebpage.mybluemix.net/images/_intro_bgs/__{{ key }}_default.jpg">
+                                <dds-image-item media="(min-width: 1584px)" srcset="https://izswebpage.mybluemix.net/images/_intro_bgs/__{{ key }}_default.jpg"></dds-image-item>
+                                <dds-image-item media="(min-width: 1312px)" srcset="https://izswebpage.mybluemix.net/images/_intro_bgs/__{{ key }}_default.jpg"></dds-image-item>
+                                <dds-image-item media="(min-width: 672px)" srcset="https://izswebpage.mybluemix.net/images/_intro_bgs/__{{ key }}_default.jpg"></dds-image-item>
+                                <dds-image-item media="(min-width: 320px)" srcset="https://izswebpage.mybluemix.net/images/_intro_bgs/__{{ key }}_mobile.jpg"></dds-image-item>
+                                <dds-image-item media="(min-width: 0px)" srcset="https://izswebpage.mybluemix.net/images/_intro_bgs/__{{ key }}_mobile.jpg"></dds-image-item>
+                            {% endif %}
+                            </dds-leadspace-image>
+                        {% endif %}
+                    </dds-leadspace>
+                </header>
+
+                <dds-table-of-contents data-autoid="dds--tableofcontents" stickyOffset="64">
+                    <div class="bx--tableofcontents__contents">
+                        <!-- introduction -->
+                        <a name="introduction" data-title="Introduction" class="toc-link"></a>
+                        <dds-content-block id="introduction">
+                            <dds-content-group-simple class="bx--layout--top-layout-01">
+                                <!-- <dds-content-group-heading size="sm" slot="heading">Introduction</dds-content-group-heading> -->
+                                <dds-content-group-copy size="sm" slot="copy">
+                                    {% if notifications %}
+                                        <dds-link-list type="default" class="dds-theme-zone-g10 bx--layout--bottom-layout-02">
+                                            {% for notification in notifications %}
+                                                <bx-inline-notification title="{{ notification.title }}" subtitle="{{ notification.subtitle }}" hide-close-button low-contrast kind="info"></bx-inline-notification>
+                                            {% endfor %}
+                                        </dds-link-list>
+                                    {% endif %}
+                                    {% from "partials/tooltip.njk" import definitionTooltip %}
+                                    {% call definitionTooltip(introParagraphs, definitions) %}
+                                    {% endcall %}
+                                </dds-content-group-copy>
+                                <!-- {% if (introMedia.type == "video") %}
+                                        <dds-video-player-container slot="media" video-id="{{ introMedia.videoID }}" thumbnail-url="{{ introMedia.thumbnailUrl }}" aspect-ratio="2x1" ></dds-video-player-container> 
+                                    {% else %}
+                                        <dds-image slot="media" alt="{{ introMedia.label }}" default-src="{{ introMedia.thumbnailUrl }}"></dds-image>
+                                    {% endif %}-->
+
+                                {% if introLinks %}
+                                    <dds-link-list type="end" slot="footer">
+                                        {% for introLink in introLinks %}
+                                            {% if (introLink.type == "marketing") %}
+                                                <dds-link-list-item href="{{ introLink.url }}" icon-placement="right"> 
+                                            See what {{ title }} can do for your business.
+                                            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" slot="icon">
+                                                        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                                                    </svg>
+                                                </dds-link-list-item>
+                                            {% else %}
+                                                <dds-link-list-item href="{{ introLink.url }}" icon-placement="right">
+                                                    {{ introLink.text }}
+                                                    <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" slot="icon">
+                                                        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                                                    </svg>
+                                                </dds-link-list-item>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </dds-link-list>
+                                {% endif %}
+                            </dds-content-group-simple>
+
+                            <dds-content-group-simple slot="complementary" id="introSide" {% if notifications %}class="bx--layout--top-layout-02"{% endif %}>
+                                {% if announcements %}
+                                    <dds-link-list type="default" class="dds-theme-zone-g10 bx--layout--bottom-layout-02" id="announcements">
+                                        <dds-link-list-heading role="heading" aria-level="4" slot="heading">Announcements</dds-link-list-heading>
+                                        {% for card in announcements %}
+                                            <dds-link-list-item-card href="{{ card.announcementLinkUrl }}" cta-type="external">
+                                                <p>{{ card.announcementText | safe }}</p>
+                                                <dds-card-footer>{{ card.announcementLinkText }}
+                                                    <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" slot="icon">
+                                                        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                                                    </svg>
+                                                </dds-card-footer>
+                                            </dds-link-list-item-card>
+                                        {% endfor %}
+                                    </dds-link-list>
+                                    <!-- add logic for related solutions -->
+                                {% elif related %}
+                                    <dds-content-item class="bx--layout--bottom-layout-02">
+                                        <dds-content-item-heading role="heading" aria-level="4" slot="heading">Related solution</dds-content-item-heading>
+                                        <dds-card-group cards-per-row="1" id="introRelated" class="bx--layout--top-layout-02">
+                                            {% set introRel = related | first %}
+                                            {% for introRelatedSolution in solutions %}
+                                                {% if (introRelatedSolution.key == introRel) %}
+                                                    <dds-card pictogram-placement="bottom" href="/support/z-content-solutions/{{ introRelatedSolution.pageUrl }}">
+                                                        <dds-card-heading>{{ introRelatedSolution.title }}</dds-card-heading>
+                                                        <p>{{ introRelatedSolution.pageDescription }}</p>
+                                                        {% if introRelatedSolution.pictogram %}
+                                                            {% include "partials/svg/index/" + introRelatedSolution.pictogram %}
+                                                        {% endif %}
+                                                    </dds-card>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </dds-card-group>
+                                    </dds-content-item>
+                                {% endif %}
+                            </dds-content-group-simple>
+                            <dds-hr></dds-hr>
+                        </dds-content-block>
+
+                        <!-- END introduction -->
+                        <!-- Big Picture -->
+                        {% if bigPictureSteps %}
+                            <a name="big-picture" data-title="Big picture"></a>
+                            <dds-content-group-simple>
+                                <dds-content-group-heading>Big picture</dds-content-group-heading>
+                                <dds-card-group grid-mode="narrow" class="bx--layout--bottom-layout-03 big-picture-cards">
+                                    {% set numSteps = bigPictureSteps | length %}
+                                    {% set curStep = 1 %}
+                                    {% for bpStep in bigPictureSteps %}
+                                        <dds-card-group-item border="false" pictogram-placement="bottom" color-scheme="light">
+                                            <dds-card-heading slot="heading" aria-level="4">
+                                                {% if bpNoNumbers %}
+                                                {% else %}{{ curStep}}. {% endif %}{{ bpStep.description | safe }}</dds-card-heading>
+                                            {% if bpStep.iconPath %}
+                                                <svg slot="pictogram" focusable="false" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="64" height="64" viewBox="0 0 32 32">
+                                                    {{ bpStep.iconPath | safe }}
+                                                </svg>
+                                            {% elif bpStep.pictogramUrl %}
+                                                {% include "partials/svg" + bpStep.pictogramUrl %}
+                                            {% else %}
+                                                <object type="image/svg+xml" data="{{ bpStep.iconUrl }}" class="bx--pictogram-item__pictogram" slot="pictogram" style="width:96px; height:96px; padding:0.5rem 0;"></object>
+                                            {% endif %}
+                                        </dds-card-group-item>
+                                        {% set curStep = curStep + 1 %}
+                                    {% endfor %}
+                                </dds-card-group>
+                            </dds-content-group-simple>
+                        {% endif %}
+                        <!-- END Big Picture -->
+
+                        <!-- Getting started tabs -->
+                        <a name="get-started" data-title="Get started"></a>
+                        <dds-content-group-simple>
+                            <dds-content-group-heading>How to get started</dds-content-group-heading>
+                            <dds-tabs-extended orientation="horizontal">
+                                {% set switchCount = 1 %}
+                                {% for getStartedTab in getStartedTabs %}
+                                    <dds-tab label="{{ getStartedTab.tabTitle }}" type="container">
+                                        {% for tabSubSection in getStartedTab.tabSubSections %}
+                                            <section>
+                                                <div class="bx--row">
+                                                    <div class="bx--col-lg-{% if tabSubSection.subSectionImage or tabSubSection.subSectionVideo %}12{% else %}16{% endif %} bx--col-md-8">
+                                                        <dds-content-item>
+                                                            {% if tabSubSection.subSectionTitle %}
+                                                                <dds-content-item-heading role="heading" aria-level="3">{{ tabSubSection.subSectionTitle }}</dds-content-item-heading>
+                                                            {% endif %}
+                                                            {% if tabSubSection.subSectionContent %}
+                                                                <dds-content-item-copy class="bx--layout--bottom-layout-03">{% call definitionTooltip(tabSubSection.subSectionContent, definitions) %}{% endcall %}
+                                                                    {% if tabSubSection.subSectionAccordionSwitch %}
+                                                                        <bx-content-switcher value="{{ tabSubSection.switchTitleOne | replace(' ', '') }}_{{ switchCount }}">
+                                                                            <bx-content-switcher-item value="{{ tabSubSection.switchTitleOne | replace(' ', '') }}_{{ switchCount }}" target="{{ tabSubSection.switchTitleOne | replace(' ', '') }}_{{ switchCount }}">{{ tabSubSection.switchTitleOne }}</bx-content-switcher-item>
+                                                                            <bx-content-switcher-item value="{{ tabSubSection.switchTitleTwo | replace(' ', '') }}_{{ switchCount }}" target="{{ tabSubSection.switchTitleTwo | replace(' ', '') }}_{{ switchCount }}">{{ tabSubSection.switchTitleTwo }}</bx-content-switcher-item>
+                                                                        </bx-content-switcher>
+                                                                    {% endif %}
+                                                                    {% if tabSubSection.subSectionAccordion %}
+                                                                        <div id="{{ tabSubSection.switchTitleOne | replace(' ', '') }}_{{ switchCount }}">
+                                                                            <bx-accordion>
+                                                                                {% for accordion in tabSubSection.subSectionAccordion %}
+                                                                                    <bx-accordion-item title-text="{{ accordion.accordionTitle }}">
+                                                                                        {% call definitionTooltip(accordion.accordionContent, definitions) %}{% endcall %}
+                                                                                    </bx-accordion-item>
+                                                                                {% endfor %}
+                                                                            </bx-accordion>
+                                                                        </div>
+                                                                    {% endif %}
+                                                                    {% if tabSubSection.subSectionAccordionSwitch %}
+                                                                        <div id="{{ tabSubSection.switchTitleTwo | replace(' ', '') }}_{{ switchCount }}">
+                                                                            <bx-accordion>
+                                                                                {% for accordion in tabSubSection.subSectionAccordionSwitch %}
+                                                                                    <bx-accordion-item title-text="{{ accordion.accordionTitle }}">
+                                                                                        {% call definitionTooltip(accordion.accordionContent, definitions) %}{% endcall %}
+                                                                                    </bx-accordion-item>
+                                                                                {% endfor %}
+                                                                            </bx-accordion>
+                                                                        </div>
+                                                                    {% endif %}
+                                                                </dds-content-item-copy>
+                                                            {% endif %}
+                                                            {% if tabSubSection.subSectionLinks %}
+                                                                <dds-link-list type="vertical" slot="footer">
+                                                                    {% for subSectionLink in tabSubSection.subSectionLinks %}
+                                                                        <dds-link-list-item icon-placement="right" href="{{ subSectionLink.linkUrl }}" cta-type="{% if subSectionLink.linkTarget == 'newTab' %}external{% else %}local{% endif %}">
+                                                                            {{ subSectionLink.linkText }}
+                                                                            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" slot="icon">
+                                                                                <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                                                                            </svg>
+                                                                        </dds-link-list-item>
+                                                                    {% endfor %}
+                                                                </dds-link-list>
+                                                            {% endif %}
+                                                        </dds-content-item>
+                                                    </div>
+                                                    <!-- layout-x-3 -->
+                                                    {% if tabSubSection.subSectionImage %}
+                                                        <div class="bx--col-lg-4 bx--col-sm-4">
+                                                            {% if tabSubSection.subSectionCaption %}
+                                                                <dds-image-with-caption default-src="{{ tabSubSection.subSectionImage }}" heading="{{ tabSubSection.subSectionCaption }}" lightbox border="true"></dds-image-with-caption>
+                                                                {% set lightbox = 1 %}
+                                                            {% else %}
+                                                                <img src="{{ tabSubSection.subSectionImage }}" alt="{{ tabSubSection.subSectionMediaAlt }}" style="max-height:400px; max-width:200px;"/>
+                                                            {% endif %}
+                                                        </div>
+                                                        <!-- layout-1-3 -->
+
+                                                    {% elseif tabSubSection.subSectionVideo %}
+                                                        <div class="bx--col-lg-4 bx--col-sm-4">
+                                                            <dds-video-player-container id="{{ tabSubSection.subSectionVideo }}" video-id="{{ tabSubSection.subSectionVideo }}" playing-mode="lightbox"></dds-video-player-container>
+                                                        </div>
+                                                        <!-- layout-1-3 -->
+                                                    {% endif %}
+                                                </div><!-- row -->
+                                                {% if loop.last %}
+                                                {% else %}
+                                                    <dds-hr contrast="high-contrast" weight="thick" size="large"></dds-hr>
+                                                {% endif %}
+                                            </section>
+                                            {% set switchCount = switchCount + 1 %}
+                                        {% endfor %}
+                                    </dds-tab>
+                                {% endfor %}
+                            </dds-tabs-extended>
+                        </dds-content-group-simple>
+                        
+                        <!-- END Get started -->
+
+                        <!-- START FAQ  -->
+                        {% if faqs %}
+                            <a name="faq" data-title="FAQs"></a>
+                            <dds-content-group-simple class="bx--layout--top-layout-06">
+                                <dds-content-group-heading>Frequently asked questions</dds-content-group-heading>
+                                {% for faq in faqs %}
+                                    <dds-content-item>
+                                        <dds-content-item-heading role="heading" aria-level="4" slot="heading">
+                                                Q: {{ faq.question | safe }}
+                                        </dds-content-item-heading>
+                                        <dds-content-item-copy>
+                                            <p>A: {% call definitionTooltip(faq.answer, definitions) %}{% endcall %}</p>
+                                        </dds-content-item-copy>
+                                    </dds-content-item>
+                                    {% if faq.linkUrl %}
+                                        <dds-text-cta slot="end" icon-placement="right" cta-type="local" href="{{ faq.linkUrl }}">
+                                            {{ faq.linkText }}
+                                        </dds-text-cta>
+                                    {% endif %}
+                                {% endfor %}
+                            </dds-content-group-simple>
+                            <!-- bx-row -->
+                        {% endif %}
+
+                        {# For multi-section FAQ, will refactor to combine these later  #}
+                        {% if faqSection %}
+                            <a name="faq" data-title="FAQs"></a>
+                            <dds-content-group-simple class="bx--layout--top-layout-06">
+                                <dds-content-group-heading>Frequently asked questions</dds-content-group-heading>
+                                {% for aSection in faqSection %}
+                                    <dds-content-item class="faqs-ci">
+                                        <dds-content-item-heading role="heading" aria-level="3" slot="heading" class="bx--layout--bottom-layout-02">
+                                            {{ aSection.section }}
+                                        </dds-content-item-heading>
+                                        <dds-content-item-copy>
+                                            <bx-accordion class="bx--layout--top-layout-03 bx--layout--bottom-layout-04">
+                                                {% for category in aSection.categories %}
+                                                    <bx-accordion-item title-text="{{ category.catTitle }}">
+                                                        <div>
+                                                            {% for faq in category.faqs %}
+                                                                <h5 class="bx--layout--top-layout-03">
+                                                                    <strong>Q: {{ faq.question | safe }}</strong>
+                                                                </h5>
+                                                                <p>A: {% call definitionTooltip(faq.answer, definitions) %}{% endcall %}</p>
+                                                                {% if faq.linkUrl %}
+                                                                    <dds-text-cta slot="end" icon-placement="right" cta-type="local" href="{{ faq.linkUrl }}">
+                                                                        {{ faq.linkText }}
+                                                                    </dds-text-cta>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </div>
+                                                    </bx-accordion-item>
+                                                {% endfor %}
+                                            </bx-accordion>
+                                        </dds-content-item-copy>
+                                    </dds-content-item>
+                                {% endfor %}
+                            </dds-content-group-simple>
+                        {% endif %}
+
+                        <!-- END FAQ -->
+
+                        <!-- START LEARN MORE  -->
+                        {% if learnMore or learnMoreAccordion %}
+                            {% if faqs or faqSection %}
+                                <dds-hr size="large"></dds-hr>
+                            {% endif %}
+                            <a name="learnmore" data-title="{% if customLMTitle %}{{ customLMTitle }}{% else %}Learn more{% endif %}"></a>
+                            <dds-content-group-simple>
+                                {% if learnMore %}
+                                    {% for section in learnMore %}
+                                        <dds-content-item>
+                                            <dds-content-item-heading role="heading" aria-level="3" slot="heading" class="bx--layout--bottom-layout-02">
+                                                {{ section.heading }}
+                                            </dds-content-item-heading>
+                                            <dds-content-item-copy>
+                                                <p>{{ section.content }}</p>
+                                            </dds-content-item-copy>
+                                            <dds-link-list type="vertical">
+                                                {% for link in section.links %}
+                                                    <dds-link-list-item href="{{ link.linkUrl }}" icon-placement="right" cta-type="{{ link.linkType }}" iconInline="true">
+                                                        {{ link.linkText }}
+                                                    </dds-link-list-item>
+                                                {% endfor %}
+                                            </dds-link-list>
+                                        </dds-content-item>
+                                    {% endfor %}
+                                {% endif %}
+
+                                {% if learnMoreAccordion %}
+                                    <dds-content-group-heading>
+                                        {% if customLMTitle %}{{ customLMTitle }}
+                                        {% else %}Learn more{% endif %}
+                                    </dds-content-group-heading>
+                                    {% if learnMoredescription %}
+                                        <dds-content-group-copy>{{ learnMoredescription | safe }}</dds-content-group-copy>
+                                    {% endif %}
+                                    {% for aSection in learnMoreAccordion %}
+                                        <dds-content-item class="bx--layout--top-layout-03">
+                                            <dds-content-item-heading role="heading" aria-level="3" slot="heading" class="bx--layout--bottom-layout-02">
+                                                {{ aSection.section }}
+                                            </dds-content-item-heading>
+                                            <dds-content-item-copy>
+                                                <bx-accordion class="bx--layout--top-layout-03 bx--layout--bottom-layout-04">
+                                                    {% for category in aSection.categories %}
+                                                        <bx-accordion-item title-text="{{ category.catTitle }}">
+                                                            <div>
+                                                                {% call definitionTooltip(category.content, definitions) %}{% endcall %}
+                                                            </div>
+                                                        </bx-accordion-item>
+                                                    {% endfor %}
+                                                </bx-accordion>
+                                            </dds-content-item-copy>
+                                        </dds-content-item>
+                                    {% endfor %}
+                                {% endif %}
+                            </dds-content-group-simple>
+                            <!-- bx-row -->
+                        {% endif %}
+
+                        <dds-content-block complementary-style-scheme="with-border">
+                            <!-- START DOCUMENTATION SECTION -->
+                            {% if documentation %}
+                                <a name="documentation" data-title="Documentation"></a>
+                                <dds-content-group-simple>
+                                    <dds-content-group-heading>Documentation</dds-content-group-heading>
+                                    <dds-card-in-card href="{{ documentation.docLinkUrl }}" class="dds-theme-zone-g90 bx--layout--top-layout-03 bx--layout--bottom-layout-06">
+                                        <dds-card-in-card-image slot="image" alt="Documentation illustration" default-src="https://izswebpage.mybluemix.net/images/documentation_bg2.png"></dds-card-in-card-image>
+                                        <dds-card-heading>{{ title }} Documentation</dds-card-heading>
+                                        <p>{{ documentation.docDescription }}</p>
+                                        <dds-card-cta-footer>{{ documentation.docLinkText }}
+                                            <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" >
+                                                <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                                            </svg>
+                                        </dds-card-cta-footer>
+                                    </dds-card-in-card>
+                                </dds-content-group-simple>
+                                <!-- bx-row -->
+                            {% endif %}
+                            <!-- END DOCUMENTATION -->
+
+                            <!-- START RESOURCES SECTION -->
+                            <a name="technical-resources" data-title="Technical resources"></a>
+                            <dds-content-group-simple>
+                                <dds-content-group-heading>Technical resources</dds-content-group-heading>
+                                {% if resourcesTabs[1] | length %}
+                                    <dds-tabs-extended orientation="horizontal" class="bx--layout--top-layout-03 bx--layout--bottom-layout-06">
+                                    {% endif %}
+                                    {% for resourcesTab in resourcesTabs %}
+                                        {% if resourcesTabs[1] | length %}
+                                            <dds-tab label="{{ resourcesTab.tabTitle }}">
+                                            {% endif %}
+                                            <dds-card-group>
+                                                {% for tabContent in resourcesTab.tabContent %}
+                                                    {% if tabContent.resourceStatus != "hide" %}
+                                                        <dds-card-group-item href="{{ tabContent.resourceLinkUrl }}">
+                                                            <!-- <dds-card-eyebrow>Resource type</dds-card-eyebrow> -->
+                                                            {% if tabContent.resourceTitle %}
+                                                                <dds-card-heading>{{ tabContent.resourceTitle }}</dds-card-heading>
+                                                            {% endif %}
+                                                            {% if tabContent.resourceDescription %}
+                                                                <p>
+                                                                    {{ tabContent.resourceDescription | safe }}
+                                                                </p>
+                                                            {% endif %}
+                                                            {% if tabContent.resourceStatus %}
+                                                                <dds-tag-group>
+                                                                    <bx-tag type="blue" title="New">New</bx-tag>
+                                                                </dds-tag-group>
+                                                            {% endif %}
+                                                            <dds-card-cta-footer slot="footer">{{ tabContent.resourceLinkText }}
+                                                                <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+                                                                    <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                                                                </svg>
+                                                            </dds-card-cta-footer>
+                                                        </dds-card-group-item>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </dds-card-group>
+                                            {% if resourcesTabs[1] | length %}
+                                            </dds-tab>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% if resourcesTabs[1] | length %}
+                                    </dds-tabs-extended>
+                                    {% endif%}
+                            </dds-content-group-simple>
+                                <!-- END RESOURCES SECTION -->
+
+                                <!-- START NOTES SECTION -->
+                                {% if notes %}
+                                    <a name="notes" data-title="Notes"></a>
+                                    <dds-content-group-simple class="bx--layout--top-layout-06">
+                                        <dds-content-group-heading>Notes</dds-content-group-heading>
+                                        <dds-content-item>
+                                            <dds-content-item-copy>
+                                                <p>{{ notes }}</p>
+                                            </dds-content-item-copy>
+                                        </dds-content-item>
+                                    </dds-content-group-simple>
+                                {% endif %}
+                                <!-- END NOTES SECTION -->
+                        </dds-content-block>
+
+                            <dds-content-block>
+                                <!-- START RELATED SOLUTIONS SECTION -->
+                                {% if related %}
+                                    <a name="related" data-title="Related solutions"></a>
+                                    <dds-content-group-simple>
+                                        <dds-content-group-heading>Related solutions</dds-content-group-heading>
+                                        <dds-card-group class="bx--layout--top-layout-03 bx--layout--bottom-layout-04">
+                                            {% for rel in related %}
+                                                {% for relatedSolution in solutions %}
+                                                    {% if (relatedSolution.key == rel) %}
+                                                        <dds-card border="false" pictogram-placement="bottom" href="/support/z-content-solutions/{{ relatedSolution.pageUrl }}/">
+                                                            <dds-card-heading>{{ relatedSolution.title }}</dds-card-heading>
+                                                            <p>{{ relatedSolution.pageDescription }}</p>
+                                                            {% if relatedSolution.pictogram %}
+                                                                {% include "partials/svg/index/" + relatedSolution.pictogram %}
+                                                            {% endif %}
+                                                        </dds-card>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </dds-card-group>
+                                    </dds-content-group-simple>
+                                {% endif %}
+                                <!-- bx-row -->
+                                <!-- END RELATED SOLUTIONS -->
+
+                                <!-- START WHAT'S NEW SECTION -->
+                                {% if whatsnew %}
+                                    <a name="whats-new" data-title="What's new"></a>
+                                    <dds-content-group-simple id="whatsnew">
+                                        <dds-content-group-heading>What's new</dds-content-group-heading>
+                                        {% if updateWhatsNewDate %}
+                                            <dds-content-group-copy size="sm">Last updated {{ updateWhatsNewDate }}</dds-content-group-copy>
+                                        {% endif %}
+                                        <dds-content-item>
+                                            <dds-content-item-copy>
+                                                <bx-accordion class="bx--layout--top-layout-03 bx--layout--bottom-layout-04">
+                                                    {% for update in updateWhatsNew %}
+                                                        <bx-accordion-item title-text="{{ update.sectionTitle }}">
+                                                            <p class="ibm-textcolor-black-core">{{ update.sectionContent | safe }}</p>
+                                                        </bx-accordion-item>
+                                                    {% endfor %}
+                                                </bx-accordion>
+                                            </dds-content-item-copy>
+                                        </dds-content-item>
+                                    </dds-content-group-simple>
+                                {% endif %}
+                                <!-- END WHAT'S NEW SECTION  -->
+                                <a name="rate" data-title="Rate this content"></a>
+                                <dds-card-link-cta slot="footer" cta-type="external" href="https://www.surveygizmo.com/s3/6708105/IBM-Z-Content-Solutions?Page={{ feedbackURL }}" id="rating">
+                                    <dds-card-link-heading>Rate this content solution</dds-card-link-heading>
+                                    <dds-card-cta-footer></dds-card-cta-footer>
+                                </dds-card-link-cta>
+                            </dds-content-block>
+                    </div>
+                </dds-table-of-contents>
+                <dds-lightbox-video-player-container id="{{ tabSubSection.subSectionVideo }}" playing-mode="lightbox"></dds-lightbox-video-player-container>
+            </main>
+
+                    <!-- Default Statcounter code for cloud broker http:// 
+                    <script type="text/javascript">
+                        var sc_project = {{ statcounter.sc_project }};
+                        var sc_invisible = 1;
+                        var sc_security = "{{ statcounter.sc_security }}";
+                        var sc_https = 1;
+                    </script>
+                    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+                    <noscript>
+                        <div class="statcounter">
+                            <a title="Web Analytics Made Easy - StatCounter" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/11952570/0/{{ statcounter.sc_security }}/1/" alt="Web Analytics Made Easy - StatCounter"></a>
+                        </div>
+                    </noscript>
+                     End of Statcounter Code -->
+                    {% if hotjar %}
+                        <!-- Default Hotjar code -->
+                        <script>
+                            (function (h, o, t, j, a, r) {
+                                h.hj = h.hj || function () {
+                                    (h.hj.q = h.hj.q || []).push(arguments)
+                                };
+                                h._hjSettings = {
+                                    hjid: {{ hotjar.site_id }},
+                                    hjsv: 6
+                                };
+                                a = o.getElementsByTagName('head')[0];
+                                r = o.createElement('script');
+                                r.async = 1;
+                                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                                a.appendChild(r);
+                            })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+                        </script>
+                        <!-- End of Hotjar Code -->
+                    {% endif %}
+                    {% if intercept %}
+                        <script type="text/javascript">
+                            (function (d, e, j, h, f, c, b) {
+                                d.SurveyGizmoBeacon = f;
+                                d[f] = d[f] || function () {
+                                    (d[f].q = d[f].q || []).push(arguments)
+                                };
+                                c = e.createElement(j),
+                                b = e.getElementsByTagName(j)[0];
+                                c.async = 1;
+                                c.src = h;
+                                b
+                                    .parentNode
+                                    .insertBefore(c, b)
+                            })(window, document, 'script', '//d2bnxibecyz4h5.cloudfront.net/runtimejs/intercept/intercept.js', 'sg_beacon');
+                            sg_beacon('init', 'MzI0MTk0LWQ3NDg0ZmQzZGY4YWQ3YzQ5N2ZmNjgyMzVlN2IwODYwYTI2Yjg0ZTcyOWE4OTBkOTUx');
+                        </script>
+                    {% endif %}
+                </dds-dotcom-shell-container>
+            </body>
+        </html>

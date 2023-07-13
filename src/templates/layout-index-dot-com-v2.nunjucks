@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+    <link rel="icon" href="//www.ibm.com/favicon.ico">
+    {# <link rel="canonical" href="http://izswebpage.mybluemix.net/">  #}
+
+    <meta name="description" content="{{meta_description|safe}}"/>
+    <meta name="keywords" content="{{meta_keywords|safe}}"/>
+    <meta name="dcterms.date" content="2018-07-16">
+    <meta name="dcterms.rights" content="© Copyright IBM Corp. 2018">
+    <meta name="geo.country" content="US">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>IBM Z Content Solutions | {{ title }}
+    </title>
+
+    <!-- dot-com -->
+    <!-- dot-com-stylesheets -->
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css"/>
+    <style>
+      body {
+        font-family: IBM Plex Sans,Helvetica Neue,Arial,sans-serif;
+      }
+    </style>
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/themes.css"/>
+    <link rel="stylesheet" href="/css/layout.css"/>
+
+    {% include 'partials/dc-l1-data.njk' %}
+
+    <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/dotcom-shell.min.js"/>
+
+    <script type="module">
+      window.digitalData = {
+        page: {
+          category: {
+            primaryCategory: "????"
+          },
+          pageInfo: {
+            effectiveDate: "2018-07-16",
+            expiryDate: "2030-07-16",
+            hotjar: {
+              "enabled": true
+            },
+            convertro: {
+              "enabled": true
+            }
+            language: 'en-US',
+            publishDate: "2018-07-16",
+            publisher: "IBM Corporation",
+            version: "v18",
+            focusArea: "WCP - Cloud services - all other",
+            ibm: {
+              contentDelivery: "KnowledgeCenter",
+              contentProducer: "Pok CDD, HTML, Summer 2018",
+              country: "US",
+              owner: "Content Design/Poughkeepsie/IBM",
+              type: "?????"
+            }
+          }
+        }
+      };
+    </script>
+
+    <link rel="alternate" hreflang="en-us" href="https://www.ibm.com/us-en/"/>
+    <link rel="alternate" hreflang="x-default" href="https://www.ibm.com"/>
+
+    <!-- v18 stylesheets
+        <link rel="stylesheet" href="//1.www.s81c.com/common/v18/css/www.css" media="all"/>
+        <link rel="stylesheet" href="//1.www.s81c.com/common/v18/css/grid-fluid.css" media="all"/>
+        <link rel="stylesheet" href="//1.www.s81c.com/common/v18/css/textcolumns.css" media="all"/>
+        <style type="text/css">
+            body {
+                font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+                margin: 0;
+            }
+        </style> -->
+    <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/leadspace-block.min.js"></script>
+    <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/link-list.min.js"></script>
+    <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/video-player-container.min.js"></script>
+    <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/card.min.js"></script>
+    <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/card-group.min.js"></script>
+    <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/card-in-card.min.js"></script>
+  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/feature-card.min.js"></script>
+
+    <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/card-section-images.min.js"></script>
+    <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/card-section-simple.min.js"></script>
+  </head>
+
+  <!-- MAIN CONTAINER BEGIN -->
+
+  <body>
+    <dds-dotcom-shell-container footer-size="micro" has-profile has-search platform="IBM Z and LinuxONE Content Solutions">
+      <main>
+      <div class="bx--grid">
+        <dds-leadspace-block type="centered">
+          <dds-leadspace-block-heading>IBM Z and LinuxONE<br />content solutions</dds-leadspace-block-heading>
+          <dds-leadspace-block-content>
+            <dds-content-block-heading>All the technical resources in one place</dds-content-block-heading>
+            <dds-content-block-copy>
+              <p>A content solution helps you get started and provides a single engaging place for everything you need to understand and use a product or function. This can include product libraries in IBM Documentation, videos, workflows, Redbooks, and more.</p>
+              <p>Visit this page often to find the latest content solutions.</p>
+            </dds-content-block-copy>
+          </dds-leadspace-block-content>
+        </dds-leadspace-block>
+
+        <!-- END INTRO -->
+
+        <!-- START WHITE BAND CARD SECTION -->
+<dds-feature-card size='large' href="/support/z-content-solutions/container-extensions">
+  <dds-image slot="image" default-src="https://zos-hot-topics.com/static/improving-protection-against-logical-data-corruption-featured-65b5bb6c3e9d8b71157610e8be559782.jpg"></dds-image>
+  <dds-card-eyebrow>Modernization</dds-card-eyebrow>
+  <dds-card-heading>z/OS Container Extensions</dds-card-heading>
+  <dds-card-copy>IBM® z/OS® Container Extensions (IBM zCX) makes it possible to integrate Linux on Z applications with z/OS. Application developers can develop and data centers can operate popular open source packages, Linux applications, IBM software, and third-party software together with z/OS applications and data.</dds-card-copy>
+  <dds-feature-card-footer>
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </dds-feature-card-footer>
+</dds-feature-card>
+
+{% include "../templates/partials/page-data.njk" %}
+
+        {% for cs in solutions | sort(attribute = 'category') %}
+
+        <a name="{{ cs.category }}" data-title="{{ cs.category | capitalize }}"></a>
+
+        <dds-card-section-simple heading="{{ cs.category }}">
+        <h5 slot="heading">{{ cs.category }}</h5>
+        {% if (cs.category == "Automation") %}
+        <dds-card-group>
+            {% for page in cs.pages | sort(attribute = 'title') %}
+                <dds-card-group-item href="/support/z-content-solutions/{{ page.pageUrl }}/">
+                  <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/1056x792/ee5396/161616"></dds-image>
+                  <dds-card-heading>{{ page.title }}</dds-card-heading>
+                  <p>{{ page.pageDescription }}</p>
+                  <dds-card-cta-footer slot="footer">
+                    <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+                      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                    </svg>
+                  </dds-card-cta-footer>
+                </dds-card-group-item>
+            {% endfor %}
+          </dds-card-group>
+        {% else %}
+          <dds-card-group>
+            {% for page in cs.pages | sort(attribute = 'title') %}
+                <dds-card-group-item border="false" pictogram-placement="bottom" href="/support/z-content-solutions/{{ page.pageUrl }}/">
+                  <dds-card-heading>{{ page.title }}</dds-card-heading>
+                  <object type="image/svg+xml" data="{{ page.pictogram }}" class="bx--pictogram-item__pictogram" slot="pictogram" style="width:96px; height:96px; padding:0.5rem 0;"></object>
+                  <p>{{ page.pageDescription }}</p>
+                  <dds-card-cta-footer slot="footer">
+                    <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+                      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                    </svg>
+                  </dds-card-cta-footer>
+                </dds-card-group-item>
+            {% endfor %}
+          </dds-card-group>
+        {% endif %}
+        </dds-card-section-simple>
+        <dds-hr></dds-hr>
+        {% endfor %}
+        <!-- END WHAT'S NEW SECTION -->
+
+        <!-- Default Statcounter code for landing page http:// -->
+        <script type="text/javascript">
+          var sc_project = 12067414;
+          var sc_invisible = 1;
+          var sc_security = "0fb69b27";
+          var sc_https = 1;
+        </script>
+        <script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+        <noscript>
+          <div class="statcounter">
+            <a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/12067414/0/0fb69b27/1/"
+alt="Web Analytics"></a>
+          </div>
+        </noscript>
+        <!-- End of Statcounter Code -->
+
+        <!-- CONTENT END -->
+        <!-- MAIN CONTAINER END -->
+</div>
+      </main>
+    </dds-dotcom-shell-container>
+  </body>
+</html>

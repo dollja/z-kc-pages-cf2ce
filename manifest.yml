@@ -1,0 +1,7 @@
+applications:
+- path: .
+  memory: 512M
+  instances: 1
+  name: izswebpage
+  # buildpack: https://github.com/cloudfoundry/nodejs-buildpacks
+  timeout: 180

@@ -1,0 +1,24 @@
+{% macro definitionTooltip(str, definitions) %}
+{% set newStr = str %}
+{% set cleanStr = str | striptags %}
+
+{% set actives = definitions | sortByLength %}
+
+{% for definition in actives %}
+{% if cleanStr.includes(' ' + definition.term) %}
+{% set regTerm = definition.term | rex %}
+
+{% set wrapper = newStr.replace( regTerm, '<bx-tooltip-definition alignment="start" body-text="' + definition.description + '" direction="top">' + definition.term + '</bx-tooltip-definition>' ) %}
+
+{% set cleanStr = cleanStr.replace(definition.term, ' ') %}
+
+{% set newStr %}
+{{ wrapper | safe }}
+{% endset %}
+ 
+ {% endif %}
+{% endfor %}
+{{ newStr | safe }}
+{% endmacro %}
+
+

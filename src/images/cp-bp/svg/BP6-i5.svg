@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="145px" height="108px" viewBox="0 0 145 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 42</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-42" transform="translate(-8.000000, -47.000000)">
+            <g id="Group-43" transform="translate(89.000000, 68.000000)">
+                <g id="Group-12" transform="translate(2.000000, 0.000000)" stroke="#FFFFFF" stroke-width="2">
+                    <rect id="Rectangle-8" x="1" y="1" width="59.0312841" height="68.8750396"></rect>
+                </g>
+                <rect id="Rectangle-14" fill="#3E76C0" x="0" y="16" width="46" height="67"></rect>
+            </g>
+            <text id="6" opacity="0.203125" font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="144" font-weight="500" fill="#FFFFFF">
+                <tspan x="0" y="148">6</tspan>
+            </text>
+            <g id="Group-12" transform="translate(73.000000, 84.000000)">
+                <path d="M14.7656332,19.687511 L46.2656508,19.687511 L46.2656508,23.0343879 L14.7656332,23.0343879 L14.7656332,19.687511 Z M14.7656332,26.3812647 L46.2656508,26.3812647 L46.2656508,29.7281416 L14.7656332,29.7281416 L14.7656332,26.3812647 Z M14.7656332,33.0750185 L46.2656508,33.0750185 L46.2656508,36.4218953 L14.7656332,36.4218953 L14.7656332,33.0750185 Z M14.7656332,39.7687722 L30.515642,39.7687722 L30.515642,43.1156491 L14.7656332,43.1156491 L14.7656332,39.7687722 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <rect id="Rectangle-8" stroke="#FFFFFF" stroke-width="2" x="1.98437555" y="1" width="59.0312841" height="68.8750396"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

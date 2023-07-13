@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="145px" height="109px" viewBox="0 0 145 109" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 41</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-41" transform="translate(-10.000000, -47.000000)" fill="#FFFFFF">
+            <text id="5" opacity="0.203125" font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="144" font-weight="500">
+                <tspan x="0" y="148">5</tspan>
+            </text>
+            <g id="Group-3" transform="translate(70.000000, 101.000000)" fill-rule="nonzero">
+                <polygon id="Shape" points="19.2179995 44.3656732 35.3126686 31.4893739 19.2179995 18.6130745 15.2288792 21.8043708 27.3358381 31.4893739 15.2288792 41.174377"></polygon>
+                <path d="M0,0 L0,54.1471259 L84.6048843,54.1471259 L84.6048843,0 L0,0 Z M81.7847214,51.8909957 L2.82016281,51.8909957 L2.82016281,11.2806512 L81.7847214,11.2806512 L81.7847214,51.8909957 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

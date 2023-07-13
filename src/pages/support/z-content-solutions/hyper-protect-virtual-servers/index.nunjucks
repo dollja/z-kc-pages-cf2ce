@@ -1,0 +1,507 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{# extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{# set title = "IBM Hyper Protect Virtual Servers" %}
+{% set key = 23 %}
+
+{# META #}
+{# set meta_description = meta_description | default("Learn how to protect applications and data in hybrid cloud deployments.") %}
+{% set meta_keywords = meta_keywords | default("ibm secure service container, secure service container, hybrid multicloud environments") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{# set introMedia = {
+    id: 1,
+    type: "image",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/hpvs/HPVS_logo.png",
+    label: "Hyper Protect Virtual Servers pictogram"
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{# set introParagraphs = "<p>Welcome to the IBM® Hyper Protect Virtual Servers content solution, your homepage for technical resources.</p>
+<p>IBM® Hyper Protect Virtual Servers are designed to protect mission critical Linux workloads throughout the DevSecOps lifecycle—even from privileged administrators. Hyper Protect Virtual Servers allow developers to leverage their modern application development skills, while securely building their workloads in a confidential computing environment. Their solutions are signed, encrypted, and deployed while administrators manage the underlying infrastructure, without access to the data. Hyper Protect Virtual Servers are designed to uniquely protect workloads that are deployed on IBM Z and LinuxONE servers in hybrid multi-cloud environments.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{# set introLinks = [
+    {
+        id: 1,
+        type: "marketing",
+        url: "https://www.ibm.com/products/hyper-protect-virtual-servers?_ga=2.65784046.1721070098.1609768216-85615674.1567618694"
+    }
+] %}
+
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# set announcements = [
+    {
+    announcementText: "",
+    announcementLinkText: "",
+    announcementLinkUrl: ""
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{# set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/hpvs/bp/hpvs_bp_1.svg",
+        iconPath:'<path d="M30.7,20.8l-2-0.5l0.2-0.7l2,0.5L30.7,20.8z M0.6,20.8l-0.2-0.7l2-0.5l0.2,0.7L0.6,20.8z M2.1,16.8H0v-0.7h2.1
+	V16.8z M31.3,16.8h-2.1v-0.7h2.1V16.8z M28.9,13.3l-0.2-0.7l2-0.5l0.2,0.7L28.9,13.3z M2.5,13.3l-2-0.5L0.6,12l2,0.5L2.5,13.3z
+	 M24,32.5H7.3c-0.2,0-0.4-0.2-0.4-0.4V0.8c0-0.2,0.2-0.4,0.4-0.4H24c0.2,0,0.4,0.2,0.4,0.4v31.3C24.4,32.3,24.2,32.5,24,32.5z
+	 M7.7,31.7h16V1.1h-16V31.7z M19.8,11.6h-8.4v-0.7h8.4V11.6z M19.8,8.4h-8.4V7.7h8.4V8.4z M19.8,5.3h-8.4V4.6h8.4V5.3z"/>',
+        iconAlt: "The system administrator and cloud administrator prepare the environment.",
+        description: "The system administrator and cloud administrator prepare the environment."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/hpvs/bp/hpvs_bp_2.svg",
+        iconPath: '<path class="st0" d="M30.8,24.5c-0.2,0-0.4-0.2-0.4-0.4s0.2-0.4,0.4-0.4H31c3.6,0,6.6-2.8,6.8-6.4c0.3-3.8-2.6-7.1-6.4-7.4
+	c-0.2,0-0.3-0.2-0.3-0.3C31,6.3,29,3.3,25.9,1.9C21.4-0.1,16.1,1.8,14,6.3c-0.1,0.2-0.3,0.3-0.5,0.2c-1.1-0.5-2.2-0.7-3.4-0.7
+	c0,0,0,0,0,0c-4.5,0-8.2,3.3-8.9,7.7c-0.7,4.9,2.7,9.5,7.6,10.3c0.2,0,0.3,0.2,0.3,0.4c0,0.2-0.2,0.3-0.4,0.3
+	c-5.3-0.8-9-5.8-8.2-11.1c0.7-4.8,4.7-8.3,9.6-8.3c1.1,0,2.3,0.2,3.4,0.6c1.1-2.2,3-3.9,5.3-4.7c2.4-0.9,5.1-0.8,7.4,0.3
+	c3.2,1.5,5.3,4.5,5.6,8c4,0.5,7,4.1,6.7,8.2c-0.3,3.9-3.6,7-7.6,7.1H30.8z M24.6,16.8c0,0.3,0.3,0.6,0.6,0.6s0.6-0.3,0.6-0.6
+	s-0.3-0.6-0.6-0.6S24.6,16.5,24.6,16.8z M24.6,24c0,0.3,0.3,0.6,0.6,0.6s0.6-0.3,0.6-0.6s-0.3-0.6-0.6-0.6S24.6,23.7,24.6,24z
+	 M24.6,31.2c0,0.3,0.3,0.6,0.6,0.6s0.6-0.3,0.6-0.6s-0.3-0.6-0.6-0.6S24.6,30.9,24.6,31.2z M28.3,19v-4.5c0-0.2-0.2-0.4-0.4-0.4H11
+	c-0.2,0-0.4,0.2-0.4,0.4V19c0,0.2,0.2,0.4,0.4,0.4H28C28.2,19.4,28.3,19.2,28.3,19z M11.4,14.9h16.2v3.8H11.4V14.9z M28.3,26.2v-4.5
+	c0-0.2-0.2-0.4-0.4-0.4H11c-0.2,0-0.4,0.2-0.4,0.4v4.5c0,0.2,0.2,0.4,0.4,0.4H28C28.2,26.6,28.3,26.4,28.3,26.2z M11.4,22.1h16.2
+	v3.8H11.4V22.1z M28.3,33.5v-4.5c0-0.2-0.2-0.4-0.4-0.4H11c-0.2,0-0.4,0.2-0.4,0.4v4.5c0,0.2,0.2,0.4,0.4,0.4H28
+	C28.2,33.8,28.3,33.6,28.3,33.5z M11.4,29.3h16.2v3.8H11.4V29.3z"/>',
+        iconAlt: "The cloud administrator and application developer can register and deploy their application with secure build or bring your own image.",
+        description: "The cloud administrator and application developer can register and deploy their application with one of the following methods:</p>
+        <ul><li>secure build</li><li>bring your own image</li></ul>"
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/hpvs/bp/hpvs_bp_3.svg",
+        iconPath:'<path d="M22.1,3.5l-6-3.2l0,0L16,0.2L4.4,6.5V20C4.5,26.3,9.7,31.5,16,31.5c6.4,0,11.6-5.2,11.6-11.6V6.7V6.5L22.1,3.5z M25.6,25.1
+	c-0.1,0.2-0.2,0.3-0.3,0.4c-0.1,0.1-0.2,0.3-0.3,0.4c-0.1,0.1-0.2,0.3-0.3,0.4c-0.1,0.1-0.2,0.3-0.3,0.4c-0.1,0.1-0.2,0.3-0.4,0.4
+	c-0.1,0.1-0.2,0.2-0.3,0.4c-0.1,0.1-0.3,0.3-0.4,0.4c-0.1,0.1-0.2,0.2-0.4,0.3c-0.1,0.1-0.1,0.1-0.2,0.2l-6.5-3.5v-5.4l9.5,5.2
+	C25.8,24.8,25.7,25,25.6,25.1z M21.7,29.2c-0.1,0.1-0.3,0.2-0.4,0.2c-0.2,0.1-0.3,0.2-0.5,0.3c-0.1,0.1-0.3,0.1-0.4,0.2
+	c-0.2,0.1-0.3,0.1-0.5,0.2c-0.2,0.1-0.3,0.1-0.5,0.2c-0.2,0.1-0.4,0.1-0.5,0.2c-0.2,0-0.3,0.1-0.5,0.1c-0.2,0-0.4,0.1-0.5,0.1
+	c-0.2,0-0.4,0.1-0.5,0.1c-0.2,0-0.4,0-0.5,0c-0.1,0-0.3,0-0.4,0v-5.2l5.9,3.2c0,0,0,0,0,0C22,29,21.9,29.1,21.7,29.2z M27,12.3
+	L16.3,6.5V1.1L27,6.9V12.3z M16.3,7.2L27,13v5.3l-10.6-5.8V7.2z M5.1,20V6.9l10.6-5.8v29.8C9.9,30.6,5.1,25.8,5.1,20z M26.9,21.1
+	c0,0.1,0,0.3-0.1,0.4c0,0.2-0.1,0.5-0.1,0.7c0,0.1-0.1,0.3-0.1,0.4c-0.1,0.2-0.1,0.4-0.2,0.6c0,0.2-0.1,0.3-0.2,0.5
+	c-0.1,0.2-0.1,0.3-0.2,0.5l-9.8-5.3v-5.4L27,19.1V20C27,20.3,26.9,20.7,26.9,21.1z"/>',
+        iconAlt: "The cloud administrator configures monitoring and security.",
+        description: "The cloud administrator configures monitoring and security."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{# set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Prepare the environment",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>IBM Hyper Protect Virtual Servers is a software solution built on the IBM Secure Service Container framework, which enables users to securely run containerized Linux workloads on IBM Z and LinuxONE.</p>
+                <p>Secure Service Container is a software appliance infrastructure that combines an operating system, middleware, and application components into a single software image. Software images deployed to a Secure Service Container partition can exploit the underlying security capabilities of the IBM Z and LinuxONE infrastructure.</p>
+                <p>Hyper Protect Virtual Servers provides an encrypted environment (data at rest, data in flight), with peer to peer and peer to host isolation protecting container applications from access via privileged credentials, whether access is accidental or malicious, internal or external to an organization. IBM Hyper Protect Virtual Servers also ensures your applications can be deployed and managed from trusted sources without the infrastructure team being able to access the data, secrets or application.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/1.2.x?topic=introduction-architecture-overview",
+                        linkText: "Overview"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/1.2.x?topic=introduction-components",
+                        linkText: "Hyper Protect Virtual Servers components"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/1.2.x?topic=introduction-system-requirements",
+                        linkText: "System requirements"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning and setup",
+                subSectionContent: "<p>To plan for the environment, ensure that you meet all the system requirements, and that you have gathered all the required information for the x86 or Linux on IBM Z/LinuxONE (s390x architecture) management server.</p>
+                <p>Once you have all the requirements, download the installation package to get all of the Hyper Protect Virtual Servers components.</p>
+                <p>Before you begin setting up the environment, follow the user guide to create and configure the Secure Service Container LPAR on your IBM Z or LinuxONE server.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/1.2.x?topic=planning-environment",
+                        linkText: "Planning for the environment"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/1.2.x?topic=downloading-installation-package",
+                        linkText: "Learn more about how to download the installation package"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/support/pages/node/6019774",
+                        linkText: "Secure Service Container User's Guide"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/1.2.x?topic=SSHPMH_1.2.x/topics/create_ssc.html",
+                        linkText: "Learn more about how to create the Secure Service Container LPAR"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>To set up the Hyper Protect Virtual Servers environment, the cloud administrator completes the following steps, under the directory with root user authority, on the x86 or Linux on IBM Z/LinuxONE (s390x architecture) management server:</p>
+                <ol><li>Run the envcheck.sh shell script to verify that all the prerequisites are met to set up the Hyper Protect Virtual Servers environment on the management server.</li>
+                <li>Run the setup.sh shell script to complete the environment preparation on the management server.</li>
+                <li>When the script is executing the setup of the Docker registry list, enter the Docker Registry Name, Username, and Password.</li>
+                <li>When the script is executing the setup of the hosts config, enter the SSC LPAR (Host) IP Address, Name, and Username.</li></ol>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-setting-up-hyper-protect-virtual-servers-environment",
+                        linkText: "Learn more about how to set up the environment"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Secure build",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Cloud administrators and application developers can use the Secure Build Virtual Server to build source code stored in the GitHub repository, deploy it into the IBM Hyper Protect Virtual Servers as a Virtual Server instance, and publish the built image to a remote Docker repository.</p>"
+            },
+            {
+                subSectionTitle: "Prerequisites",
+                subSectionContent: "<p>A Hyper Protection Virtual Server instance can be provisioned on the Secure Service Container partition by using the hpvs-op-ssh base image that is provided in the IBM Hyper Protect Virtual Servers download package, or by using the yaml configuration files.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-creating-hyper-protect-virtual-server-instance",
+                        linkText: "Learn more about how to create a Hyper Protect Virtual Server instance"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>To build an application with the secure build virtual server, complete the following steps on your x86 or Linux on IBM Z/LinuxONE (s390x architecture) management server, under the directory with root user authority:</p>
+                <ol><li>Create the certificate and key to securely communicate with the secure build server.</li>
+                <li>Create a Secure Build Virtual Server.</li>
+                <li>Generate the signing keys.</li>
+                <li>Build the application by using the Secure Build</li>
+                <li>Deploy the application</li></ol>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-building-your-application-secure-build-virtual-server#create-sign-key-for-regfile}",
+                        linkText: "Learn more about how to build your application with the secure build virtual server"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Bring your own image",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Cloud administrators and application developers can bring their own Linux-based container image as a Virtual Server on IBM Hyper Protect Virtual Servers. The application developer customizes the image, then the cloud administrator registers the repository for them, so that the application developer can deploy the images into the IBM Hyper Protect Virtual Servers.</p>"
+            },
+            {
+                subSectionTitle: "Planning and setup",
+                subSectionContent: "<p>Before you begin, ensure your linux-based container image is built for the IBM LinuxONE and IBM Z platform (s390x), and available either on DockerHub or IBM Container Registry. Also, ensure your linux-based container images are signed using Docker Content Trust.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.docker.com/products/docker-hub",
+                        linkText: "Docker Hub"
+                    },
+                    {
+                        linkUrl: "https://cloud.ibm.com/docs/Registry?topic=Registry-getting-started",
+                        linkText: "IBM Container Registry"
+                    },
+                    {
+                        linkUrl: "https://docs.docker.com/engine/security/trust/content_trust/",
+                        linkText: "Docker Content Trust"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>To deploy your own Linux-based container image as a Hyper Protect Virtual Server, complete the following steps under the directory with root user authority:</p>
+                <ol><li>Sign your image by using Docker Content Trust.</li>
+                <li>Add the registry.</li>
+                <li>Generate the signing keys.</li>
+                <li>Prepare the configuration.</li>
+                <li>Deploy your image.</li></ol>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-deploying-your-applications-securely",
+                        linkText: "Learn more about how to deploy your applications securely"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 4,
+        tabTitle: "Monitoring and security",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>The cloud administrator can monitor a wide range of components with the monitoring infrastructure provided by IBM Hyper Protect Virtual Servers, and the monitoring metrics are collected from Secure Service Container partitions.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-working-monitoring-virtual-servers",
+                        linkText: "Creating monitoring virtual servers"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/1.2.x?topic=others-metrics-collected-by-monitoring-infrastructure",
+                        linkText: "Metrics collected by the monitoring infrastructure"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning and setup",
+                subSectionContent: "<p>You can connect to your (Enterprise PKCS #11) EP11 instantiation using a gRPC (GREP11) container on the Secure Service Container partition, and then use the Hardware Security Module (HSM) to perform numerous cryptographic operations, such as generating asymmetric (public and private) key pairs for digital signing and verification, or generating symmetric keys for encrypting data as needed by the deployed applications.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/1.2.x?topic=later-working-grep11-virtual-servers",
+                        linkText: "Creating GREP11 virtual servers"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>You can use the Enterprise PKCS #11 (EP11) API over gRPC (also referred to as GREP11 API) to remotely access the GREP11 container on the Secure Service Container partition for data encryption and management.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/1.2.x?topic=servers-testing-grep11-virtual-server",
+                        linkText: "Accessing the GREP11 virtual servers within your code"
+                    }
+                ]
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FEATURED DOCUMENTATION #}
+{% set documentation = {
+    docTitle: "IBM Documentation",
+    docDescription: "Learn more about about how to get started with IBM Hyper Protect Virtual Servers.",
+    docLinkUrl: "https://www.ibm.com/docs/en/hpvs",
+    docLinkText: "IBM Documentation"
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast", "contentsolution"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{# set resourcesTabs = [
+    {
+        id:1,
+        tabTitle: "Other resources",
+        tabContent: [
+            {
+                resourceDescription: "Learn about securing your critical workloads with IBM Hyper Protect Services.",
+                resourceLinkUrl: "http://www.redbooks.ibm.com/abstracts/sg248469.html?Open",
+                resourceLinkText: "Read the Redbook",
+                resourceLinkType: "redbook",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/redbook-white.png"
+            },
+            {
+                resourceDescription: "Find product information including features, requirements, and pricing of Hyper Protect Virtual Servers.",
+                resourceLinkUrl: "https://www.ibm.com/products/hyper-protect-virtual-servers",
+                resourceLinkText: "Explore the product page",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceDescription: "Learn about how to configure an IBM Secure Service Container partition, then install and run supported firmware or software appliances in that partition.",
+                resourceLinkUrl: "https://www.ibm.com/support/pages/node/6019774?_ga=2.263899212.1721070098.1609768216-85615674.1567618694",
+                resourceLinkText: "Read the user's guide",
+                resourceLinkType: "userguide",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            },
+            {
+                resourceDescription: "Sign up for a free trial to explore Hyper Protect Virtual Servers on IBM Z & LinuxONE.",
+                resourceLinkUrl: "mailto:dmhender@us.ibm.com?subject=Free%20Trial%20of%20IBM%20Hyper%20Protect%20Virtual%20Servers&body=I'm%20interested%20in%20a%20free%20trial%20of%20IBM%20Hyper%20Protect%20Virtual%20Servers.",
+                resourceLinkText: "Request access to the free trial",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png",
+                resourceStatus: "hide"
+            },
+            {
+                resourceDescription: "Participate in the Hyper Protect Virtual Servers workshop and gain hands-on experience with a series of labs and demos.",
+                resourceLinkUrl: "mailto:judyv@us.ibm.com?subject=IBM%20Hyper%20Protect%20Virtual%20Servers%20Workshop&body=I'm%20interested%20in%20participating%20in%20the%20IBM%20Hyper%20Protect%20Virtual%20Servers%20Workshop.",
+                resourceLinkText: "Sign up for the workshop",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png",
+                resourceStatus: "hide"
+            },
+            {
+                resourceDescription: "Request a live demo of Data Privacy Passports deployed to Hyper Protect Virtual Servers.",
+                resourceLinkUrl: "https://www.ibm.com/systems/clientcenterdemonstrations/faces/dcMyDemosView.jsp?demoId=3450&page=null&nbBypage=null",
+                resourceLinkText: "Request a live demo",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png",
+                resourceStatus: "hide"
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Multimedia",
+        tabContent: [
+            {
+                resourceTitle: "Overview",
+                resourceDescription: "Learn how IBM® Hyper Protect Virtual Servers are designed to protect mission critical Linux workloads throughout the DevSecOps lifecycle.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/playlist/dedicated/1_3w1267ve/1_hxfeynck",
+                resourceLinkText: "Watch the video (4:53)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "How to bring your own image",
+                resourceDescription: "Learn how to bring your own image on IBM® Hyper Protect Virtual Servers.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/Bring%20your%20own%20image%20on%20IBM%20Hyper%20Protect%20Virtual%20Servers/1_m38ficf9",
+                resourceLinkText: "Watch the video (5:20)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "How to use the secure build virtual server",
+                resourceDescription: "Learn how to use the secure build virtual server to build source code stored in a GitHub repository, deploy it into IBM® Hyper Protect Virtual Servers, and publish to a remote Docker repository.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/How%20to%20use%20the%20secure%20build%20virtual%20server%20on%20IBM%20Hyper%20Protect%20Virtual%20Servers/1_z7m2k81q",
+                resourceLinkText: "Watch the video (6:59)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "How to set up a Grep11 container",
+                resourceDescription: "Learn how to set up a Grep11 container while creating your Hyper Protect Virtual Server environment.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/How%20to%20set%20up%20a%20Grep11%20container%20in%20IBM%20Hyper%20Protect%20Virtual%20Servers/1_37zj9xlz",
+                resourceLinkText: "Watch the video (4:22)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Running the Trusted Key Entry Workstation Setup Wizard",
+                resourceDescription: "Learn how to initialize your new Trusted Key Entry, using the Trusted Key Entry Workstation Setup Wizard.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/Initialize+Your+New+Trusted+Key+Entry+%28TKE%29%2C+Using+the+TKE+Workstation+Setup+Wizard/1_5vrbxdo1",
+                resourceLinkText: "Watch the video (10:28)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Initializing Smart Cards",
+                resourceDescription: "Learn how to use Trusted Key Entry to initialize smart cards for Trusted Key Entry Workstation and CCA normal-mode module management.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/Using+Trusted+Key+Entry+%28TKE%29+to+Initialize+Smart+Cards+for+TKE+Workstation+and+CCA+Normal-Mode+Module+Management/1_tq4cfu63",
+                resourceLinkText: "Watch the video (17:01)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Creating the Profiles Used for Logging onto the Trusted Key Entry Workstation",
+                resourceDescription: "Learn how to create Trusted Key Entry local crypto adapter profiles by using the Trusted Key Entry Workstation Log-on Profile Wizard. These profiles are used when you open TKE applications and utilities.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/Create+TKE+Local+Crypto+Adapter+Profiles+Using+the+TKE+Workstation+Logon+Profile+Wizard/1_btlonb4g",
+                resourceLinkText: "Watch the video (12:52)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Creating Host Definitions",
+                resourceDescription: "Learn how to create and open Trusted Key Entry host definition objects, which are used to access the logical partitions or systems running the Trusted Key Entry host transaction program.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/Create+and+Open+Trusted+Key+Entry+%28TKE%29+Host+Definitions/1_l0yq9j7n",
+                resourceLinkText: "Watch the video (11:03)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Creating CCA Domain Groups",
+                resourceDescription: "Learn how to create and open Trusted Key Entry CCA Domain groups, which are collections of modules and domains with the same administrative settings. From a domain group, every module-wide command is sent to every module included in the group. Every domain-specific command is sent to every domain in the group.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/Create+and+Open+Trusted+Key+Entry+%28TKE%29+CCA+Domain+Groups/1_3eujuv5g",
+                resourceLinkText: "Watch the video (14:38)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{# set related = [22,25,14] %}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{# set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "April 2, 2021",
+        sectionContent: "Added the Journey to hybrid cloud with IBM Z content solution to the Content Solutions tab in the Technical Resources section."
+    }
+] %} 
+{# END WHATS NEW #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{# set feedbackURL = "hyperprotectvirtualservers" %}
+{# END FEEDBACK #}
+
+{# START STATCOUNTER #}
+{# set statcounter = {
+    sc_project: "12360334",
+    sc_security: "17659cf3"
+}
+ %}
+{# END STATCOUNTER #}

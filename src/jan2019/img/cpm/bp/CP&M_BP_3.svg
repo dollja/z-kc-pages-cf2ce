@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="148px" height="109px" viewBox="0 0 148 109" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 82</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-82" transform="translate(-5.000000, -45.000000)">
+            <g id="Group-39" fill="#FFFFFF" font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="144" font-weight="500" opacity="0.203125">
+                <g id="Group-36">
+                    <text id="3">
+                        <tspan x="0" y="148">3</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Group-80" transform="translate(66.000000, 95.000000)">
+                <rect id="Rectangle-43" stroke="#FFFFFF" stroke-width="2.0328" x="1.0164" y="1.0164" width="84.9672" height="56.9672"></rect>
+                <path d="M1.49411765,13.5 L84.5058824,13.5" id="Line-5" stroke="#FFFFFF" stroke-width="2.0328" stroke-linecap="square"></path>
+                <circle id="Oval-2" fill="#FFFFFF" cx="16" cy="6" r="2"></circle>
+                <circle id="Oval-2" fill="#FFFFFF" cx="21" cy="6" r="2"></circle>
+                <circle id="Oval-2" fill="#FFFFFF" cx="11" cy="6" r="2"></circle>
+                <rect id="Rectangle-16" fill="#FFFFFF" x="68" y="47" width="14" height="6"></rect>
+                <g id="Group-19" transform="translate(35.000000, 20.000000)">
+                    <rect id="Rectangle-48" stroke="#FFFFFF" x="0.5" y="0.5" width="24" height="6.05882353"></rect>
+                    <rect id="Rectangle-48" stroke="#FFFFFF" x="0.5" y="8.97058824" width="24" height="6.05882353"></rect>
+                    <rect id="Rectangle-48" stroke="#FFFFFF" x="0.5" y="17.4411765" width="24" height="6.05882353"></rect>
+                    <polygon id="Triangle-4" fill="#FFFFFF" transform="translate(20.955882, 3.458755) scale(1, -1) translate(-20.955882, -3.458755) " points="20.9558824 2.39993107 22.7941176 4.51757812 19.1176471 4.51757812"></polygon>
+                    <polygon id="Triangle-4" fill="#FFFFFF" transform="translate(20.955882, 11.929343) scale(1, -1) translate(-20.955882, -11.929343) " points="20.9558824 10.8705193 22.7941176 12.9881664 19.1176471 12.9881664"></polygon>
+                    <polygon id="Triangle-4" fill="#FFFFFF" transform="translate(20.955882, 20.399931) scale(1, -1) translate(-20.955882, -20.399931) " points="20.9558824 19.3411075 22.7941176 21.4587546 19.1176471 21.4587546"></polygon>
+                </g>
+                <rect id="Rectangle-30" fill="#EBF3FE" x="3" y="14" width="20" height="40"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

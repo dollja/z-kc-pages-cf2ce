@@ -1,0 +1,490 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "Red Hat Ansible Certified Content for IBM Z" %}
+{% set key = 1 %}
+
+{# META #}
+{% set meta_description = meta_description | default("") %}
+{% set meta_keywords = meta_keywords | default("") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "image",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/ans/main-ansible.svg",
+    label: "Red Hat Ansible Certified Content"
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Welcome to the Red Hat Ansible Certified Content for IBM® Z® content solution, your homepage for technical resources.</p>
+<p>Red Hat® Ansible Certified Content for IBM Z helps you connect IBM zSystems™ to your wider enterprise automation strategy through the Ansible Automation Platform ecosystem. The Red Hat Ansible Certified Content available in Ansible Automation Hub and Galaxy provides a wide range of Ansible collections that enables development and operations automation on z/OS®, z/OS middleware products, and other IBM Z systems and resources. The collections offer seamless, unified workflow orchestration with configuration management, provisioning, and application deployment in one easy-to-use platform.</p>
+<p>Today, we offer collections for z/OS core, IBM IMS, IBM Z System Automation, IBM CICS, z/OS Management Facility and System Z Hardware Management Console that can be readily used. We are actively expanding our collections to automate other common configuration and management tasks for software in the broader IBM zSystems community.</p>
+<p>All the collections we offer today can be used with all the other collections contributed in the Ansible community (Jenkins, ServiceNow, DS8000, AWS, etc.) for any automation use-case you are interested in.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "other",
+        url: "https://ibm.github.io/z_ansible_collections_doc/index.html",
+        text: "Find more information about Red Hat Ansible Certified Content for IBM Z"
+
+    },
+    {
+        id: 2,
+        type: "other",
+        url: "http://ibm.biz/BdfsTR",
+        text: "Join our Ansible for IBM zSystems Community"
+
+    }
+] %}
+
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# set announcements = [
+    {
+    announcementText: "",
+    announcementLinkText: "",
+    announcementLinkUrl: ""
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+{# END INTRODUCTION #}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        pictogramUrl: "/ans/bp-ansible-1_without-number.svg",
+        iconPath:'<path d="M16,31.4C7.5,31.4,0.6,24.5,0.6,16S7.5,0.6,16,0.6S31.4,7.5,31.4,16S24.5,31.4,16,31.4z M16,1.6C8.1,1.6,1.6,8.1,1.6,16
+	S8.1,30.4,16,30.4S30.4,23.9,30.4,16S23.9,1.6,16,1.6z"/>
+<polygon points="14.4,21.6 9.7,17 10.4,16.3 14.4,20.3 23.5,11.3 24.1,12 "/>',
+        iconAlt: "pictogram for step one - requirements",
+        description: "Make sure you have the right software for your z/OS system."
+    },
+    {
+        id: 2,
+        iconPath: '<path d="M31,31.4H1c-0.3,0-0.5-0.2-0.5-0.5v-8.1h0.9v7.5h29.1v-7.5h1v8C31.6,31.1,31.4,31.4,31,31.4L31,31.4z"/>
+<polygon points="16,23.5 9.7,17.2 10.3,16.5 15.6,21.7 15.6,0.8 16.5,0.8 16.5,21.7 21.7,16.5 22.4,17.2 "/>',
+        iconAlt: "pictogram for step two - install",
+        description: "Install Red Hat Ansible Certified Content for IBM Z Collections."
+    },
+    {
+        id: 3,
+        iconPath: '<path d="M19,31.6h-6c-0.2,0-0.4-0.2-0.4-0.3l0,0l0,0v-3.7l-2.4-1l-2.6,2.6c-0.2,0.1-0.4,0.1-0.5,0l-4.2-4.3c-0.1-0.1-0.1-0.4,0-0.5
+	l0,0l2.6-2.6l-1-2.4H0.8c-0.2,0-0.4-0.2-0.4-0.4v-6c0-0.2,0.2-0.4,0.4-0.4h3.7l1-2.4L2.9,7.6c-0.1-0.1-0.1-0.4,0-0.5l4.2-4.2
+	c0.1-0.1,0.4-0.1,0.5,0l0,0l0,0l2.6,2.6l2.4-1V0.7c0-0.2,0.2-0.4,0.3-0.4l0,0h6c0.2,0,0.4,0.2,0.4,0.3l0,0v3.7l2.4,1l2.6-2.6
+	c0.1-0.1,0.4-0.1,0.5,0l0,0l0,0l4.2,4.2c0.1,0.1,0.1,0.4,0,0.5l-2.6,2.6l1,2.4h3.7c0.2,0,0.4,0.2,0.4,0.4v6c0,0.2-0.2,0.4-0.4,0.4
+	h-3.7l-1,2.4l2.6,2.6c0.1,0.1,0.1,0.4,0,0.5l0,0l0,0l-4.3,4.2c-0.2,0.1-0.4,0.1-0.5,0l-2.6-2.6l-2.4,1v3.7
+	C19.4,31.4,19.3,31.6,19,31.6C19.1,31.6,19.1,31.6,19,31.6L19,31.6z M13.4,30.9h5.3v-3.6c0-0.2,0.1-0.3,0.2-0.3l2.9-1.2
+	c0.1-0.1,0.3,0,0.4,0.1l2.5,2.5l3.7-3.7l-2.5-2.5c-0.1-0.1-0.1-0.3-0.1-0.4l1.2-2.9c0.1-0.1,0.2-0.2,0.3-0.2H31v-5.3h-3.6
+	c-0.2,0-0.3-0.1-0.3-0.2l-1.2-2.9c-0.1-0.1,0-0.3,0.1-0.4l2.5-2.5l-3.8-3.7l-2.5,2.5c-0.1,0.1-0.3,0.1-0.4,0.1L18.9,5
+	c-0.2,0-0.3-0.2-0.3-0.3V1.1h-5.3v3.6c0,0.2-0.1,0.3-0.2,0.3l-2.9,1.2c-0.1,0.1-0.3,0-0.4-0.1L7.4,3.6L3.6,7.3l2.5,2.5
+	c0.1,0.1,0.1,0.3,0.1,0.4l-1.2,2.8c-0.1,0.1-0.2,0.2-0.3,0.2H1.1v5.3h3.6c0.2,0,0.3,0.1,0.3,0.2l1.2,2.9c0.1,0.1,0,0.3-0.1,0.4
+	l-2.5,2.5l3.7,3.7l2.5-2.5c0.1-0.1,0.3-0.1,0.4-0.1l2.9,1.2c0.1,0.1,0.2,0.2,0.2,0.3V30.9z M16,23.5c-4.1,0-7.5-3.3-7.5-7.5
+	s3.3-7.5,7.5-7.5s7.5,3.3,7.5,7.5S20.2,23.5,16,23.5z M16,9.2c-3.7,0-6.8,3-6.8,6.7c0,3.7,3,6.8,6.7,6.8c3.7,0,6.8-3,6.8-6.7l0,0
+	C22.8,12.3,19.7,9.3,16,9.2L16,9.2z"/>',
+        iconAlt: "pictogram for step three - automate",
+        description: "Start your automation journey by writing and executing Ansible playbooks."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Requirements",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Setting up z/OS to be an Ansible-managed node is simple. Ansible is an agentless architecture, which means that there’s no server-side component that needs to be installed on any managed node.</p>
+                <p>All you'll need is SSH enabled, z/OS Unix System Services enabled, Python, and IBM Z Open Automation Utilities.</p>
+                <p>After you’ve done that, any machine you are using as your Ansible control node will be able to connect to z/OS and drive the automation of your choosing.</p>
+                <p>IBM Z Open Automation Utilities (ZOA Utilities) helps z/OS developers automate tasks that access MVS™ resources. It enables easier calling of MVS utilities compared with JCL by providing a natural coding experience on z/OS UNIX System Services and interfaces in modern programming languages.</p>
+                <p>This support requires z/OS V2R3 or later.</p>"
+            },
+            {
+                subSectionTitle: "Steps for the system programmer",
+                subSectionContent: "<p>Follow these steps to set up your z/OS server, which is the managed (target) node:</p>
+                <ol><li>Enable <a href='https://www.ibm.com/docs/en/zos/latest?topic=zbed-zos-openssh'>OpenSSH</a> and perform <a href='https://ibm.github.io/z_ansible_collections_doc/ibm_zos_core/docs/source/community_guides_docs/zos_ansible_module_testing.html#ssh-keys'>ssh-keys setup</a>.</li>
+                <li>Install <a href='https://www.ibm.com/products/open-enterprise-python-zos'>IBM Open Enterprise SDK for Python</a>.</li>
+                <li>Install <a href='https://www.ibm.com/docs/en/zoau'>IBM Z Open Automation Utilities (ZOAU)</a>.</li>
+                </ol><p>For detailed version number requirements read the <a href='https://ibm.github.io/z_ansible_collections_doc/requirements/requirements.html#managed-node'>requirements documentation</a>.</p>"
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Install",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "Decide how you want to install the Red Hat Ansible Certified collection."
+            },
+            {
+                subSectionTitle: "Ansible Galaxy",
+                subSectionContent: "<p>If your organization has access to Ansible Galaxy or Ansible Automation Hub, you can install directly from the public repositories.</p>
+                <p>Use the following ansible-galaxy command to install a collection hosted in Galaxy on your control node:</p>
+                <bx-code-snippet type='single'>$ ansible-galaxy collection install ibm.&#60;collection&#62; </bx-code-snippet>
+                <p>Find the correct installation command for the <a href='http://ibm.biz/BdfrAu'>Red Hat Ansible Certified Content for IBM Z collection</a> you are interested in on that respective collection's Ansible Galaxy page.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html",
+                        linkText: "Ansible Galaxy install"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Automation Hub and Private Galaxy server",
+                subSectionContent: "<p>If your organization does not allow access to Ansible Galaxy or Automation Hub, then you might set up an internal Galaxy server and pull the approved content to share internally so that you can host a subset of content. You can modify the configuration to point to your internal Galaxy server.</p>
+                <p>To configure access to Automation Hub and Private Galaxy server, use the same instructions that you use to configure your client to point to Automation Hub. When hosting a private Galaxy server or pointing to Hub, the available content is not always consistent with what is available on the community Galaxy server.</p>
+                <p>Galaxy contains our community editions which represent our latest features and their progression to becoming certified in Automation Hub. Populating a private Galaxy repository depends on your particular scanning and content cloning process.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://ibm.github.io/z_ansible_collections_doc/installation/installation.html#automation-hub-and-private-galaxy-server",
+                        linkText: "Private Galaxy server install"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Local installation",
+                subSectionContent: "<p>You can use the <bx-code-snippet type='inline'>ansible-galaxy collection install</bx-code-snippet> command to install a collection built from source. To build your own collection, you must clone the Git repository, build the collection archive, and install the collection. The <bx-code-snippet type='inline'>ansible-galaxy collection build</bx-code-snippet> command packages the collection into an archive that can later be installed locally without having to use Hub or Galaxy.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://ibm.github.io/z_ansible_collections_doc/installation/installation.html#id3",
+                        linkText: "Local installation"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>Follow these steps to install or update Ansible on your Automation Controller. Then install the z/OS core collection from Ansible Galaxy.</p>
+                <h5>Install Ansible</h5>
+                <ol>
+                    <li>Install <a href='https://www.python.org/downloads/'>Python</a> 3.5 or later.</li>
+                    <li>Install Ansible on your local machine. <br/>
+                    <p><bx-code-snippet type='single'>$ sudo pip3 install ansible</bx-code-snippet></p>
+                    </li>
+                    <li>Verify that Ansible is installed on your machine.<br/>
+                    <p><bx-code-snippet type='single'>$ ansible --version</bx-code-snippet></p>
+                    </li>
+                    </ol>
+                    <p>Example output:</p>
+                    <p><bx-code-snippet type='multi'>
+ansible 2.9.6
+config file = None
+configured module search path = ['/Users/&lt;username&gt;/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+ansible python module location = /usr/local/lib/python3.7/site-packages/ansible
+executable location = user/local/bin/ansible
+python version = 3.7.4 (default, Sep 7 2019, 18:27:02) [Clang 10.0.1 (clang-1001.0.46.4)]</bx-code-snippet></p>
+                    <br />
+                    <h5>Updating Ansible</h5>
+                    <p>If you already have Ansible installed on the Automation Controller, you can update it to the latest version.</p>
+                    <ol>
+                    <li>Update Ansible. <br/>
+                    <bx-code-snippet type='single'>$ sudo pip3 install ansible –upgrade</bx-code-snippet>
+                    </li>
+                    <li>Verify that Ansible is updated.<br/>
+                    <p><bx-code-snippet type='single'>$ ansible --version</bx-code-snippet></p>
+                    </li>
+                    </ol>
+                    <br />
+                    <h5>Install the z/OS core collection</h5>
+                    <p>Once you have Ansible installed, use the following command to install the Red Hat Ansible Certified collection:</p>
+                    <p><bx-code-snippet type='single'>$ ansible-galaxy collection install ibm.&#60;collection&#62;</bx-code-snippet></p>"
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Automate",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Use Red Hat Ansible Certified Content for IBM Z collections to automate tasks on your zSystems environments. Start by referring to the included module documentation and examples provided with each of our modules. Use the <em>ansible-doc</em> command to view the documentation to learn about each of the modules, such as zos_data_set, by issuing <em>ansible-doc ibm.ibm_zos_core.zos_data_set</em> or by visiting the module documentation page.</p>
+                <p>With Red Hat Ansible Certified Content for IBM Z, documentation for all of your collections are in a single unified place. Explore documentation content across all IBM zSystems collections, including getting started and troubleshooting information specific to IBM zSystems environments.</p> 
+                <p class='ibm-ind-link'><a href='https://ansible-collections.github.io/ibm_zos_core/' class='ibm-forward-link ibm-textcolor-blue-50'>Collection documentation</a></p>
+                <p>An Ansible playbook consists of organized instructions, referred to as tasks and roles, that define work for a managed node (host) to be automated using Ansible.</p>
+                <p class='ibm-ind-link'><a href='https://ibm.github.io/z_ansible_collections_doc/faqs/faqs.html#modules-playbooks' class='ibm-forward-link ibm-textcolor-blue-50'>About Ansible playbooks</a></p>
+                <p>To get started automating on IBM zSystems with playbooks tailored to many IBM zSystems use cases, there is the Ansible content for IBM zSystems sample playbook repository. Users can then edit these samples to fit their own needs, accelerating use and adoption of ansible amongst teams. You can also contribute playbooks to the sample playbook repository to help the community learn Ansible.</p>
+                <p class='ibm-ind-link'><a href='http://ibm.biz/BdfH9g' class='ibm-margin-bottom-1 ibm-forward-link ibm-textcolor-blue-50'>Sample playbooks</a></p>
+                 <p>Let's start with this <a href='https://github.com/IBM/z_ansible_collections_samples/tree/master/zos_concepts/jobs/submit_query_retrieve'>sample playbook</a> from the Ansible for IBM zSystems sample playbooks repository as an example. This playbook performs the following steps:</p>
+                <ol class='ibm-textcolumns-1 ibm-textcolumns-medium-1'>
+                <li>Create a data set and populate with JCL on the target z/OS system</li>
+                <li>Submit job on z/OS</li>
+                <li>Query job submission and review output</a>
+                <li>Delete data set to clean up the z/OS system</li></ol>"
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>Follow these steps to run a playbook:</p>
+                <ol class='ibm-textcolumns-1 ibm-textcolumns-medium-1'>
+                <li>Edit the <a href='https://github.com/IBM/z_ansible_collections_samples/blob/master/zos_concepts/jobs/submit_query_retrieve/ansible.cfg'>ansible.cfg</a> file to include <bx-code-snippet type='inline'>pipelining = true</bx-code-snippet>.</li>
+                <li>Modify the sample <a href='https://github.com/IBM/z_ansible_collections_samples/blob/master/zos_concepts/jobs/submit_query_retrieve/inventories/inventory.yml'>inventory</a> to add the z/OS host, user, and Python location.</li>
+                <li>Update the host_vars in the <a href='https://github.com/IBM/z_ansible_collections_samples/blob/master/zos_concepts/jobs/submit_query_retrieve/inventories/inventory.yml'>zos_host.yml</a> file to point to locations on ZOAU and Python on z/OS.</li>
+                <li>Run the <a href='https://ibm.github.io/z_ansible_collections_doc/playbooks/playbooks.html'>Ansible</a> playbook using the following command:
+                <p><bx-code-snippet type='single'>ansible-playbook -i inventory &#60;sample&#62;.yaml</bx-code-snippet></p></li></ol>
+                <p>You've just run your first Ansible playbook for IBM zSystems!</p>"
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FAQs #}
+{# Formatting:
+question: will be wrapped in an <h3>Q:[content]</h3>
+answer: will be wrapped in <p>A:[content]</p>, line breaks (<br />), inline links, and lists can be added to answers as needed.
+linkUrl: adds forward arrow link after answer paragraph
+linkText: display text for forward arrow link
+#}
+{% set faqs = [
+    {
+    question: "What are the benefits of using the Ansible for IBM Z collections?",
+    answer: "Users are able to:<br />&bull; Integrate IBM zSystems into an enterprise automation strategy in a consistent way<br />
+    &bull; Enable a common approach for hybrid applications and infrastructure management<br />
+    &bull; Enable transparent visibility of IBM zSystems automation when orchestrated by Ansible<br />
+    &bull; Drive best practices to manage automation in source control to move towards infrastructure as code<br />
+    &bull; Leverage Ansible and Python skills, which are readily available in the marketplace and can be applied to z/OS<br />
+    &bull; Use modules to codify key maintenance and operational tasks for IBM zSystems software so that you can focus on what you’re trying to accomplish, rather than worry about how to write JCL, for example"
+    },
+    {
+    question: "Where do I get support for the Red Hat Ansible Certified Content for IBM Z?",
+    answer: "Red Hat® Ansible Certified Content for IBM Z collections  will be developed in the open, and when content is ready for use it is released to Ansible Galaxy for community adoption. Content in Ansible Galaxy is supported by the robust open source community who recognizes Ansible as a leader in automation. Once contributors review community usage, feedback, and are satisfied with the content published, the collection will then be released to Ansible Automation Hub as certified and IBM supported for Red Hat® Ansible Automation Platform subscribers."
+    },
+    {
+    question: "Will more collections be available?",
+    answer: "Absolutely! More collection and content will be made available in support of middleware provisioning, middleware configuration, middleware management, and application deployment, to name a few. The collections are starting with a focus on z/OS but are intended to expand more broadly to the IBM Z ecosystem over time. Ansible Galaxy contains the <a href='http://ibm.biz/BdfrAu'>complete list of collections</a>.<br /><br />
+    These content collections are accelerators to make automating z/OS with Ansible even easier. Ansible is a powerful tool, that can be used out of the box to build your own automation. With Python as the core language for Ansible modules, it's easy for developers to build and contribute their own modules in support of any automation strategy."
+    },
+    {
+    question: "Do I need to be an Ansible expert to use Ansible for IBM Z collections?",
+    answer: "Ansible is a powerful IT automation tool that is quick and easy to learn. Get started by checking out <a href='https://www.ansible.com/resources/get-started'>Ansible's Getting Started website</a>."
+    },
+    {
+    question: "Is there an easy way to get started working with the collections?",
+    answer: "Yes, use the sample playbooks in the sample playbooks repository that leverage IBM Z collections. Consider contributing playbooks to the repository to help the Ansible for IBM zSystems community grow.<br />
+    <a href='https://ibm.github.io/z_ansible_collections_doc/playbooks/playbooks.html'>z/OS core</a><br />
+    <a href='https://ansible-collections.github.io/ibm_zos_ims/playbooks.html'>IMS</a><br />
+    <a href='https://galaxy.ansible.com/ibm/ibm_zos_cics'>CICS</a><br />
+    <a href=' https://galaxy.ansible.com/ibm/ibm_zhmc'>IBM Z Hardware Management Console</a><br />
+    <a href='https://ansible-collections.github.io/ibm_zos_sysauto/playbooks.html#sample-playbooks'>IBM Z System Automation</a><br />
+    <a href='https://galaxy.ansible.com/ibm/ibm_zosmf'>z/OSMF</a>"
+    },
+    {
+    question: "Ansible can cover a lot of use cases: some of which I already have some technology solutions for. Does Ansible replace any existing technologies I already use?",
+    answer: "It is up to each enterprise to determine its strategy for how it evolves the set of tools and technologies that it uses. The good news with Ansible is that it integrates with a wide range of technologies across the hybrid multicloud landscape, and across IBM zSystems. You can use Ansible automation to integrate with what you have or build new playbooks with certified collections to create something new.<br /><br/>Leverage your existing JCL, REXX, and z/OSMF assets or most anything else using Ansible as the driver to automate Z. The choice is yours.",
+    linkUrl: "https://www.ansible.com/use-cases/orchestration",
+    linkText: "Learn more about Ansible Orchestration"
+    }
+
+]%}
+{# Learn more - optional four column section to the right of the main FAQs if needed for custom html (see example on Container Extensions #}
+{# set learnMore = "" #}
+{# END FAQs #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: false,
+        tabContent: [
+            {
+                resourceTitle: "Learn more about Ansible Automation with IBM z/OS",
+                resourceLinkUrl: "https://www.ansible.com/integrations/infrastructure/ibm-zos",
+                resourceLinkText: "Find more info at Red Hat",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Explore z/OS collections from IBM in Ansible Galaxy",
+                resourceLinkUrl: "http://ibm.biz/BdfrAu",
+                resourceLinkText: "Explore the collections",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Learn about Ansible Automation Hub and certified content",
+                resourceLinkUrl: "https://www.ansible.com/resources/webinars-training/getting-started-with-red-hat-ansible-certified-content-collections-and-automation-hub",
+                resourceLinkText: "Check out the webinar",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Getting started with Ansible",
+                resourceLinkUrl: "https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html",
+                resourceLinkText: "Get started now",
+                resourceLinkType: "documentation",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Ansible for IBM zSystems: User Spotlight Series",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/daniel-jast1/2023/01/06/ansible-user-spotlight-series-ipek-d
+",
+                resourceLinkText: "Check out the blog",
+                resourceLinkType: "document",
+                resourceStatus: "new",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Explore Ansible for z/OS through IBM Z Trial",
+                resourceLinkUrl: "https://early-access.ibm.com/software/support/trial/cst/welcomepage.wss?siteId=940&tabId=2224&w=1",
+                resourceLinkText: "Get hands on",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "z/OS user management with Ansible",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/blake-becker1/2020/09/03/zos-user-management-with-ansible",
+                resourceLinkText: "Read the blog",
+                resourceLinkType: "document",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Red Hat Ansible Automation Platform Self-guided labs",
+                resourceLinkUrl: "https://www.redhat.com/en/engage/redhat-ansible-automation-202108061218?extIdCarryOver=true&sc_cid=701f2000001OH7EAAW",
+                resourceLinkText: "Get hands on",
+                resourceLinkType: "webpage",
+                resourceStatus: "new",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "z/OS Certificate Management automation with Ansible",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/Certificate+management+automation+with+Ansible+for+z+OS/1_sx6oqr00",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceStatus: "new",
+                resourceIcon: false
+            },
+                        {
+                resourceTitle: "Ansible NPS survey",
+                resourceLinkUrl: "https://survey.alchemer.com/s3/6603851/Ansible-for-IBM-Z-Survey-NPS-Survey
+",
+                resourceLinkText: "Fill out the survey",
+                resourceLinkType: "webpage",
+                resourceStatus: "new",
+                resourceIcon: false
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{# set related = [] #}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "March 2023",
+        sectionContent: "• Updates to the introduction, including more information about collections, and changes and additions to the Technical resources section."
+    },
+    {
+        sectionTitle: "September 2021",
+        sectionContent: "• Minor updates to the introduction, including the addition of z/OSMF to the list of collections.<br />• Updated documentation link to point to the sample playbook for z/OSMF<br />"
+    },
+    {
+        sectionTitle: "March 2021",
+        sectionContent: "• Major content update with additional technical resources and link to IBM Z Trial<br />• Updated documentation links to point to the sample playbook for<br />• Released the <a href='https://galaxy.ansible.com/ibm/ibm_zos_sysauto'>IBM Z System Automation Collection</a>, <a href='https://galaxy.ansible.com/ibm/ibm_zos_cics'>IBM z/OS CICS Collection</a>, <a href='https://galaxy.ansible.com/ibm/ibm_zhmc'>IBM Z Hardware Management Console Collection</a>"
+    },
+    {
+        sectionTitle: "June 2020",
+        sectionContent: "• Updated the Ansible prerequisites section to include IBM Python<br />• Introduced a What’s New section<br />• Included a link to a Terminal Talk Podcast “Ansible for z/OS”"
+    },
+    {
+        sectionTitle: "May 2020",
+        sectionContent: "Released IBM z/OS IMS collection v1.0.0-beta1 and beta2 to automate routine system operation tasks with Ansible. The IMS collection facilitates database administration tasks and integrates application changes into a CI/CD pipeline for application deployment and delivery and more.<br /><a href='https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/haley-fung1/2020/05/26/ibm-zos-ims-collection-v1-1-0-beta2-release'>Read the blog</a>"
+    },
+    {
+        sectionTitle: "April 2020",
+        sectionContent: "Released IBM z/OS core collection v1.1.0-beta1 to extend the library of Ansible modules to provide the ability to automate several operations including data access, encode data on z/OS and more.<br /><a href='https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/eric-su1/2020/05/12/ibm-zos-core-collection-v1-1-0-beta1-release'>Read the blog</a>"
+    },
+    {
+        sectionTitle: "March 2020",
+        sectionContent: "Released of IBM z/OS core collection v1.0.0, as part of the Red Hat Ansible Certified content for IBM Z. IBM z/OS core collection enables automating development and deployment of your new applications and features in z/OS.<br /><a href='https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/jacqui-jax-shawley1/2020/03/25/ansible-collection?CommunityKey=87042487-940e-49cc-ae6d-5a5b76c5ea7e&tab='>Read the blog</a>"
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "ansible" %}
+{# END FEEDBACK #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "12219472",
+    sc_security: "ee71fb2e"
+}
+ %}
+{# END STATCOUNTER #}
+
+{# START HOTJAR #}
+{% set hotjar = {
+    site_id: ""
+}
+ %}
+{# END HOTJAR #}

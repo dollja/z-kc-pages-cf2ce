@@ -1,0 +1,251 @@
+//Placeholder structures for further extension over serveral v18 modules
+
+//form styles placeholder
+//this is referenced in _forms.scss and _common.scss
+
+/// Input style placeholder
+/// @group forms
+%ibm-styled-input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
+	border-bottom: 1px solid color('cool-gray', 50);
+	border-radius: 0;
+	box-sizing: border-box;
+	// box-shadow: 0px 0px 0px 1px transparent inset;
+	font-style: normal;
+	height: auto;
+	line-height: 1.5rem;
+	margin: 0; //this removes default margin added in Safari and alignes input boxes with dropdowns in column form
+	max-width: 100%;
+	padding: 13px 16px;
+	text-indent: 0;
+	background-color: v19aColor('gray',10);
+	color: color('gray', 100);
+	width: 370px;
+	transition: .3s border-color, .3s background, .3s box-shadow;
+
+	&:hover {
+		border-bottom: 1px solid color('gray', 50);
+		box-shadow: none;
+	}
+
+	&:focus {
+		box-shadow: 0px 0px 0px 2px v19aColor('blue',60) inset;
+		background-color: v19aColor('gray',10);
+		outline: none;
+		border-color: color('gray', 10);
+	}
+
+	&.ibm-field-error {
+		border: 1px solid v19aColor('red',60);
+		box-shadow: 0px 0px 0px 1px v19aColor('red',60) inset;
+
+		&:hover  {
+			border-color: v19aColor('red',60);
+			box-shadow: 0px 0px 0px 1px v19aColor('red',60) inset;
+			@include ie-box-shadow-removal;
+		}
+	}
+
+	&[disabled] {
+		cursor: not-allowed;
+		border: 1px solid v19aColor('gray',10);
+		background-color: v19aColor('gray',10);
+
+		&:placeholder {
+			color: v19aColor('gray',30);
+		}
+
+		&:hover {
+			border: 1px solid v19aColor('gray',10);
+			background-color: v19aColor('gray',10);
+			box-shadow: none;
+
+			&:focus {
+				border: 1px solid color('cool-gray', 40);
+			}
+		}
+	}
+
+	&[type="number"] {
+		width: auto;
+		min-width: 128px;
+		-webkit-appearance: default;
+		-moz-appearance: default;
+	}
+
+	// reseting textarea since it's cheaper than to break off codeblock to duplicate selectors
+	@at-root textarea#{&} {
+		height: auto;
+		line-height: normal;
+		text-indent: 0px;
+		padding: 5px; // Add some padding for the text in the field, per Wisniewski.
+	}
+}
+
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Common style for a thick animated underline on hover.
+//
+// This is created as a class "ibm-thick-underline" in _common.scss and that class is extended (@extend)
+//   to a few masthead and site menu nav elements to provide common thick underline on hover.
+// It's declared once and all other selectors that want the style are tagged onto it via @extend.
+// 
+// Example, on a specific "a" selector add this:
+//   
+//    @extend .ibm-thick-underline;
+// 
+// IMPORTANT: This means that whatever is changed here changes logo, masthead, site menu nav, and anywhere else
+//   that extends the "ibm-thick-underline" class.
+//
+// Hover is split out as a separate placeholder also becuase sometimes a class is added to 
+//   an element for "active/opened" state and not just hover or focus will suffice. Ex: Masthead megamenus.
+///////////////////////////////////////////////////////////////////////////
+
+%animatedHoverline {
+	border: 0;
+	overflow: hidden;
+	position: relative;
+
+	&::after {
+		background: $linkColor;
+		bottom: 0;
+		content: '';
+		display: block;
+		height: 4px;
+		left: 0;
+		position: absolute;
+		-ms-transform: translate(0, 4px);
+		transform: translate3d(0, 4px, 0);
+		transition: transform .4s cubic-bezier(0.4, 1, 0.4, 1);
+		width: 100%;
+	}
+
+	&:hover,
+	&:focus {
+		color: $linkColor;
+
+		&::after {
+			@extend %animatedHoverlineHover;
+		}
+	}
+}
+
+%animatedHoverlineHover {
+	-ms-transform: translate(0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//  Headings: WEIGHT modifier classes. 
+//////////////////////////////////////////////////////////////////////////////////////////
+
+// Default weight is "regular" Helv, use these to use HelvLight or HelvBold.
+// Technically they can add inline <strong> so the bold class here is just a helper so they don't have to.
+%ibm-bold {
+	font-weight: $defaultBoldWeight;
+}
+
+%ibm-light {
+	font-weight: $defaultLightWeight;
+}
+
+%ibm-regular {
+	font-weight: normal;
+}
+
+
+
+////
+//
+//  Text sizing placeholders. Currently used to replicate styles in the classes, 
+//  and then in the adaptive override classes in the media queries.
+//  Need to use a mixin as the base so both a placeholder and nested media query can include the style. (SASS limitation)
+//  
+////
+
+
+// Mixin is the base so it can be used in root and in media query.
+// Optional important style needed so the single grid-override class, EX: "ibm-h1-medium" can override the 
+//  multi class styles of ibm-medium and ibm-large, on H1s
+@mixin h1TextStyle ($important: "") {
+	@include px-to-rem(font-size, 40px, $important);
+	@include px-to-rem(line-height, 45px, $important);
+
+	&.ibm-medium {
+		@include px-to-rem(font-size, 50px);
+		@include px-to-rem(line-height, 55px);
+	}
+
+	&.ibm-large {
+		@include px-to-rem(font-size, 60px);
+		@include px-to-rem(line-height, 65px);
+	}
+}
+
+@mixin h2TextStyle {
+	@include px-to-rem(font-size, 30px);
+	@include px-to-rem(line-height, 35px);
+}
+
+@mixin h3TextStyle {
+	@include px-to-rem(font-size, 25px);
+	@include px-to-rem(line-height, 30px);
+}
+
+@mixin h4TextStyle {
+	@include px-to-rem(font-size, 20px);
+	@include px-to-rem(line-height, 25px);
+}
+
+@mixin defaultTextStyle {
+	@include px-to-rem(font-size, $bodyFontSize);
+	@include px-to-rem(line-height, 26px);
+}
+
+@mixin smallTextStyle {
+	@include px-to-rem(font-size, ($bodyFontSize * 0.875));
+	@include px-to-rem(line-height, 24px);
+}
+
+
+// Placeholders use mixin and media queries use mixin.
+%ibm-h1 {
+	@include h1TextStyle;
+}
+
+%ibm-h2 {
+	@include h2TextStyle;
+}
+
+%ibm-h3 {
+	@include h3TextStyle;
+}
+
+%ibm-h4 {
+	@include h4TextStyle;
+}
+
+%ibm-fontsize-body {
+	@include defaultTextStyle;
+}
+
+%ibm-small {
+	@include smallTextStyle;
+}
+
+
+//shared placeholders
+%small-button {
+	@include px-to-rem(font-size, 14px);
+	line-height: 17.5px;
+	min-width: 75px;
+	padding: 9.5px 1em 8.5px;
+}
+
+
+

@@ -1,0 +1,51 @@
+// The first one is for default assumed HTML of:
+// <input>
+// <label>
+//
+// The second one (~ .ibm-field-label) is for apps that dynamically inject junk between the field 
+//  and the label and cannot control it.
+//  They have to add a wrapper around the field and label so that the sibling (~) can be used.
+//  <span class="ibm-radio-wrapper">
+//    <input class="ibm-styled-radio">
+//    <label class="ibm-field-label">
+//  </span>
+//
+//
+
+.v18e {
+	.ibm-radio-wrapper {
+		@extend .ibm-checkbox-wrapper;
+	}
+
+	.ibm-styled-radio {
+		@extend .ibm-styled-checkbox;
+
+		// Differences in radio button from check box:
+		// It's round (DUH) and :after isn't rotated and has a border.
+		// :after is the inner circle. Has background and light border.
+		+ label,
+		~ .ibm-field-label {
+			&::before {
+				border-radius: 50%;
+			}
+
+			&::after {
+				border: 3px solid transparent;
+				border-radius: 50%;
+				width: 14px;
+				height: 14px;
+				left: -6px;
+				top: 9px;
+			}
+		}
+
+		&:focus {
+			+ label,
+			~ .ibm-field-label {
+				&::before {
+					box-shadow: 0 0 0 3px #0062ff;
+				}
+			}
+		}
+	}
+}

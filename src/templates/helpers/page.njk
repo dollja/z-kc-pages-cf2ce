@@ -1,0 +1,305 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+{# Optional sections are commented out by default, to activate them, change the # to % in their enclosing brackets. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "" %}
+
+{# Solution key - Format is just number, no quotes.
+Replace 00 with number higher than last existing solution. Find existing key list in /data/pages.json and Related Solutions Box note, and update both places with all relevant information. #}
+{% set key = 00 %}
+
+{# META #}
+{% set meta_description = meta_description | default("") %}
+
+{# NEW set to true to preview new leadspace image that has not been part of a build yet #}
+{% set preview = false %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "",
+    videoID: "",
+    thumbnailUrl: "",
+    label: ""
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "",
+        url: "",
+        text: ""
+
+    }
+] %}
+
+{# Introduction notifications #}
+{# Added for ServerPac notifications 5/15. Uses inline informational notification component, can be one or multiple.
+Title in bold (title) followed by a line break, and then the subtitle (subtitle) #}
+
+{# set notifications = [
+{
+    title: "",
+    subtitle: ""
+}
+] #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# set announcements = [
+    {
+    announcementText: "",
+    announcementLinkText: "",
+    announcementLinkUrl: ""
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+*NEW FOR CARBON*
+iconPath: Pictograms must be added as SVG paths. The <svg> enclosing tag is already included in the template (layout-dot-com, line 333), with its necessary styles and classes, so this will be the inner content excluding that and starting with <g>, <path>, <polygon>, etc. Open svg file in VS code to grab path. Any custom pictograms should be made following Carbon guidelines and grid at 32px x 32px.
+***
+iconUrl: Full link to the pictogram used for this step. *NO LONGER NEEDED IN CARBON, but can still be added for reference to the source file for the path.
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconPath: "",
+        iconUrl: "",
+        iconAlt: "",
+        description: ""
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    ~NEW~ subSectionAccordion: Adds accordion/twisties section after main content, example can be seen in Use Cases on FHE. accordionContent accepts HTML and will be filtered for definition tooltips.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "",
+        tabSubSections: [
+            {
+                subSectionTitle: "",
+                subSectionContent: "",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "",
+                        accordionContent: ""
+                    }
+                ],
+                subSectionLinks: [
+                    {
+                        linkUrl: "",
+                        linkText: ""
+                    }
+                ]
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FAQs #}
+{#
+Two formats are available, with or without accordion wrapped category sections. Only use one, not both.
+
+Original pattern: Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqs = [
+    {
+    question: "",
+    answer: ""
+    }
+]#}
+
+{# OR Accordion pattern 
+catTitle: Title for category will be placed in accordion header
+faqs: Associated with this category and wrapped in accordion container. Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqSection = [
+    {
+        categories: [
+            {
+                catTitle: "",
+                faqs: [
+                    {
+                        question: "",
+                        answer: ""
+                    }
+                ]
+            }
+        ]
+    }
+] #}
+
+{# Learn more - optional section below the main FAQs if needed. Can support as many sections as needed following this pattern:
+heading: section heading string
+content: paragraph text content
+links: link section below
+    linkURL: link address
+    linkText: link display text
+    linkType: "local" or "external"
+ #}
+{# New for Zowe page - change Learn more to custom text, and optional intro paragraph #}
+{#set customLMTitle = "" #}
+{# set learnMoredescription = ""#}
+
+{# set learnMore =  [
+    {
+        heading: "",
+        content: "",
+        links: [
+            {
+            linkUrl: "",
+            linkText: "",
+            linkType: ""
+        }
+        ]
+    }
+]
+#}
+
+{# Learn more ALTERNATE pattern for Resilience solution with accordion section
+section: Subheading under Learn more, above accordions
+categories: Each is an accordion wrapper
+    catTitle: Accordion heading
+    content: Supports any custom html content, wrap with appropriate tags
+ #}
+{# set learnMoreAccordion = 
+[
+        {
+        section: "",
+        categories: [
+            {
+                catTitle: "",
+                content:  ""
+            }
+        ]
+        }
+]
+#}
+{# END FAQs #}
+
+{# *** NEW WITH CARBON *** #}
+{# START FEATURED DOCUMENTATION #}
+{# Optional section. Breaks out feature card for main IBM Documentation/C3 link. 1 per page max #}
+{# set documentation = {
+    docTitle: "",
+    docDescription: "",
+    docLinkUrl: "",
+    docLinkText: ""
+}
+#}
+{# END FEATURED DOCUMENTATION #}
+
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to hide tile on page temporarily.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "",
+        tabContent: [
+            {
+                resourceTitle: "",
+                resourceDescription: "",
+                resourceLinkUrl: "",
+                resourceLinkText: "",
+                resourceLinkType: "",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# *** NEW IN CARBON *** #}
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no announcement content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{# set related = [] #}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = false %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "",
+        sectionContent: ""
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "" %}
+{# END FEEDBACK #}
+
+{# START STATCOUNTER #}
+{# set statcounter = {
+    sc_project: "-",
+    sc_security: "-"
+}
+ #}
+{# END STATCOUNTER #}

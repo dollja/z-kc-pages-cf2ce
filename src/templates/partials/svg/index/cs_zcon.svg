@@ -1,0 +1,7 @@
+<svg slot="pictogram" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" data-autoid="dds--card__pictogram" aria-label="Pictogram description" width="48" height="48" viewBox="0 0 32 32" role="img" class="bx--card__pictogram">
+  <rect width="32" height="32" fill="none"/>
+  <rect width="32" height="32" fill="none"/>
+  <rect x="11" y="11" width="10" height="10" rx="2" fill="none" stroke="#161616" stroke-miterlimit="10" stroke-width="0.72"/>
+  <path d="M11,8a5,5,0,0,1,5-5h8a5,5,0,0,1,5,5v8a5,5,0,0,1-5,5" fill="none" stroke="#161616" stroke-miterlimit="10" stroke-width="0.72"/>
+  <path d="M21,24a5,5,0,0,1-5,5H8a5,5,0,0,1-5-5V16a5,5,0,0,1,5-5" fill="none" stroke="#161616" stroke-miterlimit="10" stroke-width="0.72"/>
+</svg>

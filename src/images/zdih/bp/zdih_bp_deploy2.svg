@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="8.5in" height="11in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 8500 11000"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil1 {fill:none}
+    .fil0 {fill:#FEFEFE}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="systems-devops--deploy.svg">
+   <path id="systems-devops--deploy_1_" class="fil0" d="M7911 7410l-1130 1130 -136 -136 900 -899 -2957 0c-419,0 -759,-341 -759,-760 0,-418 340,-759 759,-759l540 0 0 191 -540 0c-313,0 -568,255 -568,569 0,313 255,568 568,568l2957 0 -900 -899 136 -135 1130 1130zm-4821 -4906l967 -562 3092 1804 0 1539 191 0 0 -1594c0,-34 -18,-66 -47,-83l-3188 -1859c-29,-17 -66,-17 -96,0l-1062 617c-30,17 -48,49 -48,83l0 2304 191 0 0 -2249 0 0zm-1062 390l-192 0 0 2656 192 0 0 -2656zm-1063 797l-191 0 0 3719c0,34 18,65 47,82l3188 1860 96 -165 -3140 -1832 0 -3664z"/>
+   <rect id="_Transparent_Rectangle" class="fil1" x="-193" y="1300" width="8500" height="8500"/>
+  </g>
+ </g>
+</svg>

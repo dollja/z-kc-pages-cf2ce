@@ -1,0 +1,944 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "z/OS Container Extensions (zCX)" %}
+{% set key = 9 %}
+
+{# META #}
+{% set meta_description = meta_description | default("Learn the basics of containers and quickly get up and running with z/OS Container Extensions.") %}
+{% set meta_keywords = meta_keywords | default("containerization, learn kubernetes, IBM cloud containers, docker, kubernetes, developer training, container orchestration, learn containers, containers, devops") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "1_p2e797km",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/zcx/zCXoverviewthumbnailblack.jpg",
+    label: "IBM z/OS Container Extensions",
+    noTranscript: false
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>IBM® z/OS® Container Extensions (IBM zCX) makes it possible to integrate Linux on IBM Z applications with z/OS. Application developers can develop and data centers can operate popular open source packages, Linux applications, IBM software, and third-party software together with z/OS applications and data.</p>
+<p>IBM provides a Linux distribution configured to run Docker CE. IBM supplied support code will simplify installation and operation. Clients can participate with their own Linux applications that can easily be packaged in Docker format and deployed in the same way as open source, IBM, and vendor packages. Container Extensions runs on IBM z14™ and later systems.</p>" %}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "containerextensions" %}
+{# END FEEDBACK #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{% set announcements = [
+    {
+    announcementText: "Learn about zCX performance benefits compared to x86",
+    announcementLinkText: "Read the report",
+    announcementLinkUrl: "https://www.ibm.com/downloads/cas/ZEM93ORZ"
+    }
+] %}
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/zcx/bp/bp_zcx_1.svg",iconPath: '<path d="M26,31.4H6v-0.7h6.7c0.2-1.6,1.4-2.8,3-3V13.3c-1.1-0.2-2-1.2-2-2.3s0.9-2.2,2-2.3V5.3L6,7.9l4.3,7.5
+		c0,0.1,0,0.1,0,0.2c0,2.7-2.2,4.9-4.9,4.9s-4.9-2.2-4.9-4.9c0-0.1,0-0.1,0-0.2l4.5-7.9c0-0.1,0.1-0.1,0.2-0.2l0,0l21-5.6
+		c0.2,0,0.3,0,0.4,0.2l4.5,7.9c0,0.1,0,0.1,0,0.2c0,2.7-2.2,4.9-4.9,4.9s-4.9-2.2-4.9-4.9c0-0.1,0-0.1,0-0.2l4.1-7.1l-9.4,2.5v3.6
+		c1.1,0.2,2,1.2,2,2.3s-0.9,2.2-2,2.3v14.3c1.6,0.2,2.8,1.4,3,3H26V31.4z M13.4,30.6h5.2c-0.2-1.3-1.3-2.3-2.6-2.3
+		C14.7,28.4,13.6,29.4,13.4,30.6z M1.4,16c0.2,2.1,2,3.6,4.1,3.6s3.9-1.6,4.1-3.6H1.4z M1.5,15.3h7.9l-4-6.9L1.5,15.3z M22.4,10.4
+		c0.2,2.1,2,3.7,4.1,3.7s3.9-1.6,4.1-3.7H22.4z M16,9.4c-0.9,0-1.6,0.7-1.6,1.6s0.7,1.6,1.6,1.6s1.6-0.7,1.6-1.6S16.9,9.4,16,9.4z
+		 M22.6,9.6h7.9l-3.9-6.9L22.6,9.6z"/>',
+        iconAlt: "decide whether zcx is the right solution for you",
+        description: "Decide whether zCX is the right solution for you."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/zcx/bp/bp_zcx_2.svg",
+        iconPath: '<path d="M26.9,31.3h-22c-0.2,0-0.4-0.2-0.4-0.4v-4.5h0.7v4.2h21.3v-4.2h0.7v4.5C27.3,31.1,27.1,31.3,26.9,31.3z
+	 M15.9,28.8c-1.2,0-2.5-0.5-3.4-1.4c-1.9-1.9-1.9-5,0-6.9c0.9-0.9,2.1-1.4,3.4-1.4c0,0,0,0,0,0c1.3,0,2.5,0.5,3.4,1.4
+	c1.9,1.9,1.9,5,0,6.9c0,0,0,0,0,0C18.4,28.3,17.2,28.8,15.9,28.8z M15.2,28c1.3,0.2,2.6-0.2,3.6-1.2l0,0c1.5-1.5,1.6-4,0.2-5.6
+	l-2.9,2.8L15.2,28z M12.2,22.1c-0.7,1.5-0.5,3.4,0.8,4.7c0.5,0.4,1,0.8,1.5,1l1-3.7L12.2,22.1z M12.5,21.5l3.3,1.9l2.7-2.7
+	c-0.7-0.6-1.7-1-2.7-1c0,0,0,0,0,0c-1.1,0-2.1,0.4-2.9,1.2C12.8,21.2,12.7,21.3,12.5,21.5z M27.3,21.4h-0.7v-4.1H5.3v4.1H4.6v-4.5
+	c0-0.2,0.2-0.4,0.4-0.4h1.8c1.5-1.9,3.5-3.4,5.8-4.1c-1.2-0.7-2.1-1.8-2.6-3.1C9.3,7.7,9.3,6,10,4.4c1.4-3.2,5.3-4.7,8.5-3.3
+	c1.6,0.7,2.8,2,3.4,3.6c0.6,1.6,0.6,3.4-0.1,4.9c-0.5,1.2-1.4,2.2-2.5,2.8c2.3,0.7,4.3,2.2,5.8,4.1h1.8c0.2,0,0.4,0.2,0.4,0.4V21.4z
+	 M7.7,16.6h16.5c-1.5-1.8-3.6-3.1-5.9-3.7c-0.2,0-0.3-0.2-0.3-0.3c0-0.2,0.1-0.3,0.2-0.4c1.3-0.6,2.3-1.6,2.9-2.9
+	c0.6-1.4,0.7-3,0.1-4.4c-0.5-1.4-1.6-2.6-3-3.2c-2.9-1.3-6.3,0-7.5,2.9c-0.6,1.4-0.7,3-0.1,4.4c0.5,1.4,1.6,2.6,3,3.2
+	c0.1,0.1,0.2,0.2,0.2,0.4c0,0.2-0.1,0.3-0.3,0.3C11.2,13.5,9.2,14.7,7.7,16.6z M26.9,26.8c-1.6,0-2.9-1.3-2.9-2.9s1.3-2.9,2.9-2.9h0
+	c0.8,0,1.5,0.3,2,0.8c0.5,0.5,0.8,1.3,0.8,2C29.8,25.5,28.5,26.8,26.9,26.8z M26.9,21.4v0.4c-1.2,0-2.1,1-2.1,2.1s1,2.1,2.1,2.1
+	s2.1-1,2.1-2.1c0-0.6-0.2-1.1-0.6-1.5c-0.4-0.4-0.9-0.6-1.5-0.6L26.9,21.4z M4.9,26.8c-1.6,0-2.9-1.3-2.9-2.9s1.3-2.9,2.9-2.9
+	s2.9,1.3,2.9,2.9S6.5,26.8,4.9,26.8z M4.9,21.8c-1.2,0-2.1,1-2.1,2.1s1,2.1,2.1,2.1s2.1-1,2.1-2.1S6.1,21.8,4.9,21.8z"/>',
+        iconAlt: "prepare your system and plan for you zcx instance",
+        description: "Prepare your system and plan for your zCX instance."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/zcx/bp/bp_zcx_3.svg",
+        iconPath: '<path d="M29,3.5C29,3.8,28.8,4,28.5,4S28,3.8,28,3.5S28.2,3,28.5,3S29,3.2,29,3.5z M26.5,3C26.2,3,26,3.2,26,3.5
+	S26.2,4,26.5,4S27,3.8,27,3.5S26.8,3,26.5,3z M24.5,3C24.2,3,24,3.2,24,3.5S24.2,4,24.5,4S25,3.8,25,3.5S24.8,3,24.5,3z M31,30.4H1
+	c-0.2,0-0.4-0.2-0.4-0.4V2c0-0.2,0.2-0.4,0.4-0.4h30c0.2,0,0.4,0.2,0.4,0.4v28C31.4,30.2,31.2,30.4,31,30.4z M9.4,29.6h21.3V5.4H9.4
+	V29.6z M1.4,29.6h7.3V5.4H1.4V29.6z M9,4.6h21.6V2.4H1.4v2.3H9z"/>',
+        iconAlt: "provision a zcx instance using the zosmf workflow",
+        description: "Provision a zCX instance using the z/OSMF workflow."
+    },
+    {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/zcx/bp/bp_zcx_4.svg",
+        iconPath:'<path d="M12,21.2c0.4,0,0.8,0.3,0.8,0.8s-0.3,0.8-0.8,0.8s-0.8-0.3-0.8-0.8S11.6,21.2,12,21.2z M11.2,27.4
+	c-2.8,0-5.4-1.1-7.3-3c-2-2-3.1-4.6-3.2-7.4l0-1c0-0.2,0.2-0.4,0.4-0.4h4.6V12c0-0.2,0.2-0.4,0.4-0.4h3.6V8c0-0.2,0.2-0.4,0.4-0.4
+	h3.6V4c0-0.2,0.2-0.4,0.4-0.4h4c0.2,0,0.4,0.2,0.4,0.4v7.6H22c0.2,0,0.4,0.2,0.4,0.4v3.6h2.5c-0.4-0.6-0.6-1.2-0.7-1.9
+	c-0.1-1,0.3-1.9,1-2.7c0.3-0.3,0.6-0.6,1-0.8c0.1-0.1,0.2-0.1,0.3,0c1.1,0.6,1.8,1.7,1.9,2.9c1.2,0.1,2.2,0.8,2.9,1.8
+	c0.1,0.1,0.1,0.3,0,0.4c-0.7,1.2-2,1.9-3.3,1.9h-0.2c-0.7,4.2-7.7,10.1-16.5,10.1C11.3,27.4,11.2,27.4,11.2,27.4z M4.9,24.4
+	c1.8,1.5,4.1,2.3,6.4,2.3c8.7,0,15.5-5.8,15.8-9.8c0-0.2,0.2-0.3,0.4-0.3H28c1,0,2-0.5,2.6-1.3c-0.5-0.8-1.4-1.3-2.3-1.3
+	c0,0-0.1,0-0.2,0c-0.2,0-0.4-0.2-0.4-0.4c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0-1-0.5-2-1.4-2.5c-0.2,0.1-0.4,0.3-0.6,0.5
+	c-0.5,0.6-0.8,1.4-0.8,2.2c0,0.8,0.4,1.5,1,2.1c0.1,0.1,0.1,0.3,0.1,0.4c-0.1,0.1-0.2,0.2-0.3,0.2H1.4v0.5c0,2.6,1,4.9,2.8,6.7
+	c2,0,3.9-0.2,5.8-0.7c0.2,0,0.4,0.1,0.4,0.3c0,0.2-0.1,0.4-0.3,0.4C8.4,24.1,6.6,24.3,4.9,24.4z M18.4,15.6h3.3v-3.3h-3.3V15.6z
+	 M14.4,15.6h3.3v-3.3h-3.3V15.6z M10.4,15.6h3.3v-3.3h-3.3V15.6z M6.4,15.6h3.3v-3.3H6.4V15.6z M14.4,11.6h3.3V8.4h-3.3V11.6z
+	 M10.4,11.6h3.3V8.4h-3.3V11.6z M14.4,7.6h3.3V4.4h-3.3V7.6z"/>',
+        iconAlt: "deploy your first docker container in your zcx instance",
+        description: "Deploy your first Linux container in your zCX instance."
+    },
+    {
+        id: 5,
+        iconUrl: "https://izswebpage.mybluemix.net/images/zcx/bp/bp_zcx_5.svg",
+        iconPath: '<path d="M25.2,31.3c-0.8,0-1.5-0.1-2.2-0.4c-3.2-1.2-4.9-4.7-3.8-8L9,12.8c-1.6,0.5-3.3,0.4-4.7-0.3
+		C1.1,11-0.2,7.2,1.3,4c0.1-0.1,0.1-0.2,0.3-0.2c0.1,0,0.2,0,0.3,0.1l4,4c0.6,0.6,1.7,0.6,2.3,0c0.6-0.6,0.6-1.7,0-2.3l-4-4
+		C4.1,1.5,4,1.4,4.1,1.3c0-0.1,0.1-0.2,0.2-0.3c1.6-0.7,3.4-0.8,5-0.2c1.6,0.6,2.9,1.8,3.6,3.3c0.7,1.5,0.8,3.1,0.2,4.6l10.2,10.2
+		c1.6-0.5,3.3-0.4,4.8,0.3c3.2,1.5,4.5,5.3,3,8.5c-0.1,0.1-0.1,0.2-0.3,0.2c-0.1,0-0.2,0-0.3-0.1l-4-4c-0.3-0.3-0.7-0.5-1.2-0.5h0
+		c-0.4,0-0.8,0.2-1.2,0.5c-0.6,0.6-0.6,1.7,0,2.3l4,4c0.1,0.1,0.1,0.2,0.1,0.3c0,0.1-0.1,0.2-0.2,0.3C27.1,31.1,26.2,31.3,25.2,31.3
+		z M9.1,12c0.1,0,0.2,0,0.3,0.1l10.5,10.5C20,22.7,20,22.9,20,23c-1.1,2.9,0.4,6.2,3.3,7.3c1.3,0.5,2.7,0.5,3.9,0l-3.6-3.6
+		c-0.9-0.9-0.9-2.4,0-3.3c0.9-0.9,2.4-0.9,3.3,0l3.6,3.6c0.5-1.2,0.5-2.6,0-3.8c-0.5-1.4-1.5-2.6-2.9-3.2c-1.4-0.7-3-0.7-4.4-0.2
+		c-0.1,0.1-0.3,0-0.4-0.1L12.4,9.1c-0.1-0.1-0.1-0.2-0.1-0.4c0.5-1.4,0.5-2.9-0.1-4.3C11.5,3,10.4,2,9,1.5C7.7,1,6.3,1,5,1.5
+		l3.6,3.6c0.9,0.9,0.9,2.4,0,3.3c-0.9,0.9-2.4,0.9-3.3,0L1.7,4.8c-1,2.7,0.2,5.8,2.9,7c1.4,0.7,3,0.7,4.4,0.2C9,12,9.1,12,9.1,12z
+		 M3,31.1c-0.1,0-0.2,0-0.3-0.1L1,29.3c-0.1-0.1-0.1-0.4,0-0.5l3-3.2c0.1-0.1,0.2-0.1,0.3-0.1c0.1,0,0.2,0,0.3,0.1l0.7,0.7l7.5-7.5
+		l0.5,0.5l-7.5,7.5l0.8,0.8c0.1,0.1,0.1,0.2,0.1,0.3c0,0.1,0,0.2-0.1,0.3L3.2,31C3.2,31.1,3.1,31.1,3,31.1z M1.7,29L3,30.3l2.7-2.5
+		l-1.5-1.5L1.7,29z M21.5,14.4L21,13.9l9.3-9.3c0.4-0.4,0.6-0.9,0.6-1.4c0-0.5-0.2-1-0.6-1.4c-0.8-0.8-2.1-0.8-2.9,0L18.1,11
+		l-0.5-0.5l9.3-9.3c1.1-1.1,2.8-1.1,3.9,0c0.5,0.5,0.8,1.2,0.8,1.9s-0.3,1.4-0.8,1.9L21.5,14.4z M19.8,12.7l-0.5-0.5l9.3-9.3
+		l0.5,0.5L19.8,12.7z"/>',
+        iconAlt: "manage and maintain your zcx instance",
+        description: "Manage and maintain your zCX instance."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Choosing zCX",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Use the following resources and references to consider whether zCX is the right solution for your IBM z/OS system.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/downloads/cas/NJZV7ELN",
+                        linkText: "Use this infographic to determine if zCX is a good fit for your software"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=extensions-how-is-zcx-similar-different-from-linux",
+                        linkText: "Learn about how zCX is similar to and different from Linux on IBM Z"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/downloads/cas/JYBO6PNE",
+                        linkText: "See what others think about zCX"
+                    }
+                ]
+            },
+            {
+                subSectionContent: "<p>Start the zCX Trial to experience zCX in your own environment without purchasing IBM Container Hosting Foundation for z/OS or IBM Container Hosting Foundation (hardware feature code 0104). The zCX Trial enables full zCX capability for 90 days on your z/OS 2.4 and z14 or higher. Download APAR OA58969 to start the trial.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=extensions-zcx-trial",
+                        linkText: "Learn more about the zCX Trial"
+                    },
+                    {
+                        linkUrl: "https://www-01.ibm.com/support/entdocview.wss?uid=isg1OA58969",
+                        linkText: "Download APAR OA58969"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Planning for zCX",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Now that you have decided to use zCX, it is time to prepare your system to support zCX and plan for your zCX instance. 
+                zCX requires IBM z14™ or later servers with z/OS V2R4 or higher and z/OS Management Facility (z/OSMF) configured and running on your system.
+                </p><p>
+                IBM Container Hosting Foundation for z/OS (5655-HZ1) provides required service and support for 
+                the underlying Linux kernel and zCX appliance, as well as unlimited zCX usage in the central processor complex (CPC) across all LPARs. 
+                If you have an IBM z14 or IBM z15 processor, as an alternative to IBM Container Hosting Foundation for z/OS, you can order Container 
+                Hosting Foundation, hardware feature code 0104, from the eConfig Fulfillment System.
+                </p>
+                <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/zos/latest?topic=zcx-requirements' class='ibm-forward-link'>Requirements</a></p>
+                <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/zos/latest?topic=parmlib-container-hosting-foundation-zos' class='ibm-forward-link'>Enable Container Hosting Foundation</a></p>
+                <p>Use the steps below to help your z/OS team decide on allocations and variables needed for your zCX instances.</p>"
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>To prepare a software services template and provision software, you perform these steps using the Software Services task of z/OSMF.</p>
+                <ol><li><a href='https://www.ibm.com/docs/en/zos/latest?topic=zcx-zos-management-facility-zosmf'>Authorize users for zCX provisioning in z/OSMF</a></li>
+                <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=zcx-cpu-planning-considerations'>Decide CPU, memory, DASD/disk storage allocation for zCX and use of the z/OS NFS server</a></li>
+                <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=zcx-zos-container-extensions-network-overview'>Decide and prepare network resources that will be used by zCX</a></li>
+                <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=zcx-workload-management-considerations'>Update Workload Management policies for zCX</a></li>
+                <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=extensions-security-zcx'>Update security definitions for zCX</a></li>
+                <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=extensions-user-management'>Decide and prepare for your user management technique</a></li>
+                <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=extensions-docker-registries'>Decide the registry to which your zCX instance will connect</a></li>
+                <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=zcx-using-license-metric-tool-sub-capacity-pricing'>Decide whether to use IBM License Metric Tool for sub-capacity pricing</a></li></ol>"
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Provisioning a zCX instance",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Once all the decisions in the planning phase have been decided, you are ready to provision your zCX instance using a z/OS Management Facility (z/OSMF) workflow.</p>
+                <p>The first workflow step asks you to provide the information needed to provision your zCX instance. You can input the variables manually, or using a workflow variables input properties file that you prepare beforehand. The remaining steps of the workflow can be automated.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=extensions-running-zcx-workflows",
+                        linkText: "See the instructions for running zCX workflows"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=extensions-preparing-zcx-workflows",
+                        linkText: "See the variables needed to provision a zCX instance."
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=zcx-zos-management-facility-zosmf",
+                        linkText: "Prepare your workflow variables input properties file."
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=facility-zos-management-configuration-guide",
+                        linkText: "If you do not have z/OSMF installed on your system, use the z/OSMF Configuration Guide."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 4,
+        tabTitle: "Deploying a Linux container",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Now you are ready to log in to your zCX instance and deploy a Docker container.</p>
+                <p>Visit the Open Mainframe Project, Ambitus, for additional resources to promote collaboration and knowledge sharing of open source technologies that modernize and expand the IBM Z platform ecosystem.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://github.com/ambitus/ambitus",
+                        linkText: "Ambitus Github"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "If you are using local user management, you must create and give permission to anyone who will be using the zCX instance.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=management-local-user",
+                        linkText: "Using local user management"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=extensions-logging-docker-cli-using-zcx",
+                        linkText: "Learn how to log in to the container and issue Docker commands"
+                    },
+                    {
+                        linkUrl: "https://hub.docker.com/search?q=IBM%20z%20%20s390x&type=image",
+                        linkText: "View available IBM Z Docker containers in Docker Hub"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<ol><li>Log in to the Docker Command Line Interface (CLI)</li>
+                <li>Pull in a Docker image to the container</li>
+                <li>Create a container from a Docker image</li>
+                </ol>"
+            }
+        ]
+    },
+    {
+        id: 5,
+        tabTitle: "Managing your zCX instance",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>z/OSMF has additional workflows to manage the lifecycle of your zCX appliance, including deprovisioning a zCX instance.</p>
+                <p>There is diagnostic information available for zCX should you encounter any problems.</p>
+                <p>Capabilities for extending zCX use include clustering and orchestration, creating a swarm cluster of zCX instances using the Docker CLI, and deploying Docker containers in a zCX swarm cluster using the Docker CLI. Future releases of zCX plan to include support for Kubernetes clustering.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?subtype=ca&infotype=an&supplier=897&letternum=ENUS219-233",
+                        linkText: "View the IBM z/OS hybrid cloud enablement statement of direction"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Available z/OSMF workflows for zCX:</p>
+                <ul class='ibm-fullwidth ibm-textcolumns-4 ibm-textcolumns-medium-2'>
+                    <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=workflows-provisioning-workflow'>Provisioning workflow</a></li>
+                    <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=workflows-backup-configuration-workflow'>Backup configuration workflow</a></li>
+                    <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=workflows-reconfiguration-workflow'>Reconfiguration workflow</a></li>
+                    <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=workflows-restore-configuration-workflow'>Restore configuration workflow</a></li>
+                    <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=workflows-add-data-disks-workflow'>Add data disks workflow</a></li>
+                    <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=workflows-upgrade-workflow'>Upgrade workflow</a></li>
+                    <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=workflows-rollback-workflow'>Rollback workflow</a></li>
+                    <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=workflows-deprovisioning-workflow'>Deprovisioning workflow</a> </li>
+                </ul>"
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FAQs #}
+{# Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{% set faqSection = [
+    {
+        section: "Click a category to see the questions.",
+        categories: [
+            {
+                catTitle: "General questions",
+                faqs: [
+                    {
+                        question: "What are the benefits of z/OS Container Extensions?",
+                        answer: "z/OS Container Extensions expands and modernizes the z/OS software ecosystem to include Linux on IBM Z applications. Most applications (including Systems Management components and development tools) that are currently only available to run on Linux will be able to run on z/OS as Docker containers. zCX runs Linux on IBM Z applications on z/OS, using existing z/OS operations staff and reusing the existing z/OS environment. zCX maintains operational control within z/OS and z/OS Qualities of Service (scalability, availability, integrated disaster recovery, backup, WLM, and integration with z/OS security)."
+                    },
+                    {
+                        question: "How is Container Extensions different from Linux on IBM Z?",
+                        answer: "zCX gives z/OS environments the ability to deploy Linux on IBM Z applications as Docker containers for workloads with an affinity to z/OS. It is not a replacement for traditional Linux on IBM Z environments.<br /><br /> If you are a client with Linux on IBM Z installations, you will continue to run those installations. If you are a z/OS client that used to, but no longer has a Linux on IBM Z installation, you should consider zCX. If you are a z/OS client that has never had a Linux on IBM Z installation, then zCX Extensions is a low effort way to try Linux on IBM Z."
+
+                    }
+                ]
+            }, 
+            {
+                catTitle: "Getting started",
+                faqs: [
+                    {
+                        question: "Can I install the APAR and enable the 90-day zCX trial in more than one LPAR or on more than one CPC?",
+                        answer: "You can use the 90-day zCX Trial no more than one time per sysplex. The sysplex can span multiple CPCs."
+                    }, {
+                        question: "What are some zCX use cases?",
+                        answer: "z/OS software ecosystem expansion: Latest microservices, non-SQL databases, analytics frameworks, ICP, application server environment, and emerging programming languages and environments.<br /><br />Systems management: Centralization of UI portals for management products and databases<br />z/OS modernization: Open source application development utilities."
+                    },
+                    {
+                        question: "Are there samples and resources that I can look at to get started?",
+                        answer: "Yes. Visit the Open Mainframe Project, Ambitus, for samples, build recipes, and other resources to promote collaboration and knowledge sharing of open source technologies to modernize and expand the IBM Z platform.",
+                        linkUrl: "https://github.com/ambitus/",
+                        linkText: "Open Mainframe Project Ambitus"
+                    }
+                ]
+            },
+            {
+                catTitle: "IBM Z hardware and z/OS",
+                faqs: [
+                    {
+                        question: "Do application developers require knowledge of z/OS to create and deploy Linux on IBM Z applications to run in z/OS Container Extensions?",
+                        answer: "Applications will look like Docker applications to the developer, not z/OS applications. If your application comes from Linux on IBM Z, then no z/OS skills are required. Docker and Linux knowledge are all that is required."
+
+                    }, 
+                    {
+                        question: "Does Container Extensions make use of Kubernetes?",
+                        answer: "No, not at this time. The initial release of zCX for IBM z/OS V2.4 provides Docker Swarm as support for Docker cluster management. IBM’s future plans intend to include Kubernetes clustering for the orchestration, scalability, and management of zCX with compatible cloud platforms."
+                    },
+                    {
+                        question: "Will there be performance data published for zCX?",
+                        answer: "There is currently no plan to publish performance data for the zCX environment because performance is heavily reliant on individual configuration, workload, and networking characteristics."
+                    }
+                ]
+            },
+            {
+                catTitle: "Service and licensing",
+                faqs: [
+                    {
+                        question: "What are the costs associated with z/OS Container Extensions?",
+                        answer: "zCX is a base element of z/OS. There is no additional software cost for zCX itself beyond z/OS. Associated costs are IBM Container Hosting Foundation for z/OS (or the alternative FC 0104 for an IBM z14 or IBM z15), possible hardware costs for zIIPs, and any software licensing of Linux on IBM Z applications running inside zCX. For more information, see <a href='http://publibfp.dhe.ibm.com/epubs/pdf/c3157030.pdf
+                        '>Program Directory for IBM Container Hosting Foundation for z/OS</a>."
+                    }, {
+                        question: "On which engine types can z/OS Container Extensions run?",
+                        answer: "z/OS Container Extensions address spaces are zIIP-eligible. Most zCX processing (including Docker containers deployed within zCX) can be dispatched on available zIIP processors. Some zCX processing will be dispatched on standard processors. This will generally be a much smaller percentage of processor cycles compared to what can execute on zIIPs. Running the Acme Air benchmark on zCX, up to 98% of the zCX CPU consumption was measured to be zIIP eligible. (See note below.)<br /><br />A good first assumption is that the new work running in the zCX environment will be 95% zIIP-eligible. However, your zCX environment may be more or less zIIP eligible depending on characteristics of the workload. Capacity planning should be based on the measured zIIP eligibility of your specific zCX applications. zCX can be deployed exclusively on standard processors if no zIIP processors are available. See &quot;Exploiting zIIP and general purpose processors for zCX workloads&quot; in the IBM z/OS Container Extensions Guide for more information.<br /><br /><strong>Note:</strong> Results were extrapolated from internal IBM benchmarks performed in a controlled environment using a single z14 z/OS 2.4 LPAR with TCP/IP inbound workload queuing (IWQ) for inbound traffic and two zCX containers: one running Node.js and one running a MongoDB database. zIIP eligibility is based on the CPU consumption of the work running on the zCX address spaces and the associated work on the TCPIP and VTAM address spaces. Results may vary."
+                    }, {
+                        question: "Are licenses required for applications running inside z/OS Container Extensions?",
+                        answer: "Yes, any licenses that you would procure to run applications in a traditional Linux on IBM Z environment will also be required to run those same applications inside zCX. Licenses are the same as those used for traditional Linux on IBM Z applications. If you are using an application on both Linux on IBM Z and zCX environments, ensure you have enough licensed capacity available to run the application on all the cores on which it will be active."
+                    }, {
+                        question: "Is Processor Value Unit (PVU) Licensing effective for IBM applications running inside z/OS Container Extensions?",
+                        answer: "Yes, whatever PVU licensing is in effect for IBM software in the traditional Linux on IBM Z environment is also in effect for zCX. Both General Purpose and zIIP engines are counted as cores.",
+                            linkUrl: "https://www.ibm.com/software/passportadvantage/pvu_licensing_for_customers.html",
+                            linkText: "PVU licensing for Passport Advantage® Products"
+                    },
+                    {
+                        question: "Will subcapacity pricing for Linux on IBM Z IBM SW (Passport Advantage products) be supported in zCX?",
+                        answer: "Yes, sub-capacity pricing is supported through the IBM License Metric Tool.<br /><br />For more information on IBM License Metric Tool enablement on zCX, refer to <a href='https://www.ibm.com/docs/en/zos/latest?topic=zcx-using-license-metric-tool-sub-capacity-pricing'>Using the IBM License Metric Tool for sub-capacity pricing</a>.<br /><br />Use of IBM License Metric Tool is now mandatory for sub-capacity pricing for the zCX environment. Manual reporting is no longer acceptable."
+                    }
+                ]
+            },
+            {
+                catTitle: " Applications",
+                faqs: [
+                    {
+                        question: "What can run in z/OS Container Extensions?",
+                        answer: "Anything with s390x architecture (the IBM Z opcode set) in Docker hub can be run in zCX. The code is binary compatible between Linux on IBM Z and Container Extensions.<br /><br />In addition to open source packages, there will likely be IBM and third-party software available. It is intended that clients can participate with their own Linux applications, which can easily be packaged in Docker format and deployed in the same as open source, IBM, and vendor packages."
+                    }, {
+                        question: "On which engine types can z/OS Container Extensions run?",
+                        answer: "z/OS Container Extensions address spaces are zIIP-eligible. Most zCX processing (including Docker containers deployed within zCX) can be dispatched on available zIIP processors. Some zCX processing will be dispatched on standard processors. This will generally be a much smaller percentage of processor cycles compared to what can execute on zIIPs. Running the Acme Air benchmark on zCX, up to 98% of the zCX CPU consumption was measured to be zIIP eligible. (See note.)<br /><br />A good first assumption is that the new work running in the zCX environment will be 95% zIIP-eligible. However, your zCX environment may be more or less zIIP eligible depending on characteristics of the workload. Capacity planning should be based on the measured zIIP eligibility of your specific zCX applications. zCX can be deployed exclusively on standard processors if no zIIP processors are available. See &quot;Exploiting zIIP and general purpose processors for zCX workloads&quot; in the IBM z/OS Container Extensions Guide for more information.<br /><br />Note: Results were extrapolated from internal IBM benchmarks performed in a controlled environment using a single z14 z/OS 2.4 LPAR with TCP/IP inbound workload queuing (IWQ) for inbound traffic and two zCX containers: one running Node.js and one running a MongoDB database. zIIP eligibility is based on the CPU consumption of the work running on the zCX address spaces and the associated work on the TCPIP and VTAM address spaces. Results may vary."
+                    }
+                ]
+            }
+        
+        ]
+    }
+] %}
+
+{# START LEARN MORE #}
+
+{# set learnMore = "<p>Additional resources and documentation for z/OS Container Extensions are made available on this page as they are released. Learn about and access containers, Docker, and z/OSMF using the links below.</p><p class='ibm-ind-link'><a href='https://ibm.github.io/ibm-z-oss-hub/main/main.html' class='ibm-margin-bottom-0 ibm-forward-link'>IBM Z and LinuxONE Container Registry</a></p><p class='ibm-ind-link'><a href='https://hub.docker.com/' class='ibm-margin-bottom-0 ibm-forward-link'>Visit Docker Hub to see available containers</a></p><p class='ibm-ind-link ibm-padding-bottom-2'><a href='https://www.ibm.com/products/zos-management-facility' class='ibm-margin-bottom-0 ibm-forward-link ibm-textcolor-blue-50'>Learn about z/OSMF and workflows</a></p><p>Take our IBM z/OS Container Extensions survey to help us understand interest and potential use cases for zCX. The survey will help us understand your needs and curate content for you.</p><p class='ibm-ind-link'><a href='https://www.surveygizmo.com/s3/4865802/IBM-z-OS-Container-Extensions-Survey' class='ibm-margin-bottom-0 ibm-forward-link'>Take the survey</a></p>"
+#}
+
+{# SET FOR LAUNCH #}
+{% set learnMore =  [
+    {
+        heading: "Learn more",
+        content: "Additional resources and documentation for z/OS Container Extensions are made available on this page as they are released. Learn about and access containers, Docker, and z/OSMF using the links below.",
+        links: [
+            {
+            linkUrl: "https://ibm.github.io/ibm-z-oss-hub/main/main.html",
+            linkText: "IBM Z and LinuxONE Container Registry",
+            linkType: "external"
+            },
+            {
+            linkUrl: "https://hub.docker.com/",
+            linkText: "Visit Docker Hub to see available containers",
+            linkType: "external"
+            },
+            {
+            linkUrl: "https://www.ibm.com/products/zos-management-facility",
+            linkText: "Learn about z/OSMF and workflow",
+            linkType: "local"
+            }
+        ]
+    },
+    {
+        content: "Take our IBM z/OS Container Extensions survey to help us understand interest and potential use cases for zCX. The survey will help us understand your needs and curate content for you.",
+        links: [
+            {
+                linkUrl:"https://www.surveygizmo.com/s3/4865802/IBM-z-OS-Container-Extensions-Survey",
+                linkText: "Take the survey",
+                linkType: "external"
+            }
+        ]
+    }
+]
+%}
+{# END LEARN MORE #}
+
+{# START FEATURED DOCUMENTATION #}
+{% set documentation = {
+    docTitle: "Comprehensive content collection",
+    docDescription: "Read the comprehensive content collection about z/OS Container Extensions.",
+    docLinkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=solutions-zos-container-extensions",
+    docLinkText: "Explore the collection"
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. May also add "comingsoon" in later iteration.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "About zCX",
+        tabContent: [
+            {
+                resourceTitle: "Journey to AI on IBM Z and LinuxONE",
+                resourceDescription: "Get started on your journey to AI on IBM Z and LinuxONE.",
+                resourceLinkUrl: "https://www.ibm.com/support/z-content-solutions/journey-to-ai-on-z/",
+                resourceLinkText: "Explore the content solution",
+                resourceLinkType: "contentsolution",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Communities",
+                resourceDescription: "Sharing information about zCX and insights into deploying Linux on IBM Z containerized applications inside z/OS.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/topic-home?CommunityKey=2d6a0d68-f239-4ad4-ae69-207c63ff4b61",
+                resourceLinkText: "Join the Community",
+                resourceLinkType: "article",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Z Hot Topics",
+                resourceDescription: "Find the answers for Frequently Asked Questions about zCX.",
+                resourceLinkUrl: "http://publibz.boulder.ibm.com/zoslib/pdf/z-os-container-extensions-faq.pdf",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Terminal Talk Podcast",
+                resourceDescription: "Episode 79 of Terminal Talk by Frank and Jeff features Gary Puchkoff of IBM Z discussing z/OS Container Extensions (zCX). Search for “Terminal Talk” in iTunes, Google Play, or your favorite podcast app, or click the link below.",
+                resourceLinkUrl: "https://www.terminaltalk.net/e/gary-puchkoff-zos-container-extensions/",
+                resourceLinkText: "Listen to the podcast (30:39)",
+                resourceLinkType: "podcast",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Terminal Talk podcast",
+                resourceDescription: "Episode 77 of Terminal Talk by Frank and Jeff features Joe Bostian of IBM Z discussing open source on Z.Search for “Terminal Talk” in iTunes, Google Play, or your favorite podcast app, or click the link below.",
+                resourceLinkUrl: "http://terminaltalk.net/e/joe-bostian-open-source-on-z",
+                resourceLinkText: "Listen to the podcast (35:12)",
+                resourceLinkType: "podcast",
+                resourceIcon: false
+            },{
+                resourceTitle: "Terminal Talk podcast",
+                resourceDescription: "This episode of Terminal Talk by Frank and Jeff features Anthony Giorgio of IBM Z discussing the what, how, and why of zCX including its latest developments.",
+                resourceLinkUrl: "https://www.terminaltalk.net/e/anthony-giorgio-zcx-update-new-kid-on-the-control-block/",
+                resourceLinkText: "Listen to the podcast (39:13)",
+                resourceLinkType: "podcast",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Docker",
+                resourceDescription: "Learn about Docker containers through the Resources tab on Docker’s website.",
+                resourceLinkUrl: "https://www.docker.com/",
+                resourceLinkText: "Visit docker.com",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Systems Lab Services",
+                resourceDescription: "Learn how IBM Systems Lab Services can help you install Docker containers for z/OS using zCX.",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/ZEKG4NVR",
+                resourceLinkText: "Read more",
+                resourceLinkType: "document",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Journey to Hybrid Cloud with IBM Z",
+                resourceDescription: "Get started on your journey to hybrid cloud with IBM Z.",
+                resourceLinkUrl: "https://www.ibm.com/support/z-content-solutions/journey-to-hybrid-cloud-z/",
+                resourceLinkText: "Explore the content solution",
+                resourceLinkType: "contentsolution",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Garage for Systems & Washington Systems Center zCX Workshop",
+                resourceDescription: "Learn how to onboard and leverage z/OS Container Extensions in a custom workshop.",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/AD92EKBP",
+                resourceLinkText: "Learn more about zCX workshops",
+                resourceLinkType: "document",
+                resourceIcon: false
+            },            
+            {
+                resourceTitle: "Mainframe, Performance, Topics Podcast",
+                resourceDescription: "Marna Walle of IBM Z discusses zCX performance enhancements.",
+                resourceLinkUrl: "https://anchor.fm/marna-walle/episodes/Episode-28-The-Preview-That-We-Do-Anew-er531g",
+                resourceLinkText: "Listen to the podcast (49:39)",
+                resourceLinkType: "podcast",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Terminal Talk Podcast",
+                resourceDescription: "Gary Puchkoff and Allison Moshier explain how z/OS Container Extensions has advanced recently and give a peek of things to come.",
+                resourceLinkUrl: "https://www.terminaltalk.net/e/gary-puchkoff-allison-moshier-extending-container-extensions/",
+                resourceLinkText: "Listen to the podcast (27:13)",
+                resourceLinkType: "podcast",
+                resourceIcon: false,
+                resourceStatus: "new"
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Tutorial & Instruction",
+        tabContent: [
+            {
+                resourceTitle: "Comprehensive content collection",
+                resourceDescription: "Read the comprehensive content collection about z/OS Container Extensions.",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=solutions-container-extensions",
+                resourceLinkText: "Explore the collection",
+                resourceLinkType: "c3",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Tutorial Video",
+                resourceDescription: "An overview of how to plan for zCX and the required resources",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_6klb4xlr",
+                resourceLinkText: "Watch the video (07:49)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Tutorial Video",
+                resourceDescription: "A demonstration of how to provision zCX using z/OSMF",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_sfu6nmeu",
+                resourceLinkText: "Watch the video (06:24)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Tutorial Video",
+                resourceDescription: "Provisioning a zCX appliance",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/1_g3nhik8r",
+                resourceLinkText: "Watch the video (10:08)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Tutorial Video",
+                resourceDescription: "An introduction to understanding and using Docker",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_li7r7x0r",
+                resourceLinkText: "Watch the video (04:53)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Ambitus Github",
+                resourceDescription: "A zCX open source Github repository with example images of Portainer, Jupyterhub, Dev Toolkit, and Grafana",
+                resourceLinkUrl: "https://github.com/ambitus/linux-containers",
+                resourceLinkText: "Visit the repository",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Redbooks",
+                resourceDescription: "Getting started with z/OS Container Extensions and Docker",
+                resourceLinkUrl: "http://www.redbooks.ibm.com/abstracts/sg248457.html",
+                resourceLinkText: "Read the IBM Redbook",
+                resourceLinkType: "redbook",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Redbooks",
+                resourceDescription: "Install, configure, and use the IBM z/OS Management Facility (z/OSMF).",
+                resourceLinkUrl: "https://www.redbooks.ibm.com/abstracts/sg247851.html?Open",
+                resourceLinkText: "Read the IBM Redbook",
+                resourceLinkType: "redbook",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Service Management Unite (SMU)",
+                resourceDescription: "Download the Service Management Unite (SMU) image directly into z/OS using z/OS Container Extensions (IBM enterprise account required).",
+                resourceLinkUrl: "http://ibm.biz/smu-ee-download",
+                resourceLinkText: "Learn more",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IDC White paper",
+                resourceDescription: "Transforming a Corporate Datacenter into a Modern Environment: Kubernetes as a Foundation for Hybrid Cloud.",
+                resourceLinkUrl: "https://izswebpage.mybluemix.net/docs/US45524619-IBM-Kubernetes-Z-Final-Sept-19.pdf",
+                resourceLinkText: "Read the whitepaper",
+                resourceLinkType: "whitepaper",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Grafana for zCX",
+                resourceDescription: "A Grafana dashboard template for monitoring your zCX instances.",
+                resourceLinkUrl: "https://grafana.com/grafana/dashboards/11855",
+                resourceLinkText: "View the dashboard",
+                resourceLinkType: "dashboard",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Z Hot Topics",
+                resourceDescription: "Learn about the 90-day zCX Trial.",
+                resourceLinkUrl: "https://www.zos-hot-topics.com/2020/zcx-trial/",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "article",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "z/OS Communications Server Performance Summary Report",
+                resourceDescription: "Understand configuration and impacts of zCX in the V2R4 report.",
+                resourceLinkUrl: "https://www.ibm.com/support/pages/sites/default/files/inline-files/zOS%20V2R4%20Communications%20Server%20Performance%20Summary%20Report.pdf",
+                resourceLinkText: "Read the report",
+                resourceLinkType: "document",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Tutorial video",
+                resourceDescription: "A demonstration of Docker image development in zCX.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_orohng3c",
+                resourceLinkText: "Watch the video (02:48)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Z Hot Topics",
+                resourceDescription: "Getting Better Performance for Your zCX Containers.",
+                resourceLinkUrl: "https://www.zos-hot-topics.com/2021/getting-better-network-performance-zCX-containers/",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "article",
+                resourceStatus: "new",
+                resourceIcon: false
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Use Cases",
+        tabContent: [
+            {
+                resourceTitle: "IBM Redbooks",
+                resourceDescription: "IBM z/OS Container Extensions (zCX) Use Cases.",
+                resourceLinkUrl: "https://www.redbooks.ibm.com/redpieces/abstracts/sg248471.html?Open",
+                resourceLinkText: "Download the IBM Redbook",
+                resourceLinkType: "redbook",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Example video",
+                resourceDescription: "A demonstration of using JupyterHub and zCX.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/1_a4vcqcqk",
+                resourceLinkText: "Watch the video (02:41)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Running IBM Aspera on zCX",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/ZYVOQ4WA",
+                resourceLinkText: "View the use case",
+                resourceLinkType: "document",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Running MQ Client Concentrator on zCX",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/K7ZRO5WJ",
+                resourceLinkText: "View the use case",
+                resourceLinkType: "document",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Running IBM Service Management Unite on zCX",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/N3WL5KXV",
+                resourceLinkText: "View the use case",
+                resourceLinkType: "document",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Running App Connect Enterprise on zCX",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/J4MN3XOM",
+                resourceLinkText: "View the use case",
+                resourceLinkType: "document",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Systems Magazine Article",
+                resourceDescription: "Learn how IBM used zCX to modernize our own internal tool.",
+                resourceLinkUrl: "https://techchannel.com/10/2020/introduction-icn-tool",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "article",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "MQ for z/OS Performance Report",
+                resourceDescription: "Use cases with z/OS Container Extensions",
+                resourceLinkUrl: "https://ibm-messaging.github.io/mqperf/MQ%20with%20zCX.pdf",
+                resourceLinkText: "Read the report",
+                resourceLinkType: "article",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM IT Economics Consulting and Research",
+                resourceDescription: "Learn about zCX performance benefits compared to x86",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/ZEM93ORZ",
+                resourceLinkText: "Read the report",
+                resourceLinkType: "article",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Z and LinuxONE container registry",
+                resourceDescription: "Learn about container images for IBM Z and LinuxONE",
+                resourceLinkUrl: "https://ibm.github.io/ibm-z-oss-hub/main/main.html",
+                resourceLinkText: "See the container registry",
+                resourceLinkType: "article",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Secure your z/OS ecosystem with zCX",
+                resourceDescription: "Learn about running IBM Security Guardium Key Lifecycle
+Manager (GKLM) on zCX",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/2JW6KOL9",
+                resourceLinkText: "View the use case",
+                resourceLinkType: "article",
+                resourceStatus: "new",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Simplify workload scheduling management with zCX",
+                resourceDescription: "Learn about running IBM Z Workload Scheduler Dynamic
+Workload Console, IBM Z Workload Scheduler Agent
+and File Proxy on zCX",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/E3REDJBY",
+                resourceLinkText: "View the use case",
+                resourceLinkType: "article",
+                resourceStatus: "new",
+                resourceIcon: false
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [27, 14, 20] %}
+
+{# end RELATED SOLUTIONS #}
+
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "October 13, 2022",
+        sectionContent: "<p>The link to the documentation in the Documentation section was updated.</p>"
+    },
+    {
+        sectionTitle: "August 25, 2022",
+        sectionContent: "<p>The Planning for zCX tab of the How to get started section now reflects the new support for the z/OS NFS server.</p>"
+    },
+    {
+        sectionTitle: "July 14, 2022",
+        sectionContent: "<p>A new podcast resource was added to the About zCX tab of the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "June 16, 2022",
+        sectionContent: "<p>The FAQs were organized into categories.</p>"
+    },
+    {
+        sectionTitle: "June 10, 2022",
+        sectionContent: "<p>The How to get started and FAQ sections were updated to make clear that FC 0104 is avaialble for the IBM z14 and IBM z15 only.</p>"
+    },
+    {
+        sectionTitle: "April 28, 2022",
+        sectionContent: "<p>New resources were added to the Use cases tab of the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "March 17, 2022",
+        sectionContent: "<p>The <a href='https://www.ibm.com/support/z-content-solutions/zcx-openshift/'>zCX Foundation for Red Hat OpenShift</a> content solution was added as a related content solution.</p>"
+    },
+    {
+        sectionTitle: "October 29, 2021",
+        sectionContent: "<p>The link to the <a href='https://ibm.github.io/ibm-z-oss-hub/main/main.html'>IBM Z and LinuxONE Container Image Registry</a> in the FAQ section was updated.</p>"
+    },
+    {
+        sectionTitle: "October 7, 2021",
+        sectionContent: "<p>A link to information about enabling Container Hosting Foundation was added to the Planning for zCX tab in the How to get started section.</p>"
+    },
+    {
+        sectionTitle: "September 30, 2021",
+        sectionContent: "<p>New z/OS Container Extensions overview video.</p>"
+    },
+    {
+        sectionTitle: "July 1, 2021",
+        sectionContent: "<p>Transcript added for z/OS Container Extensions overview video.</p>"
+    },
+    {
+        sectionTitle: "June 18, 2021",
+        sectionContent: "<p>A new IBM Z Hot Topics article, <em>Getting Better Performance for Your zCX Containers</em>, was added to the Tutorial & instruction tab of the Technical resources section.</p>
+        <p>The links for other IBM Z Hot Topics acrticles, on the About zCX and Tutorial & instruction tabs in the Technical resources section, were updated to find the articles on the new <a href='https://www.zos-hot-topics.com/'>IBM Z Hot Topics</a> website.</p>"
+    },
+    {
+        sectionTitle: "June 4, 2021",
+        sectionContent: "<p>Updates for the new IBM Container Hosting Foundation for z/OS were made to the Planning for zCX tab of the How to get started section and the Frequently Asked Questions section.</p><p>The Big Picture has been modified for accessibility.</p>"
+    },{
+        sectionTitle: "May 10, 2021",
+        sectionContent: "<p>Added new resources to the About zCX tab of the Technical resources section.</p>"
+    },{
+        sectionTitle: "February 19, 2021",
+        sectionContent: "<p>Changes were made to the Technical resources section as a result of the digital transformation of IBM Systems magazine content.</p>"
+    }, {
+        sectionTitle: "November 30, 2020",
+        sectionContent: "<p>Added new resources to the About zCX and Use cases tabs of the Technical resources section.</p>"
+    }, {
+        sectionTitle: "July 22, 2020",
+        sectionContent: "<p>IBM Systems Lab Services was added to the About zXC tab of the Technical resources section.</p>"
+    }, {
+        sectionTitle: "June 16, 2020",
+        sectionContent: "<p>z/OS Communications Server Performance Summary Report was added to the Tutorial & instruction tab of the Technical resources section.</p>
+    <p> Tutorial video of Docker image development in zCX was added to the Tutorial & instruction tab of the Technical resources section.</p>
+    <p>Third tab of Technical resources section was changed from Events to Use cases.</p>
+    <p>Example video of using JupyterHub and zCX was added to the Use cases tab of the Technical resources section.</p>"
+    }, {
+        sectionTitle: "April 30, 2020",
+        sectionContent: "IBM Z Hot Topics article on the 90-day zCX Trial was added to the Tutorial & instruction tab of the Technical resources section."
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "11956773",
+    sc_security: "5956d5e6"
+}
+ %}
+{# END STATCOUNTER #}
+
+{# START INTERCEPT #}
+{% set intercept = true %}
+{# END INTERCEPT #}

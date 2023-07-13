@@ -1,0 +1,360 @@
+{% set solutions = [
+{
+category:"Automation",
+pages: [
+{
+  title: "Red Hat Ansible Certified Content for IBM Z",
+  pageUrl: "ansible",
+  pageDescription: "Automate IBM Z applications and IT infrastructure.",
+  pictogram: "https://izswebpage.mybluemix.net/images/lp-ansible.svg",
+  featured: false
+  related: [
+      {
+        name: "",
+        primary: true
+      },
+      {
+        name: "",
+        primary: false
+      }
+},
+{
+  title: "ServerPac Installation using z/OSMF",
+  pageUrl: "serverpac-install-zosmf",
+  pageDescription: "Become productive more quickly and consistently using a single installation method within z/OSMF.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_Serverpac.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+},
+{
+  title: "Software Update with z/OSMF",
+  pageUrl: "software-update-zosmf",
+  pageDescription: "Use the Software Update application on z/OSMF for a guided experience to install updates to your system.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_SUZ.svg",
+  featured: false,
+  related: [
+      {
+        name: "ServerPac Installation using z/OSMF",
+        primary: false
+      }
+}
+]
+},
+{
+category:"Modernization",
+pages: [
+{
+  title: "Automating and shift-left testing for z/OS hybrid applications",
+  pageUrl: "devops-test-z",
+  pageDescription: "Transform z/OS hybrid application testing for continuous integration.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_DTZ.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+},
+{
+  title: "Developer experience for hybrid cloud with IBM Z",
+  pageUrl: "developer-experience-hybrid-cloud-z",
+  pageDescription: "Simplify life for developers building hybrid cloud applications with a cloud native development experience for z/OS.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_cloud-native-development2.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+},
+{
+  title: "IBM Z Distribution for Zowe",
+  pageUrl: "zowe",
+  pageDescription: "Make z/OS easier to learn and use for the next-generation IT staff.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_Zowe.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+},
+{
+  title: "Z Digital Integration Hub",
+  pageUrl: "z-digital-integration-hub",
+  pageDescription: "Optimize information flow between core systems of record and hybrid cloud.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_ZDIH.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+},
+{
+  title: "z/OS Cloud Broker",
+  pageUrl: "cloud-broker",
+  pageDescription: "Get self-service access to z/OS resources.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_zOS_CB.svg",
+  featured: false,
+  related: [
+      {
+        name: "IBM Cloud Provisioning and Management for z/OS",
+        primary: false
+      }
+},
+{
+  title: "z/OS Container Extensions",
+  pageUrl: "container-extensions",
+  pageDescription: "Run Linux on Z applications as Docker container images on z/OS.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_zOS_CE.svg",
+  featured: false,
+  related: [
+      {
+        name: "Journey to hybrid cloud with IBM Z",
+        primary: false
+      }
+},
+{
+  title: "z/OS Management Services Catalog",
+  pageUrl: "management-services",
+  pageDescription: "Improve z/OS management using services.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP-zmsc.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+}
+]
+},
+{
+category:"Optimization",
+pages: [
+{
+  title: "Cloud Infrastructure Center",
+  pageUrl: "cloud-infrastructure-center",
+  pageDescription: "Manage your virtual infrastructure in a hybrid cloud.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_CIC.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+},
+{
+  title: "Cloud Provisioning and Management for z/OS",
+  pageUrl: "cloud-provisioning",
+  pageDescription: "Rapidly provision z/OS software subsystems.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_CP&M.svg",
+  featured: false,
+  related: [
+      {
+        name: "z/OS Cloud Broker",
+        primary: false
+      }
+},
+{
+  title: "Integrated Accelerator for zEDC",
+  pageUrl: "compression",
+  pageDescription: "Reduce the cost of storing, transporting and processing data through compression.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_Compression.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+},
+{
+  title: "Journey to hybrid cloud with IBM Z",
+  pageUrl: "journey-to-hybrid-cloud-z",
+  pageDescription: "Build your hybrid cloud with IBM Z® for data privacy, security, cyber resiliency and speed to modernization.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_Journey-to-Cloud.svg",
+  featured: false,
+  related: [
+      {
+        name: "z/OS Cloud Broker",
+        primary: false
+      },
+      {
+        name: "z/OS Container Extensions",
+        primary: false
+      },
+      {
+        name: "Hyper Protect Data Controller",
+        primary: false
+      },
+      {
+        name: "Hyper Protect Virutal Servers",
+        primary: false
+      },
+      {
+        name: "Red Hat Ansible Certified Content for IBM Z",
+        primary: false
+      }
+},
+{
+  title: "Journey to LinuxONE",
+  pageUrl: "journey-to-linuxone",
+  pageDescription: "Understand the experience of working with IBM to buy your customized LinuxONE system.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_JournLinuxONE.svg",
+  featured: false,
+  related: [
+      {
+        name: "Hyper Protect Virtual Servers",
+        primary: false
+      },
+      {
+        name: "Trusted Key Entry",
+        primary: false
+      }
+},
+{
+  title: "Resilience",
+  pageUrl: "resilience",
+  pageDescription: "Rapidly adapt and respond to any disruption, demand, or threat, and continue business operations without significant impact.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_Resiliency.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+},
+{
+  title: "System Recovery Boost",
+  pageUrl: "system-recovery-boost",
+  pageDescription: "Minimize the impact of stopping and restarting z/OS.",
+  pictogram: "https://izswebpage.mybluemix.net/images/SRBintro.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+},
+{
+  title: "Tailored Fit Pricing for IBM Z",
+  pageUrl: "tailored-fit-pricing",
+  pageDescription: "Take advantage of simpler and more economical pricing.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_TFP.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+}
+]
+},
+{
+category:"Prediction",
+pages: [
+{
+  title: "IBM Open Data Analytics for z/OS",
+  pageUrl: "open-data-analytics",
+  pageDescription: "Integrate data into a single source and share it on z/OS to simplify data analysis and development.",
+  pictogram: "https://izswebpage.mybluemix.net/images/izoda/izoda-main-img.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+},
+{
+  title: "Journey to AI on Z and LinuxONE",
+  pageUrl: "journey-to-ai-on-z",
+  pageDescription: "Build and train models anywhere, and deploy them on Z and LinuxONE infrastructure.",
+  pictogram: "https://izswebpage.mybluemix.net/images/aiz/aiz-lp.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+}
+]
+},
+{
+category:"Security",
+pages: [
+{
+  title: "Fully Homomorphic Encryption",
+  pageUrl: "fully-homomorphic-encryption",
+  pageDescription: "Preserve privacy while working with confidential data at all times.",
+  pictogram: "https://izswebpage.mybluemix.net/images/fhe/FHE-lp.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+},
+{
+  title: "Hyper Protect Data Controller",
+  pageUrl: "hyper-protect-data-controller",
+  pageDescription: "Protect your data as it moves throughout the enterprise and beyond.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_DPP.svg",
+  featured: false,
+  related: [
+      {
+        name: "Pervasive Encryption",
+        primary: false
+      }
+},
+{
+  title: "Hyper Protect Virtual Servers",
+  pageUrl: "hyper-protect-virtual-servers",
+  pageDescription: "Protect mission critical Linux workloads throughout the DevSecOps lifecycle.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_HPVS.svg",
+  featured: false,
+  related: [
+      {
+        name: "Hyper Protect Data Controller",
+        primary: false
+      },
+      {
+        name: "Trusted Key Entry",
+        primary: false
+      }
+},
+{
+  title: "Pervasive Encryption for IBM Z",
+  pageUrl: "pervasive-encryption",
+  pageDescription: "Enable extensive encryption of data in-flight and at-rest.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_PE.svg",
+  featured: false,
+  related: [
+      {
+        name: "Hyper Protect Data Controller",
+        primary: false
+      },
+      {
+        name: "Trusted Key Entry",
+        primary: false
+      }
+},
+{
+  title: "z/OS Trusted Key Entry Workstation",
+  pageUrl: "trusted-key-entry",
+  pageDescription: "Manage IBM Z host cryptographic modules.",
+  pictogram: "https://izswebpage.mybluemix.net/images/LP_TKE.svg",
+  featured: false,
+  related: [
+      {
+        name: "",
+        primary: false
+      }
+}
+]
+}
+]
+%}

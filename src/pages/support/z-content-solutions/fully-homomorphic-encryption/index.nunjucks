@@ -1,0 +1,935 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "Fully Homomorphic Encryption" %}
+{% set key = 21 %}
+
+{# META #}
+{% set meta_description = meta_description | default("Learn how fully homomorphic encryption keeps sensitive data encrypted at all times, securing the cloud for highly regulated industries.") %}
+{% set meta_keywords = meta_keywords | default("FHE, FHE tool kit, FHE tool kits, FHE toolkit, FHE toolkits, Fully Homomorphic Encryption, Fully homomorphic encryption toolkit, Homomorphic, Homomorphic encryption, homomorphe, homomorphe encryption, ibm fully homomorphic encryption IBM Z Linux") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "1_ivva0tp4",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/fhe/FHE_graphic.png",
+    label: "",
+    youtube: true
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Customer data privacy is a fundamental need for maintaining human trust and reputation in digital business services, and data encryption is key to preserving this privacy. With traditional encryption methods, data is encrypted while at rest and in-flight, but must be decrypted to be accessed for computing and business-critical operations. During the decryption process, sensitive data becomes vulnerable to internal and external risk of data exfiltration and other cyberthreats. With Fully Homomorphic Encryption (FHE), data remains securely encrypted -- even during computations. With FHE, data is always encrypted and can be shared, even onto untrusted domains in the cloud, while remaining unreadable by those doing the computation.</p>
+
+<p>The journey begins with encrypting your sensitive data (PII, PHI) and algorithms (AI, ML) with IBM Fully Homomorphic Encryption. From there, you can perform secure AI and Machine Learning analytics on the encrypted data with Fully Homomorphic Encryption to preserve privacy.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern 'See what {title} can do for your business'
+      'other' - Allows for custom text, enter in field text:
+#}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{% set announcements = [
+    {
+    announcementText: "Try the new IBM HElayers SDK, now available in C++ and Python",
+    announcementLinkText: "Launch",
+    announcementLinkUrl: "https://ibm.github.io/helayers/."
+    }
+] %}
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/fhe/FHE_1.svg",
+        iconPath: '<path d="M16,31.36C9.185,31.36,3.64,25.815,3.64,19V6c0-0.199,0.161-0.36,0.36-0.36c4.354,0,8.635-1.784,11.746-4.895
+		c0.141-0.141,0.368-0.141,0.509,0C19.365,3.856,23.646,5.64,28,5.64c0.199,0,0.36,0.161,0.36,0.36v13
+		C28.36,25.815,22.815,31.36,16,31.36z M4.36,6.356V19c0,6.418,5.222,11.64,11.64,11.64S27.64,25.418,27.64,19V6.356
+		C23.339,6.263,19.134,4.511,16,1.504C12.866,4.511,8.661,6.263,4.36,6.356z M21.36,22h-0.72v-1.5c0-2.088-1.379-3.864-3.433-4.419
+		c-0.146-0.04-0.25-0.165-0.265-0.314c-0.014-0.15,0.066-0.292,0.201-0.358c0.909-0.439,1.496-1.385,1.496-2.409
+		c0-1.456-1.184-2.64-2.64-2.64s-2.64,1.185-2.64,2.64c0,1.023,0.587,1.969,1.497,2.409c0.135,0.065,0.216,0.208,0.202,0.358
+		c-0.014,0.149-0.12,0.274-0.265,0.314c-2.054,0.555-3.434,2.332-3.434,4.419V22h-0.72v-1.5c0-2.163,1.275-4.036,3.243-4.866
+		C13.111,14.999,12.64,14.03,12.64,13c0-1.853,1.507-3.36,3.36-3.36s3.36,1.507,3.36,3.36c0,1.03-0.471,1.999-1.243,2.634
+		c1.968,0.83,3.243,2.703,3.243,4.866V22z"/>',
+        iconAlt: "Data shield",
+        description: "Data owner encrypts and sends sensitive information to a data processor."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/fhe/FHE_2.svg",
+        iconPath: '<path d="M13.4,7.3V4c0-1.5,1.3-2.6,2.7-2.6c1.4,0,2.5,1.2,2.6,2.6v3.3C17,6.4,15,6.4,13.4,7.3 M20.7,12
+	c0,2.6-2.1,4.7-4.6,4.7s-4.7-2.1-4.7-4.6c0-2.6,2.1-4.7,4.6-4.7c0,0,0,0,0,0C18.6,7.3,20.7,9.4,20.7,12C20.7,12,20.7,12,20.7,12
+	 M21.4,12c0-1.6-0.7-3.2-2-4.2V4c-0.1-1.9-1.6-3.3-3.5-3.3c-1.8,0.1-3.2,1.5-3.3,3.3v3.8c-2.3,1.9-2.7,5.2-0.8,7.5s5.2,2.7,7.5,0.8
+	C20.7,15.1,21.4,13.6,21.4,12 M5,28.6H3v0.7h2V28.6z M15,28.6h-2v0.7h2V28.6z M25.1,28.6h-2v0.7h2V28.6z M2.4,27.3h7.3v3.3H2.4V27.3
+	z M12.4,27.3h7.3v3.3h-7.3V27.3z M22.4,27.3h7.3v3.3h-7.3V27.3z M30.4,30.9v-4c0-0.2-0.2-0.4-0.4-0.4c0,0,0,0,0,0h-3.7v-3.6
+	c0-0.2-0.2-0.4-0.4-0.4c0,0,0,0,0,0h-9.7V19h-0.7v3.6H6c-0.2,0-0.4,0.2-0.4,0.4c0,0,0,0,0,0v3.6H2c-0.2,0-0.4,0.2-0.4,0.4v4
+	c0,0.2,0.2,0.4,0.4,0.4h8c0.2,0,0.4-0.2,0.4-0.4v-4c0-0.2-0.2-0.4-0.4-0.4H6.4v-3.3h9.3v3.3H12c-0.2,0-0.4,0.2-0.4,0.4c0,0,0,0,0,0
+	v4c0,0.2,0.2,0.4,0.4,0.4c0,0,0,0,0,0h8c0.2,0,0.4-0.2,0.4-0.3c0,0,0,0,0,0v-4c0-0.2-0.2-0.4-0.4-0.4c0,0,0,0,0,0h-3.7v-3.3h9.3v3.3
+	h-3.6c-0.2,0-0.4,0.2-0.4,0.4c0,0,0,0,0,0v4c0,0.2,0.2,0.4,0.4,0.4c0,0,0,0,0,0h8C30.3,31.3,30.4,31.1,30.4,30.9
+	C30.4,30.9,30.4,30.9,30.4,30.9 M16.4,11.9V13c0,0.2-0.2,0.3-0.4,0.3c-0.2,0-0.3-0.2-0.3-0.3v-1.1c-0.5-0.2-0.8-0.8-0.6-1.3
+	c0.2-0.5,0.8-0.8,1.3-0.6c0.5,0.2,0.8,0.8,0.6,1.3C16.9,11.6,16.7,11.8,16.4,11.9"/>',
+        iconAlt: "Locked data",
+        description: "The data processor receives encrypted information, and can perform computations on the data while it remains encrypted by using a public key."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/fhe/FHE_3.svg",
+        iconPath: '<path d="M19.3,18.2v6.5c0,3,2.5,5.4,5.6,5.4s5.6-2.4,5.6-5.4v-6.5L25,15.5L19.3,18.2z M25,30.8c-3.5,0-6.3-2.7-6.3-6.1
+	v-6.9l6.3-3l6.3,3v6.9C31.3,28.1,28.5,30.8,25,30.8 M23,5.1c0-0.6-0.4-1-1-1c-0.6,0-1,0.4-1,1c0,0.6,0.4,1,1,1
+	C22.5,6.1,23,5.7,23,5.1 M22,14.7c-0.5,0-0.9-0.5-0.9-1c0-0.5,0.5-0.9,1-0.9c0.5,0,0.9,0.4,0.9,1C23,14.3,22.5,14.7,22,14.7
+	 M1.4,8.1h24.2v-6H1.4V8.1z M26,8.8H1c-0.2,0-0.4-0.1-0.4-0.3c0,0,0,0,0,0V1.8c0-0.2,0.2-0.3,0.4-0.3c0,0,0,0,0,0H26
+	c0.2,0,0.4,0.1,0.4,0.3c0,0,0,0,0,0v6.7C26.3,8.7,26.2,8.8,26,8.8C26,8.8,26,8.8,26,8.8 M17,17.4H1c-0.2,0-0.4-0.1-0.4-0.3
+	c0,0,0,0,0,0v-6.7C0.7,10.2,0.9,10,1,10c0,0,0,0,0,0H26c0.2,0,0.4,0.1,0.4,0.3c0,0,0,0,0,0v2.9h-0.7v-2.5H1.4v6H17V17.4z M17,26H1
+	c-0.2,0-0.4-0.1-0.4-0.3c0,0,0,0,0,0V19c0-0.2,0.2-0.3,0.4-0.3c0,0,0,0,0,0H17v0.7H1.4v6H17V26z"/>',
+        iconAlt: "Encrypted data",
+        description: "The encrypted results are sent back to the data owner, and are never viewed by the data processor."
+    },
+    {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/fhe/FHE_4.svg",
+        iconPath: '<path d="M29.8,16.9c0,7.6-6.2,13.8-13.8,13.8c-7.6,0-13.8-6.2-13.8-13.8c0-7.3,5.6-13.3,12.9-13.8l-1.6-1.6L14.1,1
+	l2.5,2.5L14.1,6l-0.6-0.6L15,4c-7.1,0.6-12.4,6.8-11.8,14s6.8,12.4,14,11.8s12.4-6.8,11.8-14c-0.5-5.5-4.3-10.1-9.7-11.5l0.2-0.8
+	C25.5,5.1,29.8,10.6,29.8,16.9 M13.5,1.6 M16,25.3c-3.5,0-6.4-2.9-6.4-6.4v-7.2L16,8.6l6.4,3.2V19C22.3,22.5,19.5,25.3,16,25.3z
+	 M10.3,12.2V19c0,3.1,2.5,5.6,5.6,5.6c3.1,0,5.6-2.5,5.6-5.6v-6.8L16,9.4L10.3,12.2z"/>',
+        iconAlt: "Continuous data encryption",
+        description: "The data owner can now decrypt the data and results for further use by using a secret key (KYOK) for technical assurance."
+    }
+
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Security Business Executive",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>The lattice-based cryptography central to Fully Homomorphic Encryption provides long-term protection and privacy by allowing data to remain encrypted for the duration of its lifecycle, even while computations are being performed. Because the party accessing the data can never “see” it, sensitive material and proprietary algorithms are continuously protected against internal and external threats of data exfiltration.</p>
+
+                <p>This protection is extended to quantum computing, as homomorphically encrypted data is proven to be quantum-safe. With traditionally encrypted data, cyber attackers can harvest encrypted data and encryption keys for future use, thus breaking the encryption with the power of quantum computing. However, the homomorphic encryption scheme uses a lattice key approach which prevents this vulnerability, even from quantum computing. With these capabilities, FHE makes accessing and computing data fully secure and private.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://newsroom.ibm.com/IBM-research?item=30307&mhsrc=ibmsearch_a&mhq=lattice%20cryptography",
+                        linkText: "Learn more about lattice cryptography",
+                        linkTarget: "newTab"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Use Cases",
+                subSectionContent: "<p>FHE can be utilized in a number of ways. Click on each use case to find out more.</p>",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "Secure Outsourcing and Processing",
+                        accordionContent: "<p>FHE can assist and enable cloud adoption for those clients that would never migrate their sensitive data to an untrusted environment due to security concerns. This allows organizations to utilize the flexibility, efficiencies, and cost savings of the cloud with the privacy-preserving capabilities of FHE. Securely collaborate with third parties without sacrificing security and collaborate across jurisdictions and borders to gain actionable insights. With FHE, clients can securely process their most sensitive workloads and data in the cloud, on-premises, or anywhere in between.</p>
+                        <p>Another example relevant to financial services and investment banking is protecting the company's Intellectual Property and proprietary AL/ML algorithms that could be trade secrets and provide a competitive advantage. Financial Services companies can now collaborate with external consultants or startups for ML model development and analytics without giving data access. They can provide fully homomorphic encrypted data for training and testing A/ML models for cloud computing. They can also encrypt AI/ML models with FHE to reduce the risk of insider threat and data exfiltration if an employee goes rogue or leave the company with the models.</p>"
+                    },
+                    {
+                        accordionTitle: "Encrypted search and Data matching",
+                        accordionContent: "<p>While FHE-enabled searches protect a user's privacy while performing an inquiry, an added layer of security is possible through encrypted data-matching. On the server side, the database itself is encrypted, therefore allowing the search to be compared against encrypted database contents. This capability protects both the person making the search and the information it is being compared against.</p>"
+                    },
+                    {
+                        accordionTitle: "Analytics over Encrypted Data",
+                        accordionContent: "<p>With traditional encryption, analysts have exposure to sensitive data as they perform operations to analyze it. This process creates vulnerabilities that can leave data at risk of internal leakage or exfiltration. However, because homomorphically encrypted data is a cipher text, the analyst is protected from the sensitivity of the data and the risk of exfiltration is removed.</p>
+                        For example, a data controller can process employees' sensitive data from Db2 databases, including confidential human resource data and payroll information for analytics and insights in a secure environment and preserve data privacy while data-in-use. In another instance, marketing leaders can analyze a sensitive customer data set to run a promotion campaign without compromising customer's data privacy.</p>"
+                    },
+                     {
+                        accordionTitle: "Encrypted AI/ML Training and Inferencing",
+                        accordionContent: "<p>Once data has been encrypted using FHE, it is possible to train AI/ML models and run inferencing with sensitive data while preserving privacy.</p>
+                        <p>Banking institutions have demonstrated this capability on real financial data. The team at Banco Bradesco, one of Brazil's largest banks, homomorphically encrypted transaction data and an existing machine learning-based prediction model. They then trained the model using the encrypted data and showed that it was possible to perform encrypted predictions while concealing the data and the insights throughout the processing. You can learn more about Banco Bradesco's pilot program <a href='https://ibm-research.medium.com/top-brazilian-bank-pilots-privacy-encryption-quantum-computers-cant-break-92ed2695bf14' target='_blank'>here</a>.</p>
+                         <p>Try this capability yourself on real data by using our Credit Card Fraud example, available for testing in the <a href='https://ibm.github.io/helayers/' target='_blank'>IBM HElayers SDK</a>.</p>"
+                    },
+                    {
+                        accordionTitle: "Encrypted Biometric Authentication",
+                        accordionContent: "<p>FHE allows you to authenticate to services by providing only encrypted biometrics and behavioral information. This allows customers to sign into applications without revealing sensitive biometric data or usage patterns.</p>
+                        <p>One application of FHE can be found in threat detection and alerts for identity and access management. Using a homomorphically encrypted behavioral information database and historical datasets, analysts can detect anomalies and intrusion with security intelligence and AI/ML analytics, such as <a href='https://www.ibm.com/security/security-intelligence/qradar?p1=Search&p4=43700050370322165&p5=e&gclid=CjwKCAjw3pWDBhB3EiwAV1c5rOWa_XP68B7ShZi0RP7nEDYYzjmlq4IoaB-MD3qoTCFnsxZRxwQycxoCTfsQAvD_BwE&gclsrc=aw.ds' target='_blank'>IBM Security QRadar</a>. Sensitive biometric data, user credentials, and AI/ML models are encrypted before sharing with multiple AI/ML engines for threat-hunting scenarios and alerts.</p>
+                        "
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Learn More",
+                subSectionContent: "<p>Discover more about FHE and how this technology works to keep sensitive data private and secured.</p>
+                <p>Videos</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://youtu.be/KWH1qdOtHYU'target='_blank'>An Introduction to FHE (22:16)</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.youtube.com/watch?v=g_SpFZ6-rKE&t=1s'target='_blank'>IBM HE Services (2:23)</a></p>
+                <p class='ibm-ind-link'target='_blank'><a class='ibm-forward-link' href='https://youtu.be/W9G1s1t_d80'target='_blank'>IBM FHE: From Invention to Adoption Webinar (1:02:01)</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://youtu.be/5Mhbaeuv5fk'target='_blank'>Value of FHE (3:34)</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.youtube.com/watch?v=Cl8kUE766m4&t=7s' target='_blank'>FHE in Practice (5:14)</a></p>
+
+                <p>IBM Research</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/blogs/research/2020/07/homomorphic-encryption-comes-to-linux-on-ibm-z/'target='_blank'>HE Comes to Linux on IBM Z</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/blogs/research/2020/12/fhe-progress-milestones/'target='_blank'>The Future of Crypto</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://research.ibm.com/labs/uk/fhe.html?_ga=2.228307933.1971778217.1603398947-1997620092.1602871268'target='_blank'>Research Publications</a></p>
+
+                <p>IBM Security</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://newsroom.ibm.com/IBM-research?item=30307&mhsrc=ibmsearch_a&mhq=lattice%20cryptography' target='_blank'>Learn more about Lattice Cryptography</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/security/digital-assets/fhe/unlock-value-of-sensitive-data-without-decryption/' target='_blank'>Read the Smart paper</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://securityintelligence.com/posts/fully-homomorphic-encryption-next-step-data-privacy/?_ga=2.173842091.909795631.1616521769-1783818060.1613662188' target='_blank'>Unlock the Value of Sensitive Data</a></p>"
+            }
+        ]
+    },
+     {
+        id: 2,
+        tabTitle: "Security Architect",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>By never decrypting data, even during computation, businesses can perform operations on sensitive data at scale without the risk of data exfiltration or other cyberthreats. This allows your business to remain compliant with data privacy regulations and maintain trust with your clients while utilizing their data. One way to add an extra layer of protection is by deploying to an IBM Hyper Protect Virtual Server and its trusted execution environment. By combining FHE applications/runtimes on an IBM Hyper Protect Virtual Server (HPVS) instance ensures data and application integrity. Using these tools you can further protect encrypted data from numerous threat vectors.Learn more about the value of FHE and the technology that makes it work by accessing the resources below:</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/security/digital-assets/fhe/unlock-value-of-sensitive-data-without-decryption/",
+                        linkText: "Read the Smart paper",
+                        linkTarget:"newTab"
+                    },
+                    {
+                        linkUrl: "https://research.ibm.com/labs/uk/fhe.html?_ga=2.228307933.1971778217.1603398947-1997620092.1602871268",
+                        linkText: "View IBM Research Publications",
+                        linkTarget:"newTab"
+                    },
+                    {
+                        linkUrl: "https://youtu.be/W9G1s1t_d80",
+                        linkText: "Watch the Webinar (1:02:01)",
+                        linkTarget:"newTab"
+                    },
+                    {
+                        linkUrl: "https://www.terminaltalk.net/e/eli-dow-fully-homomorphic-encryption/",
+                        linkText: "Listen to an FHE Podcast (43:57)",
+                        linkTarget:"newTab"
+                    },
+                    {
+                        linkUrl: "https://youtu.be/Cl8kUE766m4",
+                        linkText: "Learn about FHE in practice (5:13)",
+                        linkTarget:"newTab"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Use Cases",
+                subSectionContent: "<p>FHE can be utilized in a number of ways. Click on each specific use case to find out more.</p>",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "Encrypted Genomic Analysis",
+                        accordionContent: "<p>Currently, running necessary medical genetic testing on a sequenced genome is a process that is vulnerable to data theft and leaks. Because this data must be decrypted before computations can be run, sensitive medical information is not fully secured. With FHE, this personal medical data is never decrypted, and therefore never vulnerable to internal or external threats.</p>
+                        <p>For example, patient protected health information (PHI) can be fully secured during cancer prognosis and heart disease detection while using genetic testing data and electronic medical records/MRI imagery for analytics. Data collaboration between multiple healthcare providers for analysis on disparate data sets for disease detection and analytics can also be done in a privacy-preserving manner without risk of sensitive data exposure.</p>
+                        <p>Read more about how this process works in <a href='https://www.scientificamerican.com/article/how-to-preserve-the-privacy-of-your-genomic-data/' target='_blank'>Scientific American</a>.</p>"
+                    },
+                    {
+                        accordionTitle: "Encrypted Biometric Authentication",
+                        accordionContent: "<p>FHE allows you to authenticate to services by providing only encrypted biometrics and behavioral information. This allows customers to sign into applications without revealing sensitive biometric data or usage patterns.</p>
+                        <p>One application of FHE can be found in threat detection and alerts for identity and access management. Using a homomorphically encrypted behavioral information database and historical datasets, analysts can detect anomalies and intrusion with security intelligence and AI/ML analytics, such as <a href='https://www.ibm.com/security/security-intelligence/qradar?p1=Search&p4=43700050370322165&p5=e&gclid=CjwKCAjw3pWDBhB3EiwAV1c5rOWa_XP68B7ShZi0RP7nEDYYzjmlq4IoaB-MD3qoTCFnsxZRxwQycxoCTfsQAvD_BwE&gclsrc=aw.ds' target='_blank'>IBM Security QRadar</a>. Sensitive biometric data, user credentials, and AI/ML models are encrypted before sharing with multiple AI/ML engines for threat-hunting scenarios and alerts.</p>"
+                    },
+                    {
+                        accordionTitle: "Encrypted AI/ML Training and Inferencing",
+                        accordionContent: "<p>Once data has been encrypted using FHE, it is possible to train AI/ML models and run inferencing with sensitive data while preserving privacy.</p>
+                        <p>Banking institutions have demonstrated this capability on real financial data. The team at Banco Bradesco, one of Brazil's largest banks, homomorphically encrypted transaction data and an existing machine learning-based prediction model. They then trained the model using the encrypted data and showed that it was possible to perform encrypted predictions while concealing the data and the insights throughout the processing. You can learn more about Banco Bradesco's pilot program <a href='https://ibm-research.medium.com/top-brazilian-bank-pilots-privacy-encryption-quantum-computers-cant-break-92ed2695bf14' target='_blank'>here</a>.</p>
+                        <p>Try this capability yourself on real data by using our Credit Card Fraud example, available for testing in the <a href='https://ibm.github.io/helayers/' target='_blank'>IBM HElayers SDK</a>.</p>"
+                    },
+                    {
+                        accordionTitle: "Encrypted Search and Data Matching",
+                        accordionContent: "<p>>While FHE-enabled searches protect a user's privacy while performing an inquiry, an added layer of security is possible through encrypted data-matching. On the server side, the database itself is encrypted, therefore allowing the search to be compared against encrypted database contents. This capability protects both the person making the search and the information it is being compared against.</p>"
+                    },
+                    {
+                        accordionTitle: "Analytics over Encrypted Data",
+                        accordionContent: "<p>With traditional encryption, analysts have exposure to sensitive data as they perform operations to analyze it. This process creates vulnerabilities that can leave data at risk of internal leakage or exfiltration. However, because homomorphically encrypted data is a cipher text, the analyst is protected from the sensitivity of the data and the risk of exfiltration is removed.</p>
+                        <p>For example, a data controller can process employees' sensitive data from Db2 databases, including confidential human resource data and payroll information for analytics and insights in a secure environment and preserve data privacy while data-in-use. In another instance, marketing leaders can analyze a sensitive customer data set to run a promotion campaign without compromising customer's data privacy.</p>"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Try It",
+                subSectionContent: "<p>Get started with IBM HElayers, a software development kit (SDK) for the practical execution of encrypted workloads using fully homomorphic encrypted data. HElayers enables users to seamlessly apply advanced privacy preserving techniques without requiring specialized skills in cryptography - all while working in an integrated Python or C++ environment. </p>
+
+                <p>HElayers ships with tutorials and sample applications, such as credit card fraud detection, encrypted database search, image classification, and others that highlight the uses of FHE technology. It supports a wide array of analytics such as linear regression, logistic regression, and neural networks.</p>
+                
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://developer.ibm.com/blogs/secure-ai-workloads-using-fully-homomorphic-encrypted-data/'target='_blank'>IBM HElayers and secure workloads using FHE</a></p>
+
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/blogs/systems/the-next-step-in-homomorphic-encryption-for-linux-on-ibm-z/'target='_blank'>The next step in homomorphic encryption for Linux on IBM Z and LinuxONE</a></p>
+
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.youtube.com/watch?v=_bEMWffloas'target='_blank'>Video: Getting Started with HElayers in Python tutorial</a></p>
+                
+                <p>Start here to build your own FHE applications using HElayers:</p>
+                
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://ibm.github.io/helayers/pylab-s390x/'target='_blank'>s390x - Python kit</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://ibm.github.io/helayers/lab-s390x/'target='_blank'>s390x - C++ kit</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://ibm.github.io/helayers/pylab/'target='_blank'>x86 - Python kit</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://ibm.github.io/helayers/lab/'target='_blank'>x86 - C++ kit</a></p>
+                
+                <p>Your feedback on IBM HElayers is essential to providing the best possible experience. Please let us know your thoughts in this <a href='https://www.surveygizmo.com/s3/6494169/IBM-HElayers-SDK-Survey' target='_blank'>1-2 minute survey</a>.</p>"
+    
+            }
+        ]
+    },
+     {
+        id: 3,
+        tabTitle: "Data Scientist",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>By keeping sensitive data encrypted at the time of computation, Fully Homomorphic Encryption allows data scientists to bypass the usual legal permissions and security preparations that can delay the data extraction process. This capability also enables data scientists to form inference on sensitive information outside of a client’s on-premises. In removing these barriers, data scientists can now train AI and machine learning models without ever exposing decrypted data to the machine learning environment, from their own workspaces.</p>
+
+                <p>To learn more about how FHE works, read the <a href='https://www.ibm.com/security/digital-assets/fhe/unlock-value-of-sensitive-data-without-decryption/' target='_blank'>Smart paper</a> or watch the <a href='https://youtu.be/W9G1s1t_d80' target='_blank'>webinar</a>.</p>"
+            },
+            {
+                subSectionTitle: "Use Cases",
+                subSectionContent: "<p>FHE can be utilized in a number of ways. Click on each specific use case to find out more.</p>",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "Encrypted Search and Data Matching",
+                        accordionContent: "<p>While FHE-enabled searches protect a user's privacy while performing an inquiry, an added layer of security is possible through encrypted data-matching. On the server side, the database itself is encrypted, therefore allowing the search to be compared against encrypted database contents. This capability protects both the person making the search and the information it is being compared against.</p>"
+                    },
+                    {
+                        accordionTitle: "Secure Machine Learning-as-a-Service",
+                        accordionContent: "<p>Clients who have data that they want to use for Artificial Intelligence (AI) or analytics, but do not have the necessary high-performance computing resources, may require a cloud provider to create the machine learning models for them. Machine Learning-as-a-Service (MLaaS) allows these clients to upload their data to a cloud provider who will use the data to create Machine Learning (ML) models. These models are then returned to the client who can use them to train AI or implement advanced analytics. </p>
+                        <p>The gap in this service model for startups and enterprises who manage highly sensitive data is that they cannot risk exposing the data to a cloud provider. As a solution, these clients could leverage secure MLaaS with FHE to create ML models with sensitive data while keeping data encrypted throughout the process to preserve privacy.</p>"
+                    },
+                    {
+                        accordionTitle: "Encrypted AI/ML Training and Inferencing",
+                        accordionContent: "<p>Once data has been encrypted using FHE, it is possible to train AI/ML models and run inferencing with sensitive data while preserving privacy.</p>
+                        <p>Banking institutions have demonstrated this capability on real financial data. The team at Banco Bradesco, one of Brazil's largest banks, homomorphically encrypted transaction data and an existing machine learning-based prediction model. They then trained the model using the encrypted data and showed that it was possible to perform encrypted predictions while concealing the data and the insights throughout the processing. You can learn more about Banco Bradesco's pilot program <a href='https://ibm-research.medium.com/top-brazilian-bank-pilots-privacy-encryption-quantum-computers-cant-break-92ed2695bf14' target='_blank'>here</a>.</p>
+                        <p>Try this capability yourself on real data by using our Credit Card Fraud example, available for testing in the <a href='https://ibm.github.io/helayers/' target='_blank'>IBM HElayers SDK</a>.</p>"
+                    },
+                    {
+                        accordionTitle: "Analytics over Encrypted Data",
+                        accordionContent: "<p>With traditional encryption, data scientists who perform operations on sensitive data have to observe strict security protocols, such as entering a secured perimeter and leaving cellphones behind. However, because homomorphically encrypted data cannot be seen, the data scientist is protected from the sensitivity of the data and can perform summary statistics without disrupting their normal routines. This means that data scientist can perform summary statistics such as mean, median, standard deviation, k-means clustering, and other common analysis methods without any personal inconvenience or risk of accidental data leakage.</p>
+                        <p>For example, in healthcare, researchers and pharmaceutical companies can collaborate with multiple healthcare providers to securely pool and analyze sensitive patient data to dramatically increase the understanding of diseases and treatment, and accelerate the development of new drugs and personalized care.</p>"
+                    },
+                    {
+                        accordionTitle: "Analytics over Encrypted Data",
+                        accordionContent: "<p>With traditional encryption, data scientists who perform operations on sensitive data have to observe strict security protocols, such as entering a secured perimeter and leaving cellphones behind. However, because homomorphically encrypted data cannot be seen, the data scientist is protected from the sensitivity of the data and can perform summary statistics without disrupting their normal routines. This means that data scientist can perform summary statistics such as mean, median, standard deviation, k-means clustering, and other common analysis methods without any personal inconvenience or risk of accidental data leakage.</p>
+                        <p>For example, in healthcare, researchers and pharmaceutical companies can collaborate with multiple healthcare providers to securely pool and analyze sensitive patient data to dramatically increase the understanding of diseases and treatment, and accelerate the development of new drugs and personalized care.</p>"
+                    },
+                    {
+                        accordionTitle: "Encrypted Genomic Analysis",
+                        accordionContent: "<p>Currently, running necessary medical genetic testing on a sequenced genome is a process that is vulnerable to data theft and leaks. Because this data must be decrypted before computations can be run, sensitive medical information is not fully secured. With FHE, this personal medical data is never decrypted, and therefore never vulnerable to internal or external threats.</p>
+                        <p>For example, patient protected health information (PHI) can be fully secured during cancer prognosis and heart disease detection while using genetic testing data and electronic medical records/MRI imagery for analytics. Data collaboration between multiple healthcare providers for analysis on disparate data sets for disease detection and analytics can also be done in a privacy-preserving manner without risk of sensitive data exposure.</p>
+                        <p>Read more about how this process works in <a href='https://www.scientificamerican.com/article/how-to-preserve-the-privacy-of-your-genomic-data/' target='_blank'>Scientific American</a>.</p>"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Try It",
+                subSectionContent: "<p>Get started with IBM HElayers, a software development kit (SDK) for the practical execution of encrypted workloads using fully homomorphic encrypted data. HElayers enables users to seamlessly apply advanced privacy preserving techniques without requiring specialized skills in cryptography - all while working in an integrated Python or C++ environment. </p>
+
+                <p>HElayers ships with tutorials and sample applications, such as credit card fraud detection, encrypted database search, image classification, and others that highlight the uses of FHE technology. It supports a wide array of analytics such as linear regression, logistic regression, and neural networks.</p>
+                
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://developer.ibm.com/blogs/secure-ai-workloads-using-fully-homomorphic-encrypted-data/'target='_blank'>IBM HElayers and secure workloads using FHE</a></p>
+
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/blogs/systems/the-next-step-in-homomorphic-encryption-for-linux-on-ibm-z/'target='_blank'>The next step in homomorphic encryption for Linux on IBM Z and LinuxONE</a></p>
+
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.youtube.com/watch?v=_bEMWffloas'target='_blank'>Video: Getting Started with HElayers in Python tutorial</a></p>
+                
+                <p>Start here to build your own FHE applications using HElayers:</p>
+                
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://ibm.github.io/helayers/pylab-s390x/'target='_blank'>s390x - Python kit</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://ibm.github.io/helayers/lab-s390x/'target='_blank'>s390x - C++ kit</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://ibm.github.io/helayers/pylab/'target='_blank'>x86 - Python kit</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://ibm.github.io/helayers/lab/'target='_blank'>x86 - C++ kit</a></p>
+                
+                <p>Your feedback on IBM HElayers is essential to providing the best possible experience. Please let us know your thoughts in this <a href='https://www.surveygizmo.com/s3/6494169/IBM-HElayers-SDK-Survey' target='_blank'>1-2 minute survey</a>.</p>"
+            }
+        ]
+    },
+     {
+        id: 4,
+        tabTitle: "Developer",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Homomorphic encryption removes the need for human-readable data storage while preserving the ability to perform computations on that sensitive data. This capability provides enterprise developers with the ability to build secure AI-enabled business applications for encrypted ML analytics. Applications developed using FHE can outsource sensitive data, in an encrypted statue, to the cloud, allowing developers to perform operations on user's data without ever seeing their information. With these capabilities, FHE makes accessing and computing data fully secure, private, and compliant with regulations.</p>
+
+                <p>For a hands on experience, developers can use the IBM FHE Toolkit to try a demo, or develop their own homomorphically encrypted applications built on IBM’s open-source HELib library.</p>
+
+                To learn more about how FHE works, read the <a href='https://www.ibm.com/security/digital-assets/fhe/unlock-value-of-sensitive-data-without-decryption/' target='_blank'>Smart paper</a> or watch the <a href='https://youtu.be/W9G1s1t_d80' target='_blank'>webinar</a>.</p>"
+
+            },
+            {
+                subSectionTitle: "Use Cases",
+                subSectionContent: "<p>FHE can be utilized in a number of ways. Click on each specific use case to find out more.</p>",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "Privacy Preserving Search",
+                        accordionContent: "<p>FHE makes it possible to securely share access to data that conceals a clients' queries within the database. Privacy preserving search enables you to perform an encrypted query while concealing your search and contents. In doing so, homomorphic encryption solutions provide both the user and the data owner with a fully secure environment. Maintaining private search has implications across many segments of industry, spanning from genomics to finance and beyond.</p>
+                        <p>For an everyday example, consider the current process of searching for directions on your mobile phone application. By conducting this query, you reveal to the application your current location, destination, time of day, and intent to go from point A to point B. This is a lot of private information that you are providing that will be used to form inferences about you. With a homomorphically encrypted search, the same query for directions can be done in a privacy preserving manner that would not reveal any of your details; your data would remain encrypted throughout the entire query process.</p>
+                        <p>Try this capability yourself by utilizing the Privacy Preserving Search example available in the <a href='https://hub.docker.com/search?q=ibmcom%2Fhelayers&type=image' target='_blank'>IBM HElayers SDK</a>.</p>"
+                    },
+                    {
+                        accordionTitle: "Encrypted Search and Data Matching",
+                        accordionContent: "<p>While FHE-enabled searches protect a user's privacy while performing an inquiry, an added layer of security is possible through encrypted data-matching. On the server side, the database itself is encrypted, therefore allowing the search to be compared against encrypted database contents. This capability protects both the person making the search and the information it is being compared against.</p>"
+                    },
+                    {
+                        accordionTitle: "Encrypted Biometric Authentication",
+                        accordionContent: "<p>FHE allows you to authenticate to services by providing only encrypted biometrics and behavioral information. This allows customers to sign into applications without revealing sensitive biometric data or usage patterns.</p>
+                        <p>One application of FHE can be found in threat detection and alerts for identity and access management. Using a homomorphically encrypted behavioral information database and historical datasets, analysts can detect anomalies and intrusion with security intelligence and AI/ML analytics, such as <a href='https://www.ibm.com/security/security-intelligence/qradar?p1=Search&p4=43700050370322165&p5=e&gclid=CjwKCAjw3pWDBhB3EiwAV1c5rOWa_XP68B7ShZi0RP7nEDYYzjmlq4IoaB-MD3qoTCFnsxZRxwQycxoCTfsQAvD_BwE&gclsrc=aw.ds' target='_blank'>IBM Security QRadar</a>. Sensitive biometric data, user credentials, and AI/ML models are encrypted before sharing with multiple AI/ML engines for threat-hunting scenarios and alerts.</p>"
+                    },
+                    {
+                        accordionTitle: "Encrypted AI/ML Training and Inferencing",
+                        accordionContent: "<p>Once data has been encrypted using FHE, it is possible to train AI/ML models and run inferencing with sensitive data while preserving privacy.</p>
+                        <p>Banking institutions have demonstrated this capability on real financial data. The team at Banco Bradesco, one of Brazil's largest banks, homomorphically encrypted transaction data and an existing machine learning-based prediction model. They then trained the model using the encrypted data and showed that it was possible to perform encrypted predictions while concealing the data and the insights throughout the processing. You can learn more about Banco Bradesco's pilot program <a href='https://ibm-research.medium.com/top-brazilian-bank-pilots-privacy-encryption-quantum-computers-cant-break-92ed2695bf14' target='_blank'>here</a>.</p>
+                        <p>Try this capability yourself on real data by using our Credit Card Fraud example, available for testing in the <a href='https://ibm.github.io/helayers/' target='_blank'>IBM HElayers SDK</a>.</p>"
+                    },
+                    {
+                        accordionTitle: "Encrypted Genomic Analysis",
+                        accordionContent: "<p>Currently, running necessary medical genetic testing on a sequenced genome is a process that is vulnerable to data theft and leaks. Because this data must be decrypted before computations can be run, sensitive medical information is not fully secured. With FHE, this personal medical data is never decrypted, and therefore never vulnerable to internal or external threats.</p>
+                        <p>For example, patient protected health information (PHI) can be fully secured during cancer prognosis and heart disease detection while using genetic testing data and electronic medical records/MRI imagery for analytics. Data collaboration between multiple healthcare providers for analysis on disparate data sets for disease detection and analytics can also be done in a privacy-preserving manner without risk of sensitive data exposure.</p>
+                        <p>Read more about how this process works in <a href='https://www.scientificamerican.com/article/how-to-preserve-the-privacy-of-your-genomic-data/' target='_blank'>Scientific American</a>.</p>"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Try It",
+                subSectionContent: "<p>Get started with IBM HElayers, a software development kit (SDK) for the practical execution of encrypted workloads using fully homomorphic encrypted data. HElayers enables users to seamlessly apply advanced privacy preserving techniques without requiring specialized skills in cryptography - all while working in an integrated Python or C++ environment. </p>
+
+                <p>HElayers ships with tutorials and sample applications, such as credit card fraud detection, encrypted database search, image classification, and others that highlight the uses of FHE technology. It supports a wide array of analytics such as linear regression, logistic regression, and neural networks.</p>
+                
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://developer.ibm.com/blogs/secure-ai-workloads-using-fully-homomorphic-encrypted-data/'target='_blank'>IBM HElayers and secure workloads using FHE</a></p>
+
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/blogs/systems/the-next-step-in-homomorphic-encryption-for-linux-on-ibm-z/'target='_blank'>The next step in homomorphic encryption for Linux on IBM Z and LinuxONE</a></p>
+
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.youtube.com/watch?v=_bEMWffloas'target='_blank'>Video: Getting Started with HElayers in Python tutorial</a></p>
+                
+                <p>Start here to build your own FHE applications using HElayers:</p>
+                
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://ibm.github.io/helayers/pylab-s390x/'target='_blank'>s390x - Python kit</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://ibm.github.io/helayers/lab-s390x/'target='_blank'>s390x - C++ kit</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://ibm.github.io/helayers/pylab/'target='_blank'>x86 - Python kit</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://ibm.github.io/helayers/lab/'target='_blank'>x86 - C++ kit</a></p>
+                
+                <p>Your feedback on IBM HElayers is essential to providing the best possible experience. Please let us know your thoughts in this <a href='https://www.surveygizmo.com/s3/6494169/IBM-HElayers-SDK-Survey' target='_blank'>1-2 minute survey</a>.</p>"
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FAQs #}
+{# Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{% set faqSection = [
+    {
+        section: "General Questions",
+        categories: [
+            {
+                catTitle: "FHE Technology",
+                faqs: [
+                    {
+                        question: "What is FHE technology and how does it work?",
+                        answer: "FHE technology enables you to perform computations on encrypted data. With FHE, you can encrypt numbers and perform operations like multiplication, addition or rotation within an encrypted vector. When the data owner decrypts the result, it should be the same as if it were done unencrypted (rounded within a certain error tolerance). Only the data owner (the person who encrypted the data) has the private key and can decrypt and observe the result."
+                    }, {
+                        question: "Does FHE encrypt data in use? Why should we protect data in use?",
+                        answer: "Yes, FHE encrypts data in use and helps to ensure confidentiality even if encrypted data is leaked or exfiltrated. Protect data in use to help eliminate the window of vulnerability that is inherent to current approaches in protecting data. Current security architectures for protecting data address data in rest and data in transit - few secure data in use.
+                        <p>Data in use is particularly vulnerable because it has to be decrypted to be processed. Anytime you have decrypted data out in the open, it creates a window of vulnerability that malicious entities can exploit to access sensitive workloads.</p>"
+                    }, {
+                        question: "What does a scheme mean in FHE?",
+                        answer: "A scheme is a specific algorithmic method or approach to the underlying mathematics being used to perform the homomorphic calculations."
+                    }, {
+                        question: "Is FHE quantum resistant and what does quantum resistant mean?",
+                        answer: "Yes, FHE is considered to be quantum resistant. Quantum resistant technologies enable organizations to protect their data against quantum computers; there is no advantage in using a quantum processor to break the encryption algorithm. Cryptography is generally built on assumptions about the computational difficulty (or complexity) of solving certain mathematical problems. FHE relies on a different class of difficult problems like <a href='https://en.wikipedia.org/wiki/Learning_with_errors' target='_blank'>Learning with Errors</a>, a well known lattice-based problem widely used in quantum resistant cryptography."
+                    }, {
+                        question: "How is FHE different from a Trusted Execution Environment?",
+                        answer: "With a Trusted Execution Environment (TEE), one can run computations on unencrypted data with a hardware enforced root of trust. A TEE is intended to be secure by design, however if an application running within it had a security issue (insecure code, application code deployed with malicious malware, zero day exploit, etc), your data may be exposed and an attacker might be able to exfiltrate or manipulate your data.
+                        
+                        <p>But with FHE, data remains encrypted at all times even during data leakage or exfiltration. FHE (which guarantees data confidentiality at all times) and a TEE (which provides data integrity) can be combined to secure your 'crown jewel' sensitive data.</p>"
+                    }, {
+                        question: "What are low level primitives?",
+                        answer: "Low level primitives are the base operations that can be performed directly on ciphertext and include multiplication, addition, and rotation. All higher level functions are implemented in terms of low level primitives, which make them homomorphic as well. More complex operations like operations on matrices or arrays are built upon the foundational primitives."
+                    }, {
+                        question: "Would you use FHE in place of data masking and data obfuscation?",
+                        answer: "You should use FHE if data masking or data obfuscation interfere with the analytics you want to perform. If this is not the case, then data masking is the better option because it would be faster to perform computations on data that is not encrypted."
+                    }, {
+                        question: "What is the FHE sponsor user program and how do I sign up?",
+                        answer: "Sponsor users interact directly with designers and developers to improve the FHE user experience and help shape the future of FHE at IBM. IBM is currently accepting sponsor users at no cost to engage with application developers, data scientists, applied AI teams, crypto leads, and executives from enterprises around the world to refine the FHE user experience.
+                        
+                        <p>Please reach out to fhestart@us.ibm.com for next steps.</p>"
+                    }
+                ]
+            }, 
+            {
+                catTitle: "Crypto Technology",
+                faqs: [
+                    {
+                        question: "What is lattice cryptography and how does it relate to FHE?",
+                        answer: "Lattice cryptography is a generic term for constructions of cryptographic primitives that involve lattices. They are generally hard to solve (and thus secure) and it is assumed that they are quantum resistant; even quantum computers find them hard to solve. FHE schemes are based on lattice cryptography and are considered to be quantum resistant."
+                    }, {
+                        question: "What cryptography schemes does FHE use and why would I use one over the other?",
+                        answer: "There are many different cryptography schemes that FHE uses. The leading FHE schemes are BGV, BFV, TFHE and CKKS. They differ by the type of numbers that they are able to operate on.
+                        
+                        <p>For example, BGV, BFV and TFHE operate on integers (e.g. doing a database lookup and checking to see if two numbers are the same) while CKKS is best used with real or complex numbers (e.g. AI/ML applications like neural networks).</p>"
+                    }
+                ]
+            },
+            {
+                catTitle: "Error and Bootstrapping",
+                faqs: [
+                    {
+                        question: "Why does FHE introduce error and wont it ruin my computational results? What is bootstrapping and how does it relate to error?",
+                        answer: "All FHE schemes rely on a technique called <a href='https://en.wikipedia.org/wiki/Learning_with_errors' target='_blank'>Learning with Errors</a> (LWE). LWE introduces error to the ciphertext to provide security. This error keeps growing as you continue to perform operations on the encrypted data until at some point you can't continue. In order to continue and preserve the computational results, bootstrapping is required.
+                        
+                        <p>Bootstrapping reduces the error in the ciphertext that is intentionally added to keep the scheme protected. This allows you, in principle, to continue to do as many computations as you want. However, this operation is very costly to perform and significantly degrades performance.</p>
+                        
+                        <p>In the BGV scheme, the error in the ciphertext is actually hidden from the user. When the user decrypts, they don't see the error at all. </p>
+                        
+                        <p>In the CKKS scheme, the error is actually encrypted into the data itself. When the user decrypts, they don't receive the exact value, they receive the value plus some error.</p>"
+                    }, {
+                        question: "What is circuit depth and why is it relevant to FHE?",
+                        answer: "Circuit depth is the number of operations that you perform in a sequence. It relates to FHE because for schemes that don't support bootstrapping, you have a hard limit on the depth of computations you can perform. For schemes that support bootstrapping, you can implement the operation but it will be costly and it may not be efficient if the circuit depth is too large. In this case, you will have to bootstrap more than once which may cause the computation to be impractical. It's usually much more practical to have a low depth circuit for FHE operations."
+                    }, {
+                        question: "Does circuit depth relate to memory consumption?",
+                        answer: "Yes, circuit depth is directly related to memory consumption. Large circuit depths result in an increase in memory consumption. "
+                    }, {
+                        question: "Does circuit depth relate to compute time?",
+                        answer: "Yes, circuit depth is directly related to compute time. The deeper the circuit, the more gates will be present and the more time it will take to perform the computation."
+                    }
+                ]
+            }
+        
+        ]
+    },
+    {
+    section: "Development & Deployment Questions",
+    categories: [
+        {
+            catTitle: "IBM HElayers SDK",
+            faqs: [ 
+                {
+                    question: "What is the IBM HElayers?",
+                    answer: "HElayers is a Software Development Kit (SDK) that enables the practical and efficient execution of secure AI workloads using an emerging cryptographic technique called Fully Homomorphic Encryption (FHE). Targeted for use by data scientists and application developers, HElayers enables seamless use of advanced privacy preserving techniques without requiring users to understand the cryptographic underpinnings required to efficiently run FHE workloads. 
+                    
+                    <p>HElayers is written in C++ and includes a Python API that enables application developers and data scientists to use the power of FHE by supporting a variety of analytics such as Linear Regression, Logistic Regression, and Neural Networks. It has been designed with a layered set of capabilities and coupled with appropriate APIs so users can fully utilize the services provided by the SDK. HElayers is delivered as an open platform capable of using the latest FHE implementations for a given use case. It is enabled with patented optimization and performance boosting innovation for computation, AI innovation and use case requirements that facilitate the practical use of a wide variety of AI workloads over FHE data.</p>"
+                },
+                {
+                    question: "What are the different layers in HElayers?",
+                    answer: "HElayers has four layers. The first layer is the abstraction layer that can wrap an underlying HE library, providing a uniform API to access different libraries, thus allowing to write library-agnostic and scheme-agnostic code (as much as possible). The second layer underneath is the packing algorithms and math layer. This layer contains tools for doing high-level operations such as matrix multiplication and polynomial evaluation. The third layer contains the AI and query tools which enable inference over multiple types of models, neural networks, decision trees, logistic regression, linear regression, and k-means. The fourth and last layer is the use cases layer. This layer contains complete solutions for several applications. Each solution is in a form of a demo providing end-to-end usage implementation on some test data."
+                }, 
+                {
+                    question: "What is HElib? What is NTL? How are they related?",
+                    answer: "HElib is an <a href='https://github.com/homenc/HElib' target='_blank'>open source FHE library</a>. It is a core library and API that implements IBM's reference implementation of FHE schemes. HElib implements two schemes: BGV and CKKS. To perform some of the number theory calculations to do FHE, we depend on another open source C++ library called NTL (Number Theory Library). NTL computes with modular arithmetic and deals with large numbers. "
+                },
+                {
+                    question: "What programming languages does IBM support for FHE?",
+                    answer: "Python and C++ API support is available for HElayers."
+                }
+            ]
+        },
+        {
+            catTitle: "System Requirements",
+            faqs: [
+                {
+                    question: "What are the hardware and software requirements? ",
+                    answer: "FHE can be implemented entirely in software; there is no hardware dependency. The only software that is required is Docker 19 or 20 and URL access to download the SDK.
+                    
+                    <p>In most use cases, for the client side, almost any modern PC, laptop or mobile device has sufficient resources to perform FHE tasks. As for the server side, where the intense encrypted computation happens, it depends on the use case. For serious development and prototyping, we recommend at least 32 GB of RAM, and more than 4 CPU cores to host a development experience suitable for modern developer test and iteration cycles. Performance of our FHE implementations scales well, meaning that more cores and more RAM lead to better the performance.</p>"
+                }, 
+                {
+                    question: "Is there a trusted hardware requirement for FHE?",
+                    answer: "No, trusted hardware is not strictly required. However, pairing FHE with a secure runtime could provide data integrity assurances. Because of the malleability property of FHE, anyone with access to the public key could manipulate the encrypted data. Thus, data may be subject to tampering in a completely untrusted environment in some circumstances and under some threat models."
+                }, {
+                    question: "Which Linux distributions are supported today?",
+                    answer: "Today, we support Ubuntu 20.04."
+                }, {
+                    question: "Is there any special background I should have to be a successful FHE programmer right now?",
+                    answer: "Today, you may need some additional background in computer science or a related subject to be an effective FHE programmer depending on your use case. If you are a programmer that would like to develop FHE schemes, then you need to be a cryptographer. If you want to be a programmer that works directly with the lower level APIs provided by HElib for free, you need to be familiar with FHE schemes, the special considerations in using them, and the domain that you're working with (e.g. neural networks).
+                    
+                    <p>HElayers offers high-level APIs that allow you to solve AI and other problems without requiring background knowledge of FHE. For example, if you're used to working with neural networks in a standard library like Keras, HElayers can provide you with the tools necessary to import and convert your work to homomorphic encryption.</p>"
+                }, {
+                    question: "Does FHE require any code or application changes?",
+                    answer: "Generally, yes FHE requires code changes. Some things that are easy to do with plaintext, or unencrypted data, are difficult to do with homomorphic encryption schemes. For example, a common function like MAX (taking the maximum of two numbers) is easy to compute using plaintext, but very difficult to compute using encrypted data.
+                    
+                    <p>Algorithms need to be changed to make them 'HE friendly' so that they are able to be decomposed into three foundational FHE primitives of multiplication, addition and rotation.</p>
+                    
+                    <p>For complex operations, if there is no direct implementation feasible due to performance requirements, one must substitute the desired function by polynomial approximation. Over time, the  API (Application Programming Interface) library will provide more functions that have been implemented using the three FHE primitives. Our goal is to make the developer experience as comfortable and familiar as possible, while minimizing the number of changes that is needed to implement FHE.</p>"
+                }, {
+                    question: "Do you need to approximate computations with polynomials to make it compatible with FHE?",
+                    answer: "Yes. Most FHE schemes only provide two basic operators: addition and multiplication. This means that everything you compute will have to be a polynomial or approximated using polynomials. The larger the polynomial, the better the approximation. However, having larger polynomials means it will be more difficult to compute. For example, if you have a function involving a square root, division, and MAX operators, it may be very easy to do using plaintext. But for FHE, it will result in a complicated polynomial and will be much slower to compute. This again touches why in principle everything is possible to compute under homomorphic encryption, but in practice, it's not always practical."
+                }
+            ]
+        }, {
+            catTitle: "Running FHE",
+            faqs: [
+                {
+                    question: "How do I ensure that sensitive data is encrypted correctly and that the access to this sensitive data is without any security threat? ",
+                    answer: "In cryptography (specifically quantum safe and public key cryptography), algorithms are based on the computational complexity or 'hardness' of certain problems to solve by classical or quantum computers. 'Hardness' refers to the ability of an algorithm to solve a problem efficiently. FHE is based on a mathematical problem called <a href='https://en.wikipedia.org/wiki/Learning_with_errors' target='_blank'>Learning with Errors</a> that both classical and quantum computers fail at solving efficiently. Like with all public private key cryptography systems, it is important to keep the secret key protected. Interactions with your secret key should only be done from a trusted environment and should not be revealed to anyone except the data owner. "
+                }, {
+                    question: "Any special challenges with testing and debugging FHE programs?",
+                    answer: "There are three main challenges with testing and debugging FHE programs. The first is that because encrypted computations require more resources than unencrypted computations, computations are slower. The second is the additional layer of complexity that is created due to the constraints of working with ciphertext of a fixed size. The last challenge is the error (noise) that needs to be managed that is inherent to FHE operations.
+                    
+                    <p>In HElayers, we provide tools to help address these challenges. For example, we offer APIs to measure noise and compare the computation in plaintext with a computation done under encryption. This allows you to track how the noise grows and manage the noise.</p>"
+                }, {
+                    question: "What types of AI/ML models do we support today?",
+                    answer: "We currently support decision trees, logistic regression, linear regression, neural networks (fully connected and convolutional layers), Support Vector Machine (SVM), nearest neighbor, and basic statistics like mean."
+                }, {
+                    question: "What types of activation layers do we support today?",
+                    answer: "For activation layers, we support polynomial functions. This is something that is not commonly used outside of FHE, but it's something that usually needs to change when trying to make a neural network 'HE friendly.'"
+                }, {
+                    question: "What types of SQL commands do we support today?",
+                    answer: "There are some SQL statements that we are able to support like SELECT, INSERT, UPDATE, DELETE. There are some commands that are quite challenging in terms of performance like JOIN and LIKE operations."
+                }
+            ]
+        }, {
+            catTitle: "Program Creation",
+            faqs: [
+                {
+                    question: "What can I program with FHE? What can’t I program with FHE? ",
+                    answer: "In principle, the 'Fully' in Fully Homomorphic Encryption means that you can compute on any function that you want. However, in practice, some computations are very difficult to the point of being impractical.
+                    
+                    <p>FHE computation is most similar to a hardware circuit; we get the data, we run it through a sequence of gates and each gate performs an operation. Because the data remains encrypted and we are not able to see it in the clear, it is difficult to perform branching with FHE (e.g. if the data meets a certain condition, do X, else do Y). As a result, the data must run through all of the gates.</p>"
+                }, {
+                    question: "What programming constructs are not available on FHE in terms of control flow?",
+                    answer: "There is no control flow for FHE - the input arrives and it runs through a circuit involving gates. You can't branch at all no ifs, no loops. It's like one big circuit."
+                }
+            ]
+        }, {
+            catTitle: "FHE Performance",
+            faqs: [
+                {
+                    question: "What is the performance and speed of FHE now?",
+                    answer: "Performance is dependent on the use case and the corresponding implementation. Transactional workloads are generally higher in latency than batch workloads. For many applications, FHE is fast enough now to be used. This is especially the case when FHE enables workloads that could not have been computed in an automated fashion before (due to privacy or data sharing concerns)
+                    
+                    <p>The time scales and requirements for things like online transaction fraud detection and medical image analysis are quite different. In the former, we would demand performance of hundreds or thousands of transactions per second, while in the latter a response in a few minutes or hours might be acceptable.</p>
+                    
+                    <p>Today, FHE can perform tasks like logistic regression and neural networks with three or four layers in less than a second. When these neural networks become more complicated and have more layers, it will be in the order of minutes. For example, we are able to support a neural network called AlexNet with a latency in the order of minutes while our competitors take about a day and a half.</p>"
+                }, {
+                    question: "Are there any special CPUs that are needed?",
+                    answer: "There are no special CPUs or hardware that is strictly needed to perform FHE operations. However, FHE is computationally intensive and utilizing faster processors with larger cache sizes and memory capacity will result in better performance."
+                }, {
+                    question: "What is the slowdown in terms of CPU I should expect for FHE vs non FHE operations?",
+                    answer: "It depends on the use case. Generally, encrypted computations require more resources than unencrypted computations. Overhead can be as low as a factor of two, or as high as a factor of 10 (or even larger without careful optimization). If you are processing in batches, you'll get much better performance because the operations are SIMD (Single Instruction, Multiple Data). Note that when you are able to work with batches, you are not just looking at latency, but rather on the amortized times and throughput of an overall system design which can lead to better performance."
+                }, {
+                    question: "Is FHE Turing complete?",
+                    answer: "FHE is Turing complete because, in theory, it can perform any function that is computable."
+                }
+            ]
+        }
+    ]
+}] %}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to hide tile on page temporarily.
+ #}
+{% set resourcesTabs = [
+{
+        id: 1,
+        tabTitle: "IBM HElayers SDK",
+        tabContent: [
+            {
+                resourceTitle: "s390x - Python Kit",
+                resourceDescription: "Access IBM HElayers with a Python API for IBM Z and LinuxONE.",
+                resourceLinkUrl: "https://ibm.github.io/helayers/pylab-s390x/",
+                resourceLinkText: "Launch the SDK",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "s390x - C++ Kit",
+                resourceDescription: "Access IBM HElayers with a C++ API for IBM Z and LinuxONE.",
+                resourceLinkUrl: "https://ibm.github.io/helayers/lab-s390x/",
+                resourceLinkText: "Launch the SDK",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "x86 - Python Kit",
+                resourceDescription: "Access IBM HElayers with a Python API for x86 architectures.",
+                resourceLinkUrl: "https://ibm.github.io/helayers/pylab/",
+                resourceLinkText: "Launch the SDK",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "x86 - C++ Kit",
+                resourceDescription: "Access IBM HElayers with a C++ API for x86 architectures.",
+                resourceLinkUrl: "https://ibm.github.io/helayers/lab/",
+                resourceLinkText: "Launch the SDK",
+                resourceLinkType: "",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "IBM Developer Blog",
+                resourceDescription: "Learn more about IBM HElayers and how to secure AI workloads using fully homomorphic encrypted data.",
+                resourceLinkUrl: "https://developer.ibm.com/blogs/secure-ai-workloads-using-fully-homomorphic-encrypted-data/?_ga=2.5526067.105055982.1632429138-1380791881.1613075822",
+                resourceLinkText: "Read more",
+                resourceLinkType: "",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "White Paper",
+                resourceDescription: "''Homomorphically Securing AI at the Edge''",
+                resourceLinkUrl: "https://dl.acm.org/doi/pdf/10.1145/3363347.3363361",
+                resourceLinkText: "Read more",
+                resourceLinkType: "",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "White Paper",
+                resourceDescription: "''Towards a Homomorphic Machine Learning Big Data Pipeline for
+the Financial Services Sector''",
+                resourceLinkUrl: "https://eprint.iacr.org/2019/1113.pdf",
+                resourceLinkText: "Read more",
+                resourceLinkType: "",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: "newTab"
+            }
+
+           
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Articles & Blogs",
+        tabContent: [
+            {
+                resourceTitle: "Top Brazilian Bank Pilots Privacy Encryption Quantum Computers Can’t Break",
+                resourceDescription: "Learn more about the recent FHE pilot program at Banco Bradesco.",
+                resourceLinkUrl: "https://ibm-research.medium.com/top-brazilian-bank-pilots-privacy-encryption-quantum-computers-cant-break-92ed2695bf14",
+                resourceLinkText: "Read more",
+                resourceLinkType: "webpaage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png",
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "IBM FHE Smart paper",
+                resourceDescription: "Explore different topics within FHE.",
+                resourceLinkUrl: "https://www.ibm.com/security/digital-assets/fhe/unlock-value-of-sensitive-data-without-decryption/",
+                resourceLinkText: "Learn more",
+                resourceLinkType: "webpaage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png",
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "HES Brochure",
+                resourceDescription: "Learn about the value and practical application of FHE.",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/KQ27PWBO",
+                resourceLinkText: "Read more",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png",
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "Go Beyond Confidential Computing with IBM Cloud Hyper Protect Services",
+                resourceDescription: "When used together, Hyper Protect Virtual Servers and FHE can offer an unrivaled security experience.",
+                resourceLinkUrl: "https://www.ibm.com/cloud/blog/go-beyond-confidential-computing-with-ibm-cloud-hyper-protect-services",
+                resourceLinkText: "Read more",
+                resourceLinkType: "webpaage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png",
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "IBM Research: FHE Publications",
+                resourceDescription: "Learn more about the technology that makes FHE work.",
+                resourceLinkUrl: "https://research.ibm.com/labs/uk/fhe.html?_ga=2.182589998.961674879.1620234988-1380791881.1613075822&cm_mc_uid=43017295386516130758220&cm_mc_sid_50200000=60109961620399184494",
+                resourceLinkText: "Read more",
+                resourceLinkType: "webpaage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png",
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "Homomorphic Encryption Comes to Linux on IBM Z",
+                resourceDescription: "Read the announcement on what you can do with FHE on Linux.",
+                resourceLinkUrl: "https://www.ibm.com/blogs/research/2020/07/homomorphic-encryption-comes-to-linux-on-ibm-z/",
+                resourceLinkText: "Read more",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png",
+                resourceStatus: "",
+                linkTarget: "newTab"
+            }
+            ,{
+                resourceTitle: "The Future of Crypto: IBM makes a new leap with Fully Homomorphic Encryption",
+                resourceDescription: "Learn more about what IBM's leap with FHE means for the future.",
+                resourceLinkUrl: "https://www.ibm.com/blogs/research/2020/12/fhe-progress-milestones/",
+                resourceLinkText: "Read more",
+                resourceLinkType: "article",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/IconWhitePaper.png",
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "Fully Homomorphic Encryption: Unlocking the Value of Sensitive Data While Preserving Privacy",
+                resourceDescription: "Read the article in SecurityIntelligence.",
+                resourceLinkUrl: "https://securityintelligence.com/posts/fully-homomorphic-encryption-next-step-data-privacy/?_ga=2.173842091.909795631.1616521769-1783818060.1613662188",
+                resourceLinkText: "Read more",
+                resourceLinkType: "article",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/IconWhitePaper.png",
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "A Primer on Homomorphic Encryption",
+                resourceDescription: "A graphic representation of how FHE works compared to conventional encryption.",
+                resourceLinkUrl: "https://mma.prnewswire.com/media/1387830/IBM_Homomorphic_Encryption_primer.jpg?p=original",
+                resourceLinkText: "View the infographic",
+                resourceLinkType: "infographic",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: "newTab"
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Videos & Podcasts",
+        tabContent: [
+            {
+                resourceTitle: "What is Homomorphic Encryption and how can you use it in practice?",
+                resourceDescription: "This video covers the basics of FHE and its many use cases.",
+                resourceLinkUrl: "https://youtu.be/Cl8kUE766m4",
+                resourceLinkText: "Watch the video (5:13)",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "IBM Research Webinar",
+                resourceDescription: "FHE: From Invention to Adoption highlights the history, technology, use cases that make FHE valuable.",
+                resourceLinkUrl: "https://www.youtube.com/watch?v=W9G1s1t_d80&list=PL0VD16H1q5IOEQuRdgRVt1M8uQSbpVzTb",
+                resourceLinkText: "Watch the video (1:02:01)",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "Terminal Talk Podcast",
+                resourceDescription: "Learn about how FHE can add value, both from a personal and business perspective.",
+                resourceLinkUrl: "https://www.terminaltalk.net/e/eli-dow-fully-homomorphic-encryption/",
+                resourceLinkText: "Listen to the podcast (43:57)",
+                resourceLinkType: "podcast",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "Fully Homomorphic Encryption: Why it Matters",
+                resourceDescription: "Learn why keeping data fully encrypted, even while its being processed, will matter to your business.",
+                resourceLinkUrl: "https://www.youtube.com/watch?v=5Mhbaeuv5fk",
+                resourceLinkText: "Watch the video (3:34)",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "IBM Security Homomorphic Encryption Services",
+                resourceDescription: "Learn how FHE can mitigate the risks inherent to data stored across hybrid multicloud environments. ",
+                resourceLinkUrl: "https://www.youtube.com/watch?v=g_SpFZ6-rKE&t=1s",
+                resourceLinkText: "Watch the video (2:23)",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: "newTab"
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no announcement content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{# set related = [12,14] #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "September 23, 2021",
+        sectionContent: "<p>Page updated to include the new IBM HElayers SDK.</p>"
+    },
+    {
+        sectionTitle: "July 1, 2021",
+        sectionContent: "<p>Transcript added for Fully Homomorphic Encryption overview video.</p>"
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "fhe" %}
+{# END FEEDBACK #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "12516087",
+    sc_security: "8117a360"
+}
+ %}
+{# END STATCOUNTER #}
+
+{# START HOTJAR #}
+{% set hotjar = {
+    site_id: "2467029"
+}
+ %}
+{# END HOTJAR #}

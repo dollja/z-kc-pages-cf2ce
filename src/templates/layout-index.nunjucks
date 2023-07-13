@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<link rel="icon" href="//www.ibm.com/favicon.ico">
+{# <link rel="canonical" href="http://izswebpage.mybluemix.net/">  #}
+ 
+<meta name="description" content="{{meta_description|safe}}" /> 
+<meta name="keywords" content="{{meta_keywords|safe}}" />  
+<meta name="dcterms.date" content="2018-07-16">
+<meta name="dcterms.rights" content="© Copyright IBM Corp. 2018">
+<meta name="geo.country" content="US">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>IBM Z Content Solutions | {{ title }} </title>
+
+
+<link rel="stylesheet" href="//1.www.s81c.com/common/v18/css/www.css" media="all" />
+<link rel="stylesheet" href="//1.www.s81c.com/common/v18/css/grid-fluid.css" media="all" />
+<link rel="stylesheet" href="//1.www.s81c.com/common/v18/css/textcolumns.css" media="all" />
+<link rel="stylesheet" href="https://izswebpage.mybluemix.net/css/overrides.css" media="all" /> 
+
+<script src="//1.www.s81c.com/common/stats/ida_stats.js"></script>
+<script src="//1.www.s81c.com/common/v18/js/www.js"></script>
+<script src="//1.www.s81c.com/common/v18/js/dyntabs.js"></script>
+
+<script type="text/javascript">
+    IBMCore.common.util.config.set({
+        "backtotop": {
+            "enabled": true
+            }
+        
+    });
+</script>
+
+<script type="text/javascript">
+digitalData = {
+        page: {
+            category: {
+                primaryCategory: "????"
+            },
+            pageInfo: {
+                effectiveDate: "2018-07-16",
+                expiryDate: "2030-07-16",
+                language: "en-US",
+                publishDate: "2018-07-16",
+                publisher: "IBM Corporation",
+                version: "v18",
+                focusArea: "",
+                ibm: {
+                    contentDelivery: "IBM Cloud",
+                    contentProducer: "Pok CDD, HTML, Summer 2018",
+                    country: "US",
+                    owner: "Jacky M Doll/Poughkeepsie/IBM",
+                    type: "?????"
+                }
+            }
+        }
+    };
+</script>
+<script type="text/javascript">
+    IBMCore.common.util.config.set({
+        "backtotop": {
+            "enabled": true
+        },
+        "masthead" : {
+            "type" : "alternate"
+        },
+        "footer" : {
+            "type" : "alternate",
+            "socialLinks" : {
+                "enabled" : false
+            }
+        }
+    });
+</script>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Inconsolata" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+{# ADDED FOR CONTACT MODULE <script src="https://www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js" defer></script> #}
+
+
+</head>
+
+
+                <!-- MASTHEAD_BEGIN -->
+        <div id="ibm-masthead" role="banner" aria-label="IBM" class="ibm-mhtype-minimal">
+<div id="ibm-mast-options">
+<ul role="toolbar" aria-labelledby="ibm-masthead">
+<li id="ibm-geo" role="presentation">
+<a href="http://www.ibm.com/planetwide/select/selector.html">United States</a></li>
+</ul>
+</div>
+<div id="ibm-universal-nav" class="">
+
+<div id="ibm-home"><a href="http://www.ibm.com/us-en/?lnk=m">IBM®</a></div>
+<div class="ibm-parent-site-name"><a href="/support/z-content-solutions">IBM Z and LinuxONE Content Solutions</a></div>
+<ul id="ibm-menu-links" role="toolbar" aria-label="Site map" class="ibm-hide">
+<li><a href="http://www.ibm.com/sitemap/us/en/">Site map</a></li>
+</ul><div class="ibm-masthead-rightside"><div id="ibm-search-module" role="search" aria-labelledby="ibm-masthead" class="ibm-has-scope">
+<div class="ibm-masthead-search-close"><p class="ibm-ind-link ibm-icononly ibm-padding-bottom-0"><a href="#" class="ibm-close-link ibm-nospacing">Close</a></p></div>
+<form id="ibm-search-form" action="https://www.ibm.com/Search/" method="get" aria-labelledby="ibm-masthead">
+          <p>
+            <label for="q">IBM</label>
+            <input type="text" maxlength="100" value="" placeholder="Search" name="q" id="q" aria-label="Search" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="ibm-search-typeahead-container"><input name="lnk" type="hidden" value="mhsrch">
+            <input type="hidden" value="18" name="v">
+            <input type="hidden" value="utf" name="en">
+            <input type="hidden" value="en" name="lang">
+            <input type="hidden" value="us" name="cc">
+            <button role="button" type="submit" id="ibm-search" class="ibm-search-link" value="Submit"><span class="ibm-access">Submit</span></button>
+          </p>
+        </form>
+</div><div id="ibm-search-typeahead-container" aria-expanded="false" class="ibm-search-typeahead-container"></div><ul aria-label="Tools" role="menubar" class="ibm-masthead-iconsonly"><li role="presentation" class="ibm-masthead-item-signin"><button role="button" aria-haspopup="true" aria-owns="ibm-signin-minimenu-container" class="ibm-profile-link">My IBM</button><ul id="ibm-signin-minimenu-container" role="menu" aria-label="Profile" class="ibm-dropdown-menu"><li role="presentation"><a role="menuitem" href="https://myibm.ibm.com/?lnk=mmi">My IBM</a></li><li role="presentation" data-linktype="signin"><a role="menuitem" href="https://idaas.iam.ibm.com/idaas/oidc/endpoint/default/authorize?response_type=token&amp;client_id=v18loginprod&amp;state=http%3A%2F%2Fnorthstarexamples.mybluemix.net%2Fv18%2Felements%2Fmasthead-search-local%2F&amp;redirect_uri=https://myibm.ibm.com/OIDCHandler.html&amp;scope=openid&amp;nonce=8675309">Log in</a></li></ul></li><li role="presentation" class="ibm-masthead-item-menu"><button role="button" aria-haspopup="true" aria-owns="ibm-burger-menu-container" class="ibm-menu-link">Site navigation</button></li></ul></div>
+
+
+</div>
+</div>
+        <!-- MASTHEAD_END -->
+</head>
+
+  <!-- MAIN CONTAINER BEGIN -->
+
+  <body class="ibm-type" id="ibm-com">
+    <div class="ibm-landing-page" id="ibm-top">
+      <div class="region region-content">
+        <div id="block-northstar-content">
+
+          <main role="main" aria-label="">
+            <div id="ibm-pcon">
+              <div id="ibm-content">
+                <div id="ibm-content-body" class="ibm-padding-top-0">
+                  <div id="ibm-content-main">
+
+                    <!-- END TABS -->
+                    <!-- START INTRO -->
+
+                    <div class="ibm-band ibm-background-white-core ibm-textcolor-default ibm-padding-top-1 ibm-padding-bottom-1">
+                      <div class="ibm-fluid">
+                        <div class="ibm-col-12-4">
+                          <div class="">
+                            <img src="https://izswebpage.mybluemix.net/images/LP_Main.svg" alt="IBM Z and LinuxONE content solutions" class="ibm-resize" >
+                          </div>
+                        </div>
+
+                        <div class="ibm-col-12-8">
+                          <h1 class="ibm-h1 ibm-light ibm-padding-top-3 ibm-textcolor-black-core" >IBM Z and LinuxONE content solutions</h1>
+                          <h2 class="ibm-h2 ibm-light ibm-padding-bottom-1 ibm-textcolor-black-core">All the technical resources in one place</h2>
+
+                          <div class="ibm-textcolor-default ibm-padding-top-1 ibm-padding-bottom-1">
+                            <p class="ibm-textcolor-black-core">A content solution helps you get started and provides a single engaging place for everything you need to understand and use a product or
+                                                                function. This can include product libraries in IBM Documentation, videos, workflows, Redbooks, and more.</p>
+                            <p class="ibm-textcolor-black-core">Visit this page often to find the latest content solutions.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- END INTRO -->
+                  <!-- START FEEDBACK -->
+
+                  <div id="ibm-contact-module" class="ibm-contact-widget ibm-contact--bg-blue-60 addtransition" aria-hidden="true">
+                    <p class="ibm-icononly">
+                      <a class="ibm-close-link" href="#">Close</a>
+                    </p>
+                    <h2 class="ibm-bold">Rate this content</h2>
+                    <h3 class="ibm-bold">Rate this content</h3>
+                    <ul class="ibm-live-assistance-list ibm-padding-bottom-0">
+                      <li class="ibm-link-description">
+                        <a class="ibm-forward-link" href="https://www.surveygizmo.com/s3/4346262/zknowledge-center-content-solutions?page=landingpage">
+                          <p>Rate this content solution</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- END FEEDBACK -->
+                  <!-- START BLUE BAND CARD SECTION -->
+                  <div class="ibm-band ibm-background-blue-50 ibm-textcolor-default ibm-padding-top-1 ibm-padding-bottom-1">
+                    <div class="ibm-fluid" >
+                      <h1 class="ibm-h1 ibm-light ibm-left ibm-padding-top-1 ibm-textcolor-white-core">
+                        <span>Featured</span></h1>
+                      <div class="ibm-band ibm-background-blue-50 ibm-textcolor-default ibm-padding-top-1 ibm-padding-bottom-1">
+                        <div class="ibm-fluid">
+                          <div class="ibm-columns" data-items=".ibm-card__content" data-widget="setsameheight">
+
+                          {% for csPage in csPages|sort(attribute='title') %}
+                            {% if csPage.featured %}
+                            <div class="ibm-col-12-3 ibm-col-medium-12-6">
+                              <div class="ibm-card">
+                                <a href="/support/z-content-solutions/{{ csPage.pageUrl }}/" class="ibm-blocklink ibm-padding-content ibm-highlight-bg-gray-30">
+                                  <div class="ibm-card__image ibm-center">
+                                    <img src="{{ csPage.pictogram }}" alt="{{ csPage.title }}" width="140" height="300" class="ibm-downize"></div>
+                                  <div class="ibm-card__content lp-card-content" style="display:flex; flex-direction:column; justify-content:space-between;">
+                                    <div>
+                                      <h3 class="ibm-h3">{{ csPage.title }}</h3>
+                                      <p>{{ csPage.pageDescription }}</p>
+                                    </div>
+                                    <p class="ibm-padding-top-1 ibm-right get-started-link">Get started
+                                              <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change:transform" aria-label="" xmlns="http://www.w3.org/2000/svg" class="ibm-right" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
+                                        <path d="M10 6v2h12.59L6 24.59 7.41 26 24 9.41V22h2V6H10z"></path>
+                                      </svg>
+                                    </p>
+                                  </div>
+                                </a>
+                              </div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- END BLUE BAND CARD SECTION -->
+                  <!-- START WHITE BAND CARD SECTION -->
+                  <div class="ibm-band ibm-background-neutral-white-30 ibm-textcolor-default ibm-padding-top-1 ibm-padding-bottom-3" >
+                    <div class="ibm-fluid ibm-background-neutral-white-30" id="z-solutions">
+                      <h1 class="ibm-h1 ibm-light ibm-left ibm-padding-top-1 ibm-textcolor-black-core"> All</h1>
+
+                      <div class="ibm-band ibm-background-neutral-white-30 ibm-textcolor-default ibm-padding-top-1 ibm-padding-bottom-0" id="27361">
+                        <div class="ibm-fluid">
+                          <div class="ibm-columns" data-items=".ibm-card__content" data-widget="setsameheight">
+                            {% for csPage in csPages|sort(attribute='title') %}
+                            <div class="ibm-col-12-3 ibm-col-medium-12-6">
+                              <div class="ibm-card">
+                                <a href="/support/z-content-solutions/{{ csPage.pageUrl }}/" class="ibm-blocklink ibm-padding-content ibm-highlight-bg-gray-30">
+                                  <div class="ibm-card__image ibm-center">
+                                    <img src="{{ csPage.pictogram }}" alt="{{ csPage.title }}" width="140" height="300" class="ibm-downize"></div>
+                                  <div class="ibm-card__content lp-card-content" style="display:flex; flex-direction:column; justify-content:space-between;">
+                                    <div>
+                                      <h3 class="ibm-h3">{{ csPage.title }}</h3>
+                                      <p>{{ csPage.pageDescription }}</p>
+                                    </div>
+                                    <p class="ibm-padding-top-1 ibm-right get-started-link">Get started
+                                              <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change:transform" aria-label="" xmlns="http://www.w3.org/2000/svg" class="ibm-right" width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
+                                        <path d="M10 6v2h12.59L6 24.59 7.41 26 24 9.41V22h2V6H10z"></path>
+                                      </svg>
+                                    </p>
+                                  </div>
+                                </a>
+                              </div>
+                            </div>
+                        {% endfor %}
+
+                        <!--   END WHITE BAND CARD SECTION -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- END WHAT'S NEW SECTION -->
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Default Statcounter code for landing page http:// -->
+<script type="text/javascript">
+var sc_project = 12067414;
+var sc_invisible = 1;
+var sc_security = "0fb69b27";
+var sc_https = 1;
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript>
+<div class="statcounter">
+  <a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/12067414/0/0fb69b27/1/"
+alt="Web Analytics"></a>
+</div>
+</noscript>
+<!-- End of Statcounter Code -->
+
+<!-- CONTENT END -->
+<!-- MAIN CONTAINER END -->
+        </div>
+        </div>
+        </div>
+        </main>
+      <!-- FOOTER_BEGIN -->
+        <div id="ibm-footer-module"></div>
+        <footer aria-label="IBM" role="contentinfo">
+            <div id="ibm-footer">
+                <h2 class="ibm-access">Footer links</h2>
+                <ul>
+                    <li><a href="http://www.ibm.com/contact/us/en/">Contact</a></li>
+                    <li><a href="http://www.ibm.com/privacy/us/en/">Privacy</a></li>
+                    <li><a href="http://www.ibm.com/legal/us/en/">Terms of use</a></li>
+                    <li><a href="http://www.ibm.com/accessibility/us/en/">Accessibility</a></li>
+                </ul>
+            </div>
+        </footer>
+        <!-- FOOTER_END -->
+
+    </div>
+</body>
+</html>

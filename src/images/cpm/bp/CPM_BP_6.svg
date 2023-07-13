@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="145px" height="108px" viewBox="0 0 145 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 88</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-88" transform="translate(-8.000000, -47.000000)" fill="#FFFFFF">
+            <g id="Group-42" font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="144" font-weight="500" opacity="0.203125">
+                <text id="6">
+                    <tspan x="0" y="148">6</tspan>
+                </text>
+            </g>
+            <g id="deploy_128" transform="translate(73.000000, 75.000000)" fill-rule="nonzero">
+                <path d="M80,18.2416536 L61.9382637,0 L43.8758542,18.2416536 L47.6843842,22.0881213 L59.2446225,10.4120487 L59.2446225,47.3624805 C59.2446225,62.3594207 47.1639681,74.5604134 32.3149426,74.5604134 C17.4659171,74.5604134 5.38526273,62.3594207 5.38526273,47.3624805 C5.38526273,40.0985925 8.18662268,33.2685116 13.2722927,28.1301421 L9.46376275,24.2843544 C3.36082405,30.4501258 0,38.6462229 0,47.3624805 C0,65.3586727 14.4969199,80 32.3156158,80 C50.1343118,80 64.6312317,65.3586727 64.6312317,47.3624805 L64.6312317,10.4120487 L76.19147,22.0881213 L80,18.2416536 Z" id="Shape"></path>
+                <circle id="Oval" cx="33" cy="47" r="8"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

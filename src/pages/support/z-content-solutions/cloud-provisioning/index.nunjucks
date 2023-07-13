@@ -1,0 +1,660 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "Cloud Provisioning and Management for z/OS" %}
+{% set key = 12 %}
+
+{# META #}
+{% set meta_description = meta_description | default("Use IBM Cloud Provisioning and Management for z/OS to improve DevOps agility by creating software service templates that provision IBM middleware such as Db2, IMS, CICS, MQ, and WAS.") %}
+{% set meta_keywords = meta_keywords | default("") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "1_5m7rapat",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/cpm/screenshot.png",
+    label: "Overview video - IBM z/OS Cloud Provisioning"
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Welcome to the Cloud Provisioning and Management for z/OS content solution, your homepage for technical resources. Use it to improve the agility of your DevOps team, integrate z/OS® into your hybrid cloud, and transform your IT infrastructure.</p>
+<p>With IBM Cloud Provisioning and Management for z/OS, you can create software service templates that provision IBM® middleware, such as IBM Customer Information Control System (CICS®), IBM Db2, IBM MQ, and IBM WebSphere Application Server. Quickly provision and de-provision an environment as needed through a self-service software services catalog, with no need for intervention by a system administrator, and track software instances provisioned from those templates. IBM Cloud Provisioning and Management for z/OS also includes a sample template that you can use to provision and de-provision z/OS systems. After defining a z/OS provisioning template in the software services catalog, you can provision a new instance of z/OS in a monoplex configuration in less than one hour.</p>
+<p>IBM Cloud Provisioning and Management is available through z/OSMF, which provides a web browser-based user interface as well as REST APIs.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "other",
+        url: "https://early-access.ibm.com/software/support/trial/cst/welcomepage.wss?siteId=925&tabId=2190&w=1",
+        text: "Try IBM Cloud Provisioning and Management for z/OS on a live system with zTrial"
+
+    }
+] %}
+#}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "cloudprovisioning" %}
+{# END FEEDBACK #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{% set announcementContent = [
+    {
+    announcementText: "Try IBM Cloud Provisioning and Management for z/OS on a live system, with zTrial.",
+    announcementLinkText: "Try it",
+    announcementLinkUrl: "https://early-access.ibm.com/software/support/trial/cst/welcomepage.wss?siteId=925&tabId=2190&w=1"
+    }
+] %}
+
+{# END INTRODUCTION SIDEBAR #}
+{# END INTRODUCTION #}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cpm/bp/CPM_BP_1A.svg",
+        iconPath: '<path id="application--security_2_" d="M10,14.36H4c-0.199,0-0.36-0.161-0.36-0.36S3.802,13.64,4,13.64h6
+	c0.199,0,0.36,0.161,0.36,0.36S10.199,14.36,10,14.36z M10,11.36H4c-0.199,0-0.36-0.161-0.36-0.36S3.802,10.64,4,10.64h6
+	c0.199,0,0.36,0.161,0.36,0.36S10.199,11.36,10,11.36z M10,8.36H4C3.801,8.36,3.64,8.199,3.64,8S3.802,7.64,4,7.64h6
+	c0.199,0,0.36,0.161,0.36,0.36S10.199,8.36,10,8.36z M29,2.5C29,2.776,28.776,3,28.5,3S28,2.776,28,2.5S28.224,2,28.5,2
+	S29,2.224,29,2.5z M27,2.5C27,2.776,26.776,3,26.5,3S26,2.776,26,2.5S26.224,2,26.5,2S27,2.224,27,2.5z M25,2.5
+	C25,2.776,24.776,3,24.5,3S24,2.776,24,2.5S24.224,2,24.5,2S25,2.224,25,2.5z M15,23.36H1c-0.199,0-0.36-0.161-0.36-0.36V1
+	c0-0.199,0.161-0.36,0.36-0.36h30c0.199,0,0.36,0.161,0.36,0.36v22h-0.72V4.36H1.36v18.28H15V23.36z M1.36,3.64h29.28V1.36H1.36
+	V3.64z M23,31.36c-3.507,0-6.36-2.854-6.36-6.36v-7.223l6.36-3.18l6.36,3.18V25C29.36,28.507,26.507,31.36,23,31.36z M17.36,18.223
+	V25c0,3.11,2.529,5.64,5.64,5.64s5.64-2.529,5.64-5.64v-6.777L23,15.402L17.36,18.223z"/>',
+        iconAlt: "pictogram for step one - configure and set up",
+        description: "Build a repository of z/OS Software provisioning templates and services, enabling you to provision z/OS software using templates published in the Software Services Catalog."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cpm/bp/CPM_BP_2A.svg",
+        iconPath: '<path id="application_1_" d="M29,3.5C29,3.776,28.776,4,28.5,4S28,3.776,28,3.5S28.224,3,28.5,3S29,3.224,29,3.5z M26.5,3
+	C26.224,3,26,3.224,26,3.5S26.224,4,26.5,4S27,3.776,27,3.5S26.776,3,26.5,3z M24.5,3C24.224,3,24,3.224,24,3.5S24.224,4,24.5,4
+	S25,3.776,25,3.5S24.776,3,24.5,3z M31,30.36H1c-0.199,0-0.36-0.161-0.36-0.36V2c0-0.199,0.161-0.36,0.36-0.36h30
+	c0.199,0,0.36,0.161,0.36,0.36v28C31.36,30.199,31.199,30.36,31,30.36z M9.36,29.64h21.28V5.36H9.36V29.64z M1.36,29.64h7.28V5.36
+	H1.36V29.64z M9,4.64h21.64V2.36H1.36v2.28H9z"/>',
+        iconAlt: "pictogram for step two - create template",
+        description: "Automatically track each provisioned instance and its assigned resources with a service instance registry. Perform lifecycle actions directly from the registry to start or stop an instance, and de-provision an instance."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cpm/bp/CPM_BP_3A.svg",
+        iconPath: '<path d="M25.178,21.369c3.012,0,5.462-2.447,5.462-5.457c0-2.863-2.233-5.259-5.084-5.454c-0.182-0.013-0.325-0.159-0.335-0.341
+			c-0.197-3.79-3.322-6.758-7.113-6.758c-2.752,0-5.286,1.616-6.457,4.117c-0.082,0.175-0.288,0.254-0.463,0.181
+			c-0.864-0.355-1.775-0.535-2.707-0.535c-3.927,0-7.122,3.2-7.122,7.133c0,3.576,2.644,6.632,6.149,7.11
+			c0.197,0.026,0.335,0.208,0.308,0.405s-0.205,0.344-0.406,0.308c-3.86-0.525-6.771-3.889-6.771-7.823
+			c0-4.33,3.518-7.853,7.841-7.853c0.914,0,1.809,0.157,2.667,0.468c1.346-2.581,4.042-4.23,6.959-4.23
+			c4.07,0,7.442,3.107,7.81,7.13c3.077,0.368,5.443,3.008,5.443,6.143c0.001,3.405-2.772,6.177-6.181,6.177
+			c-0.009,0-0.088-0.004-0.097-0.005c-0.195-0.015-0.372-0.183-0.362-0.378c0.009-0.192,0.14-0.345,0.33-0.345
+			c0.003,0,0.006,0,0.008,0L25.178,21.369z"/>
+		<polygon points="16.36,29 15.64,29 15.64,12.869 10.254,18.255 9.746,17.745 16,11.491 22.255,17.745 21.745,18.255 16.36,12.869 
+					"/>',
+        iconAlt: "pictogram for step three - identify consumers",
+        description: "Support a robust, multi-tenant environment with resource pools that isolate services and resources for different lines of business or user groups."
+    },
+    {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cpm/bp/CPM_BP_4A.svg",
+        iconPath: '<path d="M16,31.4c-1.6,0-2.9-1.3-2.9-2.9s1.3-2.9,2.9-2.9s2.9,1.3,2.9,2.9S17.6,31.4,16,31.4z M16,26.4c-1.2,0-2.1,1-2.1,2.1
+	s1,2.1,2.1,2.1s2.1-1,2.1-2.1S17.2,26.4,16,26.4z M20.6,28l-0.3-0.7c3.3-1.2,5.8-3.8,7.1-7.1l0.7,0.3C26.7,24,24,26.7,20.6,28z
+	 M11.4,28C8,26.7,5.3,24,4,20.6l0.7-0.3c1.2,3.2,3.8,5.8,7.1,7.1L11.4,28z M28.5,18.9c-1.6,0-2.9-1.3-2.9-2.9s1.3-2.9,2.9-2.9
+	s2.9,1.3,2.9,2.9S30.1,18.9,28.5,18.9z M28.5,13.9c-1.2,0-2.1,1-2.1,2.1s1,2.1,2.1,2.1s2.1-1,2.1-2.1C30.6,14.8,29.7,13.9,28.5,13.9
+	z M3.5,18.9c-1.6,0-2.9-1.3-2.9-2.9s1.3-2.9,2.9-2.9s2.9,1.3,2.9,2.9S5.1,18.9,3.5,18.9z M3.5,13.9c-1.2,0-2.1,1-2.1,2.1
+	s1,2.1,2.1,2.1s2.1-1,2.1-2.1S4.7,13.9,3.5,13.9z M27.4,11.7c-1.2-3.2-3.8-5.8-7.1-7.1L20.6,4c3.4,1.3,6.2,4,7.5,7.5L27.4,11.7z
+	 M4.6,11.7L4,11.4C5.3,8,8,5.3,11.4,4l0.3,0.7C8.5,5.9,5.9,8.5,4.6,11.7z M12.8,7.2V0.8h6.3v6.3H12.8z M13.6,6.4h4.9V1.6h-4.9V6.4z"
+	/>',
+        iconAlt: "pictogram for step four - connect the template",
+        description: "Drive provisioning and management tasks in z/OS from other interfaces of an enterprise cloud strategy with z/OSMF REST APIs or the IBM z/OSMF Ansible collection."
+    },
+    {
+        id: 5,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cpm/bp/CPM_BP_5A.svg",
+        iconPath: '<path d="M10,15.7H4V15h6V15.7z M10,12H4v0.7h6V12z M24.5,7.4c0.3,0,0.5-0.2,0.5-0.5s-0.2-0.5-0.5-0.5S24,6.6,24,6.9
+	S24.2,7.4,24.5,7.4z M26.5,7.4c0.3,0,0.5-0.2,0.5-0.5s-0.2-0.5-0.5-0.5S26,6.6,26,6.9S26.2,7.4,26.5,7.4z M10,18H4v0.7h6V18z
+	 M31.4,5.4v21c0,0.2-0.2,0.4-0.4,0.4H1c-0.2,0-0.4-0.2-0.4-0.4v-21C0.6,5.2,0.8,5,1,5h30C31.2,5,31.4,5.2,31.4,5.4z M30.6,8.7H1.4
+	V26h29.3V8.7z M30.6,5.7H1.4V8h29.3V5.7z M28.5,7.4c0.3,0,0.5-0.2,0.5-0.5s-0.2-0.5-0.5-0.5S28,6.6,28,6.9S28.2,7.4,28.5,7.4z
+	 M15.8,14.1h2v-0.7h-2V14.1z M13.5,23.7v-12c0-0.2,0.2-0.4,0.4-0.4h14c0.2,0,0.4,0.2,0.4,0.4v12c0,0.2-0.2,0.4-0.4,0.4h-14
+	C13.6,24.1,13.5,23.9,13.5,23.7z M14.2,15.4h13.3v-3.3H14.2V15.4z M14.2,19.4h13.3v-3.3H14.2V19.4z M14.2,23.4h13.3v-3.3H14.2V23.4z
+	 M15.8,22.1h2v-0.7h-2V22.1z M15.8,18.1h2v-0.7h-2V18.1z"/>',
+        iconAlt: "pictogram for step five - approve and publish",
+        description: "Use a z/OS provisioning template to provision a 'brand new' z/OS system in a monoplex environment."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Configure the plug-in",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Configure z/OSMF Cloud Provisioning, and set up security. Set up Cloud Provisioning by defining roles, enabling the pre-requisite plug-ins and specifying the security mode (automatic or manual). If the defaults are not appropriate, define the cloud domain (systems) and tenants (users). If you’re not already using z/OSMF, you may need to configure z/OSMF.</p>
+                <p>IBM Cloud Provisioning and Management for z/OS includes a sample template that you can use to provision and deprovision 'brand new' z/OS systems.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=zosmf-what-setup-is-needed",
+                        linkText: "Set up z/OSMF"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=management-what-is-cloud-provisioning-zos",
+                        linkText: "Learn more about Cloud Provisioning"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Cloud Provisioning roles include a provisioning administrator (z/OS system programmer), domain amdinistrator (middleware system programmer), WLM and network administrators, and consumers (application developers).</p>
+                <p>As the provisioning administrator, you define:</p>
+                <ul><li>The domain with the target systems to use for software provisioning. The systems can be in the same sysplex where z/OSMF is running or can be in different sysplexes. z/OSMF also provides a default domain with local system and a default tenant (the users) definitions to help you get started. You can modify default domain to add additional systems as provisioning targets.</li>
+                <li>Whether to perform security updates manually or allow Cloud Provisioning to perform them automatically. The recommended security mode is automatic.</p>
+                <p>As the provisioning administrator, you need to perform the following planning activity for z/OS provisioning:</p>
+                <p>The z/OS system that you use to provision a brand-new z/OS system is known as the provisioning system. Some planning and setup is required to enable the provisioning system to drive the provisioning of brand-new z/OS systems. This work involves defining a source z/OS software instance and modification of the provisioning template’s properties file. You must plan for which logical partition (LPAR) to use for hosting the new z/OS image. You can use the Hardware Management Console (HMC) to locate an available LPAR, or use the HMC to create a new LPAR in your enterprise. If you use an existing LPAR, verify that the LPAR is not needed for any other systems at your installation. You must ensure that IODF dataset used on provisioning system includes I/O definition for the LPAR where the new z/OS system will be provisioned.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=zos-terms-you-should-know",
+                        linkText: "Cloud Provisioning roles and terms"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=zos-help-security-setup",
+                        linkText: "How to plan for automatic or manual security"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=pools-considerations-multiple-sysplex-domain",
+                        linkText: "How to plan for provisioning in multiple-sysplexes"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=services-provisioning-zos-software-instance",
+                        linkText: "How to plan for z/OS provisioning"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>Update parmlib member IZUPRMxx to enable pre-requisite plug-ins and to specify automatic or manual security.</p>
+                <p>Work with the security administrator to set up security for Cloud Provisioning using the IZUPRSEC sample, which enables access to the Cloud Provisioning tasks in z/OSMF, <strong>Resource Management and Software Services</strong>.</p>
+                <p>Define a new domain if the z/OSMF provided default domain is not adequate.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=zos-parameters-in-izuprmxx",
+                        linkText: "How to update parmlib"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=cpm-enabling-plug-ins-setting-up-security-cloud-provisioning-zos",
+                        linkText: "How to enable plug-ins and set up security using IZUPRSEC"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=help-cloud-provisioning",
+                        linkText: "How to define a domain (see step 3)"
+                    },
+                    {
+                        linkUrl: "https://mediacenter.ibm.com/media/t/1_liafaqr1",
+                        linkText: "Watch a video about the configuration steps"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Create a template",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>After your z/OS system programmer has identified you as the domain administrator of either the z/OSMF provided default domain or a new domain that the z/OS system programmer has defined, create templates for z/OS software provisioning or brand-new z/OS system provisioning. Templates that are created by a user will initially be in a draft or draft pending approval state.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=zos-terms-you-should-know",
+                        linkText: "Domain administrators and other roles and terms"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=management-defining-software-services-templates",
+                        linkText: "Use templates to provision software"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Obtain your workflow and related files from the software provider, and use the information included with the files to understand what you need to customize, for example: input variables, JCL, actions, and approvers.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=templates-files-used-define-software-services'>About the template files</a></p>
+                <p>Obtain workflow and other files:</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/products/zos-provisioning-toolkit'>CICS V5 (download z/OS Provisioning Toolkit)</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/products/zos-provisioning-toolkit'>z/OS Connect (download z/OS Provisioning Toolkit)</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.openmainframeproject.org/projects/zorow'>Zorow</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/ibm-mq/9.0?topic=zos-using-zosmf-automate-mq'>MQ V9 (included with MQ product)</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://github.com/WASdev/sample.zos.provision.wlp'>Websphere Liberty Profile</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://github.com/WASdev/sample.zos.provision.was'>Websphere Application Server</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://github.com/imsdev'>IMS</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='http://www-01.ibm.com/support/docview.wss?uid=swg1PI73168'>Db2 V11 & V12 (included with Db2 product)</a></p>
+                <p>The z/OS system that you use to provision a 'brand new' z/OS system is known as the provisioning system. Some planning and setup is required to enable the provisioning system to drive the provisioning of a 'brand new' z/OS system. This work involves some host system customization and modification of the provisioning template's properties file.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=services-provisioning-zos-software-instance'>How to plan for z/OS system provisioning</a></p>"
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>To prepare a software services template and provision software, perform these steps using the Software Services task of z/OSMF:</p>
+                <ol><li>Expand the Cloud Provisioning category in the navigation area, then select Software Services.</li>
+                <li>Select the Templates tab.</li>
+                <li>In the table, click Add Template, then select either Standard or Composite to specify the type of template that you want to create.If Add Template is not available, it might be because you are not a domain administrator.</li>
+                <li>On the page that is displayed, supply values.</li></ol>
+                <p>The steps for creating a z/OS system provisioning template are similar to the steps that you follow for creating other types of software services templates.</p>
+                <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=pzsi-steps-provisioning-zos-software-instance'>How to create a z/OS provisioning template (see steps 5-7)</a></li>"
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Create tenants & resource pools",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>z/OSMF provides a default tenant in the default domain which supports provisioning actions from any user that is in the z/OSMF users group (normally IZUUSER). If the z/OSMF provided default tenant is not suitable, identify the consumers, such as application developers, and create the tenant in a domain where the software services template or z/OS provisioning template is created. Connect the template to tenants and create resource pools. A resource pool represents a group of z/OS resources  (e.g. TCP/IP, ports, Workload Manager resources, Storage resource, LPAR resources etc.) and can be defined per authorized user group and service template. Defining and using resource pools for provisioning effectively enforces resource entitlement by policy as users and their services are limited to the predefined set of resources. When a service is run, resource requests are dynamically orchestrated from the set resource pools.</p>"
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Identify the domain associated with the z/OS software services or z/OS system provisioning template where the tenant and resource pools need to be created.</p>
+                <p>If you are using the default domain, decide whether you want to use the default tenant or create a new tenant. If you are planning to use the default tenant, be aware that all users of z/OSMF can provision this template. If you are using a non-default domain, you need to create a tenant.</p>
+                <p>Determine what z/OS resources are required by the provisioning template. The z/OS software provisioning template requires network resources, where as the z/OS system provisioning template requires LPAR resources.</p>"
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=tenants-create-tenant",
+                        linkText: "How to create the tenant"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=pools-resource-management-tasks-resource",
+                        linkText: "How to associate the template with the tenant and create the resource pool"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=pzsi-steps-provisioning-zos-software-instance",
+                        linkText: "How to associate a z/OS system provisioning template with the tenant (see step 8)"
+                    }
+                ]
+
+            }
+        ]
+    },
+    {
+        id: 4,
+        tabTitle: "Publish a template",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>To make your software services template available in your marketplace, you will need to approve, test, and publish your template. Once you have defined, configured and tested your template, you can publish it and make it available for provisioning to authorized users identified in the tenant definition associated with the template. This also allows the template to be added to the marketplace that is available with Cloud Provisioning and Management. Templates can also be run multiple times to consistently create instances of softwares.</p>"
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>After you have created your tenants and resource pools, in many cases the state of the template that you are working with is Draft Pending Approvals. The approval must be completed by the appropriate approver before you can use the template to provision an instance. Approval records are created for a template when a workflow or action definition file contains an element that identifies a user ID under which a workflow step or action is to be performed (a runAsUser ID). Approvers can also be defined for the template in general, and for a domain. When there are no approval records, template will remain in draft state.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=help-cloud-provisioning",
+                        linkText: "Approving the software services template"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>Approve the various approval records associated with the template.</p>
+                <p>Once the template is approved the state of template is draft approved. Test the template by driving test run action to be sure that it successfully creates a software instance. Test run creates a workflow, starts the workflow, and creates a software services instance. It leaves the template open for further changes. If changes are made to the workflow, template will go back to draft pending approval state and approval step needs to be performed again.</p>
+                <p>After successful test run, publish the template.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=help-cloud-provisioning'>How to approve, test run, and publish a software services template (see steps 7 and 8)</a></p>
+                <p>The steps to approve, test run and publish a z/OS system provisioning template are similar to the steps that you follow for creating other types of software services templates.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=instance-steps-provisioning-zos-software'>How to publish a z/OS provisioning template (see steps 10 and 11)</a></p>"
+            }
+        ]
+    },
+    {
+        id: 5,
+        tabTitle: "Set up your marketplace",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Make your z/OS software services available to consumers, such as an application development team, through a self-service marketplace. Choose the approach that is best for your enterprise.</p>
+                <p>With an Ansible strategy to drive automation, the following can also be provisioned using z/OSMF Ansible collection:</p>
+                <ul><li>CICS</li>
+                <li>MQ (queue manager and queues)</li>
+                <li>z/OS connect</li>
+                <li>Db2 subsystem</li>
+                <li>Websphere Liberty Profile</li><ul>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/support/z-content-solutions/ansible/",
+                        linkText: "Explore the 'Red Hat Ansible Certified Content for IBM Z' content solution to learn more"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Determine how you want to make z/OS software services available to your consumers.</p>
+                <p>You can use:</p>
+                <ul><li>The z/OSMF user interface to provision and manage software services</li>
+                <li>An enterprise self-service cloud marketplace</li>
+                <li><a href='https://www.ibm.com/products/zos-provisioning-toolkit'>The z/OS Provisioining toolkit</a></li>
+                <li><a href='https://www.ibm.com/cloud/urbancode'>Urban Code Deploy</a> z/OSMF Plugin</li>
+                <li><a href='https://zowe.org/download/'>The Zowe Command Line Interface</a></li>
+                <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=management-using-cloud-provisioning-marketplace'>The z/OSMF Cloud Provisioning sample marketplace</a></li>
+                <li><a href='https://galaxy.ansible.com/ibm/ibm_zosmf'>The z/OSMF Ansible collection from IBM</a></li>
+                </ul"
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>Modify an existing marketplace or create a new marketplace, begin by learning about the z/OSMF Cloud Provisioning REST APIs by reviewing the source code for the Marketplace and Marketplace Administration plug-ins to see examples of REST API invocation or by using Swagger documentation of the z/OSMF Cloud Provisioning REST APIs.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=services-cloud-provisioning'>Learn more about z/OSMF Cloud Provisioning REST APIs</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=services-cloud-provisioning'>How to use Swagger to display z/OSMF Cloud Provisioning REST APIs</a></p>
+                <p>Enable the Marketplace plug-in provided with z/OSMF.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=marketplace-cloud-provisioning'>How to enable the marketplace plug-in</a></p>
+                <p>Enable provisioning through Ansible playbooks, by using sample playbooks provided in the Ansible Z Playbook Repository.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://github.com/IBM/z_ansible_collections_samples/tree/master/zos_management/zosmf_cloud_provisioning_and_management'>Get started with sample playbooks in the Ansible Z Playbook Repository</a></p>"
+            }
+        ]
+    },
+    {
+        id: 6,
+        tabTitle: "Provision and manage",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Consumers, such as application developers, can consume and manage the software services that have been made available through a self-service marketplace or other means.</p>"
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Focus on your application design and development. You can determine when you need the environment.</p>
+                <p>Depending upon your environment, you can any of the following methods to provision software services and manage software service instances:</p>
+                <ul><li>The z/OSMF user interface to provision and manage software services</li>
+                <li>An enterprise self-service cloud marketplace</li>
+                <li><a href='https://www.ibm.com/products/zos-provisioning-toolkit'>z/OS Provisioning Toolkit</a></li>
+                <li><a href='https://www.ibm.com/cloud/urbancode'>Urban Code Deploy</a> z/OSMF Plugin</li>
+                <li><a href='https://zowe.org/download/'>Zowe Command Line Interface</a></li>
+                <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=management-using-cloud-provisioning-marketplace'>The z/OSMF Cloud Provisioning sample marketplace</a></li>
+                <li><a href='https://galaxy.ansible.com/ibm/ibm_zosmf'>z/OSMF Ansible collection from IBM</a></li>
+                </ul>"
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>If you are using the z/OSMF user interface to provision and manage software services, you can perform following steps:</p>
+                <ul><li>Run templates from Software Services Catalog. The Templates tab of the Software Services task displays z/OS software provisioning or z/OS system provisioning templates that you are authorized to run. To run a template for z/OS software service provisioning or z/OS system provisioning, select the template from the Software Services Templates table and use the Run action. This action creates an instance of z/OS software or brand-new z/OS system. Repeat this step every time you want to provision a new instance of z/OS software or brand-new z/OS system.</li>
+                <li>Manage software instances in the Software Instance Registry. The Instances tab of the Software Services task displays z/OS software instance or z/OS system instance that you provisioned from templates. From the table of instances, you can view details for an instance, or take an action against an instance, such as de-provisioning. The actions that are available depend on the actions definition file that was provided with the template.</li>
+                </ul>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=management-managing-software-instances",
+                        linkText: "Learn more about managing software instances"
+                    }
+                ]
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+
+{# START FEATURED DOCUMENTATION #}
+{% set documentation = {
+    docTitle: "Comprehensive content collection",
+    docDescription: "Find a comprehensive collection of content about IBM Cloud Provisioning and Management for z/OS.",
+    docLinkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=solutions-cloud-provisioning-management",
+    docLinkText: "Explore the collection"
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "Other resources",
+        tabContent: [
+            {
+                resourceDescription: "IBM Cloud Provisioning and Management for z/OS: An introduction.",
+                resourceLinkUrl: "http://www.redbooks.ibm.com/abstracts/redp5416.html",
+                resourceLinkText: "Read the IBM Redbook",
+                resourceLinkType: "redbook",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/redbook-white.png"
+            },
+            {
+                resourceDescription: "IBM Cloud Provisioning and Management for z/OS: CICS Scenario.",
+                resourceLinkUrl: "http://www.redbooks.ibm.com/abstracts/redp5423.html?Open",
+                resourceLinkText: "Read the IBM Redbook",
+                resourceLinkType: "redbook",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/redbook-white.png"
+            },
+            {
+                resourceDescription: "zTrial lets you try Cloud Provisioning and Management for z/OS on a live system, with cost or installation.",
+                resourceLinkUrl: "https://early-access.ibm.com/software/support/trial/cst/welcomepage.wss?siteId=925&tabId=2190&w=1",
+                resourceLinkText: "Try IBM Cloud Provisioning and Management",
+                resourceLinkType: "trial",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            },
+            {
+                resourceDescription: "This blog post describes how to use Swagger with the APIs for Cloud Provisioning and Management",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/hiren-shah1/2019/11/24/using-swagger-to-document-apis-for-cloud-provision",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "blog",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            },
+            {
+                resourceDescription: "Provision z/OS Software with the z/OSMF Ansible collection from IBM",
+                resourceLinkUrl: "https://galaxy.ansible.com/ibm/ibm_zosmf",
+                resourceLinkText: "Explore the collection",
+                resourceLinkType: "blog",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            },
+            {
+                resourceDescription: "Find DevOps Agility with IBM Cloud Provisioning and Management for z/OS",
+                resourceLinkUrl: "http://publibz.boulder.ibm.com/zoslib/pdf/01-2018-hot-topics-ibm-cloud-provisioning-edited.pdf",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Multimedia",
+        tabContent: [
+            {
+                resourceTitle: "Playlist of How-To videos",
+                resourceDescription: "Use the videos in this playlist to see how to configure Cloud Provisioning, create a template, create a tenant and resource pool, configure a network resource pool, test and publish a template, and set up a consumer.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/playlist/dedicated/33945322/1_k03fsaiu/1_5m7rapat",
+                resourceLinkText: "View the playlist",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: "new"
+            },
+            {
+                resourceTitle: "How to create a template in IBM Cloud Provisioning and Management",
+                resourceDescription: "Learn how to create a template.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/0_ds5t1cbr",
+                resourceLinkText: "Watch the video (04:07)",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: "new"
+            },
+            {
+                resourceTitle: "How to create a tenant and resource pool in IBM Cloud Provisioning and Management",
+                resourceDescription: "Learn how to create a tenant and resource pool.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/0_tarv9ew3",
+                resourceLinkText: "Watch the video (03:56)",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: "new"
+            },
+            {
+                resourceTitle: "How to configure a network resource pool in IBM Cloud Provisioning and Management",
+                resourceDescription: "Learn how to complete a tenant and resource pool using the Network Configuration Assistant",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/0_b9hz9t6s",
+                resourceLinkText: "Watch the Video (03:43)",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: "new"
+            },
+            {
+                resourceTitle: "How to test and publish a template in IBM Cloud Provisioning and Management",
+                resourceDescription: "Learn how to test and publish a template",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/0_dxypa7uq",
+                resourceLinkText: "Watch the video (02:58)",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: "new"
+            },
+            {
+                resourceTitle: "Accelerate Provisioning of z/OS Middleware with IBM Cloud Provisioning and Management for z/OS",
+                resourceDescription: "Learn how IBM Cloud Provisioning and Management for z/OS can improve the agility of your DevOps team and transform your IT infrastructure",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/1_5m7rapat",
+                resourceLinkText: "Watch the video (03:21)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "How to configure IBM Cloud Provisioning and Management for z/OS",
+                resourceDescription: "Learn how a system programmer can set up Cloud Provisioning in z/OSMF",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_liafaqr1?_ga=2.262261196.1721070098.1609768216-85615674.1567618694",
+                resourceLinkText: "Watch the video (04:55)",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: "new"
+            },
+            {
+                resourceTitle: "How to set up a consumer in IBM Cloud Provisioning and Management for z/OS",
+                resourceDescription: "Learn how a domain administrator can enable an application programmer to create a middleware instance.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/0_svtdlcsn",
+                resourceLinkText: "Watch the video (02:21)",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: "new"
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no announcement content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [1,8,14] %}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "What's new in IBM Cloud Provisioning and Management for z/OS?",
+        sectionContent: "<p>For a comprehensive list of new features added to IBM Cloud Provisioning and Management for z/OS check out the <a href='https://www.ibm.com/docs/en/zos/latest?topic=management-whats-new-in-cloud-provisioning-zos'>What’s New</a> section in the IBM Documentation.</p>"
+    },
+    {
+        sectionTitle: "October 7, 2021",
+        sectionContent: "<p>Links to IBM Documentation were changed to reflect the publication of the z/OS 2.5 library.</p>"
+    },
+    {
+        sectionTitle: "September 30, 2021",
+        sectionContent: "<p>New content was added to the introduction and 'How to Get Started' sections about z/OS provisioning and Ansible.</p>"
+    },
+    {
+        sectionTitle: "July 1, 2021",
+        sectionContent: "<p>Transcript added for IBM Cloud Provisioning and Management for z/OS overview video.</p>"
+    },
+    {
+        sectionTitle: "June 18, 2021",
+        sectionContent: "<p>A Hot Topics article, <em>DevOps Agility With IBM Cloud Provisioning and Management for z/OS</em>, was added to the Other resources tab in the Technical resources section.</p>
+        <p>The Big Picture was modified for accessibility.</p>"
+    },
+    {
+        sectionTitle: "May 26, 2021",
+        sectionContent: "<p>A link to the z/OSMF Ansible collection was added to the Other Resources tab in the Technical Resources section. Read the z/OSMF Ansible collection announcement <a href='https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/travis-biro1/2021/05/10/announce-certified-ibm-zosmf-ansible-automation'>here</a>.</p>"
+    },
+    {
+        sectionTitle: "March 19, 2021",
+        sectionContent: "<p>The Journey to hybrid cloud with IBM Z content solution was added to the Content solutions tab in the Technical Resources section.</p>"
+    },
+    {
+        sectionTitle: "June 16, 2020",
+        sectionContent: "<p>The article Use Swagger to document APIs for Cloud Provisioning applications was added to the Other Resources tab of the Technical Resources section.</p>
+        <p>A link to a blog post on using the Workflow Editor was added to the Other Resources tab of the Technical Resources section.</p>"
+    },
+    {
+        sectionTitle: "September 24, 2019",
+        sectionContent: "<p>Links to the IBM Marketplace were removed.</p>
+        <p>A link to Zorow: z/OS Open Repository of Workflows was added.</p>"
+    },
+     {
+        sectionTitle: "June 25, 2019",
+        sectionContent: "<p>How-to videos were added to the Multimedia tab of the Resources section.</p>"
+    },
+     {
+        sectionTitle: "June 14, 2019",
+        sectionContent: "<p>A link to the IBM Marketplace was removed.</p>
+        <p>A link to the z/OS Cloud Broker content solution was added.</p>"
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "11853108",
+    sc_security: "2ccca359"
+}
+ %}
+{# END STATCOUNTER #}

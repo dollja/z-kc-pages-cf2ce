@@ -1,0 +1,109 @@
+.v18e {
+    ol {
+        > li {
+            padding-left: 3rem;
+            line-height: 1.375rem;
+            padding-top: 0;
+
+            &::before {
+                color: color('gray', 100);
+                margin-left: -2.6rem;
+            }
+
+            + li {
+                padding-top: 0;
+            }
+        }
+
+        &.ibm-type-b > li {
+            padding-left: 2.5rem;
+            line-height: 1.125rem;
+
+            &::before {
+                margin-left: -2.5rem;
+            }
+        }
+
+        &.ibm-left > li {
+            &::before {
+                text-align: left;
+            }
+        }
+
+        &.ibm-type-b.ibm-left > li {
+            &::before {
+                margin-left: -2.3rem;
+            }
+        }
+    }
+
+    ul {
+        > li {
+            padding-left: 2rem;
+            line-height: 1.375rem;
+            padding-top: 0;
+
+            &::before {
+                color: color('gray', 100);
+                content: "\2013";
+                margin-left: -1.1rem;
+                text-align: center;
+                font-size: 0.8rem;
+                font-weight: 600;
+            }
+
+            + li {
+                padding-top: 0;
+            }
+        }
+
+        &.ibm-list-squared > li {
+            &::before {
+                content: "\25A0";
+                font-size: 50%;
+            }
+        }
+
+        &.ibm-list-dot > li {
+            &::before {
+                content: "\2022";
+            }
+        }
+
+
+    }
+
+    ol, ul {
+        > li {
+            ol, ul {
+                padding-top: 5px;
+                margin-bottom: 5px;
+
+                &.ibm-type-b {
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+    }
+
+    ol, ul {
+        ul {
+            > li {
+                &::before {
+                    content: "\25A0";
+                    font-size: 50%;
+                }
+            }
+        }
+    }
+
+    ol, ul {
+        ol {
+            > li {
+                &::before {
+                    content: counter(item, lower-alpha) ". ";
+                }
+            }
+        }
+    }
+}

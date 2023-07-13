@@ -1,0 +1,542 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+{# Optional sections are commented out by default, to activate them, change the # to % in their enclosing brackets. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "z/OS Connect" %}
+
+{# Solution key - Format is just number, no quotes.
+Replace 00 with number higher than last existing solution. Find existing key list in /data/pages.json and Related Solutions Box note, and update both places with all relevant information. #}
+{% set key = 26 %}
+
+{# META #}
+{% set meta_description = meta_description | default("IBM z/OS Connect provides a simple and intuitive way to bring the power of APIs to your mainframe.") %}
+
+
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "image",
+    videoID: "",
+    thumbnailUrl: "",
+    label: ""
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "Welcome to the z/OS Connect content solution. You'll learn how to:
+<ul>
+<li>Integrate z/OS applications and data using OpenAPI 3 APIs with z/OS Connect.</li>
+<li>Develop a z/OS Connect API starting from an existing OpenAPI 3.0 definition.</li> 
+<li>Transform z/OS data with our functional mapping capabilities and feature-rich tooling.</li>
+<li>Deploy your z/OS Connect APIs as isolated secure microservices, driving agility across the enterprise.</li>
+<li>Take advantage of the improved security schemes provided by the OpenAPI 3 specification to deliver more granular control of user authorization at the API operation level.</li>
+</ul>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "marketing",
+        url: "https://www.ibm.com/products/zos-connect",
+        text: ""
+
+    }
+] %}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# set announcements = [
+    {
+    announcementText: "",
+    announcementLinkText: "",
+    announcementLinkUrl: ""
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+*NEW FOR CARBON*
+iconPath: Pictograms must be added as SVG paths. The <svg> enclosing tag is already included in the template (layout-dot-com, line 333), with its necessary styles and classes, so this will be the inner content excluding that and starting with <g>, <path>, <polygon>, etc. Open svg file in VS code to grab path. Any custom pictograms should be made following Carbon guidelines and grid at 32px x 32px.
+***
+iconUrl: Full link to the pictogram used for this step. *NO LONGER NEEDED IN CARBON, but can still be added for reference to the source file for the path.
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconPath: '<path id="app--developer_1_" d="M3.254,9.254L2.746,8.746L3.991,7.5L2.746,6.254l0.509-0.509L5.009,7.5L3.254,9.254z M3,2
+	C2.724,2,2.5,2.224,2.5,2.5S2.724,3,3,3s0.5-0.224,0.5-0.5S3.276,2,3,2z M5.5,2.5C5.5,2.776,5.276,3,5,3S4.5,2.776,4.5,2.5
+	S4.724,2,5,2S5.5,2.224,5.5,2.5z M7.5,2.5C7.5,2.776,7.276,3,7,3S6.5,2.776,6.5,2.5S6.724,2,7,2S7.5,2.224,7.5,2.5z M18.5,6.5
+	C18.5,6.776,18.276,7,18,7s-0.5-0.224-0.5-0.5S17.724,6,18,6S18.5,6.224,18.5,6.5z M20.5,6.5C20.5,6.776,20.276,7,20,7
+	s-0.5-0.224-0.5-0.5S19.724,6,20,6S20.5,6.224,20.5,6.5z M22.5,6.5C22.5,6.776,22.276,7,22,7s-0.5-0.224-0.5-0.5S21.724,6,22,6
+	S22.5,6.224,22.5,6.5z M5.5,24.5C5.5,24.776,5.276,25,5,25s-0.5-0.224-0.5-0.5S4.724,24,5,24S5.5,24.224,5.5,24.5z M13,14.36H1
+	c-0.199,0-0.36-0.161-0.36-0.36V1c0-0.199,0.161-0.36,0.36-0.36h12c0.199,0,0.36,0.161,0.36,0.36v13
+	C13.36,14.199,13.199,14.36,13,14.36z M12.64,4.36H1.36v9.28h11.28C12.64,13.64,12.64,4.36,12.64,4.36z M12.64,1.36H1.36v2.281
+	h11.28C12.64,3.641,12.64,1.36,12.64,1.36z M31.36,5v17c0,0.199-0.161,0.36-0.36,0.36H19.691c-0.301,0.471-0.69,0.885-1.152,1.215
+	c2.875,1.05,4.819,3.778,4.819,6.902l0.002,0.521L22.639,31l-0.002-0.522c0-3.078-2.09-5.729-5.083-6.45
+	c-0.15-0.035-0.26-0.163-0.274-0.316s0.07-0.299,0.211-0.361c1.315-0.592,2.165-1.9,2.165-3.334c0-2.017-1.64-3.657-3.656-3.657
+	c-2.018,0-3.66,1.64-3.66,3.657c0,1.434,0.85,2.742,2.166,3.334c0.141,0.062,0.225,0.208,0.211,0.361s-0.125,0.281-0.274,0.316
+	c-2.993,0.721-5.084,3.372-5.084,6.449l0.001,0.521L8.64,31l-0.001-0.522c0-3.125,1.943-5.854,4.819-6.903
+	c-1.138-0.812-1.838-2.134-1.838-3.559c0-2.292,1.772-4.178,4.02-4.362V5c0-0.199,0.161-0.36,0.36-0.36h15
+	C31.199,4.64,31.36,4.801,31.36,5z M30.64,8.36H16.36v7.295c2.246,0.184,4.017,2.07,4.017,4.362c0,0.566-0.11,1.115-0.315,1.623
+	H30.64V8.36z M30.64,5.36H16.36v2.28h14.28V5.36z M22,11.64h-4v0.72h4V11.64z M23.64,17.5c0-1.577,1.283-2.86,2.86-2.86
+	s2.86,1.283,2.86,2.86s-1.283,2.86-2.86,2.86S23.64,19.077,23.64,17.5z M28.242,16.266l-1.383,1.383l-0.004,1.955
+	c1.01-0.171,1.784-1.046,1.784-2.104C28.64,17.04,28.49,16.615,28.242,16.266z M24.36,17.5c0,1.055,0.769,1.928,1.774,2.103
+	l0.006-2.253l1.592-1.593c-0.349-0.248-0.773-0.397-1.233-0.397C25.32,15.36,24.36,16.32,24.36,17.5z M8,9.64H5v0.72h3V9.64z
+	 M3.5,21.36h3v-0.72h-3V21.36z M3.5,19.36h3v-0.72h-3V19.36z M22,13.64h-4v0.72h4V13.64z M29,11.64h-4v0.72h4V11.64z M29,9.64h-4
+	v0.72h4V9.64z M22,9.64h-4v0.72h4V9.64z M8.36,17.584v7.832c0,0.521-0.423,0.944-0.944,0.944H2.584
+	c-0.521,0-0.944-0.424-0.944-0.944v-7.832c0-0.521,0.423-0.944,0.944-0.944h4.832C7.937,16.64,8.36,17.063,8.36,17.584z M7.64,23.36
+	H2.36v2.056c0,0.123,0.101,0.224,0.224,0.224h4.832c0.124,0,0.224-0.101,0.224-0.224C7.64,25.416,7.64,23.36,7.64,23.36z
+	 M7.64,17.584c0-0.123-0.101-0.224-0.224-0.224H2.584c-0.124,0-0.224,0.101-0.224,0.224v5.056h5.28
+	C7.64,22.64,7.64,17.584,7.64,17.584z"/>',
+        iconUrl: "",
+        iconAlt: "Develop APIs that expose your IBM Z applications and data.",
+        description: "Develop APIs that expose your IBM Z applications and data."
+    },
+    {
+        id: 2,
+        iconPath: '<path id="devops_1_" d="M18,31.36h-4c-0.128,0-0.248-0.069-0.312-0.181l-2-3.464c-0.064-0.111-0.064-0.248,0-0.359l2-3.464
+	c0.064-0.111,0.183-0.181,0.312-0.181h3.792l2.896-5.016c0.1-0.174,0.32-0.231,0.491-0.132c0.173,0.1,0.231,0.319,0.132,0.491
+	l-2.896,5.017l1.896,3.284c0.064,0.111,0.064,0.248,0,0.359l-2,3.464C18.247,31.291,18.129,31.36,18,31.36z M14.208,30.64h3.584
+	l1.792-3.104l-1.792-3.104h-3.584l-1.792,3.104L14.208,30.64z M28,25.593h-4c-0.129,0-0.247-0.069-0.312-0.181l-2-3.465
+	c-0.064-0.111-0.064-0.248,0-0.359l1.896-3.284l-2.896-5.016c-0.1-0.172-0.041-0.393,0.132-0.492c0.171-0.1,0.392-0.041,0.491,0.131
+	l2.896,5.016H28c0.129,0,0.247,0.069,0.312,0.181l2,3.464c0.064,0.111,0.064,0.248,0,0.359l-2,3.465
+	C28.247,25.523,28.129,25.593,28,25.593z M24.208,24.872h3.584l1.792-3.104l-1.792-3.104h-3.584l-1.792,3.104L24.208,24.872z
+	 M8,25.593H4c-0.128,0-0.248-0.069-0.312-0.181l-2-3.465c-0.064-0.111-0.064-0.248,0-0.359l2-3.464
+	C3.752,18.013,3.872,17.943,4,17.943h4c0.128,0,0.248,0.069,0.312,0.181l1.896,3.283H16c0.199,0,0.36,0.161,0.36,0.36
+	s-0.161,0.36-0.36,0.36h-5.792l-1.896,3.284C8.248,25.523,8.128,25.593,8,25.593z M4.208,24.872h3.584l1.792-3.104l-1.792-3.104
+	H4.208l-1.792,3.104L4.208,24.872z M11,19.253c-0.125,0-0.246-0.064-0.312-0.181l-2.896-5.016H4c-0.128,0-0.248-0.068-0.312-0.18
+	l-2-3.464c-0.064-0.111-0.064-0.249,0-0.36l2-3.464C3.752,6.477,3.872,6.408,4,6.408h4c0.128,0,0.248,0.068,0.312,0.18l2,3.464
+	c0.064,0.111,0.064,0.249,0,0.36l-1.896,3.284l2.896,5.017c0.099,0.172,0.04,0.392-0.132,0.491
+	C11.124,19.237,11.062,19.253,11,19.253z M4.208,13.336h3.584l1.792-3.104L7.792,7.128H4.208l-1.792,3.104L4.208,13.336z M28,14.056
+	h-4c-0.129,0-0.247-0.068-0.312-0.18l-1.896-3.285H16c-0.199,0-0.36-0.161-0.36-0.36s0.161-0.36,0.36-0.36h5.792l1.896-3.284
+	c0.064-0.111,0.183-0.18,0.312-0.18h4c0.129,0,0.247,0.068,0.312,0.18l2,3.464c0.064,0.111,0.064,0.249,0,0.36l-2,3.464
+	C28.247,13.988,28.129,14.056,28,14.056z M24.208,13.336h3.584l1.792-3.104l-1.792-3.104h-3.584l-1.792,3.104L24.208,13.336z
+	 M11,13.484c-0.061,0-0.123-0.015-0.18-0.048c-0.172-0.1-0.231-0.32-0.132-0.492l2.896-5.016l-1.896-3.284
+	c-0.064-0.112-0.064-0.249,0-0.36l2-3.464C13.752,0.708,13.872,0.64,14,0.64h4c0.129,0,0.247,0.068,0.312,0.18l2,3.464
+	c0.064,0.111,0.064,0.249,0,0.36l-2,3.464C18.247,8.22,18.129,8.288,18,8.288h-3.792l-2.896,5.017
+	C11.245,13.42,11.124,13.484,11,13.484z M14.208,7.568h3.584l1.792-3.104L17.792,1.36h-3.584l-1.792,3.104L14.208,7.568z"/>',
+        iconUrl: "",
+        iconAlt: "Prepare and deploy a z/OS Connect API with DevSecOps.",
+        description: "Prepare and deploy a z/OS Connect API with DevSecOps."
+    },
+    {
+        id: 3,
+        iconPath: '<path id="connect_1_" d="M19.5,31.36h-7c-0.199,0-0.36-0.161-0.36-0.36v-7c0-0.199,0.161-0.36,0.36-0.36h3.14v-3.796
+	c-0.794-0.074-1.52-0.39-2.102-0.873l-6.067,6.067C8.026,25.707,8.36,26.565,8.36,27.5c0,2.128-1.731,3.86-3.86,3.86
+	s-3.86-1.732-3.86-3.86s1.731-3.86,3.86-3.86c0.935,0,1.793,0.335,2.462,0.89l6.067-6.067c-0.483-0.582-0.799-1.308-0.873-2.102H8.5
+	c-2.404,0-4.36-1.956-4.36-4.36V8.36H1C0.801,8.36,0.64,8.199,0.64,8V1c0-0.199,0.161-0.36,0.36-0.36h7
+	c0.199,0,0.36,0.161,0.36,0.36v3.14h5.28V1c0-0.128,0.068-0.248,0.18-0.312c0.111-0.063,0.249-0.063,0.36,0l6,3.464
+	c0.111,0.064,0.18,0.182,0.181,0.311c0,0.128-0.067,0.247-0.178,0.312l-6,3.536c-0.11,0.066-0.249,0.067-0.361,0.002
+	C13.709,8.249,13.64,8.129,13.64,8V4.86H8.36V8c0,0.199-0.161,0.36-0.36,0.36H4.86V12c0,2.007,1.633,3.64,3.64,3.64h3.657
+	c0.182-1.96,1.836-3.5,3.843-3.5s3.661,1.54,3.844,3.5h3.796V12.5c0-0.199,0.161-0.36,0.36-0.36h3.14V8.343
+	c-1.96-0.182-3.5-1.836-3.5-3.843c0-2.128,1.732-3.86,3.86-3.86s3.86,1.731,3.86,3.86c0,2.007-1.54,3.661-3.5,3.843v3.797H31
+	c0.199,0,0.36,0.161,0.36,0.36v7c0,0.199-0.161,0.36-0.36,0.36h-3.14v4.64c0,2.404-1.956,4.36-4.36,4.36h-3.64V31
+	C19.86,31.199,19.699,31.36,19.5,31.36z M12.86,30.64h6.28v-6.28h-6.28C12.86,24.36,12.86,30.64,12.86,30.64z M4.5,24.36
+	c-1.731,0-3.14,1.408-3.14,3.14s1.409,3.14,3.14,3.14s3.14-1.408,3.14-3.14S6.231,24.36,4.5,24.36z M19.86,28.14h3.64
+	c2.007,0,3.64-1.633,3.64-3.64v-4.64H24c-0.199,0-0.36-0.161-0.36-0.36v-3.14h-3.796c-0.172,1.842-1.642,3.312-3.484,3.484v3.796
+	h3.14c0.199,0,0.36,0.161,0.36,0.36V28.14z M24.36,19.14h6.279v-6.28H24.36V19.14z M16,12.86c-1.731,0-3.14,1.409-3.14,3.14
+	s1.409,3.14,3.14,3.14s3.14-1.408,3.14-3.14S17.731,12.86,16,12.86z M27.5,1.36c-1.731,0-3.14,1.409-3.14,3.14s1.408,3.14,3.14,3.14
+	s3.14-1.409,3.14-3.14S29.231,1.36,27.5,1.36z M1.36,7.64h6.28V1.36H1.36V7.64z M14.36,1.624V7.37l4.925-2.903L14.36,1.624z"/>',
+        iconUrl: "",
+        iconAlt: "Plan z/OS Connect API production workloads.",
+        description: "Plan z/OS Connect API production workloads."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    ~NEW~ subSectionAccordion: Adds accordion/twisties section after main content, example can be seen in Use Cases on FHE. accordionContent accepts HTML and will be filtered for definition tooltips.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Develop APIs",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Develop APIs in your own z/OS Connect development environment containing an isolated z/OS Connect 
+                development server. Use Red Hat CodeReady Workspaces to do this or make the z/OS Connect Designer 
+                image available in your own image registries for self-service use with container runtimes. Note, Docker Desktop is used in our tutorials but other container runtimes are supported.
+                </p>
+                <p>The z/OS Connect Designer provides a new, intuitive, web-based development experience that enables an application developer to:</p>
+ 	            <ul>
+                 <li>Iteratively develop, run and test your API in isolation with your own z/OS Connect Development server</li>
+ 	            <li>Start by importing from an OpenAPI 3 definition</li>
+ 	            <li>Use JSONata, a powerful data transformation language, to supercharge your API mapping</li>
+ 	            <li>Edit and refactor project files at any point with any IDE</li>
+ 	            <li>Manage API project changes across your teams using your choice of source control management (SCM) systems.</li>
+                </ul>
+                <p>It's really easy to get started. If you have a container environment installed on your machine you can pull the z/OS Connect Designer directly; for example, using Docker or Docker Desktop (other container runtimes are supported) you can run:</p>
+                    docker run -it -p 9080:9080 -v $PWD:/workspace/project icr.io/zosconnect/ibm-zcon-designer:3.0.62</p>
+                <p>(Where 3.0.62 is the latest version. You can check out the latest version by looking at the <a href='https://www.ibm.com/docs/en/zos-connect/zos-connect/3.0?topic=change-history-zos-connect-openapi-3'>change history</a>. If using Podman simply replace 'docker' with 'podman'.)</p>
+                <p>For a full tutorial and a closer look at how z/OS Connect works, take a look here: 
+                <br><a href='https://www.ibm.com/docs/en/zos-connect/zos-connect/3.0?topic=getting-started-tutorials'>Getting started tutorials</a>."
+            },
+            {
+                subSectionTitle: "Getting started with Red Hat CodeReady Workspaces",
+                subSectionContent: "<p>Red Hat CodeReady Workspaces provides a way to provision a pre-configured z/OS Connect Designer workspace for team members to develop API projects.</p>
+                <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/zosconn/zos-connect/3.0?topic=concepts-introduction-cloud-native-development-red-hat-codeready-workspaces' class='ibm-forward-link'>Understanding open container platforms and shared workspaces</a></p>
+                <p>The z/OS Connect tutorial will take you through using the z/OS Connect Designer in Red Hat CodeReady 
+                Workspaces to create a sample Db2 API by defining rich mappings between an existing API definition and a 
+                z/OS System of Record (SoR) using JSONata expressions. Iteratively run and test your API within your 
+                project and when finished, checking it into SCM.
+                </p>",
+                subSectionLinks: [
+                    {
+                    linkUrl:"https://www.ibm.com/docs/zosconn/zos-connect/latest?topic=cdw-using-zos-connect-designer-red-hat-codeready-workspaces",
+                    linkText:"Using Red Hat CodeReady Workspaces to create your first Db2 API"
+                    },
+                    {
+                    linkUrl:"https://www.ibm.com/docs/en/zos-connect/zos-connect/3.0?topic=ccw-using-zos-connect-designer-red-hat-codeready-workspaces",
+                    linkText:"NEW: Using Red Hat CodeReady Workspaces to create your first CICS API"
+                    },
+                    {
+                    linkUrl:"https://developers.redhat.com/products/codeready-workspaces/overview",
+                    linkText:"Cloud native development with Red Hat CodeReady Workspaces"
+                    },
+                    {
+                    linkUrl:"https://www.redhat.com/en/technologies/cloud-computing/openshift",
+                    linkText:"What is Red Hat OpenShift?"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Getting started with Docker Desktop",
+                subSectionContent: "<p>Docker Desktop provides a container runtime for developing z/OS Connect API projects using the z/OS Connect Designer.</p>
+                <p>The z/OS Connect tutorials will take you through using the z/OS Connect Designer with Docker Desktop to 
+                create a Sample API of your choosing (CICS or Db2) by defining rich mappings between an existing API 
+                definition and a z/OS System of Record (SoR) using JSONata expressions. Iteratively run and test your API 
+                within your project and when finished, checking it into SCM.</p>",
+                subSectionLinks: [
+                    {
+                    linkUrl:"https://www.ibm.com/docs/zosconn/zos-connect/3.0?topic=workspace-using-docker-desktop",
+                    linkText:"Using Docker Desktop to create your first CICS API"
+                    },
+                    {
+                    linkUrl:"https://www.ibm.com/docs/en/zosconn/zos-connect/3.0?topic=workspace-using-docker-desktop",
+                    linkText:"Using Docker Desktop to create your first Db2 API"
+                    },
+                    {
+                    linkUrl:"https://www.ibm.com/cloud/learn/docker",
+                    linkText:"IBM Cloud Learn Hub: Docker"
+                    },
+                    {
+                    linkUrl:"https://www.docker.com/products/docker-desktop",
+                    linkText:"What is Docker Desktop?"
+                    }
+                ]
+            }
+        ]  
+    },
+        {
+        id: 2,
+        tabTitle: "Deploy APIs",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Deploy API's using cloud native DevSecOps best practices to benefit from shift left development and faster time to market.</p>
+                <p>Use Red Hat OpenShift pipelines to create an industry standard continuous integration, continuous delivery (CI/CD) pipeline to implement a DevSecOps approach for cloud native deployments of APIs. Treat configuration as code allowing deployments to be managed as part of your delivery process.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/cloud/learn/devsecops",
+                        linkText: "IBM Cloud Hub Learning: DevSecOps"
+                    },
+                    {
+                        linkUrl: "https://cloud.redhat.com/blog/introducing-openshift-pipelines",
+                        linkText: "Introducing OpenShift Pipelines"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>Create a sample pipeline in Red Hat OpenShift taking a z/OS Connect Sample API project from source code management (SCM) to a deployed, callable API with these steps:</p>
+                <ol>
+                <li>Install the z/OS Connect operator and pull the z/OS Connect server image.</li>
+ 	            <li>Trigger automated builds in RedHat OpenShift Pipelines after each new commit to SCM.</li>
+ 	            <li>Add a pipeline step to build a .war file from the API project using Gradle.</li>
+ 	            <li>Add a pipeline step to create a z/OS Connect server image layering API project .war file.</li>
+ 	            <li>Define ConfigMaps and secrets to inject environment variables into the API container at deployment time.</li>
+                <li>Call your new z/OS Connect API.</li>
+                </ol>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zosconn/zos-connect/3.0?topic=server-zos-connect-image",
+                        linkText: "Steps to deploy API's with z/OS Connect"
+                    },
+                    {
+                        linkUrl: "https://docs.openshift.com/container-platform/3.11/dev_guide/configmaps.html",
+                        linkText: "What is a Red Hat OpenShift ConfigMap?"
+                    },
+                    {
+                        linkUrl: "https://kubernetes.io/docs/concepts/configuration/secret/",
+                        linkText: "What is a Kubernetes secret?"
+                    }
+                ]
+            }
+        ]  
+    },
+    {
+        id: 3,
+        tabTitle: "Plan for production",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Learn how to manage your running z/OS Connect APIs within your open container platform.</p>"
+            },
+            {
+                subSectionTitle: "Monitoring z/OS Connect APIs",
+                subSectionContent: "<p>Use Prometheus and Grafana to monitor z/OS Connect APIs using the metrics endpoints provided in every z/OS Connect server.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/zosconn/zos-connect/3.0?topic=planning-monitoring-zos-connect-server-container",
+                        linkText: "Monitor z/OS Connect APIs running in your cluster"
+                    }
+                ]
+            }, 
+            {
+                subSectionTitle: "High availability and disaster recovery of z/OS Connect APIs",
+                subSectionContent: "<p>z/OS Connect servers can leverage high availability mechanisms of an OpenShift cluster. Learn more about high availability in container platforms and how to benefit from a cloud native approach.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/zosconn/zos-connect/3.0?topic=planning-high-availability",
+                        linkText: "Defining high availability for your deployments in Red Hat OpenShift"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Securing z/OS Connect APIs",
+                subSectionContent: "<p>Take advantage of the improved security schemes provided by the OpenAPI 3 specification to deliver more granular control of user authorization at the API operation level.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/zosconn/zos-connect/3.0?topic=securing-zos-connect-resources",
+                        linkText: "Securing z/OS Connect APIs"
+                    }
+                ]
+            }  
+        ]
+    }
+
+] %}
+{# END GETTING STARTED #}
+
+{# START FAQs #}
+{#
+Two formats are available, with or without accordion wrapped category sections. Only use one, not both.
+
+Original pattern: Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{% set faqs = [
+    {
+    question: "How can I learn more about z/OS Connect?",
+    answer: "For answers to questions around the new z/OS Connect capabilities and 
+enhancements on offer, how this compares to the existing offering and how to get started, see
+<a href='https://www.ibm.com/docs/zosconn/zos-connect/3.0?topic=welcome-faqs' class='ibm-forward-link'>frequently asked questions</a>."
+    }
+]%}
+
+{# OR Accordion pattern 
+catTitle: Title for category will be placed in accordion header
+faqs: Associated with this category and wrapped in accordion container. Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqSection = [
+    {
+        categories: [
+            {
+                catTitle: "",
+                faqs: [
+                    {
+                        question: "",
+                        answer: ""
+                    }
+                ]
+            }
+        ]
+    }
+] #}
+
+{# Learn more - optional section below the main FAQs if needed. Can support as many sections as needed following this pattern:
+heading: section heading string
+content: paragraph text content
+links: link section below
+    linkURL: link address
+    linkText: link display text
+    linkType: "local" or "external"
+ #}
+{# set learnMore =  [
+    {
+        heading: "",
+        content: "",
+        links: [
+            {
+            linkUrl: "",
+            linkText: "",
+            linkType: ""
+        }
+        ]
+    }
+]
+#}
+
+{# Learn more ALTERNATE pattern for Resilience solution with accordion section
+section: Subheading under Learn more, above accordions
+categories: Each is an accordion wrapper
+    catTitle: Accordion heading
+    content: Supports any custom html content, wrap with appropriate tags
+ #}
+{# set learnMoreAccordion = 
+[
+        {
+        section: "",
+        categories: [
+            {
+                catTitle: "",
+                content:  ""
+            }
+        ]
+        }≠
+]
+#}
+{# END FAQs #}
+
+{# *** NEW WITH CARBON *** #}
+{# START FEATURED DOCUMENTATION #}
+{# Optional section. Breaks out feature card for main IBM Documentation/C3 link. 1 per page max #}
+{% set documentation = {
+    docTitle: "IBM Documentation",
+    docDescription: "Read more about z/OS Connect.",
+    docLinkUrl: "https://www.ibm.com/docs/zosconn/zos-connect/3.0",
+    docLinkText: "Information about z/OS Connect in IBM Documentation."
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to hide tile on page temporarily.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "",
+        tabContent: [
+            {
+                resourceTitle: "IBM z/OS Connect documentation",
+                resourceDescription: "",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zosconn/zos-connect/3.0",
+                resourceLinkText: "Explore the z/OS Connect documentation",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "z/OS Connect Community",
+                resourceDescription: "Ask for help from, and give feedback on, z/OS Connect.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/topic-home/discussions?communitykey=53f7f9ef-d807-4db9-99ec-d3a45a7fc9f4",
+                resourceLinkText: "Get help from the community",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false,
+                resourceStatus: "new"
+            },
+            {
+                resourceTitle: "GitHub samples",
+                resourceDescription: "z/OS Connect getting started samples",
+                resourceLinkUrl: "https://zosconnect.github.io",
+                resourceLinkText: "Explore and download samples",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# *** NEW IN CARBON *** #}
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{# set related = [] #}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "December 6, 2022",
+        sectionContent: "<p>Minor edits were made to the introduction, and the
+            Develop APIs tab of Get started was updated to reflect that 
+            3.0.62 is the latest version of z/OS Connect Designer."
+    },
+    {
+        sectionTitle: "November 14, 2022",
+        sectionContent: "<p>Information about getting started and about creating your first CICS API was added to the Develop APIs tab of the How to get started section. In the Technical resources section, 
+            a link to the API Enablement community was replaced with a link to z/OS Connect Community."
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "zosconnect" %}
+{# END FEEDBACK #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "-",
+    sc_security: "-"
+}
+ %}
+{# END STATCOUNTER #}

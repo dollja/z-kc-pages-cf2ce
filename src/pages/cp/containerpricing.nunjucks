@@ -1,0 +1,14 @@
+<!-- layout.nunjucks -->
+
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <META http-equiv="refresh" content="0;URL=https://www.ibm.com/support/z-content-solutions/tailored-fit-pricing/">
+   
+</head>
+        <!-- MAIN CONTAINER BEGIN -->
+        {% block content %} {% endblock %}
+        
+</body>
+</html>

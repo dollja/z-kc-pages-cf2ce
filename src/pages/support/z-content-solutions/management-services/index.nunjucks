@@ -1,0 +1,435 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "z/OS Management Services Catalog" %}
+{% set key = 10 %}
+
+{# META #}
+{% set meta_description = meta_description | default("") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+videoAltButtonText: Add custom text instead of "Play Overview" to button
+#}
+{% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "1_9vfboe5c",
+    videoAltButtonText: "Play video",
+    transcriptAltName: "Lifecycle_of_a_service_transcript"
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Welcome to the z/OS® Management Services Catalog content solution, your homepage for technical resources.</p>
+
+<p>IBM® z/OS Management Services Catalog assists z/OS system programmers in managing their z/OS environment using services. Services streamline repetitive and frequent tasks as well as complex, infrequent tasks. Associated institutional knowledge and processes are embedded in services, therefore helping z/OS system programmers adhere to best practices and internal standards.</p>
+
+<p>Services are built using z/OSMF Workflows technology. They improve usability and make workflows more accessible by shielding system programmers from the complexity of steps involved in the workflow.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "other",
+        url: "https://www.ibm.com/products/zos-management-facility",
+        text: "See what z/OS Management Facility can do for your business"
+
+    }
+] %}544
+{# END INTRODUCTION #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "zmsc" %}
+{# END FEEDBACK #}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/zmsc/manage-applications-anywhere-white.svg",
+        iconPath: "<path id='manage-applications-anywhere' class='cls-1' d='M16,30.36a1.37,1.37,0,0,1-1.33-1.06,13.45,13.45,0,0,1-12-12,1.36,1.36,0,0,1,0-2.66,13.45,13.45,0,0,1,12-12,1.36,1.36,0,0,1,2.66,0,13.45,13.45,0,0,1,12,12,1.36,1.36,0,0,1,0,2.66,13.43,13.43,0,0,1-12,12A1.37,1.37,0,0,1,16,30.36Zm0-2a.64.64,0,1,0,.64.64A.64.64,0,0,0,16,28.36Zm0-.72a1.36,1.36,0,0,1,1.29.93A12.7,12.7,0,0,0,28.57,17.29a1.36,1.36,0,0,1,0-2.58A12.72,12.72,0,0,0,17.29,3.42a1.36,1.36,0,0,1-2.58,0A12.72,12.72,0,0,0,3.42,14.71a1.36,1.36,0,0,1,0,2.58A12.7,12.7,0,0,0,14.71,28.57,1.36,1.36,0,0,1,16,27.64ZM29,15.36a.64.64,0,1,0,.64.64A.64.64,0,0,0,29,15.36Zm-26,0a.64.64,0,1,0,.64.64A.64.64,0,0,0,3,15.36Zm13-13a.64.64,0,1,0,.64.64A.64.64,0,0,0,16,2.36Zm7,21H13a.36.36,0,0,1-.36-.36V19.36H9A.36.36,0,0,1,8.64,19V10A.36.36,0,0,1,9,9.64H19a.36.36,0,0,1,.36.36v3.64H23a.36.36,0,0,1,.36.36v9A.36.36,0,0,1,23,23.36Zm-9.64-.72h9.28V14.36H13.36Zm-4-4h3.28V14a.36.36,0,0,1,.36-.36h5.64V10.36H9.36ZM17,16.36H15v-.72h2Zm-4-4H11v-.72h2Z'/>",
+        iconAlt: "Manage applications",
+        description: "Configure in z/OSMF.<br>(Administrators only)"
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/zmsc/tools-white.svg",
+        iconPath: "<path id='tools_1_' d='M25.128,31.48c-1.653,0-3.285-0.644-4.505-1.862c-1.697-1.698-2.29-4.224-1.542-6.493L8.874,12.92
+    c-2.271,0.747-4.794,0.153-6.491-1.543c-1.904-1.903-2.404-4.813-1.244-7.24c0.05-0.105,0.148-0.18,0.264-0.2
+    c0.118-0.018,0.233,0.018,0.315,0.101L5.72,8.04c0.64,0.638,1.68,0.639,2.32,0c0.639-0.64,0.639-1.68,0-2.32L4.038,1.718
+    c-0.083-0.083-0.12-0.2-0.101-0.315c0.02-0.115,0.094-0.213,0.2-0.264c2.427-1.161,5.336-0.66,7.239,1.243
+    c1.698,1.698,2.292,4.224,1.542,6.494l10.206,10.205c2.271-0.752,4.796-0.156,6.493,1.542c1.902,1.903,2.402,4.812,1.243,7.24
+    c-0.051,0.105-0.149,0.18-0.265,0.199c-0.108,0.022-0.231-0.018-0.315-0.1l-4.002-4.002c-0.639-0.639-1.68-0.639-2.318,0
+    c-0.64,0.64-0.64,1.68,0,2.318l4.002,4.002c0.082,0.083,0.12,0.2,0.1,0.315s-0.094,0.214-0.199,0.265
+    C26.991,31.277,26.057,31.48,25.128,31.48z M8.968,12.146c0.094,0,0.186,0.037,0.254,0.105L19.75,22.775
+    c0.1,0.1,0.132,0.248,0.083,0.38c-0.765,2.062-0.255,4.399,1.3,5.953c1.564,1.564,3.896,2.06,5.942,1.305l-3.624-3.624
+    c-0.919-0.92-0.919-2.417,0-3.338c0.924-0.918,2.42-0.917,3.338,0l3.624,3.624c0.755-2.047,0.26-4.378-1.305-5.942
+    c-1.554-1.555-3.889-2.065-5.953-1.3c-0.132,0.048-0.279,0.017-0.38-0.083L12.25,9.225c-0.1-0.099-0.132-0.248-0.083-0.38
+    c0.766-2.062,0.255-4.399-1.299-5.954c-1.564-1.564-3.896-2.06-5.943-1.304l3.624,3.624C8.993,5.655,9.237,6.248,9.237,6.88
+    S8.992,8.105,8.548,8.548c-0.888,0.889-2.45,0.888-3.337,0L1.587,4.925c-0.755,2.046-0.26,4.378,1.304,5.943
+    c1.554,1.554,3.892,2.064,5.952,1.3C8.884,12.153,8.926,12.146,8.968,12.146z M2.858,31.24c-0.092,0-0.185-0.036-0.254-0.105
+    l-1.743-1.743c-0.136-0.136-0.141-0.354-0.012-0.497l2.936-3.229c0.066-0.073,0.159-0.115,0.258-0.118
+    c0.077,0,0.193,0.036,0.263,0.105l0.764,0.764l7.476-7.477l0.509,0.51l-7.476,7.477l0.763,0.763c0.07,0.07,0.108,0.165,0.105,0.264
+    s-0.045,0.191-0.118,0.258L3.1,31.148C3.032,31.209,2.945,31.24,2.858,31.24z M1.613,29.125l1.257,1.258l2.695-2.451L4.063,26.43
+    L1.613,29.125z M21.361,14.518l-0.51-0.509l9.311-9.311c0.384-0.383,0.595-0.892,0.595-1.433s-0.211-1.05-0.595-1.433
+    c-0.788-0.788-2.074-0.79-2.864,0l-9.311,9.311l-0.51-0.509l9.311-9.311c1.038-1.038,2.848-1.036,3.884,0
+    c0.519,0.519,0.805,1.208,0.805,1.942s-0.286,1.423-0.805,1.942L21.361,14.518z M19.674,12.831l-0.51-0.509l9.282-9.282l0.51,0.509
+    L19.674,12.831z'/>",
+        iconAlt: "Tools",
+        description: "Create services in Administration.<br>(Administrators only)"
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/zmsc/user--interface-white.svg",
+        iconPath: "<path id='user--interface_1_' d='M29,3.5C29,3.776,28.776,4,28.5,4S28,3.776,28,3.5S28.224,3,28.5,3S29,3.224,29,3.5 M26.5,3
+    C26.224,3,26,3.224,26,3.5S26.224,4,26.5,4S27,3.776,27,3.5S26.776,3,26.5,3 M24.5,3C24.224,3,24,3.224,24,3.5S24.224,4,24.5,4
+    S25,3.776,25,3.5S24.776,3,24.5,3 M31,30.36H1c-0.199,0-0.36-0.161-0.36-0.36V2c0-0.199,0.161-0.36,0.36-0.36h30
+    c0.199,0,0.36,0.161,0.36,0.36v28C31.36,30.199,31.199,30.36,31,30.36z M1.36,29.64h29.28V5.36H1.36V29.64z M1.36,4.64h29.28V2.36
+    H1.36V4.64z M15,25.36h-5c-0.199,0-0.36-0.161-0.36-0.36v-3c0-0.199,0.161-0.36,0.36-0.36h5c0.199,0,0.36,0.161,0.36,0.36v3
+    C15.36,25.199,15.199,25.36,15,25.36z M10.36,24.64h4.28v-2.28h-4.28C10.36,22.36,10.36,24.64,10.36,24.64z M22,20.36h-5
+    c-0.199,0-0.36-0.161-0.36-0.36v-3c0-0.199,0.161-0.36,0.36-0.36h5c0.199,0,0.36,0.161,0.36,0.36v3
+    C22.36,20.199,22.199,20.36,22,20.36z M17.36,19.64h4.279v-2.28H17.36V19.64z M15,20.36h-5c-0.199,0-0.36-0.161-0.36-0.36v-3
+    c0-0.199,0.161-0.36,0.36-0.36h5c0.199,0,0.36,0.161,0.36,0.36v3C15.36,20.199,15.199,20.36,15,20.36z M10.36,19.64h4.28v-2.28
+    h-4.28C10.36,17.36,10.36,19.64,10.36,19.64z M22,15.36h-5c-0.199,0-0.36-0.161-0.36-0.36v-3c0-0.199,0.161-0.36,0.36-0.36h5
+    c0.199,0,0.36,0.161,0.36,0.36v3C22.36,15.199,22.199,15.36,22,15.36z M17.36,14.64h4.279v-2.28H17.36V14.64z M15,15.36h-5
+    c-0.199,0-0.36-0.161-0.36-0.36v-3c0-0.199,0.161-0.36,0.36-0.36h5c0.199,0,0.36,0.161,0.36,0.36v3
+    C15.36,15.199,15.199,15.36,15,15.36z M10.36,14.64h4.28v-2.28h-4.28C10.36,12.36,10.36,14.64,10.36,14.64z M8,15.36H3
+    c-0.199,0-0.36-0.161-0.36-0.36v-3c0-0.199,0.161-0.36,0.36-0.36h5c0.199,0,0.36,0.161,0.36,0.36v3C8.36,15.199,8.199,15.36,8,15.36
+    z M3.36,14.64h4.28v-2.28H3.36V14.64z M29,10.36h-5c-0.199,0-0.36-0.161-0.36-0.36V7c0-0.199,0.161-0.36,0.36-0.36h5
+    c0.199,0,0.36,0.161,0.36,0.36v3C29.36,10.199,29.199,10.36,29,10.36z M24.36,9.64h4.279V7.36H24.36V9.64z M22,10.36h-5
+    c-0.199,0-0.36-0.161-0.36-0.36V7c0-0.199,0.161-0.36,0.36-0.36h5c0.199,0,0.36,0.161,0.36,0.36v3
+    C22.36,10.199,22.199,10.36,22,10.36z M17.36,9.64h4.279V7.36H17.36V9.64z M15,10.36h-5c-0.199,0-0.36-0.161-0.36-0.36V7
+    c0-0.199,0.161-0.36,0.36-0.36h5c0.199,0,0.36,0.161,0.36,0.36v3C15.36,10.199,15.199,10.36,15,10.36z M10.36,9.64h4.28V7.36h-4.28
+    C10.36,7.36,10.36,9.64,10.36,9.64z M8,10.36H3c-0.199,0-0.36-0.161-0.36-0.36V7c0-0.199,0.161-0.36,0.36-0.36h5
+    c0.199,0,0.36,0.161,0.36,0.36v3C8.36,10.199,8.199,10.36,8,10.36z M3.36,9.64h4.28V7.36H3.36V9.64z'/>",
+        iconAlt: "User interface",
+        description: "Manage and publish services to the Catalog.<br>(Administrators only)"
+    },
+    {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/zmsc/text--input-white.svg",
+         iconPath: "<path id='text--input_1_' d='M30,29.36H2c-0.199,0-0.36-0.161-0.36-0.36v-4c0-0.199,0.161-0.36,0.36-0.36h28
+    c0.199,0,0.36,0.161,0.36,0.36v4C30.36,29.199,30.199,29.36,30,29.36z M2.36,28.64h27.28v-3.28H2.36V28.64z M14,23.36H2v-0.72h12
+    V23.36z M30,19.36H2c-0.199,0-0.36-0.161-0.36-0.36v-4c0-0.199,0.161-0.36,0.36-0.36h28c0.199,0,0.36,0.161,0.36,0.36v4
+    C30.36,19.199,30.199,19.36,30,19.36z M2.36,18.64h27.28v-3.28H2.36V18.64z M14,13.36H2v-0.72h12V13.36z M30,9.36H2
+    C1.801,9.36,1.64,9.199,1.64,9V5c0-0.199,0.161-0.36,0.36-0.36h28c0.199,0,0.36,0.161,0.36,0.36v4C30.36,9.199,30.199,9.36,30,9.36z
+     M2.36,8.64h27.28V5.36H2.36V8.64z M14,3.36H2V2.64h12V3.36z'/>",
+        iconAlt: "Text input",
+        description: "Submit services from the Catalog."
+    },
+    {
+        id: 5,
+        iconUrl: "https://izswebpage.mybluemix.net/images/zmsc/active--server-white.svg",
+        iconPath: "<path id='active--server_1_' d='M30.396,20.229l-1.933-0.518l0.186-0.695l1.933,0.518L30.396,20.229z M1.604,20.229l-0.187-0.695
+    l1.932-0.518l0.187,0.695L1.604,20.229z M31,16.36h-2v-0.72h2V16.36z M3,16.36H1v-0.72h2V16.36z M28.649,12.983l-0.186-0.695
+    l1.933-0.518l0.186,0.695L28.649,12.983z M3.35,12.983l-1.932-0.518l0.187-0.695l1.932,0.518L3.35,12.983z M24,31.36H8
+    c-0.199,0-0.36-0.161-0.36-0.36V1c0-0.199,0.161-0.36,0.36-0.36h16c0.199,0,0.36,0.161,0.36,0.36v30
+    C24.36,31.199,24.199,31.36,24,31.36z M8.36,30.64h15.28V1.36H8.36V30.64z M20,11.36h-8v-0.72h8V11.36z M20,8.36h-8V7.64h8V8.36z
+     M20,5.36h-8V4.64h8V5.36z'/>",
+        iconAlt: "Active server",
+        description: "Monitor and run your service submissions."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Configure",
+        tabSubSections: [
+            {
+                subSectionTitle: "Access and configure in z/OSMF",
+
+                subSectionContent: "z/OS Management Services Catalog is part of the z/OS Management Facility (z/OSMF). Instructions and information for installation are available in the z/OSMF Configuration Guide.</br></br>The latest version of z/OS Management Services Catalog is available in APAR PH48733 (z/OS V2.5 only).",
+
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=services-configure-zos-management-catalog-task",
+                        linkText: "Learn how to configure z/OS Management Services Catalog"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "User roles",
+                subSectionContent: "z/OS Management Services Catalog is a tool for z/OS system programmers. At least one system programmer must be an administrator for z/OS Management Services Catalog. Administrators create, publish, and manage services. All z/OSMF users can submit and run published services to complete z/OS management tasks.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=task-administrator-non-administrator-user-roles",
+                        linkText: "Learn more about administrator and non-administrator roles"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Global settings",
+                subSectionContent: "Administrators have access to Global settings for the product. Set up your Global settings when you first start using z/OS Management Services Catalog. You can change them at any time.<br><br><b>Target systems</b><br>The target systems services can run on.<br><br><b>Publishing approval</b><br>Whether services must be approved before publishing and who can approve services.<br><br><b>JOB statements</b><br>The default JOB statement when a service runs. This can be edited by the service submitter.<br><br><b>History</b><br>How service submissions are deleted from History.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=settings-global",
+                        linkText: "Learn more about Global settings"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Create services",
+        tabSubSections: [
+            {
+                subSectionTitle: "Create services",
+                subSectionContent: "Administrators can create and publish services in Administration. Services are built on z/OSMF Workflows technology. To create a service, you need a workflow definition file. Information and variables from the file generate a service. Inputs are created for each variable. You can <a href='https://www.ibm.com/docs/en/zos/2.5.0?topic=services-editing-inputs' target='_blank'>edit</a> and <a href='https://www.ibm.com/docs/en/zos/2.5.0?topic=services-adding-logic-inputs' target='_blank'>add logic</a> to inputs to make the service easier to run. <a href='https://www.ibm.com/docs/en/zos/2.5.0?topic=services-editing-inputs' target='_blank'>Preview</a> and <a href='https://www.ibm.com/docs/en/zos/2.5.0?topic=services-testing' target='_blank'>test</a> your services before publishing them to the Catalog for your team to run.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=services-creating-workflow-definition-files",
+                        linkText: "Learn about creating workflow defintion files for services"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=services-how-work",
+                        linkText: "Learn how services work"
+                    },
+                    {
+                        linkUrl: "https://github.com/openmainframeproject/zorow",
+                        linkText: "Find workflow definition files in the z/OS Open Repository of Workflows (ZOROW)"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Sample services",
+                subSectionContent: "Sample services are included in z/OS Management Services Catalog. You can publish the sample services to the Catalog for your team to run. You can also edit sample services to better fit your unique needs. <ul><li>Create a zFS file system</li><li>Rename a zFS file system</li><li>Expand a zFS file system</li><li>Encrypt a zFS file system</li><li>Mount a zFS file system</li><li>Unmount a zFS file system</li><li>List attributes of a RACF user ID</li><li>Delete a RACF user ID</li><li>Create a RACF digital certificate</li><li>Delete an alias from a catalog</li><li>Replace an SMP/E RECEIVE ORDER certificate</li></ul>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=services-sample",
+                        linkText: "Learn about sample services"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Manage and publish services",
+        tabSubSections: [
+            {
+                subSectionTitle: "Manage services",
+                subSectionContent: "Administrators manage services in Administration. You can create, edit, copy, suspend, archive, and delete services. You can also manage service categories (create categories, delete categories, and change the category of a service). <br><br>If publishing approval is turned on in Global settings, you can approve services in Administration.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=services-in-administration",
+                        linkText: "Learn about services in Administration"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=services-managing-service-categories",
+                        linkText: "Learn about managing service categories"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=services-approving-service",
+                        linkText: "Learn how to approve a service"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Publish services",
+                subSectionContent: "Publish services to the Catalog so your z/OS system programming team can run the services to complete z/OS management tasks.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=services-submitting-approval-publishing-service",
+                        linkText: "Learn how to publish services"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Export and import services between z/OSMF instances",
+                subSectionContent: "If you would like to run services on multiple systems, you can export them from one z/OSMF instance and import them into another.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=services-exporting-importing",
+                        linkText: "Learn how to export and import services between z/OSMF instances"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 4,
+        tabTitle: "Submit services in the Catalog",
+        tabSubSections: [
+            {
+                subSectionTitle: "Submit services",
+                subSectionContent: "Submitting a service creates a service submission, which you can run to complete the intended z/OS management task. You can submit services that are published in the Catalog. <br><br>To submit a service, you need to enter input values and set the run properties.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=task-submitting-services-complete-zos-tasks",
+                        linkText: "Learn about submitting services to complete z/OS tasks"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=tasks-providing-input-values-run-properties",
+                        linkText: "Learn about providing input values and run properties"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 5,
+        tabTitle: "Run service submissions",
+        tabSubSections: [
+            {
+                subSectionTitle: "Activity",
+                subSectionContent: "When you submit a service you create an active service submission. View your team's active service submissions in Activity. You can modify your active service submissions before you run them. Administrators can modify others' active service submissions. Service submissions are active until they are completed, terminated, or expired.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=submissions-service-in-activity",
+                        linkText: "Learn about services submissions in Activity"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=submissions-modifying-service",
+                        linkText: "Learn about modifying service submissions"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=submissions-troubleshooting-service-in-workflows",
+                        linkText: "Learn about troubleshooting service submissions in z/OSMF Workflows"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "History",
+                subSectionContent: "After a service submission completes, expires, or is terminated, it is no longer active and is recorded in History. History contains record of past service submissions from you entire team. You can duplicate service submissions to run them again. The number of service submissions in History is limited, so they are deleted according to the History Global settings.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=submissions-service-in-history",
+                        linkText: "Learn about services submissions in History"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=settings-global",
+                        linkText: "Learn about History Global settings"
+                    }
+                ]
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to hide tile on page temporarily.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "About",
+        tabContent: [
+            {
+                resourceTitle: "z/OSMF Programming Guide",
+                resourceDescription: "Learn how to use z/OS Management Services Catalog using IBM Documentation.",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=help-management-services-catalog",
+                resourceLinkText: "Read the documentation",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "z/OSMF Configuration Guide",
+                resourceDescription: "Configure z/OS Management Services Catalog and z/OSMF using IBM Documentation.",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=services-configure-zos-management-catalog-task",
+                resourceLinkText: "Read the documentation",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "z/OSMF and Workflows",
+        tabContent: [
+            {
+                resourceTitle: "z/OS Open Repository of Workflows",
+                resourceDescription: "Find and contribute Workflows assets in the ZOROW open source community.",
+                resourceLinkUrl: "https://github.com/openmainframeproject/zorow",
+                resourceLinkText: "Visit the website",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM z/OS Management Facility One Stop Hub",
+                resourceDescription: "Learn about and find resources for z/OSMF",
+                resourceLinkUrl: "https://ibm.github.io/zOSMF/",
+                resourceLinkText: "Visit the website",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{# set related = [12,14] #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = false %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "",
+        sectionContent: ""
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "-",
+    sc_security: "-"
+}
+ %}
+{# END STATCOUNTER #}

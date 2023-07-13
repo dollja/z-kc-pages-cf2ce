@@ -1,0 +1,91 @@
+{% extends 'layouts/base_page_template.njk' %}
+
+
+
+{% set page_title_prefix = "IBM Z Content Solutions" %}
+
+{% set meta_description = meta_description | default("Content solutions provide a single place for the technical resources you need to get started with a product or function. This can include documentation in the Knowledge Center, videos, workflows, Redbooks, and more.") %}
+
+{% set meta_keywords = meta_keywords | default("ibm, z systems , ibm z systems, components, support, software") %}
+
+{% set emptyLeftColumn = '<div class="ibm-grid-col-md-8-2 ibm-grid-col-lg-16-4"></div>' %}
+
+{% set mainContentColumnClasses = 'ibm-grid-col-sm-4-4 ibm-grid-col-lg-16-9' %}
+
+
+{% block common_file_includes %}
+
+
+	{%if page_version == 'v18e' %}
+		<!-- includes v18e component updates //-->
+		<link href="https://1.www.s81c.com/common/v18/preview/css/www.css" rel="stylesheet">
+		<link href="https://1.www.s81c.com/common/v18/preview/css/syntaxhighlighter.css" rel="stylesheet">
+		<link href="https://1.www.s81c.com/common/v18/preview/css/grid-fluid.css" rel="stylesheet">
+		<link href="https://1.www.s81c.com/common/v18/preview/css/forms.css" rel="stylesheet">
+	{% else %}
+		<!-- v18 only //-->
+		<link href="https://1.www.s81c.com/common/v18/css/www.css" rel="stylesheet">
+		<link href="https://1.www.s81c.com/common/v18/css/syntaxhighlighter.css" rel="stylesheet">
+		<link href="https://1.www.s81c.com/common/v18/css/grid-fluid.css" rel="stylesheet">
+		<link href="https://1.www.s81c.com/common/v18/css/forms.css" rel="stylesheet">
+		<link rel="stylesheet" href="http://www.ibm.com/cloud-computing/bin/assets/css/shame.css" media="all">
+ 		<link rel="stylesheet" href="http://www.ibm.com/cloud-computing/bin/assets/css/ibm_cloud.css?=0509191030AM" media="all"> 
+ 		<link rel="stylesheet" href="http://www.ibm.com/cloud-computing/bin/assets/css/mega_menu_nav.css" media="all"> 
+
+	{% endif %}
+
+
+	<link href="https://1.www.s81c.com/common/v19a/css/www.css" rel="stylesheet">
+
+	<script src="https://1.www.s81c.com/common/stats/ida_stats.js"></script>
+	<script src="https://1.www.s81c.com/common/v18/js/www.js"></script>
+	<script src="https://1.www.s81c.com/common/v19a/js/www.js"></script>
+	<script src="https://1.www.s81c.com/common/v18/js/syntaxhighlighter.js"></script>
+	
+
+
+
+
+{% endblock %}
+
+{# 
+{% block custom_file_includes %}
+	<style>
+		{% include 'custom_site.min.css' %}
+	</style>		
+
+	<script>
+	    IBMCore.common.util.config.set({
+	        sbs: {
+	            enabled: false
+	        },
+	        masthead: {
+	            type: "alternate"
+	        }
+	    });
+
+		{% include 'custom_site.min.js' %}
+	</script>	
+{% endblock %} #}
+
+
+
+{% block page_content %}
+
+	{# {% block leadspace %}
+		{% include 'partials/leadspace.njk' %}
+	{% endblock %} #}
+
+	{# {% block tabs %}
+		{% include 'partials/tabs.njk' %}
+	{% endblock %} #}
+
+	<div class="custom-content-body ibm-pt-10 ibm-pb-12">
+		{% block content %}	{% endblock %}
+	</div>
+
+{% endblock %}
+
+
+
+

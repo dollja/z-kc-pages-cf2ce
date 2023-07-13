@@ -1,0 +1,402 @@
+@import 'sources/v19/_vars';
+@import 'sources/v19/_colors';
+
+@import 'sources/_footer';
+// @import 'sources/_leadspace';
+@import 'sources/_tables';
+@import 'sources/_navigation';
+@import 'sources/_codesnippet';
+
+
+// v18e overrides
+@import 'sources/v18/_vars';
+//@import 'sources/v18/_icons-fontcustom';
+//@import 'sources/v18/_icons';
+@import 'sources/v18/_buttons';
+@import 'sources/v18/_lists';
+@import 'sources/v18/_showhide';
+@import 'sources/v18/_placeholders';
+@import 'sources/v18/_forms';
+@import 'sources/v18/_checkbox';
+@import 'sources/v18/_radiobutton';
+@import 'sources/v18/_tabs'; // this should be common not in v18 folder
+@import 'sources/_navigation';
+@import 'sources/overrides';
+// @import 'sources/v18/select2/core';
+// @import 'sources/v18/select2/ibmcustom';
+
+// resets cause of v18
+h1, 
+h2, 
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+}
+
+#ibm-content-body {
+    h2{
+        margin-top:5rem;
+        margin-bottom:1.5rem;
+    }
+
+    h3{
+        margin-top:3rem;
+        margin-bottom:1rem; 
+        padding-top:0;
+        padding-bottom:0;
+    }
+
+    h5{
+        margin-top:48px;
+        font-weight:600;
+    }
+}
+// duo ready specific code
+// namespace class
+
+// modifiers
+
+.ibm-flex-one {
+    flex: 1;
+}
+
+.ibm-aself-fend {
+    align-self: flex-end;
+}
+
+// color 
+
+.custom-content-body {
+    background-color: color('gray',10);
+}
+
+// manual override
+.ibm-textcolor-gray-10 {
+    color: #e0e0e0
+}
+
+.ibm-textcolor-blue-60 {
+    color: v19aColor('blue', 60);
+}
+
+.ibm-textcolor-blue-70 {
+    color: v19aColor('blue', 70)
+}
+
+.ibm-textcolor-gray-100 {
+    color: v19aColor('gray', 100);
+}
+
+// links
+a {
+    color: v19aColor('blue', 70)
+}
+
+
+
+a[class*='-link'].ibm-type-a.ibm-inlinelink.ibm-icon-after::after {
+    top: 0em;
+    font-size: inherit;
+}
+
+
+
+// Homepage cards
+a.custom-hp-card {
+    color: color('gray',100);
+    &:hover{
+        background-color:color('gray',20);
+        text-decoration: none;
+    }
+}
+
+
+
+// grid position modifier
+// some elements bleed to gutter
+@media (min-width: 674px) { 
+    .off-grid {
+        margin-left: -16px; // this will have to be grid gutter var
+        width: calc(100% + 32px);
+    }
+}
+
+.in-grid {
+    padding: 16px
+}
+
+.b-b-gray-20 {
+    border-bottom: 1px solid #c7c7c7;
+}
+
+.b-r-gray-20 {
+    border-right: 1px solid #c7c7c7;
+}
+
+.b-b-gray-10 {
+    border-bottom: 1px solid color('gray',10);
+}
+
+.b-r-gray-10 {
+    border-right: 1px solid color('gray',10);
+}
+
+// vertical spacers
+
+.mh-1 {
+    min-height: 160px;
+}
+
+// GRID DEMO
+
+.demo .tile {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+
+
+//color palette tile
+
+.palette__tile {
+    flex-basis: 80px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    min-width: 80px;
+    height: 80px;
+    box-sizing: border-box;
+    padding: 8px;
+    display: flex;
+    
+
+    p {
+        font-size: 0.75rem;
+        margin-top: auto;
+    }
+    
+}
+
+// v18 fixes 
+
+ul.ibm-twisty {
+    height: auto;
+}
+
+
+
+// Typography table
+
+#ibm-pcon #breakpoint-menu--bar {
+    height: 48px;
+    border-bottom: 1px solid #e0e0e0;
+    box-sizing: content-box;
+    flex-direction: row;
+    span{
+        @media (max-width: 390px) {
+            & {
+                display: none;
+            }
+        }
+    }
+    ul {
+        height: 100%;
+        flex-direction: row;
+        li {
+            padding-top: 0 !important;
+            height: 100%;
+            button.ibm-btn-pri {
+                height: 100%;
+                padding-left: 16px;
+                padding-right: 16px;
+                min-width: 0;
+                outline: none;
+                color: color('gray', 90);
+                background: color('white', 'core');
+                margin: 0 !important;
+                &:hover {
+                    background: color('gray', 20);
+                }
+
+                &:focus, &[aria-selected='true'] {
+                    background: color('gray', 100);
+                    color: color('white', 'core');
+                }
+            }
+        }
+    }
+    &.sticky {
+        position: fixed;
+        border-top: 55px solid color('gray', 10);
+        max-width: 1584px;
+        & + * {
+            padding-top: 50px;
+        }
+        @media (max-width: 1056px) {
+            & {
+                width: 100%;
+            }
+        }
+        @media (min-width: 672px) {
+            & {
+                width: calc(100% - 32px);
+            }
+        }
+    }
+}
+
+.type-block {
+    &.type-block--specs {
+        border-left: 1px solid color('gray', 30);
+        .class-box {
+            display: inline-block;
+            border-radius: 2px;
+            padding: 3px 8px 5px;
+        }
+    }
+
+    @media (max-width: 672px) {
+        &.type-block--copy {
+            margin-bottom: 0 !important;
+        }
+
+        &.type-block--specs {
+            border-left: none;
+        }
+    }
+
+}
+
+code{
+    padding: 1px 4px;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: v19aColor('gray',30);
+    color: black;
+    font-size: 85%;
+    &.dr-code-large{
+        font-size:16px;
+        line-height:16px;
+    }
+}
+
+.dr-text-max-width{
+    max-width:640px;
+}
+
+#ibm-footer{
+    border-top:solid 1px #c0c0c0;
+}
+
+.dr-syntaxhighlighter-button-hide{
+    p:first-child{
+        display:none;
+    }
+}
+
+.syntaxhighlighter {
+    margin-bottom: 0 !important;
+}
+
+#preview_url_input {
+    width: 350px;
+    height: 49px;
+    padding-left: 1em;
+    margin-right: 100%;
+}
+
+#preview_form button{
+    margin-right: 1em
+}
+
+#preview_frame {
+    min-height: calc(100vh - 60px);
+    display: none;
+}
+
+// ICONS
+// new carriage return arrow for icon links
+.ibm-arrow-return {
+    color: #252525;
+    padding-right: 0 !important;
+    &::before {
+        content: "↳";
+        margin-right: 0.25rem;
+    }
+    &:hover {
+        text-decoration: none;
+        color: v19aColor('blue',60);
+    }
+}
+
+// ANCHOR LINK with offset
+.ibm-anchor-offset {
+  display: block;
+  position: relative;
+  top: -5px;
+  visibility: hidden;
+}
+
+// card cta, e.g. getting-started/about.html
+.resource-link {
+    background-color: color('white', 'core');
+    // padding: 1rem !important;
+    border-right: 1px solid  color('neutral-white', 40);
+    transition: background-color 0.3s cubic-bezier(0.2, 0.2, 0.38, 0.9) 0s, color 0.3s 0s;
+    position: relative;
+    @media (max-width: 672px) {
+        border-right: none;
+        border-bottom: 1px solid  color('neutral-white', 40);
+    }
+    &:before {
+        content: '';
+        display: block;
+        height: 0;
+        // padding-bottom: 50%;
+    }
+    & > div {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    &:hover {
+        background-color: v19aColor('blue',60);
+    }
+    a {
+        color: color('gray', 80);
+        text-decoration: none;
+        &:hover {
+
+            text-decoration: none;
+        }
+    }
+    .ibm-ind-link {
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+    }
+}
+
+// roadmap tile backgrounds
+.roadmap-tiles {
+    .tile {
+        @media (max-width: 672px) {
+            background-position: 105% 100% !important;
+            min-height: 12rem;
+        }
+        @media (max-width: 1056px) {
+            background-position: 105% 100% !important;
+            min-height: 11rem;
+        }
+    }
+}
+
+// override inline link styles for now
+#ibm-primary-links, #ibm-footer-module {
+    a {
+        text-decoration: none;
+    }
+}

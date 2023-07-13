@@ -1,0 +1,404 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "Developer experience for hybrid cloud with IBM Z" %}
+
+{# META #}
+{% set meta_description = meta_description | default("Leverage cloud native development with IBM Z for enterprise wide DevOps. Bring your own IDE, use containerized test environments to build hybrid application.") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "1_3q7ce3ba",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/cnd/videoThumbnailcnd.png",
+    label: "Overview video - Developer experience for hybrid cloud with IBM Z"
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Welcome to the Developer experience for hybrid cloud with IBM Z content solution, your homepage for technical resources.</p>
+<p>Simplify life for developers building hybrid cloud applications with a cloud native development experience for z/OS. 
+Use the same development environment across the enterprise. 
+Get a personal, containerized development and test environment optimized to run on the Red Hat OpenShift Container Platform.
+</p>
+<p>
+No special skills are required. You can choose your starting point:</p>
+<ul>
+<li>Bring your own Integrated Development Environment (IDE) with IBM Developer for z/OS Enterprise Edition.</li>
+<li>Test early and often. Spin up a containerized testing environment with IBM Z Development and Test Environment (ZD&T).</li>
+<li>Build hybrid applications on Red Hat OpenShift with IBM Wazi Developer for Red Hat CodeReady Workspaces (IBM Wazi Developer).</li>
+</ul>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "other",
+        url: "https://www.ibm.com/it-infrastructure/z/capabilities/enterprise-devops",
+        text: "See what a cloud native development experience can do for your business."
+
+    }
+] %}
+
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{% set announcements = [
+    {
+    announcementText: "3-day free trial: Bring your own (BYO) IDE for cloud native development",
+    announcementLinkText: "Sign Up",
+    announcementLinkUrl: "https://www.ibm.com/account/reg/signup?formid=urx-49545"
+}]%}
+
+{# END INTRODUCTION SIDEBAR #}
+{# END INTRODUCTION #}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cnd/bp/CND_BP_Code_white.svg",
+        iconAlt: "pictogram for step one - develop applications with your IDE",
+        description: "1. Develop your applications with your choice of IDE."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cnd/bp/CND_BP_Sandbox_white.svg",
+        iconAlt: "pictogram for step two - develop and test applications in a sandbox",
+        description: "2. Develop and test your applications in your personalized sandbox."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cnd/bp/CND_BP_Automated Pipeline_white.svg",
+        iconAlt: "pictogram for step three - dcreate a CI/CD pipeline",
+        description: "3. Create a CI/CD pipeline for your applications."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Develop",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Application developers can use a cloud native, modern development environment for COBOL, PL/I, and High-Level Assembler (HLASM) programs. Essential developer capabilities such as edit, build, and debug are available across different IDE options. Developers also get interactive access to z/OS systems, and integration with modern SCMs such as Git. </p>
+                <p>These IDE options are available to you:</p>
+                <ul><li>Microsoft VS Code, realized by IBM Wazi Developer for VS Code</li>
+                <li>Red Hat CodeReady Workspaces, realized by IBM Wazi Developer for Workspaces</li>
+                <li>Eclipse, realized by IBM Wazi Developer for Eclipse and IBM Developer for z/OS.</li>
+                </ul>
+                <p>The choice of IDEs is available through Wazi Developer and IBM Developer for z/OS Enterprise Edition.</p>"
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Decide which IDE client you want to use for z/OS application development.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/support/knowledgecenter/SSCH39_1.0.0/com.ibm.wazi.developer.doc/wazi_code_choose_ide.html",
+                        linkText: "Choose an IDE client for hybrid application development with Wazi Developer"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/support/knowledgecenter/SSQ2R2_15.0.0/com.ibm.etools.rdz.installing.doc/topics/czdinstallintro.html",
+                        linkText: "Learn how to install IBM Developer for z/OS"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Getting started",
+                subSectionContent: "<p>Use the IDE of your choice to edit, build, and debug your applications.</p>
+                <p>Develop on Workspaces with <a href='https://www.ibm.com/support/knowledgecenter/SSCH39_1.0.0/com.ibm.wazi.developer.workspaces.doc/intro-wazi-developer-workspaces.html'>Wazi Developer</a> or <a href='https://www.ibm.com/support/knowledgecenter/SSQ2R2_15.0.0/com.ibm.wazi.developer.workspaces.doc/intro-wazi-developer-workspaces.html'>IBM Developer for z/OS</a>.</p>
+                <p>Develop using VS Code with <a href='https://www.ibm.com/support/knowledgecenter/SSCH39_1.0.0/com.ibm.wazi.developer.vscode.doc/introduction.html'>Wazi Developer</a> or <a href='https://www.ibm.com/support/knowledgecenter/SSQ2R2_15.0.0/com.ibm.wazi.developer.vscode.doc/introduction.html'>IBM Developer for z/OS</a>.</p>
+                <p>Develop using Eclipse with <a href='https://www.ibm.com/support/knowledgecenter/SSCH39_1.0.0/com.ibm.wazi.developer.doc/wazi_code_zod.html'>Wazi Developer</a> or <a href='https://www.ibm.com/support/knowledgecenter/SSQ2R2_15.0.0/com.ibm.wsentdev.doc/topics/c_node_developing_systemz.html'>IBM Developer for z/OS</a>.</p>"
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Test",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Application developers can use an x86-based environment for application development and testing without mainframe hardware. In Wazi Developer, the Sandbox component runs on Red Hat® OpenShift® that uses Intel-based x86 machines. It creates an environment for mainframe application demonstration, development, testing, and education without Z hardware, enables z/OS, middleware, and other z/OS software to run on Intel and other compatible computers, and emulates z/Architecture® with virtual I/O and devices.</p>
+                <p>IBM Z Development and Test Environment (ZD&T) provides multiple editions to suit the needs of application developers.</p>"
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Follow the checklist for the Wazi Sandbox component to understand the differences between the ZD&T editions.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/support/knowledgecenter/SSCH39_1.0.0/sandbox/checklist_sandbox.html",
+                        linkText: "See the checklists for Wazi Sandbox"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/support/knowledgecenter/SSTQBD_12.0.5/com.ibm.zdt.overview.gs.doc/topics/c_product_overview.html",
+                        linkText: "Understand the ZD&T editions"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Getting started",
+                subSectionContent: "<p>Follow the instructions for creating a Wazi Sandbox instance.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/support/knowledgecenter/SSCH39_1.0.0/sandbox/create_sandbox.html",
+                        linkText: "Create a Wazi Sandbox instance"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Pipeline",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Whatever your starting point for the cloud native journey, all products provide a way to leverage a standard, enterprise-wide CI/CD pipeline with pipeline orchestrators such as Jenkins, while staging your deployments on popular artifact repositories like Artifactory or Nexus. With the Wazi Developer, you can also integrate with hosted pipelines like Microsoft Azure DevOps.</p>"
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Install the required products.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/support/knowledgecenter/SSCH39_1.0.0/com.ibm.wazi.developer.pipeline/prerequisites.html",
+                        linkText: "See the prerequisites for an integrated pipeline with Wazi Developer"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Getting started",
+                subSectionContent: "<p>Create a CI/CD pipeline with Wazi Developer.</p><ol>
+                <li><a href='https://www.ibm.com/support/knowledgecenter/SSCH39_1.0.0/com.ibm.wazi.developer.pipeline/jenkins_config.html?view=kc'>Configure a Jenkins server in OpenShift</a>.</li>
+                <li><a href='https://www.ibm.com/support/knowledgecenter/SSCH39_1.0.0/com.ibm.wazi.developer.pipeline/build_intro.html?view=kc'>Create a build configuration and start a build</a>.</li>
+                <li><a href='https://www.ibm.com/support/knowledgecenter/SSCH39_1.0.0/com.ibm.wazi.developer.pipeline/full_scenario.html?view=kc'>Create a full CI/CD pipeline</a>.</li></ol>"
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "Documentation and content solutions",
+        tabContent: [
+            {
+                resourceTitle: "Wazi Developer documentation",
+                resourceDescription: "Read more about how to get started with IBM Wazi Developer.",
+                resourceLinkUrl: "https://www.ibm.com/support/knowledgecenter/SSCH39",
+                resourceLinkText: "Explore the Wazi Developer documentation",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Developer for z/OS Enterprise Edition documentation",
+                resourceDescription: "Read more about how to get started with IBM Developer for z/OS Enterprise Edition.",
+                resourceLinkUrl: "https://www.ibm.com/support/knowledgecenter/en/SSQ2R2/rdz_welcome.html",
+                resourceLinkText: "Explore the IBM Developer for z/OS Enterprise Edition documentation",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Z Development and Test Environment documentation",
+                resourceDescription: "Read more about how to get started with IBM Z Development and Test Environment.",
+                resourceLinkUrl: "https://www.ibm.com/support/knowledgecenter/SSTQBD",
+                resourceLinkText: "Explore the IBM Z Development and Test Environment documentation",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Journey to Hybrid Cloud with IBM Z content solution",
+                resourceDescription: "See how you can get started with your journey to hybrid cloud with IBM Z.",
+                resourceLinkUrl: "https://www.ibm.com/support/z-content-solutions/journey-to-hybrid-cloud-z/",
+                resourceLinkText: "Explore the Journey to Hybrid Cloud with IBM Z content solution",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Other resources",
+        tabContent: [
+            {
+                resourceTitle: false,
+                resourceDescription: "3-day free trial: Bring your own IDE for cloud native development.",
+                resourceLinkUrl: "https://www.ibm.com/account/reg/signup?formid=urx-49545&_ga=2.144681713.55889689.1612895481-214351374.1612895481",
+                resourceLinkText: "Sign up",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceTitle: false,
+                resourceDescription: "Stay current with IBM Wazi Developer by following blogs, discussions, events, and videos.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/topic-home?CommunityKey=856d8833-1c7c-4322-bf62-0644edb577e4",
+                resourceLinkText: "Explore the Wazi Developer community",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceTitle: false,
+                resourceDescription: "Stay current with and IBM Developer for z/OS Enterprise Edition by following blogs, discussions, events, and videos.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/topic-home?CommunityKey=f461c55d-159c-4a94-b708-9f7fe11d972b",
+                resourceLinkText: "Explore the IDz EE community",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceTitle: false,
+                resourceDescription: "Read a tutorial about building a pipeline with Jenkins, Dependency Based Build, and UrbanCode Deploy.",
+                resourceLinkUrl: "https://developer.ibm.com/components/ibmz/tutorials/build-a-pipeline-with-jenkins-dependency-based-build-and-urbancode-deploy/",
+                resourceLinkText: "Access the tutorial",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            },
+            {
+                resourceTitle: false,
+                resourceDescription: "Join the value-add DevOps Acceleration Program (DAP) to move faster with your transformation.",
+                resourceLinkUrl: "https://ibm.github.io/mainframe-downloads/DevOps_Acceleration_Program/devops-acceleration-program.html",
+                resourceLinkText: "Learn more about DAP",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Multimedia",
+        tabContent: [
+            {
+                resourceTitle: "Introducing IBM Wazi Developer",
+                resourceDescription: "See how IBM Wazi Developer can empower developers to develop hybrid applications, spanning IBM Z and multi-cloud platforms, using a standard DevOps toolchain.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_dl6sbihe",
+                resourceLinkText: "Watch the video (10:58)",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "How to Use IBM Wazi Developer",
+                resourceDescription: "See how you can use IBM Wazi Developer for Workspaces and IBM Wazi Developer for VS Code to connect to the host, navigate z/OS resources, edit COBOL programs, and run user builds.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/t/0_zrd7lh9s",
+                resourceLinkText: "Watch the video (13:08)",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Cloud Native Development with IBM Z",
+                resourceDescription: "When you think about cloud-native development, think about IBM Z, because they really do go together.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_8roweeco",
+                resourceLinkText: "Watch the video (5:08)",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Z Open Debug",
+                resourceDescription: "Learn about IBM Z Open Debug for debugging COBOL and PL/I applications. See how to install a set of VS code extensions that provide editing, building and debugging functions.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/1_kc769kuo",
+                resourceLinkText: "Watch the video (10:26)",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Application Development on Z",
+                resourceDescription: "Check out videos for the various Z Application Development tools.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/playlist/details/1_471omqfb/categoryid/189147203",
+                resourceLinkText: "Watch the video series",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "February 26. 2021",
+        sectionContent: "<p>The title of this content solution has been changed to better reflect the content.</p>"
+    }
+] %}
+{# END WHATS NEW #}
+
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "cloudnativedevelopmentz" %}
+{# END FEEDBACK #}
+
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "-",
+    sc_security: "-"
+}
+ %}
+{# END STATCOUNTER #}

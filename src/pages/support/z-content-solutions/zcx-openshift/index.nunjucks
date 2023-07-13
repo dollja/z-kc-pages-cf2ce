@@ -1,0 +1,558 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+{# Optional sections are commented out by default, to activate them, change the # to % in their enclosing brackets.#}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "zCX Foundation for Red Hat OpenShift" %}
+
+{# Solution key - Format is just number, no quotes.
+Replace 00 with number higher than last existing solution. Find existing key list in /data/pages.json and Related Solutions Box note, and update both places with all relevant information. #}
+{% set key = 27 %}
+
+{# META #}
+{% set meta_description = meta_description | default("With zCX Foundation for Red Hat OpenShift, or zCX for OpenShift, you can deploy containerized Linux-on-Z applications in a Red Hat OpenShift cluster on z/OS with zCX.") %}
+
+
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "1_pohqn2zm",
+    thumbnailUrl: "",
+    label: "zCX Foundation for Red Hat OpenShift"
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "zCX Foundation for Red Hat OpenShift, or zCX for OpenShift, provides the ability to run Red Hat OpenShift on z/OS, 
+using IBM z/OS Container Extensions (zCX). With zCX for OpenShift, you can deploy containerized Linux-on-Z applications on z/OS, 
+with zCX, bringing applications and workloads that have an affinity for z/OS closer to z/OS applications and data. The containerized 
+Linux-on-Z workloads, and OpenShift cluster nodes, transparently inherit z/OS qualities of service." %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "marketing",
+        url: "https://www.ibm.com/products/zcx-openshift?lnk=ushpv18nf2"
+    },
+    {
+        id: 2,
+        type: "other",
+        url: "https://cloud.redhat.com/products/container-platform?extIdCarryOver=true&sc_cid=701f2000001Css5AAC",
+        text: "Learn more about Red Hat OpenShift"
+
+    }
+] %}
+
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# set announcements = [
+    {
+    announcementText: "",
+    announcementLinkText: "",
+    announcementLinkUrl: ""
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+*NEW FOR CARBON*
+iconPath: Pictograms must be added as SVG paths. The <svg> enclosing tag is already included in the template (layout-dot-com, line 333), with its necessary styles and classes, so this will be the inner content excluding that and starting with <g>, <path>, <polygon>, etc. Open svg file in VS code to grab path. Any custom pictograms should be made following Carbon guidelines and grid at 32px x 32px.
+***
+iconUrl: Full link to the pictogram used for this step. *NO LONGER NEEDED IN CARBON, but can still be added for reference to the source file for the path.
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/zcxrhos/bp-zcxrhos-1.svg",
+        iconPath: '<path d="M31,31.36H1A.36.36,0,0,1,.64,31V23h.72v7.64H30.64V23h.72v8A.36.36,0,0,1,31,31.36Z"/><polygon class="cls-1" points="16 23.51 9.75 17.25 10.25 16.75 15.64 22.13 15.64 1 16.36 1 16.36 22.13 21.75 16.75 22.25 17.25 16 23.51"/>',
+        iconAlt: "install",
+        description: "The z/OS system programmer plans for and installs zCX for OpenShift."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/zcxrhos/bp-zcxrhos-2.svg",
+        iconPath: '<polygon points="13.99 22.52 9.73 18.27 10.24 17.76 13.99 21.5 23.75 11.74 24.25 12.26 13.99 22.52"/><path class="cls-1" d="M16,31.36A15.36,15.36,0,1,1,31.36,16,15.38,15.38,0,0,1,16,31.36Zm0-30A14.64,14.64,0,1,0,30.64,16,14.66,14.66,0,0,0,16,1.36Z"/>',
+        iconAlt: "validate the install",
+        description: "The OpenShift administrator validates the install, completes post-install steps and prepares the cluster for users and workloads."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/zcxrhos/bp-zcxrhos-3.svg",
+        iconPath: "<g id='reset--settings'><path class='cls-1' d='M14,29.36A13.36,13.36,0,0,1,5.78,5.47L6.22,6A12.64,12.64,0,1,0,26.64,16V3.87L23.25,7.25l-.5-.5L27,2.49l4.25,4.26-.5.5L27.36,3.87V16A13.37,13.37,0,0,1,14,29.36Z'/></g><path class='cls-1' d='M19.63,23.36H7.37a.73.73,0,0,1-.73-.73V10.37a.73.73,0,0,1,.73-.73H19.63a.73.73,0,0,1,.73.73V22.63A.73.73,0,0,1,19.63,23.36Zm-12.26-13V22.64H19.63V10.37Z'/><circle class='cls-1' cx='18.49' cy='11.51' r='0.51'/><rect class='cls-1' x='10' y='17.5' width='7' height='1'/><rect class='cls-1' x='7' y='12.64' width='13' height='0.72'/>",
+        iconAlt: "deploy a workload",
+        description: "The OpenShift application developer deploys a workload."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    ~NEW~ subSectionAccordion: Adds accordion/twisties section after main content, example can be seen in Use Cases on FHE. accordionContent accepts HTML and will be filtered for definition tooltips.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "z/OS system programmer",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Install OpenShift on z/OS, with zCX. You also provide OpenShift infrastructure services, including network, storage and load balancing configuration.</p> 
+                <p>An IBM z14 or higher with z/OS 2.4 or higher is required, as well as zCX Foundation for Red Hat OpenShift product licensing, which entitles you to run Red Hat OpenShift on z/OS using zCX.
+                For service and licensing requirements, see <em>Program Directory for IBM zCX Foundation for Red Hat OpenShift</em>.</p> 
+                <p>zCX for OpenShift is zIIP-eligible.
+                </p>",  
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://docs.openshift.com/container-platform/latest/welcome/learn_more_about_openshift.html",
+                        linkText: "To learn more about OpenShift, see a guide to Red Hat OpenShift documentation"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Plan and prepare",
+                subSectionContent: "<p>You install an OpenShift cluster, which is made up of control plane nodes that manage compute nodes, which run your workloads. The recommended configuration is 3 control nodes and a minimum of 2 compute nodes for each control node. Deploy the control nodes using zCX in separate address spaces spread out across the z/OS sysplex.</p> 
+                <p>You install with user-provisioned infrastructure, meaning you also provide OpenShift infrastructure services.
+                </p>",  
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zcxrhos/latest?topic=openshift-memory-considerations",
+                        linkText: "Review memory considerations"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zcxrhos/latest?topic=openshift-storage-dasddisk-considerations",
+                        linkText: "Review storage considerations"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zcxrhos/latest?topic=openshift-network-planning",
+                        linkText: "Review network considerations"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zcxrhos/latest?topic=openshift-workload-management-considerations",
+                        linkText: "Review workload management considerations"
+                    },
+                    {
+                        linkUrl: " https://www.ibm.com/docs/en/zcxrhos/latest?topic=security-zcx-openshift",
+                        linkText: "Review security considerations"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zcxrhos/latest?topic=z-review-prepare-install",
+                        linkText: "Review the installation process"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zcxrhos/latest?topic=platform-restricted-network-installation",
+                        linkText: "Prepare for restricted network installation (optional)"
+                    }, 
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=overview-about-workflows",
+                        linkText: "Understand z/OSMF workflows"
+                    },   
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zcxrhos/latest?topic=zos-management-facility-workflows-zcx-openshift",
+                        linkText: "Prepare for z/OSMF workflows"
+                    },  
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zcxrhos/latest?topic=z-requirements-cluster-user-provisioned-infrastructure",
+                        linkText: "Prepare your z/OS environment to run a zCX for OpenShift cluster"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zcxrhos/latest?topic=z-preparing-user-provisioned-infrastructure",
+                        linkText: "Prepare the OpenShift infrastructure services"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zcxrhos/latest?topic=z-obtaining-installation-program",
+                        linkText: "Obtain the installation program"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Install and provision",
+                subSectionContent: "<p>To install and provision an OpenShift Cluster with zCX, complete the following steps.</p> 
+                <ol>
+                <li><a href='https://www.ibm.com/docs/en/zcxrhos/latest?topic=z-manually-creating-installation-configuration-file'>Create the installation configuration file</a>, install-config.yaml.</li>
+                <li><a href='https://www.ibm.com/docs/en/zcxrhos/latest?topic=z-creating-kubernetes-manifest-ignition-config-files'>Run the OpenShift installer</a>  to generate kubernetes manifests and ignition configuration files for zCX for OpenShift cluster nodes.</li>
+                <li><a href='https://www.ibm.com/docs/en/zcxrhos/latest?topic=iczz-installing-rhcos-starting-openshift-container-platform-bootstrap-process'>Install Red Hat OpenShift Container Platform</a> and perform the OpenShift Container Platform bootstrap process, including
+                provisioning zCX for OpenShift cluster node instances and starting zCX for OpenShift cluster node instances in z/OS address spaces.</li>
+                <li>Inform the OpenShift administrator that they can validate the install.</li>
+                </ol>"  
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "OpenShift adminstrator",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Validate the installation of the OpenShift Container Platform cluster on z/OS with zCX, then perform some post-install configuration.</p>
+                <p>Once that is complete, the experience of using OpenShift on z/OS with zCX is identical to that of OpenShift on other platforms.
+                </p>"
+            },
+            {
+                subSectionTitle: "Plan and prepare",
+                subSectionContent: "<p>Depending on your workloads, you might need to take additional steps before you begin deploying applications, as described below.
+                </p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://docs.openshift.com/container-platform/latest/cicd/builds/build-strategies.html#build-strategies",
+                        linkText: "Prepare the infrastructure to support your application build strategy"
+                    },
+                    {
+                        linkUrl: "https://docs.openshift.com/container-platform/latest/scalability_and_performance/cnf-performance-addon-operator-for-low-latency-nodes.html#cnf-performance-addon-operator-for-low-latency-nodes",
+                        linkText: "Make provisions for low-latency workloads "
+                    },
+                    {
+                        linkUrl: "https://docs.openshift.com/container-platform/latest/nodes/pods/nodes-pods-secrets.html#nodes-pods-secrets",
+                        linkText: "Protect sensitive workloads"
+                    },
+                    {
+                        linkUrl: "https://docs.openshift.com/container-platform/latest/monitoring/enabling-monitoring-for-user-defined-projects.html#enabling-monitoring-for-user-defined-projects",
+                        linkText: "Configure monitoring for application workloads"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>To validate the install and prepare OpenShift for use, complete the following steps.</p> 
+                <ol>
+                <li><a href='https://docs.openshift.com/container-platform/latest/installing/validating-an-installation.html'>Validate the install of your zCX for OpenShift cluster</a>.</li>
+                <li><a href='https://docs.openshift.com/container-platform/latest/web_console/web-console.html'>Access the Red Hat OpenShift web console</a>.</li>
+                <li><a href='https://docs.openshift.com/container-platform/latest/installing/installing_ibm_z/installing-ibm-z.html#installation-registry-storage-config_installing-ibm-z'>Complete the image registry storage configuration</a>.</li>
+                <li><a href='https://docs.openshift.com/container-platform/latest/post_installation_configuration/preparing-for-users.html'>Prepare the zCX for OpenShift cluster for users</a>.</li>
+                <li><a href='https://docs.openshift.com/container-platform/latest/storage/persistent_storage/persistent-storage-nfs.html'>Set up an NFS storage for OpenShift cluster persistent storage</a>.</li>
+                <li>Complete any additional work that you identified in the Plan and prepare section.</li>
+                <li>Explore the <a href='https://marketplace.redhat.com/en-us'>Red Hat Marketplace</a> for applications.</li>
+                </ol>"  
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "OpenShift application developer",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>The application developer can create a new project in the zCX for OpenShift cluster and deploy a sample application."
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "Consider installing the CLI.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zcxrhos/latest?topic=z-installing-openshift-cli-by-downloading-binary",
+                        linkText: "Installing the OpenShift CLI"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<ol>
+                <li><a href='https://docs.openshift.com/container-platform/latest/applications/projects/working-with-projects.html#creating-a-project-using-the-web-console_projects'>Create a new project</a> in the zCX for OpenShift cluster.</li> 
+                <li>Create and deploy a sample application in the zCX for OpenShift cluster under the new project that you created. Red Hat provides sample container images that you can add from the OpenShift web console.</li>        
+                </ol>"
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FAQs #}
+{#
+Two formats are available, with or without accordion wrapped category sections. Only use one, not both.
+
+Original pattern: Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqs = [
+    {
+    question: "",
+    answer: ""
+    }
+]#}
+
+{# OR Accordion pattern 
+catTitle: Title for category will be placed in accordion header
+faqs: Associated with this category and wrapped in accordion container. Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqSection = [
+    {
+        categories: [
+            {
+                catTitle: "Release notes",
+                faqs: [
+                    {
+                        question: "Are any new features supported on zCX Foundation for Red Hat OpenShift 1.1.0 with OpenShift Container Platform 4.10?",
+                        answer: "Yes! The supported new features include
+                        <ul>
+                        <li>Horizontal pod autoscaling</li>
+                        <li>Vertical Pod Autoscaler Operator</li>
+                        <li>OVN-Kubernetes IPsec encryption</li>
+                        <li>The following Multus CNI plug-ins are supported: Bridge<ul><li>Host-device</li></ul></li>
+                        <li>NMState Operator</li>
+                        </ul>"
+                    },
+                    {
+                        question: "Are there any restrictions that impact restrictions impact OpenShift Container Platform 4.10 on IBM zCX Foundation for Red Hat OpenShift 1.1.0?",
+                        answer: "Restrictions are as follows: 
+                        <ul>
+                        <li>The following OpenShift Container Platform Technology Preview features are unsupported:</li>
+                            <ul>
+                            <li>Precision Time Protocol (PTP) hardware</li>
+                            </ul>
+                        <li>The following OpenShift Container Platform features are unsupported:</li>
+                            <ul>
+                            <li>Automatic repair of damaged machines with machine health checking</li>
+                            <li>CodeReady Containers (CRC)</li>
+                            <li>Controlling overcommit and managing container density on nodes</li>
+                            <li>CSI volume cloning</li>
+                            <li>CSI volume snapshots</li>
+                            <li>FIPS cryptography</li>
+                            <li>NVMe</li>
+                            <li>OpenShift Metering</li>
+                            <li>OpenShift Virtualization</li>
+                            <li>Tang mode disk encryption during OpenShift Container Platform deployment</li>
+                            </ul>
+                        <li>Worker nodes must run Red Hat Enterprise Linux CoreOS (RHCOS)</li>
+                        <li>Persistent shared storage must be provisioned by using either NFS or other supported storage
+                            protocols</li>
+                        <li>Persistent non-shared storage must be provisioned using local storage, like VSAM Linear Datasets
+                            (LDS) or using LSO with VSAM LDS.</li>
+                        </ul>"
+                    }
+                ]
+            }
+        ]
+    }
+] #}
+
+{# Learn more - optional section below the main FAQs if needed. Can support as many sections as needed following this pattern:
+heading: section heading string
+content: paragraph text content
+links: link section below
+    linkURL: link address
+    linkText: link display text
+    linkType: "local" or "external"
+ #}
+{# set learnMore =  [
+    {
+        heading: "",
+        content: "",
+        links: [
+            {
+            linkUrl: "",
+            linkText: "",
+            linkType: ""
+        }
+        ]
+    }
+]
+#}
+
+{# Learn more ALTERNATE pattern for Resilience solution with accordion section
+section: Subheading under Learn more, above accordions
+categories: Each is an accordion wrapper
+    catTitle: Accordion heading
+    content: Supports any custom html content, wrap with appropriate tags
+ #}
+{# set learnMoreAccordion = 
+[
+        {
+        section: "",
+        categories: [
+            {
+                catTitle: "",
+                content:  ""
+            }
+        ]
+        }
+]
+#}
+{# END FAQs #}
+
+{# START FEATURED DOCUMENTATION #}
+{% set documentation = {
+    docTitle: "IBM Documentation",
+    docDescription: "Read more about zCX for OpenShift.",
+    docLinkUrl: "https://www.ibm.com/docs/en/zcxrhos",
+    docLinkText: "Information about zCX for OpenShift in IBM Documentation."
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to hide tile on page temporarily.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "Resources",
+        tabContent: [
+            {
+                resourceTitle: "Red Hat OpenShift documentation guide",
+                resourceDescription: "Find information for your role.",
+                resourceLinkUrl: "https://docs.openshift.com/container-platform/latest/welcome/learn_more_about_openshift.html",
+                resourceLinkText: "Explore OpenShift documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Red Hat OpenShift",
+                resourceDescription: "Get an introduction to OpenShift.",
+                resourceLinkUrl: "https://www.redhat.com/en/technologies/cloud-computing/openshift",
+                resourceLinkText: "Learn about OpenShift",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "z/OSMF Guild",
+                resourceDescription: "Learn about z/OSMF workflows through the z/OSMF workflows workshop presentation and recording.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/community-home/librarydocuments/viewdocument?DocumentKey=6398f55b-8fd1-4629-b0b2-bf41a9b7f0b9&Step=1&CommunityKey=336bb81c-ac97-46d5-95bb-319e41258fbe&ReturnUrl=%2fcommunity%2fuser%2fibmz-and-linuxone%2fgroups%2fcommunity-home%2flibrarydocuments%2fviewdocument%3fDocumentKey%3d6398f55b-8fd1-4629-b0b2-bf41a9b7f0b9%26Step%3d1%26CommunityKey%3d336bb81c-ac97-46d5-95bb-319e41258fbe%26ReturnUrl%3d%252fcommunity%252fuser%252fibmz-and-linuxone%252fgroups%252fcommunity-home%252flibrarydocuments%252fviewdocument%253fDocumentKey%253d6398f55b-8fd1-4629-b0b2-bf41a9b7f0b9%2526Step%253d1%2526CommunityKey%253d336bb81c-ac97-46d5-95bb-319e41258fbe%2526ReturnUrl%253d%25252fcommunity%25252fuser%25252fibmz-and-linuxone%25252fgroups%25252fcommunity-home%25252flibrarydocuments%25252fviewdocument%25253fDocumentKey%25253d6398f55b-8fd1-4629-b0b2-bf41a9b7f0b9%252526Step%25253d1%252526CommunityKey%25253d336bb81c-ac97-46d5-95bb-319e41258fbe%252526ReturnUrl%25253d%2525252fcommunity%2525252fuser%2525252fibmz-and-linuxone%2525252fgroups%2525252fcommunity-home%2525252flibrarydocuments%2525252fviewdocument%2525253fDocumentKey%2525253d6398f55b-8fd1-4629-b0b2-bf41a9b7f0b9%25252526Step%2525253d1%25252526CommunityKey%2525253d336bb81c-ac97-46d5-95bb-319e41258fbe%25252526ReturnUrl%2525253d%252525252fcommunity%252525252fuser%252525252fibmz-and-linuxone%252525252fviewdocument%252525252fzosmf-guild-session-2-dec-09-20%252525253fCommunityKey%252525253d1ca674e5-aada-4194-a16e-059cafe7b807%2525252526tab%252525253dlibrarydocuments",
+                resourceLinkText: "Learn about z/OSMF workflows",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Communities - Competitive Insights",
+                resourceDescription: "Learn about performance and cost advantages of IBM zCX Foundation for Red Hat OpenShift",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/gregory-sechuga/2022/05/20/performance-and-cost-advantages-of-ibm-zcx",
+                resourceLinkText: "Read the blog",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+                        {
+                resourceTitle: "IBM Communities - Persistent Storage",
+                resourceDescription: "IBM Storage Fusion 2.5 now supports IBM zCX Foundation for Red Hat OpenShift",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/adis-puiam1/2023/03/30/ibm-storage-fusion-25-now-supports-ibm-zcx-foundat",
+                resourceLinkText: "Read the blog",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "new"
+            },
+            {
+                resourceTitle: "Terminal Talk Podcast",
+                resourceDescription: "Gary Puchkoff and Allison Moshier explain how z/OS Container Extensions has advanced recently and give a peek of things to come.",
+                resourceLinkUrl: "https://www.terminaltalk.net/e/gary-puchkoff-allison-moshier-extending-container-extensions/",
+                resourceLinkText: "Listen to the podcast (27:13)",
+                resourceLinkType: "podcast",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Communities",
+                resourceDescription: "Deploying Bastion Infrastructure Services for IBM zCX for OpenShift",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/allen-zhou/2022/08/10/deploy-ocp-bastion-infrastructure-services-on-zcx",
+                resourceLinkText: "Read the blog",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# *** NEW IN CARBON *** #}
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [9] %}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "April 3, 2023",
+        sectionContent: "<p>A new blog post, <em>IBM Storage Fusion 2.5 now supports IBM zCX Foundation for Red Hat OpenShift</em>, was added to the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "January 26, 2023",
+        sectionContent: "<p>Links to Red Hat documentation were updated to target the latest level.</p>"
+    },
+    {
+        sectionTitle: "August 18, 2022",
+        sectionContent: "<p>A new blog post, <em>Deploying Bastion Infrastructure Services for IBM zCX for OpenShift</em>, was added to the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "July 14, 2022",
+        sectionContent: "<p>New resources were added to the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "May 5, 2022",
+        sectionContent: "<p>Links to content about z/OSMF workflows were added to the How to get started and Technical resources sections. </p>"
+    }
+] %}
+
+{# END WHATS NEW #}
+
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "zcxopenshift" %}
+{# END FEEDBACK #}
+
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "-",
+    sc_security: "-"
+}
+ %}
+{# END STATCOUNTER #}
+
+{# START INTERCEPT #}
+{% set intercept = true %}
+{# END INTERCEPT #}

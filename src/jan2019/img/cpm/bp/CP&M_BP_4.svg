@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="148px" height="108px" viewBox="0 0 148 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 84</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-84" transform="translate(-5.000000, -47.000000)">
+            <g id="Group-40" fill="#FFFFFF" font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="144" font-weight="500" opacity="0.203125">
+                <text id="4">
+                    <tspan x="0" y="148">4</tspan>
+                </text>
+            </g>
+            <g id="Group-83" transform="translate(73.000000, 76.000000)">
+                <path d="M41.0089122,73.5553827 C58.7814026,73.5553827 73.1888527,59.3280256 73.1888527,41.7776913 C73.1888527,24.227357 58.7814026,10 41.0089122,10 C23.2364217,10 8.82897157,24.227357 8.82897157,41.7776913 C8.82897157,59.3280256 23.2364217,73.5553827 41.0089122,73.5553827 Z" id="Oval-28" stroke="#FFFFFF" stroke-width="1.5488" stroke-linecap="square" stroke-linejoin="round" stroke-dasharray="2.904000115394592,5.808000230789185"></path>
+                <ellipse id="Oval-6" fill="#FFFFFF" cx="70.4144858" cy="40.4656953" rx="9.58551422" ry="9.46569529"></ellipse>
+                <ellipse id="Oval-6" fill="#FFFFFF" cx="10.4144858" cy="40.4656953" rx="9.58551422" ry="9.46569529"></ellipse>
+                <ellipse id="Oval-6" fill="#FFFFFF" cx="41.4144858" cy="69.4656953" rx="9.58551422" ry="9.46569529"></ellipse>
+                <rect id="Rectangle-44" fill="#FFFFFF" x="28.8289716" y="0" width="24.6484651" height="24.3403593"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

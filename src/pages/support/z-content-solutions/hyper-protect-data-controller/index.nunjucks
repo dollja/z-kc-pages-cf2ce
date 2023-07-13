@@ -1,0 +1,446 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{#extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{# set title = "Hyper Protect Data Controller" %}
+{% set key = 22 %}
+
+{# META #}
+{# set meta_description = meta_description | default("Hyper Protect Data Controller provides policy-based encryption of eligible data as it moves throughout the enterprise and beyond.") %}
+{% set meta_keywords = meta_keywords | default("") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{#% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "1_26s88w83",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/dpp/hpdc-video.jpg",
+    label: "Video thumbnail - How Hyper Protect Data Controller Works on IBM Z"
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{# set introParagraphs = "<p>Welcome to the Hyper Protect Data Controller content solution, your homepage for technical resources.</p>
+<p>Hyper Protect Data Controller (formerly IBM Data Privacy Passports) encrypts eligible data as it moves throughout the enterprise and beyond. To make this encryption possible, Hyper Protect Data Controller packages the data at a field level into encrypted data objects (EDO) that can move within the enterprise and into distributed and hybrid cloud environments. Access to the data is controlled by a policy that you define. The policy ensures appropriate access to data based on the user’s need to know. Hyper Protect Data Controller encrypts SQL data sources that are accessed using Java Database Connectivity (JDBC). An IBM® <a href='https://www.ibm.com/products/z15'>z15</a>™ or <a href='https://www.ibm.com/products/linuxone-iii'>LinuxONE III</a> system is required.</p>
+<p>For complete end-to-end encryption of data, use Hyper Protect Data Controller with IBM pervasive encryption.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{# set introLinks = [
+    {
+        id: 1,
+        type: "marketing",
+        url: "https://www.ibm.com/products/hyper-protect-data-controller"
+    }
+] %}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{# set feedbackURL = "Hyper Protect Data Controller" %}
+{# END FEEDBACK #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# set announcements = [
+    {
+    announcementText: "",
+    announcementLinkText: "",
+    announcementLinkUrl: ""
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{# set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dpp/bp/bp-dpp-1.svg",
+        iconPath: "<g id='gear'><path class='cls-1' d='M19,31.36H13a.36.36,0,0,1-.36-.36V27.37l-2.37-1L7.74,29a.36.36,0,0,1-.51,0L3.05,24.77a.36.36,0,0,1,0-.51l2.57-2.57-1-2.37H1A.36.36,0,0,1,.64,19V13A.36.36,0,0,1,1,12.68H4.63l1-2.37L3.05,7.74a.36.36,0,0,1-.11-.26.36.36,0,0,1,.11-.25L7.23,3.05a.36.36,0,0,1,.51,0l2.57,2.57,2.37-1V1A.36.36,0,0,1,13,.64H19a.36.36,0,0,1,.36.36V4.63l2.37,1,2.57-2.57a.36.36,0,0,1,.51,0L29,7.23a.36.36,0,0,1,.11.25.36.36,0,0,1-.11.26l-2.57,2.57,1,2.37H31a.36.36,0,0,1,.36.36V19a.36.36,0,0,1-.36.36H27.37l-1,2.37L29,24.26a.36.36,0,0,1,.11.26.36.36,0,0,1-.11.25L24.77,29a.36.36,0,0,1-.51,0l-2.57-2.57-2.37,1V31A.36.36,0,0,1,19,31.36Zm-5.56-.72h5.2V27.12a.38.38,0,0,1,.22-.34l2.82-1.15a.34.34,0,0,1,.39.08l2.49,2.48,3.67-3.67L25.7,22a.34.34,0,0,1-.08-.39l1.18-2.81a.34.34,0,0,1,.33-.22h3.51V13.4H27.12a.38.38,0,0,1-.34-.22l-1.15-2.82a.34.34,0,0,1,.08-.39l2.48-2.49L24.52,3.81,22,6.3a.36.36,0,0,1-.39.08L18.82,5.2a.34.34,0,0,1-.22-.33V1.36H13.4V4.88a.38.38,0,0,1-.22.34L10.36,6.37A.34.34,0,0,1,10,6.29L7.48,3.81,3.81,7.48,6.3,10a.34.34,0,0,1,.08.39L5.2,13.18a.34.34,0,0,1-.33.22H1.36v5.2H4.88a.38.38,0,0,1,.34.22l1.15,2.82a.34.34,0,0,1-.08.39L3.81,24.52l3.67,3.67L10,25.7a.34.34,0,0,1,.39-.08l2.81,1.18a.34.34,0,0,1,.22.33ZM16,23.36A7.36,7.36,0,1,1,23.36,16,7.37,7.37,0,0,1,16,23.36Zm0-14A6.64,6.64,0,1,0,22.64,16,6.65,6.65,0,0,0,16,9.36Z'/></g>",
+        iconAlt: "pictogram for step one - install and configure",
+        description: "System administrators install and configure the hardware and software."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dpp/bp/bp-dpp-2.svg",
+        iconPath: "<g id='retrieve-and-rank'><path class='cls-1' d='M30.75,31.75l-11-11A11.36,11.36,0,1,1,21.41,6.14H31v.72H21.86a11.31,11.31,0,0,1,1,2.28H31v.72H23.05a10.7,10.7,0,0,1,.3,2.28H31v.72H23.35a10.79,10.79,0,0,1-.3,2.28h8v.72H22.85a11.19,11.19,0,0,1-2.57,4.41l11,11ZM12,1.86a10.64,10.64,0,1,0,6.57,19h-2.1a.36.36,0,0,1-.36-.36v-3a.36.36,0,0,1,.36-.36h5.1a10.54,10.54,0,0,0,.91-2.78H15a.36.36,0,0,1-.36-.36V11a.36.36,0,0,1,.36-.36h7.48a10.54,10.54,0,0,0-.91-2.78h-5.1a.36.36,0,0,1-.36-.36v-3a.36.36,0,0,1,.36-.36h2.1A10.56,10.56,0,0,0,12,1.86Zm4.83,18.28H19.4a10.73,10.73,0,0,0,1.79-2.28H16.83Zm-1.47-6.5h7.22a10.86,10.86,0,0,0,0-2.28H15.36Zm1.47-6.5h4.36A10.73,10.73,0,0,0,19.4,4.86H16.83ZM13,20.86H7a.36.36,0,0,1-.36-.36v-3A.36.36,0,0,1,7,17.14h6a.36.36,0,0,1,.36.36v3A.36.36,0,0,1,13,20.86Zm-5.64-.72h5.28V17.86H7.36ZM12,14.36H4A.36.36,0,0,1,3.64,14V11A.36.36,0,0,1,4,10.64h8a.36.36,0,0,1,.36.36v3A.36.36,0,0,1,12,14.36Zm-7.64-.72h7.28V11.36H4.36ZM13,7.86H7a.36.36,0,0,1-.36-.36v-3A.36.36,0,0,1,7,4.14h6a.36.36,0,0,1,.36.36v3A.36.36,0,0,1,13,7.86ZM7.36,7.14h5.28V4.86H7.36Z'/></g>",
+        iconAlt: "pictogram for step two - identify data to encrypt",
+        description: "Data owners identify the data to encrypt and how that data should be encrypted."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dpp/bp/bp-dpp-3.svg",
+        iconPath: "<path class='cls-1' d='M30,9.36H23A.36.36,0,0,1,22.64,9V8.23A2.77,2.77,0,0,1,24.07,5.8a1.88,1.88,0,0,1-.49-1.26,1.92,1.92,0,0,1,3.84,0,1.88,1.88,0,0,1-.49,1.26,2.77,2.77,0,0,1,1.43,2.43v.41h1.28V1.36H21.36V7h-.72V1A.36.36,0,0,1,21,.64h9a.36.36,0,0,1,.36.36V9A.36.36,0,0,1,30,9.36Zm-6.64-.72h4.28V8.23a2.08,2.08,0,0,0-1.51-2,.39.39,0,0,1-.26-.32.38.38,0,0,1,.2-.35,1.16,1.16,0,0,0,.63-1,1.2,1.2,0,0,0-2.4,0,1.16,1.16,0,0,0,.63,1,.38.38,0,0,1,.2.35.39.39,0,0,1-.26.32,2.08,2.08,0,0,0-1.51,2Z'/><path class='cls-1' d='M14,24.36H2A.36.36,0,0,1,1.64,24V8A.36.36,0,0,1,2,7.64H14a.36.36,0,0,1,.36.36V24A.36.36,0,0,1,14,24.36ZM2.36,23.64H13.64V8.36H2.36Z'/><path class='cls-1' d='M30,20.36H23a.36.36,0,0,1-.36-.36v-.77a2.77,2.77,0,0,1,1.43-2.43,1.88,1.88,0,0,1-.49-1.26,1.92,1.92,0,0,1,3.84,0,1.88,1.88,0,0,1-.49,1.26,2.77,2.77,0,0,1,1.43,2.43v.41h1.28V12.36H21.36V18h-.72V12a.36.36,0,0,1,.36-.36h9a.36.36,0,0,1,.36.36v8A.36.36,0,0,1,30,20.36Zm-6.64-.72h4.28v-.41a2.08,2.08,0,0,0-1.51-2,.39.39,0,0,1-.26-.32.38.38,0,0,1,.2-.35,1.16,1.16,0,0,0,.63-1,1.2,1.2,0,0,0-2.4,0,1.16,1.16,0,0,0,.63,1,.38.38,0,0,1,.2.35.39.39,0,0,1-.26.32,2.08,2.08,0,0,0-1.51,2Z'/><path class='cls-1' d='M30,31.36H23a.36.36,0,0,1-.36-.36v-.77a2.77,2.77,0,0,1,1.43-2.43,1.88,1.88,0,0,1-.49-1.26,1.92,1.92,0,0,1,3.84,0,1.88,1.88,0,0,1-.49,1.26,2.77,2.77,0,0,1,1.43,2.43v.41h1.28V23.36H21.36V29h-.72V23a.36.36,0,0,1,.36-.36h9a.36.36,0,0,1,.36.36v8A.36.36,0,0,1,30,31.36Zm-6.64-.72h4.28v-.41a2.08,2.08,0,0,0-1.51-2,.39.39,0,0,1-.26-.32.38.38,0,0,1,.2-.35,1.16,1.16,0,0,0,.63-1,1.2,1.2,0,0,0-2.4,0,1.16,1.16,0,0,0,.63,1,.38.38,0,0,1,.2.35.39.39,0,0,1-.26.32,2.08,2.08,0,0,0-1.51,2Z'/><path class='cls-1' d='M8.36,8H7.64V5A.36.36,0,0,1,8,4.64H21v.72H8.36Z'/><path class='cls-1' d='M21,27.36H8A.36.36,0,0,1,7.64,27V24h.72v2.64H21Z'/><rect class='cls-1' x='14' y='15.64' width='7' height='0.72'/>",
+        iconAlt: "pictogram for step three - set up the policy",
+        description: "A security administrator sets up the policy in Hyper Protect Data Controller based on user roles."
+    },
+    {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dpp/bp/bp-dpp-4.svg",
+        iconPath: "<path class='cls-1' d='M31,24.36H17a.36.36,0,0,1-.36-.36V19a.36.36,0,0,1,.36-.36H31a.36.36,0,0,1,.36.36v5A.36.36,0,0,1,31,24.36Zm-13.64-.72H30.64V19.36H17.36Z'/><rect class='cls-1' x='19' y='20.64' width='6' height='0.72'/><path class='cls-1' d='M31,31.36H17a.36.36,0,0,1-.36-.36V26a.36.36,0,0,1,.36-.36H31a.36.36,0,0,1,.36.36v5A.36.36,0,0,1,31,31.36Zm-13.64-.72H30.64V26.36H17.36Z'/><rect class='cls-1' x='19' y='27.64' width='6' height='0.72'/><circle class='cls-1' cx='28.5' cy='21' r='0.5'/><circle class='cls-1' cx='28.5' cy='28' r='0.5'/><polygon class='cls-1' points='11.25 28.25 10.75 27.75 13.49 25 10.75 22.25 11.25 21.75 14.51 25 11.25 28.25'/><path class='cls-1' d='M14,16.36H1A.36.36,0,0,1,.64,16V1A.36.36,0,0,1,1,.64H14a.36.36,0,0,1,.36.36V4h-.72V1.36H1.36V15.64H13.64V13h.72v3A.36.36,0,0,1,14,16.36Z'/><rect class='cls-1' x='3' y='8.64' width='5' height='0.72'/><rect class='cls-1' x='3' y='5.63' width='5' height='0.72'/><path class='cls-1' d='M14,25.36H9A2.36,2.36,0,0,1,6.64,23V18h.72v5A1.65,1.65,0,0,0,9,24.64h5Z'/><path class='cls-1' d='M14,13.36A4.46,4.46,0,0,1,9.64,8.82V4A.36.36,0,0,1,10,3.64h8a.36.36,0,0,1,.36.36V8.82A4.46,4.46,0,0,1,14,13.36Zm-3.64-9V8.82A3.73,3.73,0,0,0,14,12.64a3.73,3.73,0,0,0,3.64-3.82V4.36Z'/><rect class='cls-1' x='3' y='11.67' width='5' height='0.72'/><polygon class='cls-1' points='13.08 10.51 11.62 9.05 12.13 8.54 13.08 9.49 15.85 6.72 16.36 7.23 13.08 10.51'/>",
+        iconAlt: "pictogram for step four - activate approved policy",
+        description: "A system administrator activates the signed and approved policy and connects it to source and target databases."
+    },
+    {
+        id: 5,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dpp/bp/bp-dpp-5.svg",
+        iconPath: "<path class='cls-1' d='M8,9.36H1A.36.36,0,0,1,.63,9V1A.36.36,0,0,1,1,.64h9a.36.36,0,0,1,.36.36V7H9.63V1.36H1.35V8.64H2.63V8.23A2.77,2.77,0,0,1,4.06,5.8a1.88,1.88,0,0,1-.49-1.26,1.92,1.92,0,0,1,3.84,0A1.88,1.88,0,0,1,6.92,5.8,2.79,2.79,0,0,1,8.35,8.23V9A.36.36,0,0,1,8,9.36ZM3.35,8.64H7.63V8.23a2.08,2.08,0,0,0-1.51-2,.39.39,0,0,1-.26-.32.37.37,0,0,1,.19-.35,1.15,1.15,0,0,0,.64-1,1.2,1.2,0,0,0-2.4,0,1.16,1.16,0,0,0,.63,1,.35.35,0,0,1,.19.35.37.37,0,0,1-.25.32,2.08,2.08,0,0,0-1.51,2Z'/><path class='cls-1' d='M8,20.36H1A.36.36,0,0,1,.63,20V12A.36.36,0,0,1,1,11.64h9a.36.36,0,0,1,.36.36v6H9.63V12.36H1.35v7.28H2.63v-.41A2.77,2.77,0,0,1,4.06,16.8a1.88,1.88,0,0,1-.49-1.26,1.92,1.92,0,0,1,3.84,0,1.88,1.88,0,0,1-.49,1.26,2.79,2.79,0,0,1,1.43,2.43V20A.36.36,0,0,1,8,20.36Zm-4.64-.72H7.63v-.41a2.08,2.08,0,0,0-1.51-2,.39.39,0,0,1-.26-.32.37.37,0,0,1,.19-.35,1.15,1.15,0,0,0,.64-1,1.2,1.2,0,0,0-2.4,0,1.16,1.16,0,0,0,.63,1,.35.35,0,0,1,.19.35.37.37,0,0,1-.25.32,2.08,2.08,0,0,0-1.51,2Z'/><path class='cls-1' d='M8,31.36H1A.36.36,0,0,1,.63,31V23A.36.36,0,0,1,1,22.64h9a.36.36,0,0,1,.36.36v6H9.63V23.36H1.35v7.28H2.63v-.41A2.77,2.77,0,0,1,4.06,27.8a1.88,1.88,0,0,1-.49-1.26,1.92,1.92,0,0,1,3.84,0,1.88,1.88,0,0,1-.49,1.26,2.79,2.79,0,0,1,1.43,2.43V31A.36.36,0,0,1,8,31.36Zm-4.64-.72H7.63v-.41a2.08,2.08,0,0,0-1.51-2,.39.39,0,0,1-.26-.32.37.37,0,0,1,.19-.35,1.15,1.15,0,0,0,.64-1,1.2,1.2,0,0,0-2.4,0,1.16,1.16,0,0,0,.63,1,.35.35,0,0,1,.19.35.37.37,0,0,1-.25.32,2.08,2.08,0,0,0-1.51,2Z'/><path class='cls-1' d='M23,28.36H10v-.72H22.63V4.36H10V3.64H23a.36.36,0,0,1,.36.36V28A.36.36,0,0,1,23,28.36Z'/><rect class='cls-1' x='9.99' y='15.64' width='5.01' height='0.72'/><path class='cls-1' d='M23,25.36a8.22,8.22,0,0,1-8.21-8.21V7a.36.36,0,0,1,.36-.36h15.7a.36.36,0,0,1,.36.36V17.15A8.22,8.22,0,0,1,23,25.36Zm-7.5-18v9.79a7.5,7.5,0,0,0,15,0V7.36Z'/><rect class='cls-1' x='23' y='15.64' width='8' height='0.72'/><rect class='cls-1' x='23' y='12.64' width='8' height='0.72'/><rect class='cls-1' x='23' y='9.64' width='8' height='0.72'/><rect class='cls-1' x='23' y='18.64' width='8' height='0.72'/><rect class='cls-1' x='23' y='21.64' width='6' height='0.72'/>",
+        iconAlt: "pictogram for step five - data is used",
+        description: "People with various roles use the encrypted data."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{# set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Install and configure",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Hyper Protect Data Controller requires IBM z15 or LinuxONE III and an IBM Secure Service Container partition. It uses the <a href='https://www.ibm.com/products/hyper-protect-virtual-servers'>IBM Hyper Protect Virtual Servers</a> support for deployment.</p>
+                <p>The Hyper Protect Data Controller component known as the Data Controller provides encryption, mask, policy, and key management.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=overview-system-requirements",
+                        linkText: "System requirements"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/support/pages/node/6019774",
+                        linkText: "About Secure Service Container"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=overview-data-centric-protection",
+                        linkText: "About the Data Controller"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpvs/latest?topic=introduction",
+                        linkText: "About Hyper Protect Virtual Servers"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Secure Service Container: You create a Secure Service Container partition using the HMC. Requirements and instructions are in <a href='https://www.ibm.com/support/pages/node/6019774'>IBM Z: Secure Service Container User’s Guide.</a></p>
+                <p>IBM supports two sizes for the partition: 4 processors with 128 GB memory and 128 GB disk storage, or 8 processors with 256 GB memory and 256 GB disk storage. Plan for the size that fits your needs.</p>
+                <p><a href='https://www.ibm.com/products/hyper-protect-virtual-servers'>Hyper Protect Virtual Servers</a>: IBM Hyper Protect Virtual Servers requires a management server capable of running Docker, for example, a Linux on IBM Z server with Docker enabled. The Hyper Protect Virtual Servers instance should be dedicated to Hyper Protect Data Controller. The Hyper Protect Data Controller documentation provides guideance for your Hyper Protect Virtual Servers configuration.</p>
+                <p>You will need to configure the network (which you do as part of the Hyper Protect Virtual Servers configuration), SSL/TLS, ports, and LDAP.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=configuration-hyper-protect-virtual-server",
+                        linkText: "Network and Hyper Protect Virtual Servers"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=begin-hyper-protect-data-controller-user-tls",
+                        linkText: "SSL/TLS"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=overview-system-requirements",
+                        linkText: "Ports"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=begin-hyper-protect-data-controller-use-ldap",
+                        linkText: "LDAP"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>Install and configure storage and the environment. Hyper Protect Data Controller provides Python scripts to simplify the installation. The scripts require Python 3.8.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=installation-configuration",
+                        linkText: "Install"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Identify data to encrypt",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Identifying the subset of data that you want to encrypt with Hyper Protect Data Controller might require the input of multiple people in your organization. It requires an understanding of your organization’s policy on data encryption and privacy as well as national and international regulations.</p>
+                <p>Ultimately, you need to identify the databases that contain data to encrypt and the specific fields in those databases. Hyper Protect Data Controller can encrypt SQL data sources that are accessed using Java Database Connectivity (JDBC).</p>
+                <p>Hyper Protect Data Controller protects the subset of data that you identify by encrypting it and storing it in encrypted data objects (EDOs). A EDO includes instructions for opening it and can be moved from environment to environment. You decide whether values in a EDO are masked when returned to users. Considerations for working with EDOs, such as data expansion, can also impact the data that you want to encrypt.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=masking-encrypted-data-objects-edos",
+                        linkText: "About EDOs"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>To create an EDO, Hyper Protect Data Controller reads the source data from one database, processes that data in the Data Controller, then writes the output data to a target database. You define the connection to and configuration of each database, including providing the JDBC driver. The output includes a mix of EDOs and clear data, depending on the policy.</p>
+                <p>There is approximately a 30% growth in the size of data associated with EDOs. The expansion varies with the size of the source field being encrypted, the length of the column name, the type of the field, and other factors.</p>
+                <p>EDOs also have implications for direct SQL queries.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=objects-recommendations-encrypted-data",
+                        linkText: "Recommendations for EDOs"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=objects-applying-active-policy-dbms-tables",
+                        linkText: "Access to the source and target databases"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=objects-impacts-edos-direct-dbms-queries",
+                        linkText: "SQL queries and EDOs"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>Define the connections to, and configure, the source and target databases.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=overview-system-requirements",
+                        linkText: "Provide JDBC drivers for source and target databases"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=details-defining-database-connections",
+                        linkText: "Connect to the source database"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=tables-target-dbms-connection",
+                        linkText: "Connect to the target database"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Set up the policy",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Once the data that is to be encrypted, and how it is to be encrypted, are identified, you codify that encryption in a policy. The policy defines everything about your data encryption, including mapping users and groups to personas (functional roles), rules that govern the encryption of specific fields, and connections to databases.</p>
+                <p>After the policy has been defined, it must be signed by an approver and then activated.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=policy-details",
+                        linkText: "Policy details"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>The policy is organized in sections that define data elements and associated encryption enforcement, including how data should be returned to users (masked or in the clear), personas or functional roles, handling of cryptographic keys, passwords for connected databases, confiuration options, and database connections.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=details-data-elements",
+                        linkText: "Policy elements"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>Create the policy XML. IBM recommends that policies be managed in a version control system. After you create or update a policy, upload it to the Data Controller. As an additional level of control, a designated approver reviews and signs the policy. The approver then activates the signed policy to put it into effect.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/latest?topic=details-data-elements",
+                        linkText: "Policy elements"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/hpdc/1.2?topic=management-life-cycle-policy",
+                        linkText: "Create, sign, and activate the policy"
+                    }
+                ]
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FEATURED DOCUMENTATION #}
+{# set documentation = {
+    docTitle: "IBM Documentation",
+    docDescription: "Read about installing, configuring and using Hyper Protect Data Controller.",
+    docLinkUrl: "https://www.ibm.com/docs/en/hpdc/",
+    docLinkText: "Read the documentation"
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{# set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "Other resources",
+        tabContent: [
+            {
+                resourceDescription: "Frequently asked questions about Hyper Protect Data Controller",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/L8EWKEP9",
+                resourceLinkText: "Read the FAQ's",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/IconWhitePaper.png"
+            },
+            {
+                resourceDescription: "This article describes how to monitor z/OS network encryption with IBM zERT Network Analyzer.",
+                resourceLinkUrl: "https://techchannel.com/12/2019/ibm-zert-network-analyzer",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "article",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/IconWhitePaper.png"
+            },
+            {
+                resourceDescription: "This article introduces Hyper Protect Data Controller.",
+                resourceLinkUrl: "https://ibmsystemsmag.com/IBM-Z/3/2020/data-privacy-passports",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "article",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/IconWhitePaper.png",
+                resourceStatus: "hide"
+            },
+            {
+                resourceDescription: "This blog post describes the IBM Z enhancements to keep data secured, private and encrypted.",
+                resourceLinkUrl: "https://www.ibm.com/blogs/systems/customer-data-secure-private-encrypted-ibm-z/",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "blog",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/cp-bp/svg/IconBlogWhiteLg.svg"
+            },
+            {
+                resourceDescription: "<em>Protecting Data Privacy Beyond the Trusted System of Record</em> presents a business view of Hyper Protect Data Controller",
+                resourceLinkUrl: "http://www.redbooks.ibm.com/redpapers/pdfs/redp5567.pdf",
+                resourceLinkText: "Read the Redguide",
+                resourceLinkType: "redbook",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/redbook-white.png"
+            },
+            {
+                resourceDescription: "IBM Hyper Protect Data Controller Guide 1.0.2 - Learn about how to get started with Hyper Protect Data Controller, from planning for installation to defining a policy and everything in between.",
+                resourceLinkUrl: "https://www.01.ibm.com/servers/resourcelink/svc00100.nsf/pages/ibmDataPrivacyPassports102Publications?OpenDocument",
+                resourceLinkText: "Read the user's guide",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/IconWhitePaper.png",
+                resourceStatus: "hide"
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Multimedia",
+        tabContent: [
+            {
+                resourceTitle: "How IBM Hyper Protect Data Controller Works on IBM z15",
+                resourceDescription: "Learn how Hyper Protect Data Controller provides data encryption and privacy.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/1_ndomo2n6",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Terminal Talk: Hyper Protect Data Controller",
+                resourceDescription: "Anthony Sofia talks about the revolutionary new data-centric solution for encrypting information both on and off the IBM Z platform.",
+                resourceLinkUrl: "http://terminaltalk.net/e/anthony-sofia-data-privacy-passports/",
+                resourceLinkText: "Listen to the podcast",
+                resourceLinkType: "podcast",
+                resourceIcon: false
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{# set related = [24, 14] %}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{# set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "November 4, 2021",
+        sectionContent: "Updated links to reflect the new version of the documentation (1.2)."
+    },
+    {
+        sectionTitle: "June 25, 2021",
+        sectionContent: "Updated page to reflect the new product name, terminology, and links for Hyper Protect Data Controller."
+    },
+    {
+        sectionTitle: "March 19, 2021",
+        sectionContent: "Added a link to the Journey to Hybrid Cloud with IBM Z content solution in the Technical resources section."
+    },
+    {
+        sectionTitle: "August 14, 2020",
+        sectionContent: "Added a new link for IBM Hyper Protect Data Controller Guide in the Technical resources section."
+    },
+    {
+        sectionTitle: "June 16, 2020",
+        sectionContent: "Details on configuring storage have been moved from Planning to Steps on the Install and Configure tab of the How to get started section."
+    },
+    {
+        sectionTitle: "April 30, 2020",
+        sectionContent: "A Redguide, <em>Protecting Data Privacy Beyond the Trusted System of Record</em>, was added to the Other resources tab of the Technical resources section."
+    },
+    {
+        sectionTitle: "March 27, 2020",
+        sectionContent: "Some content was reworded for clarity.<br />Links to the Hyper Protect Data Controller documentation were added.<br />In the How to get started section, a Passports Controller tab was combined with the Install and Configure tab.<br />In the Technical resources section, links to the content solution for pervasive encryption and a blog post were added."
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START STATCOUNTER #}
+{# set statcounter = {
+    sc_project: "12215202",
+    sc_security: "483da2bb"
+}
+ %}
+{# END STATCOUNTER #}

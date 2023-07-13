@@ -1,0 +1,573 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "IBM Z Pervasive Encryption" %}
+{% set key = 24 %}
+
+{# META #}
+{% set meta_description = meta_description | default("All the technical resources to get started with pervasive encryption solutions for data protection everywhere.") %}
+{% set meta_keywords = meta_keywords | default("SMS, Pervasive Encryption, zos, JCL, ICSF, AES Master Keys, operating system, z/OS environment, Encryption, RACF, z/os, zos, z14, z15,") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "0_b1elkxqu",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/z15.jpg",
+    label: "Pervasive encryption in action"
+} %}
+
+{# Introduction paragraphs:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Pervasive encryption is a consumable approach to enable extensive encryption of data in-flight and at-rest to substantially simplify encryption and reduce costs associated with protecting data and achieving compliance mandates.</p>
+<p>The IBM zSystems™ platform is designed to provide pervasive encryption capabilities to help you protect data efficiently in the digital enterprise.</p>"
+ %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "other",
+        text: "See what mainframe security can do for your business.",
+        url: "https://www.ibm.com/z/security"
+    }
+] %}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "pervasiveencryption" %}
+{# END FEEDBACK #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{% set announcements = [
+    {
+    announcementText: "Already started your journey to pervasive encryption?",
+    announcementLinkText: "Tell us about your experience",
+    announcementLinkUrl: "https://www.surveygizmo.com/s3/5895502/IBM-Z-pervasive-encryption"
+    }
+] %}
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION %}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+ {# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+{% set getStartedTabs = [
+    {
+    id:1,
+    tabTitle:"z/OS Data Set Encryption",
+    tabSubSections:[
+        {
+        subSectionTitle:"Overview",
+        subSectionContent:"<p>Data set encryption is provided by z/OS® V2R3 or later through the base Data Facility Storage Management Subsystem (DFSMS) component.</p>
+        <p><a href='https://www.ibm.com/docs/en/zos/latest?topic=encryption-zos-data-set'>Introduction to z/OS data set encryption</a></p>
+        <p>Data set encryption enables encryption through the DFSMS access methods.</p>",
+        subSectionMedia:"https://izswebpage.mybluemix.net/images/loj/linuxone-diagram-single.svg",
+        subSectionLinks: [
+            {
+            linkUrl:"https://www.ibm.com/docs/en/zos/latest?topic=encryption-hardware-software-requirements",
+            linkText:"Hardware and software requirements"
+            },
+            {
+            linkUrl:"https://www.ibm.com/docs/en/zos/latest?topic=encryption-application-component-specific-requirements",
+            linkText:"Application and component specific requirements for Db2®, IMS, CICS®, zFS, and more"
+            }
+        ]
+        },
+        {
+        subSectionTitle:"Planning",
+        subSectionContent:"<p>Considerations and guidelines for use of encrypted
+        data sets.</p>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://www.ibm.com/docs/en/zos/latest?topic=encryption-planning-zos-data-set",
+            linkText:"Planning z/OS data set encryption"
+            },
+            {
+            linkUrl:"https://izswebpage.mybluemix.net/docs/keys.pdf",
+            linkText:"How many keys should you use for z/OS data set encryption?"
+            }
+        ]
+        },
+        {
+        subSectionTitle:"Setup",
+        subSectionContent:"<p>Steps for setting up the  environment and creating encrypted data sets.</p>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://www.ibm.com/docs/en/zos/latest?topic=encryption-setting-up-zos-data-set",
+            linkText:"Setting up z/OS data set encryption"
+            }
+        ]
+        }
+    ]
+    },
+    {
+    id:2,
+    tabTitle:"Key Management",
+    tabSubSections:[
+        {
+        subSectionTitle:"Overview",
+        subSectionContent:"<p>IBM Enterprise Key Management Foundation – Web Edition V2.0 (EKMF Web) provides centralized key management for IBM z/OS data set encryption on IBM Z servers.</p>
+       <p><a href='https://www.ibm.com/products/enterprise-key-management-foundation-web'>Learn more about EKMF Web 2.0</a></p>
+       <p>The use of AES Cipher keys, supported with z/OS Pervasive Encryption, provides additional attributes that are bound to the key itself such as export controls and supports stronger key wrapping when used in conjunction with EKMF.</p>
+    <p class='ibm-margin-bottom-2'>IBM recommends using Cipher Keys for Pervasive Encryption whenever there is a need for keys to remain controlled under equivalently high security, even during key management operations like transfer between systems. For example, as is required by the Payment Card Industry Hardware Security Module Requirements (PCI HSM V1.0 #B2)</p>
+       <h5><strong>Requirements</strong></h5>
+      <p>The minimum system requirements for using AES Cipher keys for z/OS Pervasive Encryption are z14 with CEX6 and ICSF HCR77C1.</p>
+     <p>All production, development, test, QA, and disaster recovery systems accessing z/OS data sets encrypted with AES Cipher keys must meet the minimum system requirements.</p>"
+        }
+    ]
+    },
+    {
+    id:3,
+    tabTitle:"z/OS Coupling Facility Encryption",
+    tabSubSections:[
+        {
+        subSectionTitle:"Overview",
+        subSectionContent:"<p>Coupling facility encryption is provided by z/OS V2R3 or later releases. Coupling facility resource management (CFRM) policy statements are used to enable encryption on a structure-by-structure basis.</p>
+        <p>Ensure system security, Integrated Cryptographic Service Facility (ICSF) configuration, and cryptographic hardware requirements are met.</p>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://www.ibm.com/docs/en/zos/latest?topic=resources-encrypting-coupling-facility-structure-data#encryptstrdat__encryptsysreq",
+            linkText:"Hardware and software requirements"
+            }
+        ]
+        },
+        {
+        subSectionTitle:"Planning",
+        subSectionContent:" <p>Consider impacts to dump data sets with coupling facility structure data and cryptographic key management.</p>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://www.ibm.com/docs/en/zos/latest?topic=resources-encrypting-coupling-facility-structure-data#encryptstrdat__sysjoin",
+            linkText:"Planning z/OS coupling facility encryption"
+            }
+        ]
+        },
+        {
+        subSectionTitle:"Setup",
+        subSectionContent:" <pRefer to the CFRM parameter keyword, ENCRYPT(YES|NO), which specifies whether list and cache structure entry data and entry adjunct data written to the structure and residing in the structure should be encrypted.</p>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://www.ibm.com/docs/en/zos/latest?topic=utility-cfrm-parameters-administrative-data#subcfrm",
+            linkText:"Setting up z/OS coupling facility encryption"
+            }
+        ]
+        }
+    ]
+    },
+    {
+    id:4,
+    tabTitle:"z/OS Encryption Readiness Technology",
+    tabSubSections:[
+        {
+        subSectionTitle:"Overview",
+        subSectionContent:"<p>Identifying where and how network traffic is protected is labor-intensive. z/OS Encryption Readiness Technology (zERT) eases network discovery by monitoring and recording details about your z/OS cryptographic network protection.</p>
+        <p><a href='https://ibm.biz/thingsaboutzert?_ga=2.192501418.1439468193.1607362569-85615674.1567618694'>Things you should know about zERT</a></p>
+        <p><strong>Requirements</strong></p>
+        <ul>
+            <li>z/OS V2R3 or later releases</li>
+            <li>IBM Connect:Direct users must ensure Connect:Direct APAR PI77316 is applied</li>
+            <li>IBM zERT Network Analyzer requires Db2 for z/OS (Db2 11 or later releases) </li>
+        </ul>"
+        },
+        {
+        subSectionTitle:"Planning",
+        subSectionContent:"<p><strong>zERT Capabilities</strong> <p>
+         <b><a href='https://www.ibm.com/docs/en/zos/latest?topic=zert-zos-encryption-readiness-technology-concepts' target='_blank'>Discovery</a></b>
+          <p>Discovers the network encryption attributes for each TCP and Enterprise Extender connection.</p>
+            <p> <a href='https://www.ibm.com/docs/en/zos/latest?topic=zert-zos-encryption-readiness-technology-concepts' target='_blank'>
+        <b>Aggregation</b>
+         </a></p>
+         <p>Summarizes the repetitive use of security sessions over time. Retains the key details about the network encryption attributes.
+         Greatly reduces the number of zERT SMF records in many cases.</p>
+        <p><a href='https://www.ibm.com/docs/en/zos/latest?topic=security-zert-network-analyzer' target='_blank'><b>IBM zERT Network Analyzer</b></a></b></p>
+        <p>A web-based graphical user interface to analyze and report on data reported in zERT summary records.</p>
+        <p><b><a href='https://www.ibm.com/docs/en/zos/latest?topic=zert-zos-encryption-readiness-technology-concepts'>zERT concepts</a></b></p>
+        <ul>
+            <li>What does zERT manage and collect? <a href='https://www.ibm.com/docs/en/zos/latest?topic=concepts-what-does-zert-discovery-manage-collect' target='_blank'>Discovery</a> | <a href='https://www.ibm.com/docs/en/zos/latest?topic=concepts-what-does-zert-aggregation-collect' target='_blank'>Aggregation</a></li>
+            <li>How does zERT summarize and provide the information? <a href='https://www.ibm.com/docs/en/zos/latest?topic=concepts-how-does-zert-discovery-provide-information' target='_blank'>Discovery</a> | <a href='https://www.ibm.com/docs/en/zos/latest?topic=concepts-how-does-zert-aggregation-summarize-information' target='_blank'>Aggregation</a></li>
+        </ul>
+        <ul class='ibm-colored-list ibm-textcolor-blue-50'>
+            <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=records-zert-connection-detail-record-subtype-11'>zERT connection detail record (subtype 11)</a></li>
+            <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=records-zert-summary-record-subtype-12'>zERT summary record (subtype 12)</a></li>
+        </ul>
+        <p><strong>zERT-enabled cryptographic protocol providers</strong>
+        <ul class='ibm-colored-list ibm-textcolor-blue-50'>
+            <li> <a href='https://www.ibm.com/docs/en/sdk-java-technology/8?topic=components-zertjsse#zertjsse'>ZERTJSSE (IBM SDK, Java Technology Edition 8.0.0)</a></li>
+        </ul>
+        <ul>
+            <li>z/OS System SSL (including z/OS AT-TLS)</li>
+            <li>z/OS V2R3 OpenSSH</li>
+            <li>z/OS IPSec support</li>
+        </ul>
+        <p><b><a href='https://www.ibm.com/docs/en/zos/latest?topic=concepts-what-are-limitations-zert-discovery'>zERT limitations</a> </b>
+        </p>"
+        },
+        {
+        subSectionTitle:"Setup",
+        subSectionContent:"<p><strong>Discovery</strong></p>
+        <ul class='ibm-colored-list ibm-textcolor-blue-50'>
+            <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=technology-enabling-zert-discovery'>Enabling zERT discovery</a></li>
+            <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=technology-selecting-destination-zert-discovery-smf-records'>Selecting a destination for zERT discovery SMF records</a></li>
+        </ul>
+        <p><strong>Aggregation</strong></p>
+        <ul class='ibm-colored-list ibm-textcolor-blue-50'>
+            <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=technology-enabling-zert-aggregation'>Enabling zERT aggregation</a></li>
+            <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=technology-selecting-destination-zert-aggregation-smf-records'>Selecting a destination for zERT aggregation SMF records</a></li>
+        </ul>
+        <p><strong>zERT Network Analyzer</strong></p>
+        <ul class='ibm-colored-list ibm-textcolor-blue-50'>
+            <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=analyzer-updating-zos-zert-network-service#zERTNetworkAnalyzer'>Updating z/OS for the IBM zERT Network Analyzer Plug-in</a></li>
+            <li><a href='https://www.ibm.com/docs/en/zos/latest?topic=summary-tutorial-introduction'>IBM zERT Network Analyzer tutorial</a></li>
+        </ul>"
+        }
+    ]
+    },
+    {
+    id:5,
+    tabTitle:"IBM Linux on IBM Z and LinuxONE",
+    tabSubSections:[
+        {
+        subSectionTitle:"Linux encryption for data at-rest",
+        subSectionContent:"<p><strong>Videos</strong></p>
+        <p class='ibm-ind-link ibm-textcolor-blue-50'><a href='https://mediacenter.ibm.com/media/0_o8pusddl' class='ibm-margin-bottom-0 ibm-video-link ibm-video-player-con' data-widget='videoplayer' data-videodisplay='overlay' data-videotype='kaltura' data-videoid='0_o8pusddl' data-showvideoduration='true' data-overlayplayersize='medium' aria-label='MediaCenter - Pervasive Encryption for Data Volumes'>Pervasive Encryption for Data Volumes</a></p>
+        <p class='ibm-ind-link ibm-textcolor-blue-50'><a href='https://dw1.s81c.com/caas-storage/5Khi7XGf/_videos/Setting%20up%20data%20volumes%20for%20Pervasive%20Encryption%20In%20less%20than%2010%20minutes.mp4' class='ibm-margin-bottom-0 ibm-video-link ibm-video-player-con' data-widget='videoplayer' data-videodisplay='overlay' data-videotype='kaltura' data-videoid='0_o8pusddl' data-showvideoduration='true' data-overlayplayersize='medium' aria-label='Setting up Data Volumes for Pervasive Encryption - In less than ten minutes'>Setting up Data Volumes for Pervasive Encryption - In less than ten minutes</a></p>
+        <p class='ibm-padding-top-2'><strong>Publications</strong></p>
+        <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/linux-on-systems?topic=volumes-september-2020' class='ibm-margin-bottom-0 ibm-forward-link ibm-textcolor-blue-50   '>Linux on IBM Z and LinuxONE: Pervasive Encryption for Data Volumes</a></p>
+        <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/linux-on-systems?topic=security-how-set-aes-master-key' class='ibm-margin-bottom-0 ibm-forward-link ibm-textcolor-blue-50   ''>Linux on IBM Z and LinuxONE: How to set an AES Masterkey</a></p>
+        <p class='ibm-ind-link'><a href='http://www.redbooks.ibm.com/abstracts/sg248436.html?Open' class='ibm-margin-bottom-0 ibm-forward-link ibm-textcolor-blue-50'>IBM Redbook: Getting Started with Linux on IBM Z Encryption for Data At-Rest</a></p>
+        <p class='ibm-ind-link'><a href='https://www.ibm.com/it-infrastructure/z/os/linux' class='ibm-margin-bottom-0 ibm-forward-link ibm-textcolor-blue-50'>Linux on IBM Z</a></p>"
+        },
+        {
+        subSectionTitle:"Linux encryption for data in-flight",
+        subSectionContent:" <p>Linux is well equipped for encrypting all data in-flight using protocols like TLS, IPSec, or SSH.</p>
+        <p>Exploiting the excellent cryptographic performance of the IBM z15™ (all models), IBM LinuxONE Emperor II and LinuxONE Rockhopper II, Linux users can afford to pervasively encrypt their network traffic in a transparent manner using OpenSSL, OpenSSH, and IPSec.</p>"
+        },
+        {
+        subSectionTitle:"Linux encryption for virtualization",
+        subSectionContent:"<p>All data volumes assigned to guest operating systems can use pervasive encryption. This applies to:</p>
+        <ul>
+            <li>z/VM guests</li>
+            <li>KVM guests*</li>
+            <li>All volumes except boot volumes</li>
+        </ul>
+        <p>z/VM® and KVM guests apply pervasive encryption to each piece of guest data at-rest, be it read from or written to a disk.The protected-key dm-crypt technology used protects volume encryption keys from being accessed in plain text format.This protection extends to swap volumes.</p>
+        <p>Alternatively, a KVM hypervisor can encrypt data at-rest on all volumes, except boot volumes, with dm-crypt technology. Thus, its KVM guests are supplied with encrypted virtual block devices, resulting in transparent data at-rest encryption for all guests.</p>
+        <p>* Available with Red Hat Enterprise Linux 8.0 and newer distributions, IBM is working with the other Linux distribution partners to include support.</p>"
+        }
+    ]
+    }
+]
+%}
+{# END GETTING STARTED #}
+
+{# START FEATURED DOCUMENTATION #}
+{% set documentation = {
+    docTitle: "Comprehensive content collection",
+    docDescription: "Find a comprehensive collection of content about pervasive encryption for IBM Z.",
+    docLinkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=solutions-pervasive-encryption-z",
+    docLinkText: "Get started"
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{% set resourcesTabs = [
+    {
+    id:1,
+    tabTitle:"Other resources",
+    tabContent: [
+        {
+            resourceTitle: "IBM Developer",
+            resourceDescription: false,
+            resourceLinkUrl: "https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/W7df80301055d_495b_bb88_a0a2f84757c5/page/Pervasive%20Encryption%20-%20zOS%20Data%20Set%20Encryption",
+            resourceLinkText: "IBM Crypto Education Wiki",
+            resourceLinkType: "developer",
+            resourceStatus: "hide",
+            resourceIcon: "https://izswebpage.mybluemix.net/images/dW-white.png"
+        },
+        {
+            resourceTitle: "IBM Redbooks",
+            resourceDescription: false,
+            resourceLinkUrl: "http://www.redbooks.ibm.com/abstracts/sg248410.html?Open",
+            resourceLinkText: "Getting Started with z/OS Data Set Encryption",
+            resourceLinkType: "redbook",
+            resourceIcon: "https://izswebpage.mybluemix.net/images/redbook-white.png"
+        },
+        {
+            resourceTitle: "IBM Techdoc",
+            resourceDescription: false,
+            resourceLinkUrl: "https://www.ibm.com/downloads/cas/04WL0WAJ",
+            resourceLinkText: "Pervasive encryption FAQs",
+            resourceLinkType: "document",
+            resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+        },
+        {
+            resourceTitle: "IBM Developer",
+            resourceDescription: false,
+            resourceLinkUrl: "https://ek-ibmz.mybluemix.net/?_ga=2.168497505.1153275961.1607486529-323824188.1607486529",
+            resourceLinkText: "Enterprise Knights of IBM Z",
+            resourceLinkType: "developer",
+            resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+        },
+        {
+            resourceTitle: "IBM Redbooks",
+            resourceDescription: false,
+            resourceLinkUrl: "http://www.redbooks.ibm.com/abstracts/sg248363.html?Open",
+            resourceLinkText: "z/OS V2R2 Communications Server TCP/IP Implementation",
+            resourceLinkType: "redbook",
+            resourceIcon: "https://izswebpage.mybluemix.net/images/redbook-white.png"
+        },
+        {
+            resourceTitle: "IBM Redbooks",
+            resourceDescription: false,
+            resourceLinkUrl: "http://www.redbooks.ibm.com/abstracts/sg248195.html?Open",
+            resourceLinkText: "Reduce Risk and Improve Security on IBM Mainframes",
+            resourceLinkType: "redbook",
+            resourceIcon: "https://izswebpage.mybluemix.net/images/redbook-white.png"
+        },
+        {
+            resourceTitle: "IBM Redbooks",
+            resourceDescription: false,
+            resourceLinkUrl: "http://www.redbooks.ibm.com/abstracts/sg248436.html?Open",
+            resourceLinkText: "Getting Started with Linux on IBM Z Encryption for Data-at-Rest",
+            resourceLinkType: "redbook",
+            resourceIcon: "https://izswebpage.mybluemix.net/images/redbook-white.png"
+        },
+        {
+            resourceTitle: "IBM Support",
+            resourceDescription: false,
+            resourceLinkUrl: "https://ibm.co/2Kly6dz",
+            resourceLinkText: "z/OS Data Set Encryption Support",
+            resourceLinkType: "document",
+            resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+        }
+    ]
+    },
+    {
+    id:2,
+    tabTitle: "Multimedia",
+    tabContent: [
+    {
+            resourceTitle: "LinuxONE - Enterprise Key Management for Pervasive Encryption of Data Volumes",
+            resourceDescription: "Learn how to easily manage pervasive encryption keys using an enterprise key management solution for Linux on IBM Z and LinuxONE.",
+            resourceLinkUrl: "https://video.ibm.com/recorded/130688362",
+            resourceLinkText: "Watch the video (2:28)",
+            resourceLinkType: "video",
+            resourceIcon: false,
+            resourceStatus: "new"
+        },
+        {
+            resourceTitle: "IBM Z - Enterprise Key Management for Pervasive Encryption of Data Volumes",
+            resourceDescription: "Learn about managing pervasive encryption keys using an enterprise key management solution for Linux on IBM Z.",
+            resourceLinkUrl: "https://video.ibm.com/recorded/130691316",
+            resourceLinkText: "Watch the video (2:26)",
+            resourceLinkType: "video",
+            resourceIcon: false,
+            resourceStatus: "new"
+        },
+        {
+            resourceTitle: "Trusted Key Entry (TKE) Education",
+            resourceDescription: "This video play list includes introductory information about IBM Trusted Key Entry (TKE).",
+            resourceLinkUrl: "https://www.youtube.com/watch?v=Y8T9rSd-qrQ",
+            resourceLinkText: "Watch the video (10:47)",
+            resourceLinkType: "video",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "Trusted Key Entry (TKE) Workstation Video Series",
+            resourceDescription: "Trusted Key Entry (TKE) is a feature of IBM Z and LinuxONE that is used to configure Hardware Security Modules (HSMs) that are installed in the IBM Z or LinuxONE system. This 8-video series guides you through the process of loading CCA master keys from the TKE Workstation, from TKE Power-On to Master Key Load.",
+            resourceLinkUrl: "https://mediacenter.ibm.com/media/Trusted+Key+Entry+%28TKE%29+CCA+Playlist+Introduction/1_tcn7d7qj",
+            resourceLinkText: "View the playlist",
+            resourceLinkType: "video",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "IBM Enterprise Key Management Foundation (EKMF) Video",
+            resourceDescription: "This video provides an overview and a demonstration of the IBM Enterprise Key Management Foundation (EKMF), a highly secure key management system for the enterprise.",
+            resourceLinkUrl: "https://www.securitylearningacademy.com/enrol/index.php?id=4304",
+            resourceLinkText: "Watch the video",
+            resourceLinkType: "video",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "IBM Enterprise Key Management Foundation - Web Edition (EKMF Web) for z/OS® Data Set Encryption Video",
+            resourceDescription: "In this video for z/OS® Data Set Encryption users, you will be given an introduction to EKMF Web, an overview of the architecture and key roles, and a list of EKMF Web pre-requisites.",
+            resourceLinkUrl: "https://www.securitylearningacademy.com/enrol/index.php?id=4782",
+            resourceLinkText: "Watch the video",
+            resourceLinkType: "video",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "IBM Enterprise Key Management Foundation - Web Edition Video",
+            resourceDescription: "This video provides a demonstration of the IBM Enterprise Key Management Foundation Web (EKMF Web) version.",
+            resourceLinkUrl: "https://www.securitylearningacademy.com/enrol/index.php?id=5089",
+            resourceLinkText: "Watch the video",
+            resourceLinkType: "video",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "Encrypting DB2 Tables with EKMF Web and zSecure Admin Video",
+            resourceDescription: "This video provides an end-to-end demonstration of z/OS® data set encryption used to encrypt DB2 tables.",
+            resourceLinkUrl: "https://www.securitylearningacademy.com/enrol/index.php?id=5194",
+            resourceLinkText: "Watch the video",
+            resourceLinkType: "video",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "How Many Keys Infographic",
+            resourceDescription: "Use this visual tool to determine how many keys you should use for z/OS® data set encryption.",
+            resourceLinkUrl: "https://izswebpage.mybluemix.net/docs/keys.pdf?cm_mc_uid=12576086103115682283647&cm_mc_sid_50200000=80991441591996856289&_ga=2.123868490.1153275961.1607486529-323824188.1607486529",
+            resourceLinkText: "View the infographic",
+            resourceLinkType: "infographic",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "z/OS Encryption Readiness Technology (zERT)",
+            resourceDescription: "z/OS Encryption Readiness Technology (zERT) provides the data that you need to build a complete picture of your z/OS cryptographic network protection posture.",
+            resourceLinkUrl: "https://www.youtube.com/watch?v=1CgEcCTX_o8",
+            resourceLinkText: "Watch the video (56:14)",
+            resourceLinkType: "video",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "AT-TLS-Nutshell",
+            resourceDescription: "A very high level review of SSL/TLS, what AT-TLS is, how it works, why you would want to use it, and a snapshot of AT-TLS configuration.",
+            resourceLinkUrl: "https://www.youtube.com/watch?v=YKEzX70moOQ",
+            resourceLinkText: "Watch the video (21:42)",
+            resourceLinkType: "video",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "Terminal Talk Podcast",
+            resourceDescription: "Terminal Talk with Frank and Jeff features Michael Jorden of IBM Z Development discussing pervasive encryption for IBM Z. Search for “Terminal Talk” in iTunes, Google Play, or your favorite podcast app, or click the link below.",
+            resourceLinkUrl: "http://terminaltalk.net/e/episode-67-michael-jordan-pervasive-encryption-2112018",
+            resourceLinkText: "Listen to the podcast (31:42)",
+            resourceLinkType: "podcast",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "Linux on IBM Z and LinuxONE: Pervasive encryption for data volumes",
+            resourceDescription: "See how pervasive encryption for data volumes makes full data volume encryption fast and affordable.",
+            resourceLinkUrl: "https://mediacenter.ibm.com/media/0_o8pusddl",
+            resourceLinkText: "Watch the video (04:57)",
+            resourceLinkType: "video",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "Pervasive encryption in z/OS: what about my CF structures and logstreams?",
+            resourceDescription: "This session explains and gives the details on how to encrypt Coupling Facility list and cache structures, and how to encrypt your CF logstream data.",
+            resourceLinkUrl: "https://www.youtube.com/watch?v=HEGJIPkwwNc",
+            resourceLinkText: "Watch the video (57:25)",
+            resourceLinkType: "video",
+            resourceIcon: false
+        }
+    ]
+    }
+]
+%}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no announcement content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [22,25] %}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+{% set updateWhatsNewDate = "October 8, 2021" %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "z/OS Support",
+        sectionContent: "<p>Links to z/OS documentation were upated to use the z/OS 2.5.0 library.</p>
+                        <p><a href='https://www.ibm.com/support/z-content-solutions/hyper-protect-data-controller/' >IBM Hyper Protect Data Controller content solution</a></p>
+                        "
+    },
+    {
+        sectionTitle: "Distribution Support",
+        sectionContent: "<div class='ibm-columns'>
+                            <div class='ibm-col-4-1'>
+                                <p class='ibm-ind-link ibm-textcolor-black-core'>
+                                    <a href='https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/index?_ga=2.247875919.938097129.1607973537-85615674.1567618694' class='ibm-blog-link'>Securing Red Hat Enterprise Linux 8</a>
+                                </p>
+                            </div>
+                            <div class='ibm-col-4-1'>
+                                <p class='ibm-ind-link ibm-textcolor-black-core'>
+                                 <a href='https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/8.0_release_notes/index' class='ibm-blog-link'>Read the Red Hat 8.0 blog </a>
+                                </p>
+                            </div>
+                            <div class='ibm-col-4-1'>
+                                <p class='ibm-ind-link ibm-textcolor-black-core'>
+                                    <a href='https://www.suse.com/c/are-you-ready-for-the-worlds-first-multimodal-operating-system' class='ibm-blog-link'>Read the SUSE 15 SP1 blog</a>
+                                </p>
+                            </div>
+                            <div class='ibm-col-4-1'>
+                            <p class='ibm-ind-link ibm-textcolor-black-core'>
+                                <a href='https://ubuntu-on-big-iron.blogspot.com/2019/07/ubuntu-and-pervasive-encryption.html?view=sidebar' class='ibm-blog-link'>Read the Ubuntu 19.04 blog</a>
+                            </p>
+                            </div>
+                         </div>"
+    }
+] %}
+{# END WHATS NEW #}
+
+{% set statcounter = {
+    sc_project: "11843734",
+    sc_security: "7434cf2f"
+}
+ %}
+

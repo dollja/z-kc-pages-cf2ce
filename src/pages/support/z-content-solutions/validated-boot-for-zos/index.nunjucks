@@ -1,0 +1,547 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+{# Optional sections are commented out by default, to activate them, change the # to % in their enclosing brackets. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "Validated Boot for z/OS" %}
+
+{# Solution key - Format is just number, no quotes.
+Replace 00 with number higher than last existing solution. Find existing key list in /data/pages.json and Related Solutions Box note, and update both places with all relevant information. #}
+{% set key = 35 %}
+
+{# META #}
+{% set meta_description = meta_description | default("") %}
+
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "",
+    videoID: "",
+    thumbnailUrl: "",
+    label: ""
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Validated Boot for z/OS is a solution that uses digital signatures to provide an initial program load (IPL)-time check that validates that IPL data is intact, not tampered with, and originated from a trusted source. It also enables detection of unauthorized changes to software executables.</p>
+<p>By using Validated Boot for z/OS, you have the ability to meet regulatory compliance standards, including National Information Assurance Partnership (NIAP) certification, that are required for certain secure software deployment scenarios. Additionally, you can detect both accidental and malicious IPL data changes earlier, thus reducing the impact of outages and stopping certain kinds of attacks.</p>
+<p>Validated Boot for z/OS requires z/OS 2.5 or higher for the driving system and IBM z16 with z/OS 2.5 or higher for the target system.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "other",
+        url: "https://ibm.biz/zosValidatedBoot",
+        text: "Learn more about the capabilities of z/OS Validated Boot"
+
+    }
+] %}
+{# END INTRODUCTION #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "" %}
+{# END FEEDBACK #}
+
+{# START BANNER #}
+{# Call to action banner currently used for additional survey link on PE and trial link on zCX.
+Short sentence (bannerText) and a button link (buttonLinkText) #}
+{# set bannerContent = {
+    bannerText: "",
+    bannerLinkText: "",
+    bannerLinkUrl: ""
+} %}
+{# END BANNER #}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+*NEW FOR CARBON*
+iconPath: Pictograms must be added as SVG paths. The <svg> enclosing tag is already included in the template (layout-dot-com, line 333), with its necessary styles and classes, so this will be the inner content excluding that and starting with <g>, <path>, <polygon>, etc. Open svg file in VS code to grab path. Any custom pictograms should be made following Carbon guidelines and grid at 32px x 32px.
+***
+iconUrl: Full link to the pictogram used for this step. *NO LONGER NEEDED IN CARBON, but can still be added for reference to the source file for the path.
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconPath: '<path d="M25,29.36c-0.75,0-1.36-0.61-1.36-1.36s0.61-1.36,1.36-1.36
+	s1.36,0.61,1.36,1.36S25.75,29.36,25,29.36z M25,27.36c-0.353,0-0.64,0.287-0.64,0.64s0.287,0.64,0.64,0.64s0.64-0.287,0.64-0.64
+	S25.353,27.36,25,27.36z M15,29.36c-0.75,0-1.36-0.61-1.36-1.36s0.61-1.36,1.36-1.36s1.36,0.61,1.36,1.36S15.75,29.36,15,29.36z
+	 M15,27.36c-0.353,0-0.64,0.287-0.64,0.64s0.287,0.64,0.64,0.64s0.64-0.287,0.64-0.64S15.353,27.36,15,27.36z M10,29.36
+	c-0.75,0-1.36-0.61-1.36-1.36s0.61-1.36,1.36-1.36s1.36,0.61,1.36,1.36S10.75,29.36,10,29.36z M10,27.36
+	c-0.353,0-0.64,0.287-0.64,0.64s0.287,0.64,0.64,0.64s0.64-0.287,0.64-0.64S10.353,27.36,10,27.36z M29.36,29h-0.72v-2h0.721
+	L29.36,29L29.36,29z M6.36,29H5.64v-2h0.72C6.36,27,6.36,29,6.36,29z M3.36,29H2.64v-2h0.72C3.36,27,3.36,29,3.36,29z M21,28.36h-2
+	v-0.72h2V28.36z M28,21.36c-0.75,0-1.36-0.61-1.36-1.36s0.61-1.36,1.36-1.36s1.36,0.61,1.36,1.36S28.75,21.36,28,21.36z M28,19.36
+	c-0.353,0-0.64,0.287-0.64,0.64s0.287,0.64,0.64,0.64s0.64-0.287,0.64-0.64S28.353,19.36,28,19.36z M16,21.36
+	c-0.75,0-1.36-0.61-1.36-1.36s0.61-1.36,1.36-1.36s1.36,0.61,1.36,1.36S16.75,21.36,16,21.36z M16,19.36
+	c-0.353,0-0.64,0.287-0.64,0.64s0.287,0.64,0.64,0.64s0.64-0.287,0.64-0.64S16.353,19.36,16,19.36z M4,21.36
+	c-0.75,0-1.36-0.61-1.36-1.36S3.25,18.64,4,18.64S5.36,19.25,5.36,20S4.75,21.36,4,21.36z M4,19.36c-0.353,0-0.64,0.287-0.64,0.64
+	S3.647,20.64,4,20.64S4.64,20.353,4.64,20S4.353,19.36,4,19.36z M24,20.36h-4v-0.72h4V20.36z M12,20.36H8v-0.72h4V20.36z M15,13.36
+	c-0.75,0-1.36-0.61-1.36-1.36s0.61-1.36,1.36-1.36s1.36,0.61,1.36,1.36S15.75,13.36,15,13.36z M15,11.36
+	c-0.353,0-0.64,0.287-0.64,0.64s0.287,0.64,0.64,0.64s0.64-0.287,0.64-0.64S15.353,11.36,15,11.36z M10,13.36
+	c-0.75,0-1.36-0.61-1.36-1.36s0.61-1.36,1.36-1.36s1.36,0.61,1.36,1.36S10.75,13.36,10,13.36z M10,11.36
+	c-0.353,0-0.64,0.287-0.64,0.64s0.287,0.64,0.64,0.64s0.64-0.287,0.64-0.64S10.353,11.36,10,11.36z M29.36,13h-0.72v-2h0.721
+	L29.36,13L29.36,13z M19.36,13h-0.72v-2h0.721L19.36,13L19.36,13z M6.36,13H5.64v-2h0.72C6.36,11,6.36,13,6.36,13z M3.36,13H2.64v-2
+	h0.72C3.36,11,3.36,13,3.36,13z M26,12.36h-4v-0.72h4V12.36z M28,5.36c-0.75,0-1.36-0.61-1.36-1.36S27.25,2.64,28,2.64
+	S29.36,3.25,29.36,4S28.75,5.36,28,5.36z M28,3.36c-0.353,0-0.64,0.287-0.64,0.64S27.647,4.64,28,4.64S28.64,4.353,28.64,4
+	S28.353,3.36,28,3.36z M23,5.36c-0.75,0-1.36-0.61-1.36-1.36S22.25,2.64,23,2.64S24.36,3.25,24.36,4S23.75,5.36,23,5.36z M23,3.36
+	c-0.353,0-0.64,0.287-0.64,0.64S22.647,4.64,23,4.64S23.64,4.353,23.64,4S23.353,3.36,23,3.36z M15,5.36
+	c-0.75,0-1.36-0.61-1.36-1.36S14.25,2.64,15,2.64S16.36,3.25,16.36,4S15.75,5.36,15,5.36z M15,3.36c-0.353,0-0.64,0.287-0.64,0.64
+	S14.647,4.64,15,4.64S15.64,4.353,15.64,4S15.353,3.36,15,3.36z M19.36,5h-0.72V3h0.721L19.36,5L19.36,5z M6.36,5H5.64V3h0.72
+	C6.36,3,6.36,5,6.36,5z M3.36,5H2.64V3h0.72C3.36,3,3.36,5,3.36,5z M11,4.36H9V3.64h2V4.36z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Obtain signed and validated code packages."
+    },
+    {
+        id: 2,
+        iconPath: '<path d="M29,3.5C29,3.776,28.776,4,28.5,4S28,3.776,28,3.5S28.224,3,28.5,3S29,3.224,29,3.5z
+	 M26.5,3C26.224,3,26,3.224,26,3.5S26.224,4,26.5,4S27,3.776,27,3.5S26.776,3,26.5,3z M24.5,3C24.224,3,24,3.224,24,3.5
+	S24.224,4,24.5,4S25,3.776,25,3.5S24.776,3,24.5,3z M31,30.36H1c-0.199,0-0.36-0.161-0.36-0.36V2c0-0.199,0.161-0.36,0.36-0.36h30
+	c0.199,0,0.36,0.161,0.36,0.36v28C31.36,30.199,31.199,30.36,31,30.36z M1.36,29.64h29.28V5.36H1.36V29.64z M1.36,4.64h29.28V2.36
+	H1.36V4.64z M17.5,25.36h-3c-0.199,0-0.36-0.161-0.36-0.36v-1.925c-0.388-0.117-0.763-0.273-1.121-0.464l-1.361,1.361
+	c-0.067,0.067-0.159,0.105-0.254,0.105l0,0c-0.096,0-0.187-0.038-0.254-0.105L9.029,21.85c-0.141-0.141-0.141-0.369,0-0.51
+	l1.36-1.359c-0.19-0.357-0.345-0.733-0.464-1.121H8c-0.199,0-0.36-0.161-0.36-0.36v-3c0-0.199,0.161-0.36,0.36-0.36h1.924
+	c0.119-0.389,0.274-0.764,0.464-1.122l-1.36-1.36c-0.141-0.141-0.141-0.368,0-0.509l2.121-2.122c0.135-0.136,0.374-0.136,0.509,0
+	l1.361,1.36c0.357-0.19,0.732-0.345,1.121-0.464V9c0-0.199,0.161-0.36,0.36-0.36h3c0.199,0,0.36,0.161,0.36,0.36v1.924
+	c0.388,0.119,0.764,0.274,1.121,0.464l1.359-1.36c0.135-0.136,0.373-0.136,0.51,0l2.122,2.122c0.067,0.067,0.105,0.159,0.105,0.254
+	s-0.038,0.187-0.105,0.254l-1.361,1.36c0.19,0.356,0.346,0.732,0.465,1.122H24c0.199,0,0.36,0.161,0.36,0.36v3
+	c0,0.199-0.161,0.36-0.36,0.36h-1.924c-0.119,0.389-0.274,0.764-0.465,1.121l1.361,1.359c0.067,0.067,0.105,0.159,0.105,0.255
+	s-0.038,0.188-0.105,0.255l-2.122,2.122c-0.067,0.067-0.159,0.105-0.255,0.105l0,0c-0.096,0-0.188-0.038-0.255-0.105l-1.359-1.361
+	c-0.359,0.19-0.734,0.347-1.121,0.464V25C17.86,25.199,17.699,25.36,17.5,25.36z M14.86,24.64h2.28v-1.837
+	c0-0.164,0.111-0.308,0.271-0.349c0.508-0.13,0.995-0.332,1.45-0.6c0.141-0.085,0.321-0.062,0.438,0.055l1.298,1.3l1.613-1.613
+	l-1.3-1.298c-0.116-0.116-0.139-0.297-0.055-0.438c0.267-0.45,0.469-0.938,0.601-1.449c0.041-0.159,0.185-0.271,0.349-0.271h1.836
+	v-2.28h-1.836c-0.164,0-0.308-0.111-0.349-0.27c-0.132-0.512-0.334-1-0.601-1.449c-0.084-0.142-0.062-0.322,0.055-0.438l1.3-1.299
+	l-1.613-1.612l-1.298,1.298c-0.116,0.115-0.297,0.139-0.438,0.056c-0.452-0.267-0.939-0.468-1.45-0.6
+	c-0.159-0.041-0.271-0.185-0.271-0.349V9.36h-2.28v1.837c0,0.164-0.111,0.308-0.27,0.349c-0.511,0.132-0.999,0.334-1.45,0.6
+	c-0.142,0.084-0.321,0.061-0.438-0.056l-1.299-1.298l-1.612,1.612l1.298,1.299c0.116,0.116,0.139,0.296,0.056,0.438
+	c-0.266,0.451-0.468,0.938-0.6,1.45c-0.041,0.159-0.185,0.27-0.349,0.27H8.36v2.28h1.837c0.164,0,0.308,0.111,0.349,0.271
+	c0.132,0.511,0.333,0.998,0.6,1.45c0.083,0.141,0.061,0.321-0.056,0.438l-1.298,1.298l1.612,1.613l1.299-1.3
+	c0.116-0.116,0.295-0.14,0.438-0.055c0.453,0.268,0.941,0.47,1.449,0.6c0.159,0.041,0.271,0.185,0.271,0.349L14.86,24.64
+	L14.86,24.64z M16,20.86c-2.128,0-3.86-1.732-3.86-3.86s1.731-3.86,3.86-3.86c2.128,0,3.86,1.731,3.86,3.86
+	C19.86,19.128,18.128,20.86,16,20.86z M16,13.86c-1.731,0-3.14,1.409-3.14,3.14s1.409,3.14,3.14,3.14s3.14-1.408,3.14-3.14
+	S17.731,13.86,16,13.86z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Prepare the driving system: z/OS requirements and one-time RACF setup."
+    },
+    {
+        id: 3,
+        iconPath: '<path d="M18,18.5l-9.7,9.7c0,0-0.1,0.1-0.1,0.1l-7,3
+	c0,0-0.1,0-0.1,0c-0.1,0-0.2,0-0.3-0.1c-0.1-0.1-0.1-0.3-0.1-0.4l3-7c0,0,0-0.1,0.1-0.1l9.7-9.7 M3.2,29.8l-1.5,0.5l1.8-0.8
+	L3.2,29.8z M2.8,27.8l1.5,1.5l3.4-1.5v-1.4H6c-0.2,0-0.4-0.2-0.4-0.4v-1.6H4.2L2.8,27.8z M6.4,25.6H8c0.2,0,0.4,0.2,0.4,0.4v1.1
+	l11.4-11.4l-3.5-3.5L4.9,23.6H6c0.2,0,0.4,0.2,0.4,0.4 M20.3,16.3l-0.5-0.5L26,9.5L22.5,6l-6.2,6.2l-0.5-0.5L26.5,1
+	c0.5-0.5,1.4-0.5,1.9,0L31,3.6c0.3,0.3,0.4,0.6,0.4,1s-0.1,0.7-0.4,1L20.3,16.3z M23,5.5L26.5,9l1-1L24,4.5L23,5.5z M24.5,4L28,7.5
+	L30.5,5c0.1-0.1,0.2-0.3,0.2-0.5s-0.1-0.3-0.2-0.5l-2.6-2.6c-0.2-0.2-0.7-0.2-0.9,0L24.5,4z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "On the driving system, format the IPL volume and build and sign the load modules (for the target system that you will IPL with)."
+    },
+    {
+        id: 4,
+        iconPath: '<path d="M16,31.36C8.082,31.36,1.64,24.918,1.64,17V1
+	c0-0.199,0.161-0.36,0.36-0.36h28c0.199,0,0.36,0.161,0.36,0.36v16C30.36,24.918,23.918,31.36,16,31.36z M16.36,26.36v4.275
+	c3.757-0.099,7.141-1.723,9.553-4.275H16.36z M2.36,1.36V17c0,7.4,5.925,13.444,13.28,13.636v-8.324c-0.576-0.158-1-0.687-1-1.312
+	s0.424-1.153,1-1.312V7.312c-0.576-0.158-1-0.686-1-1.312s0.424-1.153,1-1.312V1.36H2.36z M16.36,25.64h10.187
+	c1.033-1.259,1.847-2.705,2.379-4.279H17.312c-0.127,0.461-0.491,0.824-0.952,0.951V25.64z M16,20.36c-0.353,0-0.64,0.287-0.64,0.64
+	s0.287,0.64,0.64,0.64s0.64-0.287,0.64-0.64S16.353,20.36,16,20.36z M17.312,20.64h11.835c0.321-1.159,0.493-2.38,0.493-3.64v-0.64
+	H16.36v3.329C16.821,19.815,17.185,20.179,17.312,20.64z M16.36,15.64h13.28v-4.28h-2.328c-0.158,0.576-0.687,1-1.312,1
+	s-1.153-0.424-1.312-1H16.36V15.64z M26,10.36c-0.353,0-0.64,0.287-0.64,0.64s0.287,0.64,0.64,0.64s0.64-0.287,0.64-0.64
+	S26.353,10.36,26,10.36z M27.312,10.64h2.328V6.36H17.312c-0.127,0.461-0.491,0.825-0.952,0.952v3.329h8.329
+	c0.158-0.576,0.687-1,1.312-1S27.153,10.064,27.312,10.64z M16,5.36c-0.353,0-0.64,0.287-0.64,0.64S15.647,6.64,16,6.64
+	c0.353,0,0.64-0.287,0.64-0.64S16.353,5.36,16,5.36z M17.312,5.64H29.64V1.36H16.36v3.329C16.821,4.815,17.185,5.179,17.312,5.64z"
+	/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Prepare the target system: one-time SE/HMC setup to import and assign validation certificates (to the LPARs where they will be used for IPL-time validation)."
+    },
+    {
+        id: 5,
+        iconPath: '<path d="M30.64,22.64H1.36V7c0-0.904,0.736-1.64,1.64-1.64h14V4.64H3C1.699,4.64,0.64,5.699,0.64,7v18
+	c0,1.302,1.059,2.36,2.36,2.36h12.641v3.279H11v0.721h10v-0.72h-4.64v-3.28H29c1.302,0,2.36-1.059,2.36-2.36v-8h-0.72V22.64z
+	 M30.64,25c0,0.904-0.735,1.64-1.64,1.64H3c-0.904,0-1.64-0.735-1.64-1.64v-1.64h29.28C30.64,23.36,30.64,25,30.64,25z M25,1.598
+	l-6.36,3.18V12c0,3.507,2.854,6.36,6.36,6.36s6.36-2.854,6.36-6.36V4.777L25,1.598z M30.64,12c0,3.11-2.529,5.64-5.64,5.64
+	s-5.64-2.53-5.64-5.64V5.223L25,2.402l5.64,2.82V12z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "IPL a system with the selected security options."
+    },
+    {
+        id: 6,
+        iconPath: '<path d="M16,31.36C7.53,31.36,0.64,24.47,0.64,16
+	c0-5.103,2.501-9.632,6.342-12.427c0.486-0.388,1.015-0.727,1.576-1.007C10.764,1.339,13.302,0.64,16,0.64
+	c8.47,0,15.36,6.89,15.36,15.36S24.47,31.36,16,31.36z M4.244,7.284C2.433,9.721,1.36,12.738,1.36,16
+	c0,8.072,6.567,14.64,14.64,14.64c2.436,0,4.734-0.598,6.757-1.654l-6.143-10.64c-1.23,0.647-2.63,1.015-4.114,1.015
+	c-4.885,0-8.86-3.975-8.86-8.86C3.64,9.366,3.854,8.282,4.244,7.284z M17.237,17.984l6.149,10.651
+	C27.723,26.092,30.64,21.38,30.64,16c0-8.073-6.567-14.64-14.64-14.64c-1.008,0-1.992,0.103-2.943,0.297
+	c3.642,0.227,6.695,2.665,7.83,5.983H24v0.72h-2.901c0.171,0.686,0.262,1.402,0.262,2.14c0,1.105-0.204,2.164-0.575,3.14H24v0.72
+	h-3.525C19.751,15.848,18.624,17.104,17.237,17.984z M7.418,4.146C5.555,5.639,4.36,7.933,4.36,10.5c0,4.488,3.652,8.14,8.14,8.14
+	c3.093,0,5.788-1.733,7.165-4.28H10v-0.72h10.01c0.3-0.714,0.501-1.48,0.585-2.28H8v-0.72h12.639
+	c0.001-0.047,0.001-0.093,0.001-0.14c0-0.74-0.099-1.458-0.285-2.14H10V7.64h10.121c-1.16-3.082-4.139-5.28-7.621-5.28
+	c-1.294,0-2.52,0.304-3.607,0.844C8.382,3.489,7.889,3.804,7.418,4.146z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Review the IPL results with IEAVBPRT."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    ~NEW~ subSectionAccordion: Adds accordion/twisties section after main content, example can be seen in Use Cases on FHE. accordionContent accepts HTML and will be filtered for definition tooltips.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Signed code packages",
+        tabSubSections: [
+            {
+                subSectionTitle: "",
+                subSectionContent: "<p>As part of meeting the NIAP OSPP 4.3 standard, you use signed code packages for all code package deliverables from IBM and other vendors, including portable software instances for z/OSMF Software Management, ServerPac deliverables, and PTFs for service updates.</p>
+                <p>Signed code packages are provided through GIMZIP and GIMUNZIP code package signing and validation.</p>
+                <p>They are validated using the software vendor's public key, and are then input for the build process for Validated Boot for z/OS. </p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=guide-preparing-verify-signatures-gimzip-packages",
+                        linkText: "Signed code packages"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Driving system",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "To prepare the driving system, where you will build the SYSRES that will be deployed on the target system, ensure that the driving system meets requirements, then perform one-time RACF setup."
+            },
+            {
+                subSectionTitle: "Requirements",
+                subSectionContent: "<p>The driving system requires software support on z/OS 2.5, as well as ServerPac and ICKDSF installation support to help build and format the IPL volume correctly to support Validated Boot for z/OS. This support is delivered as a set of continuous-delivery APARs. See these FIXCATs:</p>
+                <ul><li>New functional FIXCAT for Validated Boot for z/OS:
+                <p><strong>Name: IBM.Function.ValidatedBoot</strong></p></li>
+                <ul><li>If the driving system is a z16, FIXCAT for Exploitation support for z16:
+                <p><strong>Name: IBM.Device.Server.z16-3931.Exploitation</strong></p>
+                <p>Note: “covers” BOTH the z16 A01 (3931) and z16 A02 (3932) machines.</p></li>
+                <ul><li>FIXCAT for Clean Room (Secure Build Environment) Driving System:
+                <p><strong>Name: IBM.DrivingSystem-RequiredService</strong></p></li>"
+            },
+            {
+                subSectionTitle: "RACF setup",
+                subSectionContent: "<p>This “one-time” setup  does not necessarily have to be done every time you build a system or sign load modules on a system.</p>
+                <p>To perform the setup, a RACF administrator creates or obtains a private key to use as the code-signing certificate, then sets up the RACF key ring with the code-signing certificate, and permits that key ring to the user whose job it is to do the signing.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=zos-racf",
+                        linkText: "RACF setup"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Format the IPL volume, build and sign load modules",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Prepare for the Validated Boot for z/OS IPL by building the SYSRES that will be deployed. Build the SYSRES on your driving system, which will then be accessed by the target system, and validated, if requested, by an IPL.</p>
+                <p>Begin by formatting the IPL volume for the List-Directed and Channel Control Word IPL options. Then, build your system and sign all needed load module executables with your private key (including the IPL Text).</p>"
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<ol><li>Format the IPL volume for the List-Directed or Channel Control Word IPL options, and build the system.
+                <p>You can use a ServerPac workflow to format the IPL volume and build the system.</p>
+                 <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/zos/2.5.0?topic=solutions-validated-boot-zos' class='ibm-forward-link ibm-textcolor-blue-50' target='_blank'>Using the workflow (coming soon)</a></p>
+                 <p>If you don’t use the workflow, see information at the following links:</p>
+                 <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/zos/2.5.0?topic=solutions-validated-boot-zos' class='ibm-forward-link ibm-textcolor-blue-50' target='_blank'>Formatting the IPL volume  (coming soon)</a></p>
+                 <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/zos/2.5.0?topic=solutions-validated-boot-zos' class='ibm-forward-link ibm-textcolor-blue-50' target='_blank'>Build your system? (coming soon)</a></p></li>
+                 <li>Sign the load module executables using the signing utility, IEWSIGN.
+                 <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/zos/2.5.0?topic=solutions-validated-boot-zos' class='ibm-forward-link ibm-textcolor-blue-50' target='_blank'>Using the signing utility (coming soon) </a></p></li></li>"
+            }
+        ]
+    },
+    {
+        id: 4,
+        tabTitle: "Target system",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "To prepare the target system that you will IPL with, you perform one-time Support Element (SE) / Hardware Management Console (HMC) setup to import and assign validation certificates to the LPARs where they will be used for IPL-time validation."
+            },
+            {
+                subSectionTitle: "Requirements",
+                subSectionContent: "<p>The target system requires an IBM z16.</p>
+                <p><ul><li>IPL options are available on the SE/HMC and Dynamic Partition Manager (DPM) Load Panel. (See the “IPL a system” tab for more detail.)</p>
+                    <p>List-directed IPL (validation with the public keys that you provide), from ECKD DASD. </p>
+                    <p>Channel control word IPL (not validated). These capabilities are preserved for migration, compatibility, and fallback from the same IPL volume.</p></ul></li>
+                <p><ul><li> Certificate store for z/OS Validated Boot:</p>
+                    <p>Comprised of SE/HMC and DPM certificate management support to import the certificates for use and validating the IPL as it happens, as well as assigning those certificates to particular LPARs for validation purposes, and making dynamic changes to certificates as they need to be deleted, changed, or rotated.</p>
+                    <p>In addition to the user interface provided by the SE/HMC, PR/SM provides support for taking the certificates to the CEC and making them available to Z Bootloader and to the z/OS images involved in the IPL. The certificate store provides the trusted validation keys needed for z/OS Validated Boot.</p></li>
+                <ul><li>CP Assist for Cryptographic Functions (CPACF) support for digital signatures using Elliptic Curve Digital Signature Algorithm (ECDSA) P-521 and the associated Secure Hash Algorithm (SHA) 512 hashing support.</li>
+                <ul><li>Virtual Flash Memory (VFM), also known as Storage Class Memory (SCM), for use in secure z/OS paging.</li>
+                
+                <p>In addition, the target system requires support delivered as a set of continuous-delivery APARs. See these FIXCATs:</p>
+                <ul><li>New functional FIXCAT for Validated Boot for z/OS:
+                <p><strong>Name: IBM.Function.ValidatedBoot APAR Tagging: VBOOT/K</strong></p></li>
+                <ul><li>New functional FIXCAT for Exploitation support for z16:
+                <p><strong>Name: IBM.Device.Server.z16-3931.Exploitation APAR Tagging: E3931/K</strong></p>
+                <p>Note: 'covers' BOTH the z16 A01 (3931) and z16 A02 (3932) machines. Provides z16 GA 1.5 firmware.</p>"
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<ol><li>Ensure the requirements are met.</li>
+                <ol><li>With the SE/HMC, import and assign validation certificates to the LPARs where they will be used for IPL-time validation.
+                <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/zos/2.5.0?topic=solutions-validated-boot-zos' class='ibm-forward-link ibm-textcolor-blue-50' target='_blank'>Import and assign validation certificates (coming soon)</a></p></li>"
+            }
+        ]
+    },
+    {
+        id: 5,
+        tabTitle: "IPL a system",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Using the SE/HMC Load panel, you select either an IPL that is not validated, an IPL that audits validation by checking for problems with your z/OS Validated Boot environment but continuing even if problems are found, or an IPL that enforces validation by terminating if any problems with your z/OS Validated Boot environment are found.</p>
+                <p>A z/OS Validated Boot IPL must be a cold start (CLPA) IPL, and Virtual Flash Memory (VFM) must be used for LPA paging instead of disk paging. If these requirements are not met, the IPL fails when validation is enforced or logs errors when validation is being audited.</p>"
+            },
+            {
+                subSectionTitle: "IPL Options",
+                subSectionContent: "On the SE/HMC Load panel, select the options for the load IPL volume, the IPL type, and validation.
+                <ul><li>Load IPL volume type: Select ECKD. </li>
+                <li>IPL type and Validation. Use these fields together to define the desired IPL.
+                    <ul><li>IPL not validated
+                            <p><strong>IPL type:</strong> Channel Control Word (CCW)</p></li>
+                        <li>IPL validation audited only. The IPL continues even if validation encounters problems with the z/OS Validated Boot environment.
+                            <p><strong>IPL type:</strong> List-directed</p>
+                            <p><strong>Validation:</strong> Unselect Enable Secure Boot</p></li>
+                        <li>IPL validation enforced. The IPL is terminated if validation uncovers problems with the z/OS Validated Boot environment.
+                            <p><strong>IPL type:</strong> List-directed</p>
+                            <p><strong>Validation:</strong> Select Enable Secure Boot </p></li>
+                    </ul>
+                </li></ul>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=solutions-validated-boot-zos",
+                        linkText: "SE/HMC Load panel  (coming soon)"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 6,
+        tabTitle: "IPL results",
+        tabSubSections: [
+            {
+                subSectionTitle: "",
+                subSectionContent: "After the IPL completes, you can view results of IPL-time validation, including:
+                <ul><li>Data sets and load modules processed</li>
+                <ul><li>Certificates used or not used</li>
+                <ul><li>Load module validation results</li>
+                <ul><li>Adherence or lack of adherence to system-level requirements.</li>
+                <p>Use the utility program, IEAVBPRT, while in audit mode. To view similar audit record data in a dump (such as a standalone dump following a failed IPL), use the program IEAVBIPC.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=solutions-validated-boot-zos",
+                        linkText: "Using IEAVBPRT  (coming soon)"
+                    }
+                ]
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FAQs #}
+{#
+Two formats are available, with or without accordion wrapped category sections. Only use one, not both.
+
+Original pattern: Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqs = [
+    {
+    question: "",
+    answer: ""
+    }
+]#}
+
+{# OR Accordion pattern 
+catTitle: Title for category will be placed in accordion header
+faqs: Associated with this category and wrapped in accordion container. Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqSection = [
+    {
+        categories: [
+            {
+                catTitle: "",
+                faqs: [
+                    {
+                        question: "",
+                        answer: ""
+                    }
+                ]
+            }
+        ]
+    }
+] #}
+
+{# Learn more - optional section below the main FAQs if needed. Can support as many sections as needed following this pattern:
+heading: section heading string
+content: paragraph text content
+links: link section below
+    linkURL: link address
+    linkText: link display text
+    linkType: "local" or "external"
+ #}
+{# New for Zowe page - change Learn more to custom text, and optional intro paragraph #}
+{#set customLMTitle = "" #}
+{# set learnMoredescription = ""#}
+
+{# set learnMore =  [
+    {
+        heading: "",
+        content: "",
+        links: [
+            {
+            linkUrl: "",
+            linkText: "",
+            linkType: ""
+        }
+        ]
+    }
+]
+#}
+
+{# Learn more ALTERNATE pattern for Resilience solution with accordion section
+section: Subheading under Learn more, above accordions
+categories: Each is an accordion wrapper
+    catTitle: Accordion heading
+    content: Supports any custom html content, wrap with appropriate tags
+ #}
+{# set learnMoreAccordion = 
+[
+        {
+        section: "",
+        categories: [
+            {
+                catTitle: "",
+                content:  ""
+            }
+        ]
+        }
+]
+#}
+{# END FAQs #}
+
+{# *** NEW WITH CARBON *** #}
+{# START FEATURED DOCUMENTATION #}
+{# Optional section. Breaks out feature card for main IBM Documentation/C3 link. 1 per page max #}
+{% set documentation = {
+    docTitle: "z/OS Validated Boot Documentation",
+    docDescription: "Read more about Validated Boot for z/OS.",
+    docLinkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=solutions-validated-boot-zos",
+    docLinkText: "Information about z/OS Validated Boot in IBM Documentation"
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to hide tile on page temporarily.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "Other resources",
+        tabContent: [
+            {
+                resourceTitle: "z/OS Validated Boot White Paper",
+                resourceDescription: "Learn more about how to set up and use z/OS Validated Boot.",
+                resourceLinkUrl: "https://ibm.biz/zosValidatedBoot",
+                resourceLinkText: "Read the White Paper",
+                resourceLinkType: "document",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "z/OS Validated Boot documentation",
+                resourceDescription: "This PDF provides technical documentation for setting up and using z/OS Validated Boot.",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/SSLTBW_2.5.0/pdf/izsv100_v2r5.pdf",
+                resourceLinkText: "Explore the documentation",
+                resourceLinkType: "document",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# *** NEW IN CARBON *** #}
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{# set related = [] #}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = false %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "",
+        sectionContent: ""
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "-",
+    sc_security: "-"
+}
+ %}
+{# END STATCOUNTER #}

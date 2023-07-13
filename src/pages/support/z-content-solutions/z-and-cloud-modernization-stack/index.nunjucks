@@ -1,0 +1,586 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+{# Optional sections are commented out by default, to activate them, change the # to % in their enclosing brackets. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "IBM Z and Cloud Modernization Stack" %}
+
+{# Solution key - Format is just number, no quotes.
+Replace 00 with number higher than last existing solution. Find existing key list in /data/pages.json and Related Solutions Box note, and update both places with all relevant information. #}
+{% set key = 34 %}
+
+{# META #}
+{% set meta_description = meta_description | default("A single, flexible platform with the common tools and capabilities needed to modernize z/OS® environments and applications.") %}
+
+{# NEW set to true to preview new leadspace image that has not been part of a build yet #}
+{% set preview = false %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "image",
+    videoID: "",
+    thumbnailUrl: "",
+    label: ""
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "IBM Z® and Cloud Modernization Stack provides a single, flexible platform with the common tools and capabilities needed to modernize z/OS® environments and applications. It balances robust reliability with the need for new innovation, by combining the power of IBM Z and the strength of Red Hat® OpenShift® Container Platform. IBM Z and Cloud Modernization Stack delivers a modern, managed as-a-service model to complement your most resilient production workloads." %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "marketing",
+        url: "https://www.ibm.com/products/z-and-cloud-modernization-stack",
+        text: "See what the IBM Z and Cloud Modernization Stack can do for your business"
+
+    }
+] %}
+
+{# Introduction notifications #}
+{# Added for ServerPac notifications 5/15. Uses inline informational notification component, can be one or multiple.
+Title in bold (title) followed by a line break, and then the subtitle (subtitle) #}
+
+{# set notifications = [
+{
+    title: "",
+    subtitle: ""
+}
+] #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# set announcements = [
+    {
+    announcementText: "",
+    announcementLinkText: "",
+    announcementLinkUrl: ""
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+*NEW FOR CARBON*
+iconPath: Pictograms must be added as SVG paths. The <svg> enclosing tag is already included in the template (layout-dot-com, line 333), with its necessary styles and classes, so this will be the inner content excluding that and starting with <g>, <path>, <polygon>, etc. Open svg file in VS code to grab path. Any custom pictograms should be made following Carbon guidelines and grid at 32px x 32px.
+***
+iconUrl: Full link to the pictogram used for this step. *NO LONGER NEEDED IN CARBON, but can still be added for reference to the source file for the path.
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconPath: '<path class="st2" d="M24,31.4H10c-0.2,0-0.4-0.2-0.4-0.4v-5c0-0.2,0.2-0.4,0.4-0.4h10.6v-2.1c0-0.9-0.7-1.6-1.6-1.6h-4
+			c-1.3,0-2.4-1.1-2.4-2.4v-2.1H10c-0.2,0-0.4-0.2-0.4-0.4v-5c0-0.2,0.2-0.4,0.4-0.4h14c0.2,0,0.4,0.2,0.4,0.4v5
+			c0,0.2-0.2,0.4-0.4,0.4H13.4v2.1c0,0.9,0.7,1.6,1.6,1.6h4c1.3,0,2.4,1.1,2.4,2.4v2.1H24c0.2,0,0.4,0.2,0.4,0.4v5
+			C24.4,31.2,24.2,31.4,24,31.4z M10.4,30.6h13.3v-4.3H10.4V30.6z M10.4,16.6h13.3v-4.3H10.4V16.6z M14,28.9h-2v-0.7h2V28.9z
+			 M26,19.4v-0.7c2.8,0,4.6-1.5,4.6-3.8c0-2.4-1.9-4.5-4.3-4.5c-0.2,0-0.4-0.2-0.4-0.4c0-4.8-3.9-8.6-8.9-8.6
+			c-3.1,0-6.2,1.9-7.8,4.9C9.2,6.4,9.1,6.5,8.9,6.5C8.6,6.4,8.2,6.4,7.8,6.4c-3.7,0-6.5,2.7-6.5,6.2c0,3.5,2.9,6.1,6.6,6.1v0.7
+			c-4.2,0-7.4-2.9-7.4-6.8c0-3.9,3.1-6.9,7.2-6.9c0.3,0,0.7,0,1,0.1c1.8-3.1,5.1-5.1,8.3-5.1c5.3,0,9.4,3.9,9.6,9
+			c2.5,0.2,4.6,2.5,4.6,5.2C31.4,17.6,29.3,19.4,26,19.4z M14,14.9h-2v-0.7h2V14.9z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Deploy IBM Z and Cloud Modernization Stack to replace time-consuming, ticket-bound provisioning with progressive tooling and resource management."
+    },
+    {
+        id: 2,
+        iconPath: '<path class="st1" d="M18,14.4h12c0.2,0,0.4-0.2,0.4-0.4V2c0-0.2-0.2-0.4-0.4-0.4H18c-0.2,0-0.4,0.2-0.4,0.4v5.6h-3.3V2
+	        c0-0.2-0.2-0.4-0.4-0.4H2C1.8,1.6,1.6,1.8,1.6,2v12c0,0.2,0.2,0.4,0.4,0.4h5.6v3.3H2c-0.2,0-0.4,0.2-0.4,0.4v12
+	        c0,0.2,0.2,0.4,0.4,0.4h12c0.2,0,0.4-0.2,0.4-0.4v-5.6h3.3V30c0,0.2,0.2,0.4,0.4,0.4h12c0.2,0,0.4-0.2,0.4-0.4V18
+	        c0-0.2-0.2-0.4-0.4-0.4H18c-0.2,0-0.4,0.2-0.4,0.4v5.6h-3.3V18c0-0.2-0.2-0.4-0.4-0.4H8.4v-3.3H14c0.2,0,0.4-0.2,0.4-0.4V8.4h3.3V14
+	        C17.6,14.2,17.8,14.4,18,14.4z M18.4,8.4h5.8l-1.4,1.4l0.5,0.5L25.5,8l-2.3-2.3l-0.5,0.5l1.4,1.4h-5.8V2.4h11.3v11.3H18.4V8.4z
+	         M18.4,24.4h4.3c0.2,0.6,0.7,1,1.3,1c0.8,0,1.4-0.6,1.4-1.4s-0.6-1.4-1.4-1.4c-0.6,0-1.2,0.4-1.3,1h-4.3v-5.3h11.3v11.3H18.4V24.4z
+	         M23.4,24c0-0.4,0.3-0.6,0.6-0.6s0.6,0.3,0.6,0.6s-0.3,0.6-0.6,0.6S23.4,24.4,23.4,24z M8,23.4c0.4,0,0.6,0.3,0.6,0.6
+	        S8.4,24.6,8,24.6c-0.4,0-0.6-0.3-0.6-0.6S7.6,23.4,8,23.4z M13.6,29.6H2.4V18.4h5.3v4.3c-0.6,0.2-1,0.7-1,1.3c0,0.8,0.6,1.4,1.4,1.4
+	        c0.6,0,1.2-0.4,1.3-1h4.3L13.6,29.6L13.6,29.6z M13.6,18.4v5.3H9.3c-0.1-0.5-0.5-0.8-1-1v-4.3H13.6z M8,8.6C7.6,8.6,7.4,8.4,7.4,8
+	        c0-0.4,0.3-0.6,0.6-0.6c0.4,0,0.6,0.3,0.6,0.6C8.6,8.4,8.4,8.6,8,8.6z M13.6,13.6H8.4V9.3c0.5-0.1,0.8-0.5,1-1h4.3L13.6,13.6
+	        L13.6,13.6z M13.6,7.6H9.3c-0.2-0.6-0.7-1-1.3-1C7.2,6.6,6.6,7.2,6.6,8c0,0.6,0.4,1.2,1,1.3v4.3H2.4V2.4h11.3V7.6z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Use consistent as-a-service workflows to keep production systems well-managed and controlled."
+    },
+    {
+        id: 3,
+        iconPath: '<path class="st1" d="M3.3,9.3L2.7,8.7L4,7.5L2.7,6.3l0.5-0.5L5,7.5L3.3,9.3z M3,2C2.7,2,2.5,2.2,2.5,2.5S2.7,3,3,3s0.5-0.2,0.5-0.5
+	        S3.3,2,3,2z M5.5,2.5C5.5,2.8,5.3,3,5,3S4.5,2.8,4.5,2.5S4.7,2,5,2S5.5,2.2,5.5,2.5z M7.5,2.5C7.5,2.8,7.3,3,7,3S6.5,2.8,6.5,2.5
+	        S6.7,2,7,2S7.5,2.2,7.5,2.5z M18.5,6.5C18.5,6.8,18.3,7,18,7s-0.5-0.2-0.5-0.5C17.5,6.2,17.7,6,18,6S18.5,6.2,18.5,6.5z M20.5,6.5
+	        C20.5,6.8,20.3,7,20,7s-0.5-0.2-0.5-0.5C19.5,6.2,19.7,6,20,6S20.5,6.2,20.5,6.5z M22.5,6.5C22.5,6.8,22.3,7,22,7s-0.5-0.2-0.5-0.5
+	        C21.5,6.2,21.7,6,22,6S22.5,6.2,22.5,6.5z M5.5,24.5C5.5,24.8,5.3,25,5,25s-0.5-0.2-0.5-0.5S4.7,24,5,24S5.5,24.2,5.5,24.5z
+	         M13,14.4H1c-0.2,0-0.4-0.2-0.4-0.4V1c0-0.2,0.2-0.4,0.4-0.4h12c0.2,0,0.4,0.2,0.4,0.4v13C13.4,14.2,13.2,14.4,13,14.4z M12.6,4.4
+	        H1.4v9.3h11.3V4.4z M12.6,1.4H1.4v2.3h11.3V1.4z M31.4,5v17c0,0.2-0.2,0.4-0.4,0.4H19.7c-0.3,0.5-0.7,0.9-1.2,1.2
+	        c2.9,1.1,4.8,3.8,4.8,6.9l0,0.5l-0.7,0l0-0.5c0-3.1-2.1-5.7-5.1-6.4c-0.1,0-0.3-0.2-0.3-0.3s0.1-0.3,0.2-0.4
+	        c1.3-0.6,2.2-1.9,2.2-3.3c0-2-1.6-3.7-3.7-3.7c-2,0-3.7,1.6-3.7,3.7c0,1.4,0.8,2.7,2.2,3.3c0.1,0.1,0.2,0.2,0.2,0.4S14.6,24,14.4,24
+	        c-3,0.7-5.1,3.4-5.1,6.4l0,0.5l-0.7,0l0-0.5c0-3.1,1.9-5.9,4.8-6.9c-1.1-0.8-1.8-2.1-1.8-3.6c0-2.3,1.8-4.2,4-4.4V5
+	        c0-0.2,0.2-0.4,0.4-0.4h15C31.2,4.6,31.4,4.8,31.4,5z M30.6,8.4H16.4v7.3c2.2,0.2,4,2.1,4,4.4c0,0.6-0.1,1.1-0.3,1.6h10.6V8.4z
+	         M30.6,5.4H16.4v2.3h14.3V5.4z M22,11.6h-4v0.7h4V11.6z M23.6,17.5c0-1.6,1.3-2.9,2.9-2.9s2.9,1.3,2.9,2.9s-1.3,2.9-2.9,2.9
+	        S23.6,19.1,23.6,17.5z M28.2,16.3l-1.4,1.4l0,2c1-0.2,1.8-1,1.8-2.1C28.6,17,28.5,16.6,28.2,16.3z M24.4,17.5c0,1.1,0.8,1.9,1.8,2.1
+	        l0-2.3l1.6-1.6c-0.3-0.2-0.8-0.4-1.2-0.4C25.3,15.4,24.4,16.3,24.4,17.5z M8,9.6H5v0.7h3V9.6z M3.5,21.4h3v-0.7h-3V21.4z M3.5,19.4
+	        h3v-0.7h-3V19.4z M22,13.6h-4v0.7h4V13.6z M29,11.6h-4v0.7h4V11.6z M29,9.6h-4v0.7h4V9.6z M22,9.6h-4v0.7h4V9.6z M8.4,17.6v7.8
+	        c0,0.5-0.4,0.9-0.9,0.9H2.6c-0.5,0-0.9-0.4-0.9-0.9v-7.8c0-0.5,0.4-0.9,0.9-0.9h4.8C7.9,16.6,8.4,17.1,8.4,17.6z M7.6,23.4H2.4v2.1
+	        c0,0.1,0.1,0.2,0.2,0.2h4.8c0.1,0,0.2-0.1,0.2-0.2V23.4z M7.6,17.6c0-0.1-0.1-0.2-0.2-0.2H2.6c-0.1,0-0.2,0.1-0.2,0.2v5.1h5.3V17.6z
+	        "/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Enable sandbox environments to encourage the play and exploration that is so essential to application developers."
+    },
+    {
+        id: 4,
+        iconPath: '<path class="st2" d="M12.4,16c-0.4,0-0.7-0.1-0.9-0.3c-0.2-0.2-0.3-0.5-0.3-0.8h-0.1c-0.2,0.4-0.4,0.8-0.8,1
+			C10,16.1,9.5,16.2,9,16.2c-0.8,0-1.4-0.2-1.8-0.6c-0.4-0.4-0.6-0.9-0.6-1.6c0-0.7,0.3-1.2,0.7-1.6c0.5-0.4,1.3-0.5,2.3-0.5h1.4
+			v-0.7c0-0.5-0.1-0.9-0.4-1.2C10.4,9.7,10,9.6,9.4,9.6C9,9.6,8.6,9.7,8.3,9.9c-0.3,0.2-0.5,0.5-0.7,0.8L6.9,10
+			c0.2-0.4,0.5-0.7,0.9-1c0.4-0.3,1-0.4,1.6-0.4c0.9,0,1.6,0.2,2,0.6c0.5,0.4,0.7,1,0.7,1.8v4h0.8v1H12.4z M9.2,15.2
+			c0.3,0,0.5,0,0.8-0.1c0.2-0.1,0.4-0.2,0.6-0.3c0.2-0.1,0.3-0.3,0.4-0.4c0.1-0.2,0.1-0.3,0.1-0.5v-1.2H9.6c-0.6,0-1.1,0.1-1.4,0.3
+			c-0.3,0.2-0.4,0.5-0.4,0.8v0.3c0,0.4,0.1,0.6,0.4,0.8C8.4,15.1,8.8,15.2,9.2,15.2z M14.7,8.8h1.1v1.2h0.1c0.2-0.5,0.5-0.8,0.8-1
+			C17,8.7,17.5,8.6,18,8.6c0.4,0,0.9,0.1,1.2,0.3c0.4,0.2,0.7,0.4,0.9,0.8s0.5,0.7,0.6,1.2c0.1,0.5,0.2,1,0.2,1.6
+			c0,0.6-0.1,1.1-0.2,1.6c-0.1,0.5-0.3,0.9-0.6,1.2s-0.6,0.6-0.9,0.8c-0.4,0.2-0.8,0.3-1.2,0.3c-1,0-1.7-0.4-2.1-1.3h-0.1v4h-1.1
+			V8.8z M17.6,15.2c0.6,0,1.1-0.2,1.5-0.6s0.5-0.9,0.5-1.6v-1.2c0-0.6-0.2-1.2-0.5-1.6c-0.4-0.4-0.9-0.6-1.5-0.6
+			c-0.3,0-0.5,0-0.7,0.1c-0.2,0.1-0.4,0.2-0.6,0.3c-0.2,0.1-0.3,0.3-0.4,0.4c-0.1,0.2-0.1,0.4-0.1,0.6v2.7c0,0.2,0,0.4,0.1,0.6
+			c0.1,0.2,0.2,0.3,0.4,0.5c0.2,0.1,0.4,0.2,0.6,0.3C17.2,15.1,17.4,15.2,17.6,15.2z M23.3,7.1c-0.2,0-0.4-0.1-0.5-0.2
+			c-0.1-0.1-0.2-0.3-0.2-0.5V6.3c0-0.2,0.1-0.3,0.2-0.5c0.1-0.1,0.3-0.2,0.5-0.2c0.2,0,0.4,0.1,0.5,0.2C24,5.9,24,6.1,24,6.3v0.2
+			c0,0.2-0.1,0.3-0.2,0.5C23.8,7,23.6,7.1,23.3,7.1z M22.8,8.8h1.1V16h-1.1V8.8z M31,31.4H1v-0.7h30V31.4z M31,24.4H1
+			c-0.2,0-0.4-0.2-0.4-0.4V1c0-0.2,0.2-0.4,0.4-0.4h30c0.2,0,0.4,0.2,0.4,0.4v23C31.4,24.2,31.2,24.4,31,24.4z M1.4,23.6h29.3V1.4
+			H1.4V23.6z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Provide simple and highly-secure access to mainframe applications and data through APIs in minutes."
+    },
+    {
+        id: 5,
+        iconPath: '<path class="st1" d="M18,31.4h-4c-0.1,0-0.2-0.1-0.3-0.2l-2-3.5c-0.1-0.1-0.1-0.2,0-0.4l2-3.5c0.1-0.1,0.2-0.2,0.3-0.2h3.8l2.9-5
+	        c0.1-0.2,0.3-0.2,0.5-0.1c0.2,0.1,0.2,0.3,0.1,0.5l-2.9,5l1.9,3.3c0.1,0.1,0.1,0.2,0,0.4l-2,3.5C18.2,31.3,18.1,31.4,18,31.4z
+	         M14.2,30.6h3.6l1.8-3.1l-1.8-3.1h-3.6l-1.8,3.1L14.2,30.6z M28,25.6h-4c-0.1,0-0.2-0.1-0.3-0.2l-2-3.5c-0.1-0.1-0.1-0.2,0-0.4
+	        l1.9-3.3l-2.9-5c-0.1-0.2,0-0.4,0.1-0.5c0.2-0.1,0.4,0,0.5,0.1l2.9,5H28c0.1,0,0.2,0.1,0.3,0.2l2,3.5c0.1,0.1,0.1,0.2,0,0.4l-2,3.5
+	        C28.2,25.5,28.1,25.6,28,25.6z M24.2,24.9h3.6l1.8-3.1l-1.8-3.1h-3.6l-1.8,3.1L24.2,24.9z M8,25.6H4c-0.1,0-0.2-0.1-0.3-0.2l-2-3.5
+	        c-0.1-0.1-0.1-0.2,0-0.4l2-3.5C3.8,18,3.9,17.9,4,17.9h4c0.1,0,0.2,0.1,0.3,0.2l1.9,3.3H16c0.2,0,0.4,0.2,0.4,0.4
+	        c0,0.2-0.2,0.4-0.4,0.4h-5.8l-1.9,3.3C8.2,25.5,8.1,25.6,8,25.6z M4.2,24.9h3.6l1.8-3.1l-1.8-3.1H4.2l-1.8,3.1L4.2,24.9z M11,19.3
+	        c-0.1,0-0.2-0.1-0.3-0.2l-2.9-5H4c-0.1,0-0.2-0.1-0.3-0.2l-2-3.5c-0.1-0.1-0.1-0.2,0-0.4l2-3.5C3.8,6.5,3.9,6.4,4,6.4h4
+	        c0.1,0,0.2,0.1,0.3,0.2l2,3.5c0.1,0.1,0.1,0.2,0,0.4l-1.9,3.3l2.9,5c0.1,0.2,0,0.4-0.1,0.5C11.1,19.2,11.1,19.3,11,19.3z M4.2,13.3
+	        h3.6l1.8-3.1L7.8,7.1H4.2l-1.8,3.1L4.2,13.3z M28,14.1h-4c-0.1,0-0.2-0.1-0.3-0.2l-1.9-3.3H16c-0.2,0-0.4-0.2-0.4-0.4
+	        c0-0.2,0.2-0.4,0.4-0.4h5.8l1.9-3.3c0.1-0.1,0.2-0.2,0.3-0.2h4c0.1,0,0.2,0.1,0.3,0.2l2,3.5c0.1,0.1,0.1,0.2,0,0.4l-2,3.5
+	        C28.2,14,28.1,14.1,28,14.1z M24.2,13.3h3.6l1.8-3.1l-1.8-3.1h-3.6l-1.8,3.1L24.2,13.3z M11,13.5c-0.1,0-0.1,0-0.2,0
+	        c-0.2-0.1-0.2-0.3-0.1-0.5l2.9-5l-1.9-3.3c-0.1-0.1-0.1-0.2,0-0.4l2-3.5c0.1-0.1,0.2-0.2,0.3-0.2h4c0.1,0,0.2,0.1,0.3,0.2l2,3.5
+	        c0.1,0.1,0.1,0.2,0,0.4l-2,3.5c-0.1,0.1-0.2,0.2-0.3,0.2h-3.8l-2.9,5C11.2,13.4,11.1,13.5,11,13.5z M14.2,7.6h3.6l1.8-3.1l-1.8-3.1
+	        h-3.6l-1.8,3.1L14.2,7.6z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Embrace modern enterprise DevOps with industry-standard tooling and modern languages that expands your talent pool."
+    },
+    {
+        id: 6,
+        iconPath: '<path class="st2" d="M22,31.4c-1.9,0-3.4-1.5-3.4-3.4v-9h0.7v9c0,1.5,1.2,2.6,2.6,2.6c1.5,0,2.6-1.2,2.6-2.6v-5h0.7v5
+			C25.4,29.9,23.9,31.4,22,31.4z M10,31.4c-1.9,0-3.4-1.5-3.4-3.4v-9h0.7v9c0,1.5,1.2,2.6,2.6,2.6s2.6-1.2,2.6-2.6V4
+			c0-1.9,1.5-3.4,3.4-3.4s3.4,1.5,3.4,3.4v9h-0.7V4c0-1.5-1.2-2.6-2.6-2.6S13.4,2.5,13.4,4v24C13.4,29.9,11.9,31.4,10,31.4z
+			 M27.3,20.3l-0.5-0.5l3.4-3.4H16v-0.7h14.1l-3.4-3.4l0.5-0.5l4.3,4.3L27.3,20.3z M10,16.4H1v-0.7h9V16.4z M7.4,13H6.6V4
+			c0-1.5-1.2-2.6-2.6-2.6S1.4,2.5,1.4,4v9H0.6V4c0-1.9,1.5-3.4,3.4-3.4S7.4,2.1,7.4,4V13z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Take a standardized approach to IT automation and reduce the need for specialized skills while maintaining proper controls and compliance."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    ~NEW~ subSectionAccordion: Adds accordion/twisties section after main content, example can be seen in Use Cases on FHE. accordionContent accepts HTML and will be filtered for definition tooltips.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Understand the basics",
+        tabSubSections: [
+            {
+                subSectionTitle: "How does it work?",
+                subSectionContent: "<p>IBM Z and Cloud Modernization Stack uses Red Hat® OpenShift® Container Platform to integrate IBM Z assets into a hybrid cloud and connect hybrid cloud assets to IBM Z. This platform-level integration paves the way for developers to easily create and deploy APIs for z/OS applications with z/OS Connect Designer, work on z/OS applications with cloud native tools and familiar IDEs, use popular languages such as Python, Go, Node.js, and Java™ to integrate with standard, enterprise-wide CI/CD pipelines.</p>
+                <p>Each product in IBM Z and Cloud Modernization Stack provides an operator to Red Hat® OpenShift® Container Platform so that it can be controlled from there. An operator extends the Kubernetes API by providing a set of application-specific resources that package, deploy, and manage that application. It is essentially a custom controller. IBM Z and Cloud Modernization Stack delivers two types of operator: Red Hat® OpenShift® Container Platform operators, and suboperators that can be installed through the z/OS Cloud Broker operator.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=overview-whats-in-z-cloud-modernization-stack",
+                        linkText: "See a list of which operators are included"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=overview-how-it-works",
+                        linkText: "Learn more about how operators work"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "What's included?",
+                subSectionContent: "<p>IBM Z and Cloud Modernization Stack goes beyond the basic bundle to bring together a carefully curated set of products and deliver a flexible solution that can accelerate your modernization journey today and help you plan for growth tomorrow.</p>
+                <p>This curated set of products includes z/OS Cloud Broker and z/OS Package Manager, which are only available with IBM Z and Cloud Modernization Stack. z/OS Cloud Broker can help you automate z/OS resource provisioning by providing direct access to z/OS resources and services, while z/OS Package Manager can help you install products from the IBM Cloud Container Registry into a defined directory on z/OS File System.  With z/OS Cloud Broker, you can then install a variety of suboperators such as z/OS Open Enterprise Languages and Z Open Automation Utilities.</p>
+                <p>To learn more about each of the products included in IBM Z and Cloud Modernization stack, follow these links to the product documentation:</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=automating-zos-resources-provisioning-zos-cloud-broker",
+                        linkText: "z/OS Cloud Broker"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=installing-products-zos-zos-package-manager",
+                        linkText: "z/OS Package manager"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=enhance-zos-applications-open-enterprise-languages",
+                        linkText: "z/OS Open Enterprise Languages"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=accessing-z-assets-zos-connect",
+                        linkText: "z/OS Connect"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=developing-zos-applications-wazi",
+                        linkText: "IBM Wazi"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=automating-zos-tasks-z-open-automation-utilities",
+                        linkText: "Z Open Automation Utilities"
+                    }
+                ]
+            }
+        ]
+    },
+     {
+        id: 2,
+        tabTitle: "Planning and prerequisites",
+        tabSubSections: [
+            {
+                subSectionTitle: "Planning for modernization",
+                subSectionContent: "<p>Red Hat® OpenShift® is a platform that enables a cloud-like experience everywhere that it's deployed. Red Hat® OpenShift® Container Platform is a self-managed version of Red Hat® OpenShift® for automating the deployment and management of containerized applications.</p>
+                <p>IBM Z and Cloud Modernization Stack delivers a single flexible platform with the common tools and capabilities needed to modernize z/OS® environments and applications. Integration with Red Hat OpenShift can simplify your development, deployment, and configuration experience, while providing more control to security admins with an enhanced role based security model.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.redhat.com/en/technologies/cloud-computing/openshift?extIdCarryOver=true&sc_cid=7013a000002pdO4AAI",
+                        linkText: "Learn more about Red Hat OpenShift"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=installing-where-get-products",
+                        linkText: "Learn more about security"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Use cases",
+                subSectionContent: "<p>Red Hat OpenShift Container Platform helps system programmers and administrators simplify provisioning while retaining full control over who can do what. For example, by using z/OS Cloud Broker, z/OS Package Manager, Wazi Sandbox, and Z Open Automation Utilities, the following features are yours to enjoy:</p>
+                <ul><li>Automate z/OS software management and tasks without needing complicated custom programs or deep z/OS skills</li>
+                <li>Create personal sandbox environments on Red Hat OpenShift Container Platform</li>
+                <li>Enable self-serve access to managed z/OS develop and test environments</li>
+                <li>Gain valuable hybrid cloud skills by learning and using modern Red Hat OpenShift Container Platform tools and resources</li>
+                <li>Use your familiarity with Linux™ and UNIX commands to access MVS resources without JCL</li></ul>
+                <p></p>
+                <p>When you install and manage z/OS products through Red Hat OpenShift Container Platform, developers can enjoy smoother workflows and free up more time to explore new technologies. For example:</p>
+                <ul><li>Use Wazi Analyze to visualize and understand how your proposed code changes might affect applications written in COBOL, PL/I, Assembler, and Java</li>
+                <li>Create, scale, and secure APIs with z/OS Connect Designer that support the Open API 3.0 specification and can access z/OS Systems of Record</li>
+                <li>Extend the functions of familiar IDEs with Wazi Code to author solutions in popular languages such as Python, Go, Node.js, and Java, and then integrate your creations through standard, enterprise-wide CI/CD pipelines</li>
+                <li>Get sandbox environments on demand through Wazi Sandbox to experiment with cloud native tools, new products, and promising projects</li></ul>"
+            },
+            {
+                subSectionTitle: "Prerequisites",
+                subSectionContent: "<p>When planning your installation and configuration requirements, review the system requirements for hardware, software, and storage.</p>
+                <p>Some of the products in IBM Z and Cloud Modernization Stack that run on z/OS require you to have permission to run certain commands. So review the access control requirements to determine if you will need to set this up.</p>
+                <p>You can install IBM Z and Cloud Modernization Stack on Linux® with the supported versions of Red Hat® OpenShift® Container Platform.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=planning-supported-versions-red-hat-openshift-container-platform",
+                        linkText: "Supported versions of Red Hat® OpenShift® Container Platform"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=planning-system-requirements",
+                        linkText: "System requirements"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=planning-access-control-requirements-zos",
+                        linkText: "Access control requirements"
+                    }
+                ]
+            }
+        ]
+    },
+     {
+        id: 3,
+        tabTitle: "Set up and install",
+        tabSubSections: [
+            {
+                subSectionTitle: "Licensing and entitlement",
+                subSectionContent: "<p>The components of products in IBM Z and Cloud Modernization Stack are distributed differently, depending on how they are installed or whether they have additional, non-containerized components that must be downloaded from IBM Passport Advantage.</p>
+                <p>Entitlement is flexible in IBM Z and Cloud Modernization Stack. You pay only for what you use through a flexible mechanism called Virtual Processor Cores (VPCs). These VPCs work like entitlement tokens. Each product in IBM Z and Cloud Modernization Stack has a metric for the number of VPCs that it requires at different levels of consumption. You purchase a number of VPCs to gain entitlement to the products and their consumption levels but, after you are entitled, you can switch the allocation of your VPCs between products to meet your needs. You do not have to notify IBM of your allocation provided that you remain within your entitled capacity.</p>
+                <p>When you install operators for the products in IBM Z and Cloud Modernization Stack, you click your acceptance to the associated license. Most of the products have no license tracking.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=administering-tracking-license-use",
+                        linkText: "Tracking license use"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=installing-where-get-products",
+                        linkText: "Where to get the products"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Set up your environment",
+                subSectionContent: "<p>Before you can install products in IBM Z and Cloud Modernization Stack, you must set up the environment in Red Hat® OpenShift® Container Platform:</p>
+                <ol><li>Install Red Hat® OpenShift® Container Platform</li>
+                <li>Install Red Hat® OpenShift® Container Platform CLI</li>
+                <li>Configure persistent storage</li>
+                <li>Create a project (namespace)</li>
+                <li>Create an image pull secret</li>
+                <li>Configure network policies</li>
+                <li>Create the catalog source</li></ol>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/1.0?topic=clusters-installing-ocp",
+                        linkText: "Install Red Hat OpenShift Container Platform"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=installing-preparing-install-online",
+                        linkText: "Learn more about how to set up your environment"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Install the products",
+                subSectionContent: "<p>After you have completed the steps to set up your environment in Red Hat OpenShift Container Platform, you can begin installing the products.</p>
+                <p>In addition to system requirements, the products classified as suboperators require a specific installation sequence. Suboperators can only be installed through z/OS Cloud Broker, so you must install in this order:</p>
+                <ol><li>z/OS Cloud Broker</li>
+                <li>z/OS Package Manager</li>
+                <li>Any other suboperator</li></ol>
+                <p>For the products that are installed through z/OS Cloud Broker and z/OS Package Manager on z/OS, you set up the z/OS environment to use these products through environment variables.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/1.0?topic=clusters-installing-ocp",
+                        linkText: "Install the products"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=getting-started",
+                        linkText: "How to get started with each product"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=installing-setting-environment-variables-zos",
+                        linkText: "Learn more about setting environment variables on z/OS"
+                    }
+                ]
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FAQs #}
+{#
+Two formats are available, with or without accordion wrapped category sections. Only use one, not both.
+
+Original pattern: Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqs = [
+    {
+    question: "",
+    answer: ""
+    }
+]#}
+
+{# OR Accordion pattern 
+catTitle: Title for category will be placed in accordion header
+faqs: Associated with this category and wrapped in accordion container. Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqSection = [
+    {
+        categories: [
+            {
+                catTitle: "",
+                faqs: [
+                    {
+                        question: "",
+                        answer: ""
+                    }
+                ]
+            }
+        ]
+    }
+] #}
+
+{# Learn more - optional section below the main FAQs if needed. Can support as many sections as needed following this pattern:
+heading: section heading string
+content: paragraph text content
+links: link section below
+    linkURL: link address
+    linkText: link display text
+    linkType: "local" or "external"
+ #}
+{# New for Zowe page - change Learn more to custom text, and optional intro paragraph #}
+{#set customLMTitle = "" #}
+{# set learnMoredescription = ""#}
+
+{# set learnMore =  [
+    {
+        heading: "",
+        content: "",
+        links: [
+            {
+            linkUrl: "",
+            linkText: "",
+            linkType: ""
+        }
+        ]
+    }
+]
+#}
+
+{# Learn more ALTERNATE pattern for Resilience solution with accordion section
+section: Subheading under Learn more, above accordions
+categories: Each is an accordion wrapper
+    catTitle: Accordion heading
+    content: Supports any custom html content, wrap with appropriate tags
+ #}
+{# set learnMoreAccordion = 
+[
+        {
+        section: "",
+        categories: [
+            {
+                catTitle: "",
+                content:  ""
+            }
+        ]
+        }
+]
+#}
+{# END FAQs #}
+
+{# *** NEW WITH CARBON *** #}
+{# START FEATURED DOCUMENTATION #}
+{# Optional section. Breaks out feature card for main IBM Documentation/C3 link. 1 per page max #}
+{% set documentation = {
+    docTitle: "IBM Documentation",
+    docDescription: "Learn more about how to get started with IBM Z and Cloud Modernization Stack.",
+    docLinkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=overview",
+    docLinkText: "Read the documentation"
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to hide tile on page temporarily.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "",
+        tabContent: [
+            {
+                resourceTitle: "Accelerate mainframe application modernization with hybrid cloud",
+                resourceDescription: "Get an overview of the IBM® strategy to help you modernize applications faster, at lower cost and less risk, by using IBM zSystems® and public cloud solutions together in your modernization journey.",
+                resourceLinkUrl: "https://www.redbooks.ibm.com/redpapers/pdfs/redp5705.pdf",
+                resourceLinkText: "Read the Redpaper",
+                resourceLinkType: "redbook",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Modernize mainframe applications for hybrid cloud with IBM and AWS",
+                resourceDescription: "Learn how IBM® and AWS are collaborating to extend the available application modernization options to enable customers to select the right modernization path for their business.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/skyla-loomis/2022/05/09/modernize-for-hybrid-cloud-with-ibm-and-aws",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "document",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Z and Cloud Modernization Center",
+                resourceDescription: "Accelerate transformation in your IBM zSystems® environment with expert resources, guidance, and capabilities.",
+                resourceLinkUrl: "https://www.ibm.com/community/z-and-cloud/",
+                resourceLinkText: "Explore modernization center",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Z and Cloud Modernization Stack GitHub community",
+                resourceDescription: "Explore the community repository of public content relevant to the IBM Z and Cloud Modernization Stack.",
+                resourceLinkUrl: "https://github.com/IBM/z-and-cloud-modernization-stack-community",
+                resourceLinkText: "Join the community",
+                resourceLinkType: "developer",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# *** NEW IN CARBON *** #}
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no announcement content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [5, 8, 26, 1] %}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = false %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "",
+        sectionContent: ""
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "zmodstack" %}
+{# END FEEDBACK #}
+
+{# START STATCOUNTER #}
+{# set statcounter = {
+    sc_project: "-",
+    sc_security: "-"
+}
+ #}
+{# END STATCOUNTER #}

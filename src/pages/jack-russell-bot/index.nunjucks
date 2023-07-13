@@ -1,0 +1,36 @@
+<!-- layout.nunjucks -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/">
+  <title>Jack Russell Chatbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:image" content="conversation.svg" />
+  <meta property="og:title" content="Conversation Chat Simple" />
+  <meta property="og:description" content="Sample application to answer questions about clinical research trials for COVID-19." />
+  <link rel="shortcut icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/app.css">
+</head>  
+<body>
+
+<img src="images/Veterinarian.png" alt="jack russell terrier named Barry"  width="100%" height="100%" />
+<script>
+  window.watsonAssistantChatOptions = {
+      integrationID: "835df319-ffd3-466e-aadc-d6f51433e810", // The ID of this integration.
+      region: "us-south", // The region your integration is hosted in.
+      serviceInstanceID: "c55e793a-187b-474c-81b9-474b1c021d06", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+    document.head.appendChild(t);
+  });
+</script>
+
+
+</body>
+</html>

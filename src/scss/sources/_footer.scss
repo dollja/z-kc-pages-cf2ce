@@ -1,0 +1,4 @@
+// Top border is set on corp footer, so hide the v18 rule that is injected as part of footer separator.
+#ibm-footer-module .ibm-rule {
+	display: none;
+}

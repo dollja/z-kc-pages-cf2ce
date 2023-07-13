@@ -1,0 +1,526 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+{# Optional sections are commented out by default, to activate them, change the # to % in their enclosing brackets. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "z/OS Containers" %}
+
+{# Solution key - Format is just number, no quotes.
+Replace 00 with number higher than last existing solution. Find existing key list in /data/pages.json and Related Solutions Box note, and update both places with all relevant information. #}
+{% set key = 33 %}
+
+{# META #}
+{% set meta_description = meta_description | default("") %}
+
+
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "image",
+    videoID: "",
+    thumbnailUrl: "",
+    label: ""
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "z/OS Containers provides industry standard cloud technologies to build your z/OS Unix System Services-based applications into containers. It also provides Kubernetes infrastructure to deploy, scale and manage those applications and enable them to fully participate in your enterprise hybrid cloud solution." %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{#
+{% set introLinks = [
+    {
+        id: 1,
+        type: "",
+        url: "",
+        text: ""
+
+    }
+] %}
+#}
+
+{# Introduction notifications #}
+{# Added for ServerPac notifications 5/15. Uses inline informational notification component, can be one or multiple.
+Title in bold (title) followed by a line break, and then the subtitle (subtitle) #}
+
+{# set notifications = [
+{
+    title: "",
+    subtitle: ""
+}
+] #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# set announcements = [
+    {
+    announcementText: "",
+    announcementLinkText: "",
+    announcementLinkUrl: ""
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+*NEW FOR CARBON*
+iconPath: Pictograms must be added as SVG paths. The <svg> enclosing tag is already included in the template (layout-dot-com, line 333), with its necessary styles and classes, so this will be the inner content excluding that and starting with <g>, <path>, <polygon>, etc. Open svg file in VS code to grab path. Any custom pictograms should be made following Carbon guidelines and grid at 32px x 32px.
+***
+iconUrl: Full link to the pictogram used for this step. *NO LONGER NEEDED IN CARBON, but can still be added for reference to the source file for the path.
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconPath: '<path d="M24 31.3601H10C9.80101 31.3601 9.64001 31.1991 9.64001 31.0001V26.0001C9.64001 25.8011 9.80101 25.6401 10 25.6401H20.64V23.5001C20.64 22.5961 19.905 21.8601 19 21.8601H15C13.699 21.8601 12.64 20.8011 12.64 19.5001V17.3601H10C9.80101 17.3601 9.64001 17.1991 9.64001 17.0001V12.0001C9.64001 11.8011 9.80101 11.6401 10 11.6401H24C24.199 11.6401 24.36 11.8011 24.36 12.0001V17.0001C24.36 17.1991 24.199 17.3601 24 17.3601H13.36V19.5001C13.36 20.4041 14.096 21.1401 15 21.1401H19C20.302 21.1401 21.36 22.1991 21.36 23.5001V25.6401H24C24.199 25.6401 24.36 25.8011 24.36 26.0001V31.0001C24.36 31.1991 24.199 31.3601 24 31.3601ZM10.36 30.6401H23.64V26.3601H10.36V30.6401ZM10.36 16.6401H23.64V12.3601H10.36V16.6401ZM14 28.8601H12V28.1401H14V28.8601ZM26.001 19.3601V18.6401C28.819 18.6401 30.64 17.1521 30.64 14.8471C30.64 12.4151 28.691 10.3601 26.383 10.3601C26.184 10.3601 26.023 10.1991 26.023 10.0001C26.023 5.15511 22.127 1.36011 17.155 1.36011C14.071 1.36011 10.994 3.29111 9.31501 6.27811C9.23901 6.41111 9.09101 6.48111 8.93901 6.45711C8.56601 6.39311 8.18901 6.36011 7.82101 6.36011C4.13701 6.36011 1.36001 9.01711 1.36001 12.5391C1.36001 16.0171 4.21501 18.6401 8.00101 18.6401V19.3611C3.80501 19.3611 0.641006 16.4281 0.641006 12.5401C0.641006 8.60711 3.72801 5.64111 7.82201 5.64111C8.14901 5.64111 8.48101 5.66411 8.81301 5.70911C10.643 2.62211 13.891 0.641113 17.155 0.641113C22.413 0.641113 26.556 4.57311 26.737 9.65511C29.278 9.85211 31.361 12.1501 31.361 14.8481C31.36 17.5891 29.257 19.3601 26.001 19.3601ZM14 14.8601H12V14.1401H14V14.8601Z" fill="#161616"/>',
+        iconUrl: "https://izswebpage.mybluemix.net/images/cont/bp1.svg",
+        iconAlt: "",
+        description: "Install the z/OS Containers product using SMP/E command line or Portable Software Instance (PSI)."
+    },
+    {
+        id: 2,
+        iconPath: '<path d="M18 14.3599H30C30.199 14.3599 30.36 14.1989 30.36 13.9999V1.99989C30.36 1.80089 30.199 1.63989 30 1.63989H18C17.801 1.63989 17.64 1.80089 17.64 1.99989V7.63989H14.36V1.99989C14.36 1.80089 14.199 1.63989 14 1.63989H2.00001C1.80101 1.63989 1.64001 1.80089 1.64001 1.99989V13.9999C1.64001 14.1989 1.80101 14.3599 2.00001 14.3599H7.64001V17.6399H2.00001C1.80101 17.6399 1.64001 17.8009 1.64001 17.9999V29.9999C1.64001 30.1989 1.80101 30.3599 2.00001 30.3599H14C14.199 30.3599 14.36 30.1989 14.36 29.9999V24.3599H17.64V29.9999C17.64 30.1989 17.801 30.3599 18 30.3599H30C30.199 30.3599 30.36 30.1989 30.36 29.9999V17.9999C30.36 17.8009 30.199 17.6399 30 17.6399H18C17.801 17.6399 17.64 17.8009 17.64 17.9999V23.6399H14.36V17.9999C14.36 17.8009 14.199 17.6399 14 17.6399H8.36001V14.3599H14C14.199 14.3599 14.36 14.1989 14.36 13.9999V8.35989H17.64V13.9999C17.64 14.1989 17.801 14.3599 18 14.3599ZM18.36 8.35989H24.131L22.745 9.74589L23.255 10.2549L25.509 7.99989L23.255 5.74589L22.745 6.25489L24.131 7.64089H18.36V2.35989H29.64V13.6399H18.36V8.35989ZM18.36 24.3599H22.688C22.846 24.9349 23.375 25.3599 24 25.3599C24.75 25.3599 25.36 24.7499 25.36 23.9999C25.36 23.2499 24.75 22.6399 24 22.6399C23.375 22.6399 22.847 23.0649 22.688 23.6399H18.36V18.3599H29.64V29.6399H18.36V24.3599ZM23.36 23.9999C23.36 23.6469 23.647 23.3599 24 23.3599C24.353 23.3599 24.64 23.6469 24.64 23.9999C24.64 24.3529 24.353 24.6399 24 24.6399C23.647 24.6399 23.36 24.3529 23.36 23.9999ZM8.00001 23.3599C8.35301 23.3599 8.64002 23.6469 8.64002 23.9999C8.64002 24.3529 8.35301 24.6399 8.00001 24.6399C7.64701 24.6399 7.36001 24.3529 7.36001 23.9999C7.36001 23.6469 7.64701 23.3599 8.00001 23.3599ZM13.64 29.6399H2.36001V18.3599H7.64001V22.6879C7.06401 22.8459 6.64001 23.3749 6.64001 23.9999C6.64001 24.7499 7.25001 25.3599 8.00001 25.3599C8.62501 25.3599 9.15302 24.9349 9.31202 24.3599H13.641V29.6399H13.64ZM13.64 18.3599V23.6389H9.31202C9.18602 23.1779 8.82101 22.8149 8.36001 22.6879V18.3599H13.64ZM8.00001 8.63989C7.64701 8.63989 7.36001 8.35289 7.36001 7.99989C7.36001 7.64689 7.64701 7.35989 8.00001 7.35989C8.35301 7.35989 8.64002 7.64689 8.64002 7.99989C8.64002 8.35289 8.35301 8.63989 8.00001 8.63989ZM13.64 13.6399H8.36001V9.31189C8.82101 9.18489 9.18502 8.82089 9.31202 8.35989H13.641V13.6399H13.64ZM13.64 7.63989H9.31202C9.15402 7.06389 8.62601 6.63989 8.00001 6.63989C7.25001 6.63989 6.64001 7.24989 6.64001 7.99989C6.64001 8.62489 7.06401 9.15289 7.64001 9.31189V13.6409H2.36001V2.35989H13.64V7.63989Z" fill="#161616"/>',
+        iconUrl: "https://izswebpage.mybluemix.net/images/cont/bp2.svg",
+        iconAlt: "",
+        description: "Use z/OSMF workflows to guide you through configuration of LPARs to run z/OS Containers and Kubernetes."
+    },
+    {
+        id: 3,
+        iconPath: '<path d="M16 31.3601C15.941 31.3601 15.883 31.3451 15.829 31.3171L2.82901 24.3171C2.71301 24.2541 2.64001 24.1331 2.64001 24.0001V8.00015C2.64001 7.86815 2.71301 7.74615 2.82901 7.68315L15.829 0.683148C15.936 0.625148 16.063 0.625148 16.171 0.683148L29.171 7.68315C29.287 7.74615 29.36 7.86815 29.36 8.00015V24.0001C29.36 24.1331 29.287 24.2541 29.171 24.3171L16.171 31.3171C16.117 31.3461 16.059 31.3601 16 31.3601ZM3.36001 23.7851L16 30.5911L28.64 23.7851V8.21515L16 1.40915L3.36001 8.21515V23.7851ZM23 23.3601H13C12.801 23.3601 12.64 23.1991 12.64 23.0001V19.3601H9.00001C8.80101 19.3601 8.64001 19.1991 8.64001 19.0001V10.0001C8.64001 9.80115 8.80101 9.64015 9.00001 9.64015H19C19.199 9.64015 19.36 9.80115 19.36 10.0001V13.6401H23C23.199 13.6401 23.36 13.8011 23.36 14.0001V23.0001C23.36 23.1991 23.199 23.3601 23 23.3601ZM13.36 22.6401H22.64V14.3601H13.36V22.6401ZM9.36001 18.6401H12.64V14.0001C12.64 13.8011 12.801 13.6401 13 13.6401H18.64V10.3601H9.36001V18.6401ZM17 16.3601H15V15.6401H17V16.3601ZM13 12.3601H11V11.6401H13V12.3601Z" fill="#161616"/>',
+        iconUrl: "https://izswebpage.mybluemix.net/images/cont/bp4.svg",
+        iconAlt: "",
+        description: "Build and run images of your Unix System Services-based applications such as Java, Python, and z/OS Connect APIs using Podman."
+    },
+    {
+        id: 4,
+        iconPath: '<path d="M16 30.3604C15.938 30.3604 15.875 30.3434 15.819 30.3104L3.81901 23.3104C3.70801 23.2464 3.64001 23.1284 3.64001 23.0004V9.00037C3.64001 8.87238 3.70801 8.75338 3.81901 8.68937L15.819 1.68937C15.93 1.62438 16.07 1.62438 16.181 1.68937L28.181 8.68937C28.292 8.75338 28.36 8.87238 28.36 9.00037V23.0004C28.36 23.1284 28.292 23.2464 28.181 23.3114L16.181 30.3114C16.125 30.3444 16.062 30.3604 16 30.3604ZM4.36001 22.7934L16 29.5834L27.64 22.7934V9.20737L16 2.41738L4.36001 9.20737V22.7934ZM28 23.0004H28.009H28ZM11.986 24.6944C11.934 24.6944 11.881 24.6824 11.83 24.6584C11.651 24.5724 11.576 24.3574 11.662 24.1784L12.486 22.4664C10.762 21.5264 9.45301 19.9154 8.91201 17.9874L7.06101 18.4094C6.86801 18.4564 6.67401 18.3334 6.63001 18.1384C6.58601 17.9454 6.70701 17.7514 6.90101 17.7074L8.75201 17.2844C8.67901 16.8684 8.64001 16.4384 8.64001 16.0004C8.64001 14.3964 9.15601 12.9104 10.03 11.7004L8.54301 10.5144C8.38801 10.3904 8.36201 10.1644 8.48601 10.0084C8.61001 9.85338 8.83801 9.82837 8.99201 9.95138L10.479 11.1374C11.755 9.69137 13.588 8.74837 15.64 8.64937V6.75037C15.64 6.55137 15.801 6.39037 16 6.39037C16.199 6.39037 16.36 6.55137 16.36 6.75037V8.64937C18.411 8.74837 20.245 9.69137 21.521 11.1384L23.008 9.95237C23.162 9.82837 23.389 9.85238 23.514 10.0094C23.638 10.1654 23.613 10.3914 23.457 10.5154L21.97 11.7004C22.845 12.9104 23.361 14.3964 23.361 16.0004C23.361 16.4384 23.322 16.8684 23.249 17.2854L25.1 17.7084C25.294 17.7524 25.415 17.9454 25.371 18.1394C25.327 18.3324 25.138 18.4604 24.94 18.4104L23.089 17.9884C22.547 19.9164 21.238 21.5264 19.515 22.4674L20.339 24.1794C20.425 24.3584 20.35 24.5744 20.171 24.6594C19.991 24.7464 19.776 24.6714 19.691 24.4914L18.867 22.7804C17.105 23.5284 14.899 23.5284 13.137 22.7804L12.313 24.4914C12.249 24.6194 12.121 24.6944 11.986 24.6944ZM13.448 22.1304C15.02 22.7864 16.981 22.7864 18.553 22.1304L16.245 17.3384C16.086 17.3674 15.914 17.3674 15.755 17.3384L13.448 22.1304ZM9.61501 17.8274C10.106 19.5404 11.269 20.9714 12.799 21.8164L15.107 17.0244C14.983 16.9174 14.88 16.7884 14.802 16.6434L9.61501 17.8274ZM16.893 17.0244L19.201 21.8164C20.73 20.9704 21.893 19.5394 22.385 17.8264L17.198 16.6434C17.12 16.7884 17.017 16.9174 16.893 17.0244ZM10.594 12.1494C9.81701 13.2364 9.36001 14.5654 9.36001 16.0004C9.36001 16.3834 9.39301 16.7594 9.45501 17.1254L14.641 15.9414C14.648 15.7724 14.686 15.6114 14.75 15.4644L10.594 12.1494ZM17.358 15.9414L22.545 17.1254C22.607 16.7594 22.64 16.3834 22.64 16.0004C22.64 14.5654 22.183 13.2364 21.407 12.1494L17.251 15.4634C17.313 15.6114 17.352 15.7724 17.358 15.9414ZM16 15.3604C15.647 15.3604 15.36 15.6474 15.36 16.0004C15.36 16.3534 15.647 16.6404 16 16.6404C16.353 16.6404 16.64 16.3534 16.64 16.0004C16.64 15.6474 16.353 15.3604 16 15.3604ZM16.36 14.6884C16.521 14.7324 16.67 14.8054 16.8 14.9004L20.957 11.5864C19.814 10.3044 18.185 9.46638 16.36 9.36938V14.6884ZM11.043 11.5864L15.2 14.9004C15.331 14.8044 15.48 14.7324 15.64 14.6884V9.37037C13.816 9.46737 12.186 10.3054 11.043 11.5864Z" fill="#161616"/>',
+        iconUrl: "https://izswebpage.mybluemix.net/images/cont/bp3.svg",
+        iconAlt: "",
+        description: "Create Kubernetes clusters for development, test, and production. Create namespaces and give your teams access."
+    },
+    {
+        id: 5,
+        iconPath: '<path d="M24 31.3601C23.938 31.3601 23.877 31.3431 23.821 31.3121L16.821 27.3121C16.709 27.2481 16.64 27.1291 16.64 27.0001V23.3601H15.36V27.0001C15.36 27.1291 15.291 27.2481 15.179 27.3121L8.17901 31.3121C8.06801 31.3741 7.93301 31.3741 7.82201 31.3121L0.822015 27.3121C0.709015 27.2481 0.640015 27.1291 0.640015 27.0001V19.0001C0.640015 18.8711 0.709015 18.7521 0.821015 18.6881L7.82101 14.6881C7.93201 14.6251 8.06702 14.6251 8.17802 14.6881L11.312 16.4791L12.062 15.1661L8.82001 13.3141C8.70901 13.2491 8.64001 13.1291 8.64001 13.0001V5.00012C8.64001 4.87112 8.70901 4.75112 8.82101 4.68812L15.821 0.688119C15.932 0.625119 16.067 0.625119 16.178 0.688119L23.178 4.68812C23.291 4.75112 23.36 4.87112 23.36 5.00012V13.0001C23.36 13.1291 23.291 13.2491 23.178 13.3121L19.937 15.1641L20.687 16.4771L23.821 14.6861C23.932 14.6231 24.067 14.6231 24.178 14.6861L31.178 18.6861C31.29 18.7501 31.36 18.8701 31.36 18.9981V26.9981C31.36 27.1271 31.291 27.2461 31.178 27.3101L24.178 31.3101C24.123 31.3441 24.062 31.3601 24 31.3601ZM17.36 26.7911L24 30.5851L30.64 26.7911V19.2091L24 15.4151L21.045 17.1041L23.661 21.6831C23.77 21.6551 23.883 21.6401 24 21.6401C24.75 21.6401 25.36 22.2501 25.36 23.0001C25.36 23.7501 24.75 24.3601 24 24.3601C23.375 24.3601 22.847 23.9351 22.688 23.3601H17.36V26.7911ZM1.36001 26.7911L8.00001 30.5851L14.64 26.7911V23.3601H9.31201C9.15401 23.9351 8.62601 24.3601 8.00001 24.3601C7.25001 24.3601 6.64001 23.7501 6.64001 23.0001C6.64001 22.2501 7.25001 21.6401 8.00001 21.6401C8.11701 21.6401 8.23002 21.6561 8.33802 21.6831L10.955 17.1041L8.00001 15.4151L1.36001 19.2091V26.7911ZM24 22.3601C23.647 22.3601 23.36 22.6471 23.36 23.0001C23.36 23.3531 23.647 23.6401 24 23.6401C24.353 23.6401 24.64 23.3531 24.64 23.0001C24.64 22.6471 24.353 22.3601 24 22.3601ZM8.00001 22.3601C7.64701 22.3601 7.36001 22.6471 7.36001 23.0001C7.36001 23.3531 7.64701 23.6401 8.00001 23.6401C8.35301 23.6401 8.64001 23.3531 8.64001 23.0001C8.64001 22.6471 8.35301 22.3601 8.00001 22.3601ZM17.36 22.6401H22.688C22.75 22.4111 22.873 22.2051 23.037 22.0411L20.42 17.4611L17.36 19.2091V22.6401ZM15.36 22.6401H16.64V19.0001C16.64 18.8711 16.709 18.7521 16.821 18.6881L20.062 16.8361L19.312 15.5231L16.178 17.3141C16.067 17.3761 15.932 17.3761 15.821 17.3141L12.688 15.5231L11.938 16.8361L15.179 18.6881C15.291 18.7521 15.36 18.8721 15.36 19.0001V22.6401ZM9.31201 22.6401H14.641V19.2091L11.581 17.4611L8.96401 22.0411C9.12601 22.2051 9.24901 22.4101 9.31201 22.6401ZM13.045 14.8971L16 16.5851L18.955 14.8971L16.338 10.3171C16.121 10.3731 15.878 10.3731 15.661 10.3171L13.045 14.8971ZM16.963 9.95912L19.58 14.5391L22.64 12.7901V5.20912L16 1.41512L9.36001 5.20912V12.7911L12.42 14.5401L15.037 9.96012C14.792 9.71312 14.64 9.37412 14.64 9.00012C14.64 8.25012 15.25 7.64012 16 7.64012C16.75 7.64012 17.36 8.25012 17.36 9.00012C17.36 9.37412 17.208 9.71312 16.963 9.95912ZM16 8.36012C15.647 8.36012 15.36 8.64712 15.36 9.00012C15.36 9.35312 15.647 9.64012 16 9.64012C16.353 9.64012 16.64 9.35312 16.64 9.00012C16.64 8.64712 16.353 8.36012 16 8.36012Z" fill="#161616"/>',
+        iconUrl: "https://izswebpage.mybluemix.net/images/cont/bp5.svg",
+        iconAlt: "",
+        description: "Deploy application images to development and test clusters using DevOps automation."
+    },
+    {
+        id: 6,
+        iconPath: '<path d="M29 2.63989H3.00001C1.69901 2.63989 0.640015 3.69889 0.640015 4.99989V21.9999C0.640015 23.3019 1.69901 24.3599 3.00001 24.3599H15.64V28.6389H9.00001V29.3599H23V28.6399H16.36V24.3599H29C30.302 24.3599 31.36 23.3009 31.36 21.9999V4.99989C31.36 3.69889 30.302 2.63989 29 2.63989ZM3.00001 3.35989H29C29.904 3.35989 30.64 4.09589 30.64 4.99989V18.6399H25.36V13.3059C25.935 13.1469 26.36 12.6249 26.36 12.0009C26.36 11.2509 25.75 10.6409 25 10.6409C24.25 10.6409 23.64 11.2509 23.64 12.0009C23.64 12.6249 24.065 13.1469 24.64 13.3059V18.6399H19.36V9.30489C19.935 9.14589 20.36 8.62389 20.36 7.99989C20.36 7.24989 19.75 6.63989 19 6.63989C18.25 6.63989 17.64 7.24989 17.64 7.99989C17.64 8.62389 18.065 9.14589 18.64 9.30489V18.6389H13.36V13.3049C13.935 13.1459 14.36 12.6239 14.36 11.9999C14.36 11.2499 13.75 10.6399 13 10.6399C12.25 10.6399 11.64 11.2499 11.64 11.9999C11.64 12.6249 12.065 13.1459 12.64 13.3049V18.6389H7.36001V9.30489C7.93501 9.14589 8.36001 8.62389 8.36001 7.99989C8.36001 7.24989 7.75001 6.63989 7.00001 6.63989C6.25001 6.63989 5.64001 7.24989 5.64001 7.99989C5.64001 8.62489 6.06501 9.14589 6.64001 9.30489V18.6389H1.36001V4.99989C1.36001 4.09589 2.09601 3.35989 3.00001 3.35989ZM25 12.6399C24.647 12.6399 24.36 12.3529 24.36 11.9999C24.36 11.6469 24.647 11.3599 25 11.3599C25.353 11.3599 25.64 11.6469 25.64 11.9999C25.64 12.3529 25.353 12.6399 25 12.6399ZM19 8.63989C18.647 8.63989 18.36 8.35289 18.36 7.99989C18.36 7.64689 18.647 7.35989 19 7.35989C19.353 7.35989 19.64 7.64689 19.64 7.99989C19.64 8.35289 19.353 8.63989 19 8.63989ZM13 12.6399C12.647 12.6399 12.36 12.3529 12.36 11.9999C12.36 11.6469 12.647 11.3599 13 11.3599C13.353 11.3599 13.64 11.6469 13.64 11.9999C13.64 12.3529 13.353 12.6399 13 12.6399ZM7.00001 8.63989C6.64701 8.63989 6.36001 8.35289 6.36001 7.99989C6.36001 7.64689 6.64701 7.35989 7.00001 7.35989C7.35301 7.35989 7.64001 7.64689 7.64001 7.99989C7.64001 8.35289 7.35301 8.63989 7.00001 8.63989ZM29 23.6399H3.00001C2.09601 23.6399 1.36001 22.9049 1.36001 21.9999V19.3599H30.64V21.9999C30.64 22.9039 29.904 23.6399 29 23.6399Z" fill="#161616"/>',
+        iconUrl: "https://izswebpage.mybluemix.net/images/cont/bp6.svg",
+        iconAlt: "",
+        description: "Integrate Kubernetes and application deployments into existing operations."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    ~NEW~ subSectionAccordion: Adds accordion/twisties section after main content, example can be seen in Use Cases on FHE. accordionContent accepts HTML and will be filtered for definition tooltips.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Planning for z/OS Containers",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>IBM z/OS Containers integrates standard open source technologies with z/OS to provide you with the ability to build and deploy z/OS applications as containers on z/OS, then orchestrate your deployments through Kubernetes.</p>
+                <p>You can use z/OS Containers to create a secure sandbox environment for development teams to experiment, deploy stand-alone Java applications that are built and tested on distributed systems, and more.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://ibmdocs-test.dcs.ibm.com/docs/en/zos-containers/1.0.0?topic=what-is-zos-containers",
+                        linkText: "Learn more about z/OS Containers"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Prerequisites",
+                subSectionContent: "<p>Before you get started, you need to have the following:</p>
+                <ul><li>z/OS v2.5 or later</li>
+                <li>zCX mounted in usr/lpp/zcx_zos</li>
+                <li>Integrated Cryptographic Service Facility (ICSF)</li>
+                <li>Access to the IBM container registry</li>
+                <li>An internal registry for your images</li>
+                <li>A Container Hosting Foundation license (preferred, not required)</li></ul>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://ibmdocs-test.dcs.ibm.com/docs/en/zos-containers/1.0.0?topic=planning-system-requirements",
+                        linkText: "Learn more about prerequisites in the z/OS Containers documentation"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/2.4.0?topic=guide-introduction-zos-icsf",
+                        linkText: "Learn more about ICSF"
+                    },
+                    {
+                        linkUrl: "https://ibm.github.io/ibm-z-oss-hub/main/main.html",
+                        linkText: "Learn more about IBM Z and LinuxONE container registry"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "What's included?",
+                subSectionContent: "<p>z/OS Containers includes utilities, such as an open source tool for building and running OCI images (Podman), and an open source tool for working with images in registries (Skopeo).</p>
+                <p>z/OS Containers includes an open source container runtime with a CLI (runC), a monitoring program and communication tool (Conmon), and the Container Network Interface plug-in (CNI).</p>
+                <p>z/OS Containers includes the Kubernetes control plane, which runs on Linux on zSystems in a z/OS Container Extensions (zCX) appliance and provides a set of components that coordinate the cluster. It includes kubelet and cri-o, which run natively on z/OS to enable an existing z/OS LPAR to be part of a Kubernetes cluster. You can deploy an image using the Kubernetes command line interface (kubectl).</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://ibmdocs-test.dcs.ibm.com/docs/en/zos-containers/1.0.0?topic=containers-components-zos",
+                        linkText: "Learn more about z/OS Containers components"
+                    },
+                    {
+                        linkUrl: "https://ibmdocs-test.dcs.ibm.com/docs/en/zos-containers/1.0.0?topic=containers-architecture-zos",
+                        linkText: "Learn more about z/OS Containers architecture"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Install and configure",
+        tabSubSections: [
+            {
+                subSectionTitle: "Download and install z/OS Containers",
+                subSectionContent: "<p>Download z/OS Containers, then install it using the SMP/E command line or Portable Software Instance (PSI).</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://ibmdocs-test.dcs.ibm.com/docs/en/zos-containers/1.0.0?topic=containers-before-you-begin-configuring-zos",
+                        linkText: "Learn more about what to do before you begin configuring z/OS Containers"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Configure z/OS Containers",
+                subSectionContent: "<ol><li>Configure the container runtime on an LPAR. If you are using the Portable Software Instance, then complete the z/OSMF workflow to guide you through configuring a sandbox LPAR.</li>
+                <li>Configure the kubeadmz and kam z/OS UNIX command line utilities.</li>
+                <li>Configure thte z/OS Control Plane Appliance as a Kubernetes control plane node.</li>
+                <li>Initiate a cluster and add a Kubernetes control plane to the cluster.</li>
+                <li>Run the z/OSMF workflow to perform the prerequisite steps required to join an LPAR to a cluster as a worker node</li>
+                <li>Add the worker node to the cluster by using the kubeadmz utility.</li></ol>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://ibmdocs-test.dcs.ibm.com/docs/en/zos-containers/1.0.0?topic=configuring-zos-containers",
+                        linkText: "Learn more about how to configure z/OS Containers"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Deploy z/OS Containers and Kubernetes to your LPARs",
+                subSectionContent: "<p>Decide which components are needed to run on which LPAR, then deploy z/OS Containers to the LPARs where you plan to run containers and kubernetes.</p>
+                <p>The z/OS Control Plane Appliance uses z/OSMF workflows. The following workflows are available:</p>
+                <ul><li>Provisioning</li>
+                <li>Reconfiguration</li>
+                <li>Add data disks</li>
+                <li>De-provisioning</li></ul>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://ibmdocs-test.dcs.ibm.com/docs/en/zos-containers/1.0.0?topic=containers-managing-zos-control-plane-appliance-workflows",
+                        linkText: "Learn more about the z/OS Control Plane Appliance"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Using z/OS Containers",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>With z/OS Containers, you can containerize existing applications on z/OS to make them easier to manage, or create new applications on z/OS and containerize them.</p>
+                <p>System programmers can provide standardized images of z/OS software ahead of time, that enables developers to deploy containerized z/OS applications and services. This allows system programmers to maintain control and oversight without being involved in every deployment.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://ibmdocs-test.dcs.ibm.com/docs/en/zos-containers/1.0.0?topic=containers-who-works-zos",
+                        linkText: "Learn more about how to work with z/OS Containers"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Containerization and z/OS",
+                subSectionContent: "<p>A container is an executable unit of software in which application code is packaged along with its libraries and dependencies. On z/OS, any application needs to be repackaged with Podman. When you run Podman, it uses the container runtime to create and start a container from the image in the image cache. If the container image is not in the cache, Podman pulls the container image from the OCI image registry.</p>
+                <p>z/OS Containers provides a container runtime that uses RunC and Conmon to create and run containers on z/OS. Conmon is a monitoring program and communication tool between a container manager, such as Podman, and an OCI runtime for a single container. RunC is an open source container runtime with a low-level CLI for running containers that is compliant with the Open Container Initiative (OCI) specification.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://ibmdocs-test.dcs.ibm.com/docs/en/zos-containers/1.0.0?topic=czc-what-are-container-runtime-components-in-zos-containers",
+                        linkText: "Learn more about the container runtime"
+                    },
+                    {
+                        linkUrl: "https://ibmdocs-test.dcs.ibm.com/docs/en/zos-containers/1.0.0?topic=containers-what-are-image-management-tools#podman__podman",
+                        linkText: "Learn more about Podman"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>Podman is an open source tool for managing the container lifecycle, and can be used for building and running images without requiring root access to the file system or a daemon.</p>
+                <p>Use Podman to:</p>
+                <ol><li>check your version and view help info</li>
+                <li>list your images</li>
+                <li>run an IBM supplied image to check your configuration</li>
+                <li>remove the container</li></ol>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://docs.podman.io/en/latest/_static/api.html?version=v4.3.1",
+                        linkText: "Learn more about how to run a container using Podman"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 4,
+        tabTitle: "Using Kubernetes",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Kubernetes is an open source orchestration tool for running and managing containers on different operating systems and is an industry standard foundation for cloud provider platforms, including IBM.</p>
+                <p>The Kubernetes cluster contains everything that is needed to deploy and manage containers at scale, and the Kubernetes control plane has key components to manage the cluster and is made up of control plane nodes. A control plane includes the etcd database for storing state information, an API server that components and users can communicate with, networking capabilities, and more. The control plane runs on Linux.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://kubernetes.io/docs/concepts/overview/",
+                        linkText: "Learn more about Kubernetes"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Kubernetes and z/OS",
+                subSectionContent: "<p>z/OS Containers provides a Kubernetes control plane on z/OS and a worker node on z/OS, so that you can reduce time to market by having a cluster fully on z/OS and share Kubernetes implementation. z/OS Containers does this by providing a control plane in an appliance that is based on z/OS container extensions (zCX), which provides a way to run Linux workloads in a z/OS address space.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://ibmdocs-test.dcs.ibm.com/docs/en/zos-containers/1.0.0?topic=containers-what-are-kubernetes-components-in-zos",
+                        linkText: "Learn more about Kubernetes on z/OS"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<ol><li>Set up kubectl</li>
+                <li>Log on to the cluster</li>
+                <li>Check that you can see common resources, like namespaces and nodes</li></ol>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://ibmdocs-test.dcs.ibm.com/docs/en/zos-containers/1.0.0?topic=containers-using-kubernetes-cluster-deploy-applications",
+                        linkText: "Learn more about how to use a Kubernetes cluster to deploy applications"
+                    }
+                ]
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FAQs #}
+{#
+Two formats are available, with or without accordion wrapped category sections. Only use one, not both.
+
+Original pattern: Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqs = [
+    {
+    question: "",
+    answer: ""
+    }
+]#}
+
+{# OR Accordion pattern 
+catTitle: Title for category will be placed in accordion header
+faqs: Associated with this category and wrapped in accordion container. Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqSection = [
+    {
+        categories: [
+            {
+                catTitle: "",
+                faqs: [
+                    {
+                        question: "",
+                        answer: ""
+                    }
+                ]
+            }
+        ]
+    }
+] #}
+
+{# Learn more - optional section below the main FAQs if needed. Can support as many sections as needed following this pattern:
+heading: section heading string
+content: paragraph text content
+links: link section below
+    linkURL: link address
+    linkText: link display text
+    linkType: "local" or "external"
+ #}
+{# New for Zowe page - change Learn more to custom text, and optional intro paragraph #}
+{#set customLMTitle = "" #}
+{# set learnMoredescription = ""#}
+
+{# set learnMore =  [
+    {
+        heading: "",
+        content: "",
+        links: [
+            {
+            linkUrl: "",
+            linkText: "",
+            linkType: ""
+        }
+        ]
+    }
+]
+#}
+
+{# Learn more ALTERNATE pattern for Resilience solution with accordion section
+section: Subheading under Learn more, above accordions
+categories: Each is an accordion wrapper
+    catTitle: Accordion heading
+    content: Supports any custom html content, wrap with appropriate tags
+ #}
+{# set learnMoreAccordion = 
+[
+        {
+        section: "",
+        categories: [
+            {
+                catTitle: "",
+                content:  ""
+            }
+        ]
+        }
+]
+#}
+{# END FAQs #}
+
+{# *** NEW WITH CARBON *** #}
+{# START FEATURED DOCUMENTATION #}
+{# Optional section. Breaks out feature card for main IBM Documentation/C3 link. 1 per page max #}
+{% set documentation = {
+    docTitle: "IBM z/OS Containers documentation",
+    docDescription: "Learn more about how to get started with and use z/OS Containers.",
+    docLinkUrl: "https://ibmdocs-test.dcs.ibm.com/docs/en/zos-containers/1.0.0",
+    docLinkText: "Read the documentation"
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to hide tile on page temporarily.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "",
+        tabContent: [
+        {
+                resourceTitle: "Community page",
+                resourceDescription: "Become part of the z/OS Containers community and join in the discussion.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/topic-home?CommunityKey=580c87a0-2f23-4e58-884f-3df136c80068",
+                resourceLinkText: "",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Z and LinuxONE Container Registry",
+                resourceDescription: "Learn more about the IBM Z and LinuxONE Container Registry.",
+                resourceLinkUrl: "https://ibm.github.io/ibm-z-oss-hub/main/main.html",
+                resourceLinkText: "",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Podman",
+                resourceDescription: "Learn more about how to run a container using podman.",
+                resourceLinkUrl: "https://docs.podman.io/en/latest/_static/api.html?version=v4.3.1",
+                resourceLinkText: "",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# *** NEW IN CARBON *** #}
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no announcement content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [26, 9, 2] %}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = false %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "",
+        sectionContent: ""
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "zos containers" %}
+{# END FEEDBACK #}
+
+{# START STATCOUNTER #}
+{# set statcounter = {
+    sc_project: "-",
+    sc_security: "-"
+}
+ #}
+{# END STATCOUNTER #}

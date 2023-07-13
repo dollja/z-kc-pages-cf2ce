@@ -1,0 +1,510 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+{# Optional sections are commented out by default, to activate them, change the # to % in their enclosing brackets. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "IBM z/OS Change Tracker" %}
+
+{# Solution key - Format is just number, no quotes.
+Replace 00 with number higher than last existing solution. Find existing key list in /data/pages.json and Related Solutions Box note, and update both places with all relevant information. #}
+{% set key = 29 %}
+
+{# META #}
+{% set meta_description = meta_description | default("") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "image",
+    videoID: "",
+    thumbnailUrl: "",
+    label: ""
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>IBM z/OS Change Tracker is a System Software Change Control and Management solution for the z/OS platform via a z/OSMF plugin.. It allows for tracking, control, and management of systems software configuration changes, and can identify and report on system-wide changes. </p>
+<p>With its advanced tooling, IBM z/OS Change Tracker can compare local and remote software deployments across z/OS environments, while critical system software and mission-critical application software can be monitored automatically in real-time. Automation extends to member-level backup of protected resources, and allows panel-driven recovery to resolve an undesired change. </p>
+<p>IBM z/OS Change Tracker provides robust capabilities to audit and check software integrity, protect critical libraries, and track changes to the members in these libraries through audit trails and fingerprinting key data sets in the environment.</p>
+<p>You can use IBM z/OS Change Tracker for data protection, data recovery, and audit support.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "",
+        url: "http://ibm.com/products/zos-change-tracker",
+        text: "Learn more about what IBM z/OS Change Tracker can do for your business"
+
+    }
+] %}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "changetracker" %}
+{# END FEEDBACK #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# START NOTIFICATIONS #}
+{# Added for ServerPac notifications 5/15. Uses inline informational notification component, can be one or multiple.
+Title in bold (title) followed by a line break, and then the subtitle (subtitle) #}
+{% set notifications = [
+    {
+        title: "z/OS Change Tracker is now supported as a z/OSMF plug-in",
+        subtitle: "Utilize the graphical user interface to perform various tasks to monitor resources via z/OSMF. Now available with the PTFs for APAR PH49337."
+    },
+    {
+        title: "Try z/OS Change Tracker at no charge (Subject to normal hardware and software consumption on z/OS)",
+        subtitle: "A 90-day trial for IBM z/OS Change Tracker is now available with the PTF for APAR PH51954. Clients will be able to have a full z/OS Change Tracker user experience until the 90 days trial is disabled."
+    }
+    ] %}
+{# END NOTIFICATIONS #}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+*NEW FOR CARBON*
+iconPath: Pictograms must be added as SVG paths. The <svg> enclosing tag is already included in the template (layout-dot-com, line 333), with its necessary styles and classes, so this will be the inner content excluding that and starting with <g>, <path>, <polygon>, etc. Open svg file in VS code to grab path. Any custom pictograms should be made following Carbon guidelines and grid at 32px x 32px.
+***
+iconUrl: Full link to the pictogram used for this step. *NO LONGER NEEDED IN CARBON, but can still be added for reference to the source file for the path.
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconPath: '<path id="endpoint--protection_1_" d="M30.6,22.6H1.4V7c0-0.9,0.7-1.6,1.6-1.6h14V4.6H3C1.7,4.6,0.6,5.7,0.6,7v18
+	c0,1.3,1.1,2.4,2.4,2.4h12.6v3.3H11v0.7h10v-0.7h-4.6v-3.3H29c1.3,0,2.4-1.1,2.4-2.4v-8h-0.7C30.6,17,30.6,22.6,30.6,22.6z M30.6,25
+	c0,0.9-0.7,1.6-1.6,1.6H3c-0.9,0-1.6-0.7-1.6-1.6v-1.6h29.3C30.6,23.4,30.6,25,30.6,25z M25,1.6l-6.4,3.2V12c0,3.5,2.9,6.4,6.4,6.4
+	s6.4-2.9,6.4-6.4V4.8L25,1.6z M30.6,12c0,3.1-2.5,5.6-5.6,5.6s-5.6-2.5-5.6-5.6V5.2L25,2.4l5.6,2.8V12z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Make sure you have z/OS V2.5 or later and IBM z/OS Change Tracker installed."
+    }, {
+        id: 2,
+        iconPath: '<path id="server--operating-systems_1_" d="M29,3.5C29,3.8,28.8,4,28.5,4S28,3.8,28,3.5S28.2,3,28.5,3S29,3.2,29,3.5z M26.5,3
+	C26.2,3,26,3.2,26,3.5S26.2,4,26.5,4S27,3.8,27,3.5S26.8,3,26.5,3z M24.5,3C24.2,3,24,3.2,24,3.5S24.2,4,24.5,4S25,3.8,25,3.5
+	S24.8,3,24.5,3z M31,30.4H1c-0.2,0-0.4-0.2-0.4-0.4V2c0-0.2,0.2-0.4,0.4-0.4h30c0.2,0,0.4,0.2,0.4,0.4v28
+	C31.4,30.2,31.2,30.4,31,30.4z M1.4,29.6h29.3V5.4H1.4V29.6z M1.4,4.6h29.3V2.4H1.4V4.6z M17.5,25.4h-3c-0.2,0-0.4-0.2-0.4-0.4v-1.9
+	c-0.4-0.1-0.8-0.3-1.1-0.5L11.7,24c-0.1,0.1-0.2,0.1-0.3,0.1l0,0c-0.1,0-0.2,0-0.3-0.1L9,21.9c-0.1-0.1-0.1-0.4,0-0.5l1.4-1.4
+	c-0.2-0.4-0.3-0.7-0.5-1.1H8c-0.2,0-0.4-0.2-0.4-0.4v-3c0-0.2,0.2-0.4,0.4-0.4h1.9c0.1-0.4,0.3-0.8,0.5-1.1L9,12.7
+	c-0.1-0.1-0.1-0.4,0-0.5l2.1-2.1c0.1-0.1,0.4-0.1,0.5,0l1.4,1.4c0.4-0.2,0.7-0.3,1.1-0.5V9c0-0.2,0.2-0.4,0.4-0.4h3
+	c0.2,0,0.4,0.2,0.4,0.4v1.9c0.4,0.1,0.8,0.3,1.1,0.5l1.4-1.4c0.1-0.1,0.4-0.1,0.5,0l2.1,2.1c0.1,0.1,0.1,0.2,0.1,0.3s0,0.2-0.1,0.3
+	L21.6,14c0.2,0.4,0.3,0.7,0.5,1.1H24c0.2,0,0.4,0.2,0.4,0.4v3c0,0.2-0.2,0.4-0.4,0.4h-1.9c-0.1,0.4-0.3,0.8-0.5,1.1l1.4,1.4
+	c0.1,0.1,0.1,0.2,0.1,0.3s0,0.2-0.1,0.3L20.9,24c-0.1,0.1-0.2,0.1-0.3,0.1l0,0c-0.1,0-0.2,0-0.3-0.1L19,22.6
+	c-0.4,0.2-0.7,0.3-1.1,0.5V25C17.9,25.2,17.7,25.4,17.5,25.4z M14.9,24.6h2.3v-1.8c0-0.2,0.1-0.3,0.3-0.3c0.5-0.1,1-0.3,1.5-0.6
+	c0.1-0.1,0.3-0.1,0.4,0.1l1.3,1.3l1.6-1.6l-1.3-1.3c-0.1-0.1-0.1-0.3-0.1-0.4c0.3-0.5,0.5-0.9,0.6-1.4c0-0.2,0.2-0.3,0.3-0.3h1.8
+	v-2.3h-1.8c-0.2,0-0.3-0.1-0.3-0.3c-0.1-0.5-0.3-1-0.6-1.4c-0.1-0.1-0.1-0.3,0.1-0.4l1.3-1.3l-1.6-1.6l-1.3,1.3
+	c-0.1,0.1-0.3,0.1-0.4,0.1c-0.5-0.3-0.9-0.5-1.5-0.6c-0.2,0-0.3-0.2-0.3-0.3V9.4h-2.3v1.8c0,0.2-0.1,0.3-0.3,0.3
+	c-0.5,0.1-1,0.3-1.4,0.6c-0.1,0.1-0.3,0.1-0.4-0.1l-1.3-1.3l-1.6,1.6l1.3,1.3c0.1,0.1,0.1,0.3,0.1,0.4c-0.3,0.5-0.5,0.9-0.6,1.4
+	c0,0.2-0.2,0.3-0.3,0.3H8.4v2.3h1.8c0.2,0,0.3,0.1,0.3,0.3c0.1,0.5,0.3,1,0.6,1.5c0.1,0.1,0.1,0.3-0.1,0.4l-1.3,1.3l1.6,1.6l1.3-1.3
+	c0.1-0.1,0.3-0.1,0.4-0.1c0.5,0.3,0.9,0.5,1.4,0.6c0.2,0,0.3,0.2,0.3,0.3L14.9,24.6L14.9,24.6z M16,20.9c-2.1,0-3.9-1.7-3.9-3.9
+	s1.7-3.9,3.9-3.9c2.1,0,3.9,1.7,3.9,3.9C19.9,19.1,18.1,20.9,16,20.9z M16,13.9c-1.7,0-3.1,1.4-3.1,3.1s1.4,3.1,3.1,3.1
+	s3.1-1.4,3.1-3.1S17.7,13.9,16,13.9z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Ensure that the IBM z/OS Change Tracker feature has been enabled in your customer profile."
+    }, {
+        id: 3,
+        iconPath: '<path id="trusted--user_1_" d="M24.4,31h-0.7v-7.5c0-3.6-2.4-6.6-5.9-7.4c-0.1,0-0.3-0.2-0.3-0.3c0-0.2,0.1-0.3,0.2-0.4
+		c1.5-0.7,2.5-2.2,2.5-3.8c0-2.3-1.9-4.2-4.2-4.2s-4.2,1.9-4.2,4.2c0,1.7,1,3.2,2.5,3.8c0.1,0.1,0.2,0.2,0.2,0.4
+		c0,0.2-0.1,0.3-0.3,0.3c-3.5,0.8-5.9,3.9-5.9,7.4V31H7.6v-7.5c0-3.6,2.3-6.7,5.6-7.9c-1.3-0.9-2.1-2.4-2.1-4.1c0-2,1.2-3.7,2.8-4.5
+		c0.2-0.5,0.3-1,0.3-1.5c0-2.3-1.9-4.2-4.2-4.2S5.8,3.2,5.8,5.6c0,1.7,1,3.2,2.5,3.8c0.1,0.1,0.2,0.2,0.2,0.4c0,0.2-0.1,0.3-0.3,0.3
+		c-3.5,0.8-5.9,3.9-5.9,7.4V25H1.6v-7.5c0-3.6,2.3-6.7,5.6-7.9C5.9,8.7,5.1,7.2,5.1,5.6c0-2.7,2.2-4.9,4.9-4.9s4.9,2.2,4.9,4.9
+		c0,0.4-0.1,0.8-0.2,1.2c0.8-0.2,1.7-0.2,2.5,0c-0.1-0.4-0.2-0.8-0.2-1.2c0-2.7,2.2-4.9,4.9-4.9s4.9,2.2,4.9,4.9
+		c0,1.6-0.8,3.2-2.1,4.1c3.3,1.2,5.6,4.3,5.6,7.9V25h-0.7v-7.5c0-3.6-2.4-6.6-5.9-7.4c-0.1,0-0.3-0.2-0.3-0.3c0-0.2,0.1-0.3,0.2-0.4
+		c1.5-0.7,2.5-2.2,2.5-3.8c0-2.3-1.9-4.2-4.2-4.2s-4.2,1.9-4.2,4.2c0,0.5,0.1,1.1,0.3,1.5c1.7,0.8,2.8,2.5,2.8,4.5
+		c0,1.6-0.8,3.2-2.1,4.1c3.3,1.2,5.6,4.3,5.6,7.9L24.4,31L24.4,31z M19.3,24.3l-0.5-0.5L15,27.5l-1.7-1.7l-0.5,0.5l2.3,2.3
+		L19.3,24.3z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Determine the various user roles (administrator, user, and auditor) and decide what each role has access to."
+    }, {
+        id: 4,
+        iconPath: '<path id="concept--expansion_1_" d="M31,31.4H21c-0.2,0-0.4-0.2-0.4-0.4v-1.6H16c-0.2,0-0.4-0.2-0.4-0.4V16.4h-4.3
+	c-0.2,2.8-2.5,5-5.3,5c-3,0-5.4-2.4-5.4-5.4c0-3,2.4-5.4,5.4-5.4c2.8,0,5.2,2.2,5.3,5h4.3V3c0-0.2,0.2-0.4,0.4-0.4l4.6,0V1
+	c0-0.2,0.2-0.4,0.4-0.4h10c0.2,0,0.4,0.2,0.4,0.4v4c0,0.2-0.2,0.4-0.4,0.4H21c-0.2,0-0.4-0.2-0.4-0.4V3.4l-4.3,0v12.3h4.3V14
+	c0-0.2,0.2-0.4,0.4-0.4h10c0.2,0,0.4,0.2,0.4,0.4v4c0,0.2-0.2,0.4-0.4,0.4H21c-0.2,0-0.4-0.2-0.4-0.4v-1.6h-4.3v12.3h4.3V27
+	c0-0.2,0.2-0.4,0.4-0.4h10c0.2,0,0.4,0.2,0.4,0.4v4C31.4,31.2,31.2,31.4,31,31.4z M21.4,30.6h9.3v-3.3h-9.3V30.6z M6,11.4
+	c-2.6,0-4.6,2.1-4.6,4.6s2.1,4.6,4.6,4.6s4.6-2.1,4.6-4.6S8.6,11.4,6,11.4z M21.4,17.6h9.3v-3.3h-9.3V17.6z M21.4,4.6h9.3V1.4h-9.3
+	V4.6z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Tailor the z/OSMF plugin file and run the provided z/OSMF Workflow to configure IBM z/OS Change Tracker."
+    },
+    {
+        id: 5,
+        iconPath: '<path id="inspect--data_1_" d="M0.6,12h0.7V1H0.6V12z M13.4,1h-0.7v5h0.7V1z M4.6,16h0.7V5H4.6V16z M0.6,28h0.7v-8H0.6V28z M0.6,16
+	h0.7v-3H0.6V16z M4.6,23h0.7v-6H4.6V23z M4.6,31h0.7v-5H4.6V31z M4.6,4h0.7V1H4.6V4z M9.4,4H8.6v8h0.7C9.4,12,9.4,4,9.4,4z M21.4,1
+	h-0.7v6h0.7L21.4,1L21.4,1z M8.6,30h0.7v-4H8.6V30z M0.6,19h0.7v-2H0.6V19z M9.4,1H8.6v2h0.7C9.4,3,9.4,1,9.4,1z M17.4,1h-0.7v3h0.7
+	V1z M17.4,5h-0.7v2h0.7V5z M4.6,25h0.7v-1H4.6V25z M13.4,7h-0.7v1h0.7V7z M30.3,30.8l-3.8-4.6c1.8-1.9,2.9-4.5,2.9-7.1
+	c0-5.7-4.6-10.4-10.4-10.4C13.3,8.6,8.6,13.3,8.6,19c0,5.7,4.6,10.4,10.4,10.4c2.6,0,5.1-1,7-2.7l3.7,4.6L30.3,30.8z M9.4,19
+	c0-5.3,4.3-9.6,9.6-9.6s9.6,4.3,9.6,9.6c0,2.6-1,5-2.8,6.8c-1.8,1.8-4.2,2.8-6.8,2.8C13.7,28.6,9.4,24.3,9.4,19z"/>',
+        iconUrl: "",
+        iconAlt: "",
+        description: "Administrator will define which data sets to track and protect."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    ~NEW~ subSectionAccordion: Adds accordion/twisties section after main content, example can be seen in Use Cases on FHE. accordionContent accepts HTML and will be filtered for definition tooltips.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs =
+[
+  {
+  id: 1,
+  tabTitle: "Use Cases",
+  tabSubSections: [
+    {
+      subSectionTitle: "Overview",
+      subSectionContent: "<p>IBM z/OS Change Tracker can be used for data protection and data recovery at the member level, audit support, and snapshot comparisons. System programmers can monitor and take automatic backups of critical configuration data sets at the member-level, while compliance evidence providers can use IBM z/OS Change Tracker to see who has changed critical configuration data sets for z/OS, including how it was changed and when.</p>
+      <p><strong>Data Protection:</strong> IBM z/OS Change Tracker provides monitoring and protection of critical libraries. Locked members cannot be changed without permission granted by the Administrator.</p>
+      <p><strong>Data Recovery:</strong> Automatic backups are generated whenever a monitored member is changed, and an optional email notification can be provided. Members in monitored data sets can be restored to previous versions.</p>
+      <p><strong>Audit Support:</strong> Out-of-the-box audit reports of monitored data sets indicate the event type (add, update, delete, rename, zap), who made the change, and when.</p>"
+    },
+    {
+      subSectionTitle: "System accountability tracking",
+      subSectionContent: "<p>It is critical for systems managers to be in charge of the system-wide changes in their z/OS environment. IBM z/OS Change Tracker provides them with comprehensive tools to keep track of critical library changes in real-time, and large software environments across systems and over time.   </p>
+      <p>IBM z/OS Change Tracker will replace manual procedures for auditing and investigating systems changes. In case of an outage, you will review the information collected by IBM z/OS Change Tracker to determine the cause of the system failure and recover from an unplanned or undesired change. Member-level backups generated by IBM z/OS Change Tracker when the change had been made will be available.</p>
+      <p>Any existing tools will stay in place. IBM z/OS Change Tracker operates behind the scenes to monitor and control changes in your critical libraries.</p>"
+    },
+    {
+      subSectionTitle: "User access and roles",
+      subSectionContent: "<p>IBM z/OS Change Tracker grants different levels of access and involvement depending on user role: administrator, user, or auditor.</p>
+      <p>Administrators are able to define libraries to be monitored and protected, and can grant individuals access to update locked members. Users can view and compare backups.</p>
+      <p>Users can verify that software on multiple local or remote systems is identical. If IBM z/OS Change Tracker finds any differences, it identifies which members in the libraries have different contents.  </p>
+      <p>Auditors are participants who are able to receive and view outputs generated by IBM z/OS Change Tracker.</p>
+      <p>There are certain best practices in place to execute the change management process in the correct way.</p>
+      <ol><li>Administrator defines critical libraries to be locked and automatically back up</li>
+      <li>User submits a request (outside IBM z/OS Change Tracker ) to the administrator for update access to a member in a critical library</li>
+      <li>After review, the administrator grants the user update access to that member</li>
+      <li>User makes the change</li>
+      <li>The administrator revokes their access to the member</li></ol>"
+    }
+  ]
+},
+{
+  id: 2,
+  tabTitle: "Set up",
+  tabSubSections: [
+    {
+      subSectionTitle: "Requirements",
+      subSectionContent: "<p>IBM z/OS Change Tracker requires z/OS version 2.5 or later to run. It is shipped with z/OS 2.5 and above and is enabled as Monthly License Charge (MLC) content.</p>
+      <p>Once you are entitled to use this priced feature, you can verify that it has been enabled in IFAPRDxx.</p>
+      <p>IBM z/OS Change Tracker is deployed and configured using z/OSMF workflows and via a z/OSMF plugin. Instructions and information for plugin installation are available in the <a href='https://www.ibm.com/docs/en/SSLTBW_2.5.0/pdf/izua300_v2r5.pdf' target='_blank'>z/OSMF Configuration Guide</a>.</p>"
+    },
+    {
+        subSectionTitle: "Order and acquire",
+        subSectionContent: "<p>IBM z/OS Change Tracker comes preinstalled with z/OS V2.5 or later. It is a priced feature of z/OS that must be enabled before it can be configured and used. IBM z/OS Change Tracker consists of two SMP/E FMIDs - HCYG100 (base and English), and JCYG10 (Japanese).</p>
+        <p>Alternatively, to install the IBM z/OS Change Tracker FMID(s) as a custom build option, order a CBPDO of z/OS V2.5 along with the IBM z/OS Change Tracker feature on Shopz for that order.  When your CBPDO for z/OS V2.5 arrives, then only install the z/OS Change Tracker FMID(s) following the instructions in the z/OS V2.5 Program Directory.  </p>
+        <p>If you wish to entitle IBM z/OS Change Tracker after its GA, you can order it via Shopz with your z/OS V2.5 or later deliverable, or entitle it afterwards as outlined in <a href='https://www.ibm.com/docs/en/zos/latest?topic=test-using-dynamic-enablement' target='_blank'>Using dynamic enablement</a>, in <em>z/OS Planning for Installation</em>.</p>"
+    },
+    {
+        subSectionTitle: "Installing the Change Tracker plugin",
+        subSectionContent: "<p>The z/OSMF plugin properties file installed by SMPE can be tailored as needed for your environment. Then, using the import manager task, the tailored plugin should be defined to z/OSMF. Ensure z/OS Change Tracker is authorized to the TSO environment. Plugin users such as the Change Tracker Administrator then need to be defined to the SAF profile.</p>
+        <p>For full the details of installing the Change Tracker plugin, refer to the z/OSMF Workflow: /usr/lpp/cyg/zosmf/workflows/cygwflw.xml</p>"
+    }
+  ]
+},
+{
+  id: 3,
+  tabTitle: "Security and administrators",
+  tabSubSections: [
+    {
+      subSectionTitle: "Overview",
+      subSectionContent: "<p>Decide who will be the IBM z/OS Change Tracker administrators, users, and auditors in your enterprise.</p>
+      <p>The Security Administrator will need to create the RACF FACILITY class profiles and grant READ access to the appropriate people. Doing so ensures that the appropriate level of security is assigned to the correct group of users.</p>"
+    },
+    {
+        subSectionTitle: "Execution of security work",
+        subSectionContent: "<p>To set up roles and determine their access:</p>
+        <ol><li>Create two RACF FACILITY class profiles: CYG.ADMIN and CYG.AUDIT</li>
+        <li>READ access to CYG.ADMIN grants the user Admin level access in IBM z/OS Change Tracker. The user who will be assigned the started task job will need this.</li>
+        <li>READ access to CYG.AUDIT grants the user access to the Audit feature in the product</li></ol>
+        <p>Note: All of the above can be met by a single user</p>
+        <p>There are RACF settings required for various roles: FACILITY class profiles: CYG.ADMIN and CYG.AUDIT</p>"
+    }
+  ]
+},
+{
+  id: 4,
+  tabTitle: "Configure and run workflows",
+  tabSubSections: [
+    {
+      subSectionTitle: "z/OSMF Workflows",
+      subSectionContent: "<p>IBM z/OS Change Tracker provides a workflow that performs the configuration of the product and the definition of the correct datasets. This workflow also contains details on installing the z/OS Change Tracker z/OSMF plugin.</p>
+      <p>After the installation of IBM z/OS Change Tracker, run the z/OSMF Configuration Workflow which can be found here: /usr/lpp/cyg/zosmf/workflows/cygwflw.xml</p>"
+    },
+    {
+        subSectionTitle: "z/OSMF Security Configuration Assistant",
+        subSectionContent: "<p>Use z/OSMF Security Configuration Assistant to view and verify the IBM z/OS Change Tracker security definitions.</p>
+        <p>IBM z/OS Change Tracker uses the z/OSMF Security Configuration Assistant to verify that the correct users in groups can have access to the resources they need. </p>"
+    }
+  ]
+},
+{
+  id: 5,
+  tabTitle: "Define resources to track",
+  tabSubSections: [
+    {
+      subSectionTitle: "Run workflows",
+      subSectionContent: "<p>The Administrator needs to define data sets to be monitored. All modifications to the members of these data sets are then automatically tracked.</p>
+      <p>The audit feature can be filtered based on event type, date and time range, member name or data set name.</p>
+      <p>Developers can fingerprint anything from a single file to an entire disc volume.</p>
+      <p>When analyzing a large collection of data sets, each member is fingerprinted. IBM z/OS Change Tracker then allows you to compare fingerprints of the entire collection of data sets, providing information on what, how, when and by whom modifications have been made – at both data set and member level.</p>"
+    }
+  ]
+}
+]
+%}
+{# END GETTING STARTED #}
+
+{% set faqSection = [
+    {
+        categories: [
+            {
+                catTitle: "General questions",
+                faqs: [
+                    {
+                        question: "What is IBM z/OS® Change Tracker, and why should I use it?",
+                        answer: "IBM z/OS Change Tracker is a System Software Change Control and Management solution for the z/OS platform. System programmers can identify, track, and recover hundreds of configuration files in real-time using IBM z/OS Change Tracker. Mission-critical system and application software configuration data can be monitored automatically in real-time for z/OS environments. At a glance, IBM z/OS Change Tracker offers:
+                        <ul><li>Unprecedented control: Track and control real-time system-wide software configuration changes.</ul></li>
+                        <ul><li>Enhanced recovery processes: Automatic versioning of identified system control data sets.</ul></li>
+                        <ul><li>Rollback Capabilities: Rollback capabilities to undo unplanned/unsuccessful promotions.</ul></li>
+                        <ul><li>Next-level monitoring: Data set recovery and reporting of real-time configuration data changes.</ul></li>"
+                    },
+                    {
+                        question: "Why is IBM z/OS Change Tracker only available on z/OS V2.5 or later? What about z/OS V2.4?",
+                        answer: "IBM z/OS Change Tracker is only available on z/OS V2.5 or later due to functional dependencies which are only satisfied with that release. Those functional dependencies were not provided in z/OS releases prior to z/OS V2.5, meaning that IBM z/OS Change Tracker is available for V2.5 and above."
+                    },
+                    {
+                        question: "Where can I find out about latest PTFs delivered for IBM z/OS Change Tracker?",
+                        answer: "This <a href='https://www.ibm.com/support/pages/node/6829841?myns=swgother&mynp=OCSSEWSM&mync=E&cm_sp=swgother-_-OCSSEWSM-_-E' target='_blank'>web page</a> contains the details for the PTFs which have been delivered for IBM z/OS Change Tracker.  It included both defect corrective PTFs, as well as new function Continuous Delivery PTFs."
+                    },
+                    {
+                        question: "Can I try out IBM z/OS Change Tracker without buying it ahead of time?",
+                        answer: "Yes.  With the PTF for APAR PH51954, you can try out IBM z/OS Change Tracker for 90 consecutive days at no charge, but it is subject to the normal hardware and software consumption on z/OS.  For enabling the trial, you would use IFAPRDxx, according to the dynamic enablement conditions found in the z/OS Planning for Installation book.  The entry for the IBM z/OS Change Tracker trial in IFAPRDxx is FEATURENAME('CHNGTRKR_TRIAL90')."
+                    },
+                    {
+                        question: "What added value can the priced feature IBM z/OS Change Tracker bring to my system?",
+                        answer: "Although you may have existing functions (or indeed, other vendor products which you pay for today) which supply similar capabilities, we feel that IBM z/OS Change Tracker is superior at providing additional capabilities that z/OS Systems Programmers need for robust and real-time systems management.
+                        <p>For instance, you might have the existing ability to determine who has modified a certain data set or have basic security protection for an entire data set, but IBM z/OS Change Tracker can extend further into that capability and allow an administrator to allow specific check in and check out permission such that modifications can be only performed at certain times. Further, an enterprise can determine that any modifications require an explanation provided for the modification which is saved with the change, and then be notified of changes that occurred. These easily performed functions, along with others, make IBM z/OS Change Tracker more valuable to the z/OS Systems Programmer.</p>"
+                    },
+                    {
+                        question: "Do system programmers require extensive knowledge of z/OS to be able to utilize IBM z/OS Change Tracker?",
+                        answer: "No, IBM z/OS Change Tracker helps to replace manual procedures for auditing and investigating systems changes. using concepts that are easy to understand and follow. For instance, you could review the information collected by IBM z/OS Change Tracker to determine what system configuration changes have occurred during the course of a system failure investigation Then, be able to do recovery from an unplanned or undesired change quickly. Member-level backups generated by IBM z/OS Change Tracker when the change has been made are available. This allows z/OS Systems Programmers and system auditors to easily pinpoint what, who, and how changes were made. "
+                    }
+                ]
+            },
+            {
+                catTitle: "Technical questions",
+                faqs: [
+                    {
+                        question: "How do I install IBM z/OS Change Tracker? ",
+                        answer: "IBM z/OS Change Tracker was made generally available on May 13, 2022 and is now included in the z/OS V2.5 and later ServerPacs. (You can easily check your z/OS V2.5 ServerPac to see if z/OS Change Tracker has been installed by seeing if SMP/E FMID HCYG100 is installed.)
+                        <p>If you choose to order z/OS Change Tracker through a CBPDO, the easiest method is to order a z/OS V2.5 CBPDO, indicating on Shopz that you wish to be entitled to IBM z/OS Change Tracker. You will be delivered the entire z/OS V2.5 product, along with IBM z/OS Change Tracker. Don't worry, you don't need to install all of z/OS V2.5! The IBM z/OS Change Tracker is a very simple install of SMP/E FMIDs (HCYG100 base, and JCYG10J for Japanese), using the supplied z/OS V2.5 Program Directory. IBM z/OS Change Tracker installs into its own data sets and sample jobs are supplied.</p>
+                        <p>z/OS Change Tracker is now part of z/OS Management Facility (z/OSMF). Instructions and information for setting up z/OSMF are available in the z/OSMF Configuration Guide.</p>"
+                    },
+                    {
+                        question: "How do I configure IBM z/OS Change Tracker?",
+                        answer: "IBM z/OS Change Tracker, like many other functions, is configured with a z/OSMF Workflow. You can find the supplied Workflow in path-prefix/usr/lpp/cyg/zosmf/workflow/cygwflw.xml after you have completed your installation.
+                        <p>The z/OSMF Workflow also includes the steps to set up the z/OSMF plug-in for IBM z/OS Change Tracker.</p>"
+                    },
+                    {
+                        question: "Now that I have IBM z/OS Change Tracker configured and up and running, how do I start tracking my data sets?",
+                        answer: "Once you have the IBM z/OS Change Tracker started task up and running and your IBM z/OS Change Tracker administrators and users defined, you can start identifying the resources you wish to track and the desired characteristics of them. A good place to start is the 'Administration' section of the Guide and Reference found here:<a href='https://www.ibm.com/docs/en/zos/2.5.0?topic=ispf-administration' target='_blank'>https://www.ibm.com/docs/en/zos/2.5.0?topic=ispf-administration</a>"
+                    },
+                    {
+                        question: "I see in the Guide and Reference that IBM z/OS Change Tracker has an ISPF panel interface with batch jobs that can be run. Don't you have a z/OSMF interface?",
+                        answer: "Both options are now available! IBM z/OS Change Tracker does have an ISPF interface and batch jobs that can be run, however we encourage clients to utilize the new z/OSMF Change Tracker plugin for an even better user experience. The z/OSMF plugin is designed to offer a modern graphical user interface that will enable a more robust and simpler user experience with IBM z/OS Change Tracker. By using recognizable icons and intuitive compare methods, customization and reporting from IBM z/OS Change Tracker can be used to identify resources to manage, check in and check out data sets and members, and is designed to be quickly understandable and lessen time to productive use. Additional functions for the IBM z/OS Change Tracker in z/OSMF are expected to be added over time."
+                    },
+                    {
+                        question: "I see there are lots of functions in IBM z/OS Change Tracker which help the z/OS Systems Programmer, but there are other helpful functions out there. How does IBM z/OS Change Tracker fit with those other solutions?",
+                        answer: "There certainly are a lot of z/OS functions and IBM products available to help z/OS Systems Programmers perform their job! And you probably have some homegrown tools as well. IBM z/OS Change Tracker is not intended to replace any of those, but rather complement and augment them by providing additional capabilities that are needed to help track configuration data sets to keep your systems running with the configuration that you intend.
+                        <p>For instance, specific component knowledge has been encoded into IBM Health Checks to help advise on preferred configurations or an upcoming upgrade action that you will encounter. IBM z/OS Change Tracker does not interfere with component verification during its tracking of your configuration files, managing backups, and controlling who can and cannot access resources at a certain time. If you change your configuration based on the advice of an IBM Health Check, IBM z/OS Change Tracker can take a backup of that change automatically, identify who/how/when the change was done, and even require a reason for doing that permitted change (so the user can indicate it was a specific IBM Health Check perhaps). This scenario shows that IBM z/OS Change Tracker does not conflict with, but rather can nicely augment a change that was indicated by an IBM Health Check.</p>"
+                    },
+                    {
+                        question: "Are load libraries supported? What kinds of data set can I track?",
+                        answer: "You can monitor a load library if you desire. Today, IBM z/OS Change Tracker can monitor and protect PDS, and PDSE data sets. In addition, sequential, and entire VSAM data sets (including entire zFS data sets) and volumes can be identified for comparisons in snapshops. We have a requirement for being able to monitor individual z/OS UNIX® files. If you need other types of data set monitored, please open a requirement (now called an “Idea“) as we are interested in making sure that IBM z/OS Change Tracker provides comprehensive coverage of your system configuration assets."
+                    },
+                    {
+                        question: "How does the IBM z/OS Change Tracker differ from the z/OS Generic Tracking Facility?",
+                        answer: "The z/OS Generic Tracking Facility is intended to surface desired information when programs are run and an event is detected which is important to note. The Generic Tracker captured events you might be familiar with, such as the use of one-byte console IDs, specific JES statements, or DFSMS™ EAV information. The Generic Tracker provides a callable service which applications or products can exploit to surface this information.
+                        <p>IBM z/OS Change Tracker is intended to help the z/OS systems programmer manage system configuration data sets easier.</p>"
+                    },
+                    {
+                        question: "What is the difference between Fingerprint/Tokenization/Snapshot?",
+                        answer: "We understand the confusion over these terms and are trying to consolidate them to make it easier to follow:
+                        <ul><li>The term “snapshot” is the preferred word for the concept of capturing an instance of data at a point in time. IBM z/OS Change Tracker intends to use this term consistently as future functions are delivered.</ul></li>
+                        <ul><li>The terms “tokenization” and “token” are today used heavily within the ISPF panels and batch JCL for IBM z/OS Change Tracker. This relates to the internal implementation that IBM z/OS Change Tracker uses to capture the instance of data that a user has requested. Although the internal implementation of tokenization is planned to continue in IBM z/OS Change Tracker with future planned functions, you probably will see that term used less frequently in interfaces.</ul></li>
+                        <ul><li>The term “fingerprint” is planned to be used by IBM z/OS Change Tracker in the z/OSMF interface, rather than the term “tokenization”. “Tokenization” and “fingerprint” are the same, but within an intended z/OSMF interface, “fingerprint” is preferred.</ul></li>"
+                    },
+                    {
+                        question: "Is the “snapshot” comparable to other solutions using checksums?",
+                        answer: "IBM z/OS Change Tracker uses its own unique method for taking snapshots and has its own internal implementation to capture an instance of data. The method it uses is not disclosed."
+                    }
+                ]
+            },
+            {
+                catTitle: "Dependencies and security",
+                faqs: [
+                    {
+                        question: "Are there prerequisites for running IBM z/OS Change Tracker?",
+                        answer: "The only prerequisite is z/OS V2.5 or later, and two V2.5 PTFs which are indicated during the installation. Since IBM z/OS Change Tracker is a priced feature, then entitlement of the feature is also required which allows the feature to be enabled in your IFAPRDxx parmlib member."
+                    },
+                    {
+                        question: "Is DFSMShsm™ a requirement? If not, what utilities are used for backup?",
+                        answer: "IBM z/OS Change Tracker has no functional dependency on DFSMShsm or any other priced z/OS feature or program product. In fact, the only functional dependency is the base z/OS V2.5 or later itself (and some z/OS V2.5 PTFs already mentioned), and since IBM z/OS Change Tracker comes preinstalled with z/OS V2.5 or later, that means there are no external dependencies. IBM z/OS Change Tracker uses its own internal implementation to keep saved versions of changed resources in its own repository."
+                    },
+                    {
+                        question: "What additional security benefit is there compared to what I have with RACF® , Top Secret, or ACF2?",
+                        answer: "Typically, a security product will control access to a complete data set and the members contained in that data set. IBM z/OS Change Tracker has configuration options that allow a more granular approach to monitoring and controlling access to these members. If a data set is “locked” by the IBM z/OS Change Tracker Administrator, members must first be checked out to a user or group before they can make any updates even if they have authority to write to the data set. Any attempts to update a member before being checked out will result in the update failing and can be tracked in the IBM z/OS Change Tracker activity reports.
+                        <p>In addition, the administrator can enforce use of comments to document the reason for the change to that member, as well as taking a backup of the member once it has been changed. This allows a review of both the previous and updated versions of the member, as well as the ability to easily restore to a previous version from the IBM z/OS Change Tracker ISPF panels.<p>"
+                    },
+                    {
+                        question: "How does IBM z/OS Change Tracker work with my external security manager (like RACF)? Does it replace it?",
+                        answer: "Your external security manager still controls the access to the data set underneath IBM z/OS Change Tracker. In other words, you can't “bypass” any RACF permissions, as IBM z/OS Change Tracker just has additional granular control on top of your security product."
+                    },
+                    {
+                        question: "What are the corresponding RACF profiles / classes?",
+                        answer: "There are new resource profiles needed for IBM z/OS Change Tracker, and these profiles can be viewed and validated using the z/OSMF Security Configuration Assistant. Use the z/OSMF configuration workflow for IBM z/OS Change Tracker to set them up. IBM z/OS Change Tracker grants different levels of access and involvement depending on user role: administrator, user, or auditor.
+                        <ul><li>Administrators are able to define libraries to be monitored and protected, and can grant individuals access to update locked members.</ul><li>
+                        <ul><li>Users can verify that software on multiple local or remote systems is identical. Users can view and compare backups. If IBM z/OS Change Tracker finds any differences, it identifies which members in the libraries have different contents.</ul><li>
+                        <ul><li>Auditors are participants who are able to receive and view outputs generated by IBM z/OS Change Tracker.</ul><li>"
+                    }
+                ]
+            }
+        ]
+    }
+] %}
+
+
+{# *** NEW WITH CARBON *** #}
+{# START FEATURED DOCUMENTATION #}
+{# Optional section. Breaks out feature card for main IBM Documentation/C3 link. 1 per page max #}
+{# set documentation = {
+    docTitle: "",
+    docDescription: "",
+    docLinkUrl: "",
+    docLinkText: ""
+}
+#}
+{# END FEATURED DOCUMENTATION #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to hide tile on page temporarily.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "",
+        tabContent: [
+            {
+                resourceTitle: "IBM z/OS Change Tracker SHARE Presentation",
+                resourceDescription: "Learn more about what IBM z/OS Change Tracker has to offer and how it works.",
+                resourceLinkUrl: "https://izswebpage.mybluemix.net/docs/zCT-SHARE-Dallas-Intro.pdf",
+                resourceLinkText: "View the deck",
+                resourceLinkType: "",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Documentation",
+                resourceDescription: "IBM z/OS Change Tracker Guide and Reference is available in IBM Documentation.",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=tracker-zos-change-guide-reference",
+                resourceLinkText: "Learn more",
+                resourceLinkType: "",
+                resourceIcon: false,
+                resourceStatus: "new"
+            },
+            {
+                resourceTitle: "z/OS Change Tracker FAQ",
+                resourceDescription: "Acess the PDF version of the FAQ available on this page.",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/QBNDWNRV",
+                resourceLinkText: "Read more",
+                resourceLinkType: "",
+                resourceIcon: false,
+                resourceStatus: "new"
+            }
+
+
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# *** NEW IN CARBON *** #}
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{# set related = [] #}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "July 21, 2022",
+        sectionContent: "<p>Added interactive FAQ section and FAQ PDF under Technical Resources.</p>"
+    },
+    {
+        sectionTitle: "July 7, 2022",
+        sectionContent: "<p>On the Set up tab of How to get started, the link to <em>Planning for Installation</em> now goes to appropriate topic in IBM Documentation.</p>"
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "-",
+    sc_security: "-"
+}
+ %}
+{# END STATCOUNTER #}

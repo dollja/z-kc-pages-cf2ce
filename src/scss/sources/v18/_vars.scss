@@ -1,0 +1,524 @@
+// variables
+
+// !img and font paths
+/// Base font path
+/// @group typography
+$fontPath : 'https://1.www.s81c.com/common/fonts';
+$fontPathEI : 'https://www.ibm.com/common/fonts';
+
+/// Base image path for v17e assets
+$imagePath : 'https://1.www.s81c.com/common/v17e';
+
+/// Base image path for v18 assets
+$v18imagePath : 'https://1.www.s81c.com/common/v18/i';
+
+// !fonts
+
+/// Base font-family name
+/// @group typography
+$plexFontFamilyMono : 'ibm-plex-mono';
+$plexFontFamilySans : 'ibm-plex-sans';
+$plexFontFamilySerif : 'ibm-plex-serif';
+
+/// Base font-family light weight
+/// @group typography
+$defaultLightWeight : 300;
+
+/// Base font-family bold weight
+/// @group typography
+$defaultBoldWeight : 600;
+
+/// Base font-stack
+/// @group typography
+$defaultFont : $plexFontFamilySans, 'Helvetica Neue', Arial, sans-serif;
+
+/// Base font-stack for mono type
+/// @group typography
+$defaultMonoFont : $plexFontFamilyMono, 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+
+/// Base font-stack for serif type
+$defaultSerifFont : $plexFontFamilySerif, Georgia, 'Times New Roman', serif;
+
+/// Base font-stack for double byte characte set
+/// @group typography
+$defaultFont-dbcs : Arial, sans-serif;
+
+/// Alias or $defaultFont-dbcs Base font-stack for headers for double byte characte set
+/// @group typography
+$defaultHeaderFont-dbcs : $defaultFont-dbcs;
+
+$defaultIconFont: 'icons-ibm-v12';
+
+//!Text color default.
+$textColor: color('gray', 80);
+
+// !link colors
+$linkColor: #3b6caa;
+$linkColorHover: $linkColor; // no color change but need to keep var.
+$linkColorVisited: $linkColor; // no color change but need to keep var.
+
+
+////////////////////////////////////////////////////////////////////////////////////
+//
+//  DEPRECATED VARS.
+//  None of these are used/needed anymore because there is 1 font family, set at html/body level.
+//  All you need to do is add font-weight to the styles/classes now and not point to different familys for them.
+//
+////////////////////////////////////////////////////////////////////////////////////
+
+/// Alias of $defaultFont
+/// @group typography
+$defaultRegularFont : 'DONT USE THIS VAR ANYMORE', $defaultFont;
+
+/// Alias of $defaultFont, not used anymore
+/// Base font-stack for bold type
+/// @group typography
+$defaultBoldFont : 'DONT USE THIS VAR ANYMORE', $defaultFont;
+
+/// Alias of $defaultBoldFont, not used anymore
+/// @group typography
+$defaultHeaderFont : 'DONT USE THIS VAR ANYMORE', $defaultFont;
+
+/// Alias of $defaultFont, not used anymore
+/// Base light/thin font-stack
+/// @group typography
+$defaultLightFont : 'DONT USE THIS VAR ANYMORE', $defaultFont;
+
+/// Alias of $defaultFont
+/// @group typography
+$sectionHeaderFont : 'DONT USE THIS VAR ANYMORE', $defaultFont;
+
+////////////////////////////////////////////////////////////////////////////////////
+//
+//  END deprecated vars.
+//
+////////////////////////////////////////////////////////////////////////////////////
+
+
+
+/// Base font size
+/// @group typography
+$bodyFontSize : 16px;
+
+/// Small font size factor
+/// @group typography
+$smallFontSize : $bodyFontSize * .875;
+
+/// Large font size factor
+/// @group typography
+$largeFontSize : $bodyFontSize * 1.2;
+
+/// Base section header font size
+/// @group typography
+$sectionHeaderSize : 36px;
+
+/// Small section header font size factor
+/// @group typography
+$smallHeaderSize : $sectionHeaderSize * .875;
+
+/// Large section header font size factor
+/// @group typography
+$largeHeaderSize : $sectionHeaderSize * 1.2;
+
+/// Paragraph spacing
+/// @group typography
+/// @ignore $paragraphSpacing : .333;
+/// @ignore Santelia changed to:
+$paragraphSpacing : .6;
+
+/// Header spacing
+/// @group typography
+/// @ignore $headerSpacing : .25;
+/// @ignore Santelia changed to:
+$headerSpacing : .4;
+
+/// Base line-height
+/// @group typography
+$defaultLineHeight : 1.35;
+
+/// Small line-height
+/// @group typography
+$smallLineHeight : 1.2;
+
+/// Large line-height
+/// @group typography
+$largeLineHeight : 1.5;
+
+/// !grid
+/// Landing grid base width
+/// @group layout
+$landingGrid : 980px;
+
+/// Landing grid base space
+/// @group layout
+$landingSpace : 20px;
+
+/// !icons
+$iconSpaceLeft : 1.85em;
+
+
+
+// !hacks
+$ie10andbelow: \9;
+$ie8inline: $ie10andbelow;
+// legacy
+/// Inline targeting of IE 11,10,9,8
+/// @group crossbrowser
+$ie11andbelow: '\0/';
+// legacy
+$ie9Hack: $ie11andbelow;
+
+
+// !mobile menu
+/// Mobile menu width
+/// @group mobile
+$mMenuWidth: 250px;
+/// Mobile menu level indent
+/// @group mobile
+$mMenuLevelIndent:  1em;
+/// Mobile search box height
+/// @group mobile
+$mSearchBoxHeight: 35px;
+/// Mobile search box border
+/// @group mobile
+$mSearchBoxBorder: 1px;
+
+
+// !Shadow effects ============================================
+
+/// Section shadow
+/// @group effects
+$section-shadow : 0 5px 10px -3px #dedede inset;
+/// Section soft shadow
+/// @group effects
+$shadow-soft : 0 1px 3px rgba(0, 0, 0, .5);
+/// Section hard shadow
+/// @group effects
+$shadow-hard : 0 1px 1px rgba(0, 0, 0, .5);
+
+/// Dark text is against light background
+/// @group effects
+$emboss-light : 0 1px 0 rgba(255, 255, 255, .95);
+
+/// Light text is against dark background
+/// @group effects
+$emboss-dark : 0 -1px 0 rgba(0, 0, 0, .75);
+
+/// Used when white text needs to
+/// @group effects
+$glow :	0 0 5px rgba(255, 255, 255, .75);
+
+
+/// Settings for Slick carousel plugin. Details are in in slick.scss.
+/// @group typography
+$slick-font-family: $defaultIconFont;
+
+/// Default opacity
+/// @group effects
+$opacity-default: 1;
+
+/// Default :hover opacity
+/// @group effects
+$opacity-on-hover: 1;
+
+/// Default not active opacity
+/// @group effects
+$opacity-not-active: .25;
+
+// !forms ============
+
+/// Form field height
+/// @group forms
+$fieldHeight: 2.5em;
+
+/// Column form field indent
+/// @group forms
+$columnFormFieldIndent: 190px;
+
+/// Form icon indent
+/// @group forms
+$iconIndent: 30px;
+
+
+
+// !mixins ============
+
+/// Convert PX to REM
+/// @group typography
+/// @example @include px-to-rem(font-size,11px);
+@mixin px-to-rem($style, $px, $important:"") {
+	//#{$style}: $px;
+	#{$style}: $px / ($bodyFontSize / 1rem) #{$important};
+}
+
+/// Add text shadow
+/// @group effects
+/// @example @include text-shadow($glow);
+@mixin text-shadow($text...) {
+	text-shadow: $text;
+}
+
+
+/// Remove box shadow on IE
+/// @group effects
+/// @example @@include ie-box-shadow-removal;
+@mixin ie-box-shadow-removal {
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		box-shadow: none;
+	}
+}
+
+/// Apply browser prefix for border-radius
+/// @group effects
+/// @example @include border-radius(2px);
+@mixin border-radius($borders...) {
+	-webkit-border-radius: $borders;
+	-moz-border-radius: $borders;
+	border-radius: $borders;
+}
+
+/// Apply browser prefix for box-shadow
+/// @group effects
+/// @example @include box-shadow(0 1px 0 $w30 inset, 0 1px 3px $k50);
+@mixin box-shadow($shadows...) {
+	-webkit-box-shadow: $shadows;
+	-moz-box-shadow: $shadows;
+	box-shadow: $shadows;
+}
+
+/// Apply browser prefix for box-sizing
+/// @group layout
+/// @example @include box-sizing(border-box);
+@mixin box-sizing($sizings...) {
+	-webkit-box-sizing: $sizings;
+	-moz-box-sizing: $sizings;
+	box-sizing: $sizings;
+}
+
+/// Apply browser prefix for gradients
+/// @group effects
+/// @example @include background-gradient(background-image,(top, $w10, $k40));
+@mixin background-gradient($style, $gradients...) {
+	#{$style}: -webkit-linear-gradient($gradients);
+	#{$style}: -moz-linear-gradient($gradients);
+	#{$style}: -o-linear-gradient($gradients);
+	#{$style}: -ms-linear-gradient($gradients);
+	#{$style}: linear-gradient($gradients);
+}
+
+
+/// Apply browser prefix for transitions
+/// @group effects
+/// @example @include transition(opacity 0.3s);
+@mixin transition($transitions...) {
+	-webkit-transition: $transitions;
+	-moz-transition: $transitions;
+	-o-transition: $transitions;
+	-ms-transition: $transitions;
+	transition: $transitions;
+}
+
+/// Apply browser prefix for transform
+/// @group effects
+/// @example @include transform(translate3d(0px, 0px, 0px));
+@mixin transform($transforms...) {
+	-webkit-transform: $transforms;
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	transform: $transforms;
+}
+/// Apply browser prefix for transform-origin
+/// @group effects
+/// @example @include transform-origin(20%, 40%);
+@mixin transform-origin($origin) {
+	-webkit-transform-origin: $origin;
+	-moz-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	-o-transform-origin: $origin;
+	transform-origin: $origin;
+}
+
+/// Float reset
+/// @group layout
+/// @example @include aslett-clearing;
+@mixin aslett-clearing {
+	clear: both;
+	content: ' ';
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+/// Apply browser cross-browser opacity values
+/// @group effects
+/// @example @include opacity(0.25);
+@mixin opacity($opacity) {
+	opacity: $opacity;
+	$opacity-ie: $opacity * 100;
+	filter: alpha(opacity=$opacity-ie); //IE8
+	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + $opacity-ie + ')';
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//
+// Breakpoints & grids variables and mix-ins.
+//
+//////////////////////////////////////////////////////////////////////////////////////////
+
+$gutter: 20px;
+
+// Minimum width where grid usage starts (small-medium) used for "min-width" setting
+$width-min: 580px;
+
+// Maximum sizes for medium and large BPs. Used in combo with $width-min to create boundries.
+$screen-medium: 999px;
+$screen-large: 1239px;
+
+// Maximum size to let the grid be, unless 'fullwidth' is used. Used as $max-width.
+$width-max: 1460px;
+
+
+/// Breakpoint mixin
+/// add constrained breakpoints on demand that will affect styling in certain viewport range
+/// @group RWD
+/// @parameter { string } $breakpoint [none] - mandatory, can be: gmobile, g540, g720, g960, g1200, g1440
+/// @example
+///  .foo {
+///      width: 1000px;
+///
+///      @include breakpoint(gmobile) {
+///          width: auto;
+///      }
+///  }
+@mixin breakpoint($breakpoint) {
+
+	// grid size of 95%
+	@if $breakpoint == 'gmobile' {
+		@media only screen and (min-width: 0px) and (max-width: ($width-min - 1)) {
+			@content;
+		}
+	}
+
+	//grid size of 540px
+	@if $breakpoint == 'g540' {
+		@media only screen and (min-width: $width-min) and (max-width: 759px) {
+			@content;
+		}
+	}
+
+	//grid size of 720px
+	@if $breakpoint == 'g720' {
+		@media only screen and (min-width: 760px) and (max-width: $screen-medium) {
+			@content;
+		}
+	}
+
+	//grid size of 960
+	@if $breakpoint == 'g960' {
+		@media only screen and (min-width: ($screen-medium + 1)) and (max-width: $screen-large) {
+			@content;
+		}
+	}
+
+	//grid size of 1200
+	@else if $breakpoint == 'g1200' {
+		@media only screen and (min-width: ($screen-large + 1)) and (max-width: 1479px)  {
+			@content;
+		}
+	}
+
+	//grid size of 1440px
+	@else if $breakpoint == 'g1440' {
+		@media only screen and (min-width: $width-max + $gutter) {
+			@content;
+		}
+	}
+}
+
+/// Breakpoint mixin
+/// add unconstraind breakpoints with only upper limit set
+/// @group RWD
+/// @parameter { string } $breakpoint [none] - mandatory, can be: gmobile, g540, g720, g960, g1200, g1440
+/// @example
+///  .foo {
+///      width: 1000px;
+///
+///      @include u-breakpoint(gmobile) {
+///          width: auto;
+///      }
+///  }
+@mixin u-breakpoint($breakpoint) {
+
+	// grid size of 95%
+	@if $breakpoint == 'gmobile' {
+		@media only screen and (max-width: 579px) {
+			@content;
+		}
+	}
+
+	//grid size of 540px
+	@if $breakpoint == 'g540' {
+		@media only screen and (max-width: 759px) {
+			@content;
+		}
+	}
+
+	//grid size of 720px
+	@if $breakpoint == 'g720' {
+		@media only screen and (max-width: 999px) {
+			@content;
+		}
+	}
+
+	//grid size of 960
+	@if $breakpoint == 'g960' {
+		@media only screen and (max-width: 1239px) {
+			@content;
+		}
+	}
+
+	//grid size of 1200
+	@else if $breakpoint == 'g1200' {
+		@media only screen and (max-width: 1479px)  {
+			@content;
+		}
+	}
+
+	//grid size of 1440px
+	@else if $breakpoint == 'g1440' {
+		@media only screen and (min-width: 1480px) {
+			@content;
+		}
+	}
+}
+
+/// Common central mixin used to prefix any style with "ibm-type".
+/// You can pass a basic font-family name, or you can pass any attributes through @content
+/// @group typography
+/// @parameter { string | variable } $fontVariant [$defaultFont] - optional
+/// @example
+/// simple font variant for special mono font to be used when  .ibm-type class exists
+///   @include ibm-type($defaultMonoFont);
+/// @example
+/// whole code block style to be encapsulated/prefixed with .ibm-type including default font variant
+///   @include ibm-type(){
+///	   font-size: 1.25rem;
+///   }
+@mixin ibm-type($fontVariant: $defaultFont) {
+	.ibm-type & {
+		font-family: $fontVariant;
+
+		@content;
+	}
+}
+
+@mixin clearfix {
+	&::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+

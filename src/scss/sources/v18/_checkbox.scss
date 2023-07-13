@@ -1,0 +1,148 @@
+// The first one is for default assumed HTML of:
+// <input>
+// <label>
+//
+// The second one (~ .ibm-field-label) is for apps that dynamically inject junk between the field 
+//  and the label and cannot control it.
+//  They have to add a wrapper around the field and label so that the sibling (~) can be used.
+//  <span class="ibm-checkbox-wrapper">
+//    <input class="ibm-styled-checkbox">
+//    <label class="ibm-field-label">
+//  </span>
+//
+//
+
+.v18e {
+	.ibm-checkbox-wrapper {
+		display: inline-block;
+		position: relative;
+		min-width: 8rem;
+		max-width: 18rem;
+
+		@media (min-width: 82rem) {
+			min-width: 10rem;
+			max-width: 22rem;
+		}
+		@media (min-width: 99rem) {
+			min-width: 13rem;
+			max-width: 28rem;
+		}
+	}
+
+	.ibm-styled-checkbox {
+		background: transparent;
+		border: 0;
+		margin: 0;
+		opacity: 0;
+		padding: 0;
+		position: absolute;
+
+		// Push the label to make room for the imagery. Just like icon links do.
+		+ label,
+		~ .ibm-field-label {
+			cursor: pointer;
+			display: inline-block;
+			min-height: 16px;
+			padding-left: 30px;
+			position: relative;
+			padding: 3px 0 3px 1.5rem;
+			margin-bottom: 0 !important;
+			margin-right: 0 !important;
+
+			// :before is the background.
+			&::before {
+				content: '';
+				height: 1rem;
+				width: 1rem;
+				border: 1px solid v19aColor('gray', 100);
+				border-radius: 2px;
+				position: absolute;
+				left: 0;
+				top: 5px;
+				background: #fff;
+				box-sizing: border-box;
+			}
+
+			// :after is the check mark.
+			&::after {
+				content: '';
+				height: 9px;
+				width: 6px;
+				left: 1px;
+				top: 8px;
+				border-bottom: 2px solid #fff;
+				border-right: 2px solid #fff;
+				position: absolute;
+				transform-origin: bottom right;
+				transform: scale(0) rotate(45deg);
+				transition: all .4s cubic-bezier(0.2, 1, 0.2, 1);
+				z-index: 2;
+			}
+		}
+
+		// // Specific just for focus for keyboard so use knows they've tabbed onto the set.
+		// &:focus {
+		// 	+ label,
+		// 	~ .ibm-field-label {
+		// 		outline: dotted thin;
+		// 	}
+		// }
+
+		// Input focus for keyboard.
+		// Label hover for mouse.
+		// Cut the transition on hover/focus so it's instant, but fades out on mouseout/blur.
+		&:not(.ibm-styled-radio):focus {
+			+ label, ~ .ibm-field-label {
+				&::before {
+					border-color: #0062ff;
+					border-width: 3px;
+					width: 1.25rem;
+					height: 1.25rem;
+					left: -2px;
+					top: 4px;
+				}
+			}
+		}
+
+		// When it is checked.
+		// Make transition only on border "on check" so it doesn't flash to white before background changes and fills it.
+		&:checked {
+			+ label,
+			~ .ibm-field-label {
+				&::before {
+					background: v19aColor('gray', 100);
+				}
+
+				&::after {
+					border-color: #fff;
+					transform: rotate(45deg);
+				}
+			}
+		}
+
+		// When it is disabled.
+		&:disabled {
+			+ label,
+			~ .ibm-field-label {
+				cursor: not-allowed;
+				color: v19aColor('gray', 30);
+
+				&::before,
+				&:hover::before {
+					border-color: v19aColor('gray', 30);
+					background-color: #fff;
+					transition: none;
+				}
+			}
+		}
+
+		// When it is both checked & disabled.
+		&:checked:disabled {
+			+ label::before,
+			~ .ibm-field-label::before {
+				background-color: v19aColor('gray', 30);
+			}
+		}
+	}
+}
+

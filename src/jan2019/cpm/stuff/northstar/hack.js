@@ -1,0 +1,1 @@
+jQuery(".ibm-graphic-tabs").dyntabs();

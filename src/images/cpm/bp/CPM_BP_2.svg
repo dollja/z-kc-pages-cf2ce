@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="144px" height="108px" viewBox="0 0 144 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 81</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-81" transform="translate(-9.000000, -45.000000)">
+            <g id="Group-38" fill="#FFFFFF" font-family="IBMPlexSans-Text, IBM Plex Sans" font-size="144" font-weight="500" opacity="0.203125">
+                <text id="2">
+                    <tspan x="0" y="148">2</tspan>
+                </text>
+            </g>
+            <g id="Group-79" transform="translate(67.000000, 91.000000)">
+                <rect id="Rectangle-20" stroke="#FFFFFF" stroke-width="2" x="1" y="1" width="84" height="60"></rect>
+                <g id="Group-18" transform="translate(5.000000, 5.000000)">
+                    <rect id="Rectangle-49" fill="#D8D8D8" opacity="0.349999994" x="0" y="29" width="76" height="22"></rect>
+                    <rect id="Rectangle-18" fill="#FFFFFF" x="0" y="29" width="7" height="22"></rect>
+                    <rect id="Rectangle-49" fill="#D8D8D8" opacity="0.349999994" x="0" y="0" width="34" height="22"></rect>
+                    <rect id="Rectangle-18" fill="#FFFFFF" x="0" y="0" width="34" height="7"></rect>
+                    <rect id="Rectangle-49" fill="#D8D8D8" opacity="0.349999994" x="42" y="0" width="34" height="22"></rect>
+                    <rect id="Rectangle-18" fill="#FFFFFF" x="42" y="0" width="34" height="7"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,625 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "Automating and shift-left testing z/OS hybrid applications" %}
+{% set key = 4 %}
+
+{# META #}
+{% set meta_description = meta_description | default("") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "1_7wxx12qp",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/dtz/devopsTest_thumbnail.jpg",
+    label: ""
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Organizations worldwide are embracing DevOps to transform their end-end development process, establishing a highly automated CI/CD pipeline. Automation isn't enough. Investment in good application-specific test tools is required, as well, to enable best practices like shift-left testing, where unit and application integration testing occur earlier in the pipeline process, allowing problems to be discovered sooner.</p>
+<p>z/OS® application testers lack quality tools and readily available infrastructure to quickly and comprehensively test complex multi-tier, hybrid applications. Better tools are needed for teams to apply best practices to deliver quality products to production.</p>
+<p>Learn how IBM® solutions for automated, shift-left testing can help deliver higher quality Z-powered, hybrid applications. Benefit significantly from reduced risk and costs, and confidently deliver to production faster whether providing new capabilities or hot fixes to those mission-critical applications.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows the pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "other",
+        url: "https://www.ibm.com/it-infrastructure/z/capabilities/enterprise-devops",
+        text: "See how to grow your DevOps practice with automated and shift-left testing"
+
+    }
+] %}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "devopstestingz" %}
+{# END FEEDBACK #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{% set announcements = [
+{
+    announcementText: "Experience test tools that will help your organization to shift left and accelerate agile testing practices for z/OS applications",
+    announcementLinkText: "Try it now",
+    announcementLinkUrl: "https://early-access.ibm.com/software/support/trial/cst/programwebsite.wss?siteId=1657&tabId=4527&w=1"
+},
+{
+    announcementText: "Learn how to develop agile testing practices for z/OS applications and find out more about tools that can help to accelerate processes",
+    announcementLinkText: "Read the Redpaper",
+    announcementLinkUrl: "https://www.redbooks.ibm.com/abstracts/redp5683.html"
+},
+{
+    announcementText: "Check out <em>Enterprise Bug Busting: From testing through CI/CD to drive business results</em>, by IBM Distinguished Engineer Rosalind Radcliffe",
+    announcementLinkText: "Read the ebook (1.35 MB)",
+    announcementLinkUrl: "https://www.ibm.com/downloads/cas/AX4OVQLV"
+}
+]
+%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dtz/bp/dt_bp_learn.svg",
+        iconPath: '<path class="cls-1" d="M18,31.36H14a.35.35,0,0,1-.31-.18l-2-3.46a.33.33,0,0,1,0-.36l2-3.47a.35.35,0,0,1,.31-.18h3.79l2.9-5a.35.35,0,0,1,.49-.14.37.37,0,0,1,.13.5l-2.89,5,1.89,3.29a.33.33,0,0,1,0,.36l-2,3.46A.35.35,0,0,1,18,31.36Zm-3.79-.72h3.58l1.79-3.1-1.79-3.11H14.21l-1.79,3.11ZM28,25.59H24a.35.35,0,0,1-.31-.18l-2-3.46a.33.33,0,0,1,0-.36l1.89-3.29-2.89-5a.36.36,0,1,1,.62-.36l2.9,5H28a.35.35,0,0,1,.31.18l2,3.47a.33.33,0,0,1,0,.36l-2,3.46A.35.35,0,0,1,28,25.59Zm-3.79-.72h3.58l1.79-3.1-1.79-3.11H24.21l-1.79,3.11ZM8,25.59H4a.35.35,0,0,1-.31-.18L1.69,22a.33.33,0,0,1,0-.36l2-3.47A.35.35,0,0,1,4,17.94H8a.35.35,0,0,1,.31.18l1.9,3.29H16a.36.36,0,0,1,0,.72H10.21l-1.9,3.28A.35.35,0,0,1,8,25.59Zm-3.79-.72H7.79l1.79-3.1L7.79,18.66H4.21L2.42,21.77ZM11,19.25a.36.36,0,0,1-.31-.18l-2.9-5H4a.35.35,0,0,1-.31-.18l-2-3.47a.33.33,0,0,1,0-.36l2-3.46A.35.35,0,0,1,4,6.41H8a.35.35,0,0,1,.31.18l2,3.46a.33.33,0,0,1,0,.36L8.42,13.7l2.89,5a.36.36,0,0,1-.13.49A.31.31,0,0,1,11,19.25ZM4.21,13.34H7.79l1.79-3.11L7.79,7.13H4.21l-1.79,3.1ZM28,14.06H24a.35.35,0,0,1-.31-.18l-1.9-3.29H16a.36.36,0,0,1,0-.72h5.79l1.9-3.28A.35.35,0,0,1,24,6.41h4a.35.35,0,0,1,.31.18l2,3.46a.33.33,0,0,1,0,.36l-2,3.47A.35.35,0,0,1,28,14.06Zm-3.79-.72h3.58l1.79-3.11-1.79-3.1H24.21l-1.79,3.1ZM11,13.48a.39.39,0,0,1-.18,0,.37.37,0,0,1-.13-.5l2.89-5L11.69,4.64a.33.33,0,0,1,0-.36l2-3.46A.35.35,0,0,1,14,.64h4a.35.35,0,0,1,.31.18l2,3.46a.33.33,0,0,1,0,.36l-2,3.47a.35.35,0,0,1-.31.18H14.21l-2.9,5A.34.34,0,0,1,11,13.48Zm3.21-5.91h3.58l1.79-3.11-1.79-3.1H14.21l-1.79,3.1Z"/>',
+        iconAlt: "pictogram for step one - install and configure",
+        description: "Learn about automated, shift-left testing."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dtz/bp/dt_bp_test.svg",
+        iconPath: '<path d="M23.47,29.86H20.64a.36.36,0,0,1-.36-.36V27.62L18.57,27l-1.34,1.33a.36.36,0,0,1-.51,0l-2-2a.36.36,0,0,1,0-.51l1.34-1.34-.63-1.69H13.55a.36.36,0,0,1-.36-.36V19.58a.36.36,0,0,1,.36-.36h1.88l.65-1.64-1.33-1.34a.36.36,0,0,1,0-.51l2-2a.36.36,0,0,1,.26-.11h0a.36.36,0,0,1,.25.11l1.34,1.33,1.68-.68V12.5a.36.36,0,0,1,.36-.36h2.83a.36.36,0,0,1,.36.36v1.89l1.67.7,1.33-1.33a.36.36,0,0,1,.51,0l2,2a.34.34,0,0,1,0,.5L28,17.61l.66,1.61h1.88a.36.36,0,0,1,.36.36v2.84a.36.36,0,0,1-.36.36H28.67L28,24.51l1.33,1.33a.36.36,0,0,1,0,.51l-2,2a.38.38,0,0,1-.51,0L25.46,27l-1.63.61V29.5A.36.36,0,0,1,23.47,29.86ZM21,29.14h2.11V27.38a.35.35,0,0,1,.23-.34l2.09-.78a.36.36,0,0,1,.38.08l1.24,1.25,1.5-1.49L27.3,24.85a.37.37,0,0,1-.08-.39l.87-2.18a.38.38,0,0,1,.34-.22h1.76V19.94H28.43a.38.38,0,0,1-.34-.22l-.84-2.06a.37.37,0,0,1,.08-.39L28.58,16l-1.49-1.49-1.25,1.24a.35.35,0,0,1-.4.08L23.33,15a.37.37,0,0,1-.22-.33V12.86H21v1.77a.37.37,0,0,1-.23.33l-2.12.86a.35.35,0,0,1-.39-.08L17,14.49,15.51,16l1.25,1.25a.36.36,0,0,1,.08.38L16,19.72a.35.35,0,0,1-.33.22H13.91v2.12h1.77a.37.37,0,0,1,.34.23l.79,2.15a.36.36,0,0,1-.08.38l-1.25,1.25L17,27.56l1.24-1.25a.36.36,0,0,1,.38-.08l2.16.81a.36.36,0,0,1,.24.34Zm1.05-4.28A3.86,3.86,0,1,1,25.91,21,3.86,3.86,0,0,1,22.05,24.86Zm0-7A3.14,3.14,0,1,0,25.19,21,3.15,3.15,0,0,0,22.05,17.86Z"/><polygon class="cls-1" points="21.55 22.8 20.3 21.54 20.81 21.03 21.55 21.78 23.3 20.03 23.81 20.54 21.55 22.8"/><rect class="cls-1" x="1.55" y="22.15" width="9.99" height="0.72"/><path class="cls-1" d="M11.55,18.86h-4a.36.36,0,0,1-.36-.36V3.5a.36.36,0,0,1,.36-.36h18a.36.36,0,0,1,.36.36v9h-.72V5.66H7.91V18.14h3.64ZM7.91,4.94H25.19V3.86H7.91Z"/><polygon class="cls-1" points="5.3 26.75 1.04 22.5 5.3 18.25 5.81 18.75 2.06 22.5 5.81 26.25 5.3 26.75"/><polygon class="cls-1" points="10.55 10.01 9.3 8.76 9.81 8.25 10.55 8.99 12.3 7.25 12.81 7.75 10.55 10.01"/><polygon class="cls-1" points="10.55 13.01 9.3 11.76 9.81 11.25 10.55 11.99 12.3 10.25 12.81 10.76 10.55 13.01"/><polygon class="cls-1" points="10.55 16.01 9.3 14.76 9.81 14.25 10.55 14.99 12.3 13.25 12.81 13.76 10.55 16.01"/>',
+        iconAlt: "pictogram for step two - automate unit testing",
+        description: "Automate unit testing with ZUnit."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dtz/bp/dt_bp_appintest.svg",
+        iconPath: '<path d="M22.25,30.39a7.11,7.11,0,1,1,7.11-7.11A7.12,7.12,0,0,1,22.25,30.39Zm0-13.5a6.39,6.39,0,1,0,6.39,6.39A6.4,6.4,0,0,0,22.25,16.89ZM14.82,30.34l-12-7A.35.35,0,0,1,2.64,23V9h.72v13.8l11.82,6.89ZM22,26.39a.35.35,0,0,1-.26-.1l-2.55-2.56.51-.51,2.3,2.3,4-4,.51.51-4.26,4.26A.35.35,0,0,1,22,26.39ZM7.36,16H6.64V6h.72Zm20-1h-.72V9.24L15,2.45,11.36,4.57V13h-.72V4.36a.35.35,0,0,1,.18-.31l4-2.33a.38.38,0,0,1,.36,0l12,7a.38.38,0,0,1,.18.31Z"/>',
+        iconAlt: "pictogram for step three - application integration testing",
+        description: "Shift left application integration testing with IBM Z Virtual Test Platform."
+    },
+    {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dtz/bp/dt_bp_galasa.svg",
+        iconPath: '<path d="M16,31.4c-0.1,0-0.1,0-0.2,0l-13-7c-0.1-0.1-0.2-0.2-0.2-0.4V8c0-0.1,0.1-0.3,0.2-0.3l13-7
+	c0.1-0.1,0.2-0.1,0.3,0l13,7c0.1,0.1,0.2,0.2,0.2,0.3v8c0,0.2-0.2,0.4-0.4,0.4c0,0,0,0,0,0H16.4V31c0,0.1-0.1,0.2-0.2,0.3
+	C16.1,31.3,16.1,31.4,16,31.4z M3.4,23.8l12.3,6.6V16c0-0.2,0.2-0.4,0.4-0.4h12.6V8.2L16,1.4L3.4,8.2V23.8z"/>',
+        iconAlt: "pictogram for step four - automate and scale with Galasa",
+        description: "Automate and scale IBM Z hybrid application testing with the IBM distribution for Galasa."
+    },
+    {
+        id: 5,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dtz/bp/dt_bp_prov.svg",
+        iconPath: '<path d="M26.5,30.39a2.86,2.86,0,0,1-2.86-2.86,2.83,2.83,0,0,1,.6-1.75l-2.43-2.42a4.39,4.39,0,1,1,.51-.51l2.43,2.42a2.86,2.86,0,1,1,1.75,5.12Zm0-5a2.14,2.14,0,1,0,2.14,2.14A2.14,2.14,0,0,0,26.5,25.39Zm-7.5-9A3.64,3.64,0,1,0,22.64,20,3.65,3.65,0,0,0,19,16.39Zm-4.18,14-12-7A.35.35,0,0,1,2.64,23V9h.72v13.8l11.82,6.89ZM7.36,16H6.64V6h.72Zm20-1h-.72V9.24L15,2.45,11.36,4.56V13h-.72V4.36a.35.35,0,0,1,.18-.31l4-2.33a.38.38,0,0,1,.36,0l12,7a.38.38,0,0,1,.18.31Z"/>',
+        iconAlt: "pictogram for step five - provision a z/OS sandbox",
+        description: "Provision a z/OS test environment on the platform of your choice."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Learn and understand",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Organizations are transforming their development processes and achieving better business outcomes by incorporating DevOps best practices like test automation and shift-left test.</p>
+                <p>Test automation is a fundamental component of the continuous integration (CI)/continuous delivery (CD) pipeline for code build, test and deployment. Test automation uses tools that include powerful test frameworks to programmatically execute test cases as soon as code is delivered including verifying and recording results. This drives continuous testing from unit test to application integration and performance test, ensuring greater code coverage and fewer defects.</p>
+                <p>Shift-left test is a best practice in which application integration test occurs early in the CI/CD pipeline, before formal code build, so more complex problems are discovered sooner.</p>
+                <p>IBM has the expertise and solutions to help your organization develop a strategy to transform testing for your z/OS-powered hybrid applications. </p>",
+                subSectionLinks: [
+                    {
+                    linkUrl:"https://www.ibm.com/downloads/cas/AX4OVQLV",
+                    linkText:"Read Enterprise Bug Busting, by Rosalind Radcliff"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>IBM provides a set of tools to help clients test their z/OS applications and address their challenges and incorporate DevOps best practices for automated, shift-left testing in their CI/CD pipeline.</p>",
+                subSectionLinks: [
+                    {
+                    linkUrl:"https://www.ibm.com/products/z-virtual-test-platform",
+                    linkText:"Learn about solutions to automate and shift left"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Unit test",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>The z/OS Automated Unit Test Framework (ZUnit) provides the tools to automate the unit testing of  z/OS programs written in the COBOL and PL/I programming languages. It is based upon the open, xunit.net <link> framework. With ZUnit create, record, and run testcases for COBOL and PL/I programs, and provides the following benefits:
+                <ul><li>Gain efficiencies by developing a set of repeatable test cases. Write once and automate.</li>
+                <li>Improve code quality using a programmatic and data-driven approach to gain broader code coverage.</li>
+                <li>Reduce complexity by removing requirements to test with a full middleware stack, by intercepting calls to CICS®, Db2®, and IMS.</li>
+                </ul></p>"
+            },
+            {
+                subSectionTitle: "Use case",
+                subSectionContent: "<p>Develop automated test cases for COBOL and PL/I applications including batch and CICS applications.</p>",
+                subSectionLinks: [
+                    {
+                    linkUrl:"https://mediacenter.ibm.com/media/New+Testing+Capabilities+with+IBM+zUnit/1_1cf2sqh4",
+                    linkText:"See a demonstration using COBOL, CICS, and DB2"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>ZUnit is a component of IBM Developer for z/OS and z/OS Explorer.</p>
+                <ol><li><a href='https://www.ibm.com/docs/en/developer-for-zos/15.0.0?topic=overview-developer-zos'>Learn how to install IBM Developer for z/OS.</a></li>
+                <li><a href='https://www.ibm.com/docs/en/developer-for-zos/15.0.0?topic=eclipse-unit-testing-enterprise-cobol-pli-applications'>Understand the components of ZUnit, setup, and begin developing test cases.</a></li>
+                </ol>"
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Application integration test",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>IBM Z Virtual Test Platform (zVTP) provides a solution to shift left and perform application integration testing for z/OS applications earlier in the development cycle, and provides the following benefits:</p>
+                <ul><li>Reduce the cost of finding complex bugs late in the cycle by shifting left the application integration testing prior to  formal code build</li>
+                <li>Reduce complexity by removing requirements to test with a full middleware stack, by intercepting calls to  CICS, DB2, and IMS</li>
+                <li>Improve code quality using record and playback to thoroughly drive code paths, enabling automation.</li>
+                </ul>",
+                subSectionLinks: [
+                    {
+                    linkUrl:"https://www.ibm.com/products/z-virtual-test-platform",
+                    linkText:"Learn more about IBM Z Virtual Test Platform"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Use case",
+                subSectionContent: "<p>Test batch, CICS, and IMS applications written in COBOL, PL/I and assembler.</p>",
+                subSectionLinks: [
+                    {
+                    linkUrl:"https://www.ibm.com/products/z-virtual-test-platform",
+                    linkText:"See IBM Z Virtual Test Platform with use case examples"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>Begin using IBM Z Virtual Test Platform.</p>",
+                subSectionLinks: [
+                    {
+                    linkUrl:"https://www.ibm.com/docs/en/zvtp/1.2.0",
+                    linkText:"Install, set up, and begin developing test cases"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 4,
+        tabTitle: "Open test framework",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>The IBM distribution for Galasa is an open, test automation framework for the end-end, integration testing of z/OS applications that are components of larger hybrid applications.
+                It provides the following benefits:</p>
+                <ul><li>Automate the testing of hybrid applications where z/OS is a component</li>
+                <li>Scale complex, cross-platform application integration scenarios</li>
+                </ul>"
+            },
+            {
+                subSectionTitle: "Use case",
+                subSectionContent: "<p>SimBank, distributed with Galasa, simulates a mainframe application.</p>
+                <p>Access the Galasa Community and 
+                        <a href='https://galasa.dev/docs/getting-started/simbank'>explore the SimBank use case</a> or <a href='https://public.dhe.ibm.com/ibmdl/export/pub/software/htp/zos/tools/zvtp/galasa/IBM-Distribution-For-Galasa-1.0.0.zip'>download the IBM distribution for Galasa</a>. 
+                    </p>"
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent:"<p>Begin using the IBM distribution for Galasa.</p>
+                <p>1. <a href='https://public.dhe.ibm.com/ibmdl/export/pub/software/htp/zos/tools/zvtp/galasa/IBM-Distribution-For-Galasa-1.0.0.zip'>Download, install, set up, and begin developing test cases</a>. 
+                </p>"
+            }
+        ]
+    },
+    {
+        id: 5,
+        tabTitle: "Provision test environments",
+        tabSubSections: [
+            {
+                subSectionTitle: "IBM DEVELOPMENT AND TEST ENVIRONMENT (ZD&T)",
+                subSectionContent: "<p>IBM Development and Test environment (ZD&T) provides a z/OS sandbox on x86 hardware,
+                deployed on a personal computer or virtual machine, or as a container on Red Hat OpenShift.
+                and provides the following benefits:</p>
+                <ul><li>Accelerate product deliveries by removing barriers to accessing IBM Z® hardware for complex test scenarios</li>
+                <li>Improve product quality by shifting left application integration testing with a full middleware stack.</li>
+                </ul>",
+                subSectionLinks: [
+                    {
+                    linkUrl:"https://www.ibm.com/products/z-development-test-environment",
+                    linkText:"Learn more about IBM Z Development and Test Environment"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Use case",
+                subSectionContent: "<p>ZD&T has the following offerings to support a variety of usage requirements: Personal Edition, Enterprise Edition, and Parallel Sysplex Edition.</p>",
+                subSectionLinks: [
+                    {
+                    linkUrl:"https://www.ibm.com/products/z-development-test-environment/pricing",
+                    linkText:"Determine the right ZD&T usage model"
+                    },
+                    {
+                    linkUrl:"https://www.ibm.com/account/reg/us-en/signup?formid=urx-49078",
+                    linkText:"Experience IBM Z Development and Test Environment with a trial"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent:"<ol>
+                <li><a href='https://www.ibm.com/account/reg/us-en/signup?formid=urx-49078'>Sign up for a trial</a>, to begin experiencing IBM Z Development and Test Environment.</li>
+                <li><a href='https://www.ibm.com/docs/en/zdt/'>Install, set up, and begin development and test</a>, to begin using IBM Z Development and Test Platform.</li></ol>"
+            },
+            {
+                subSectionTitle: "IBM VIRTUAL DEV AND TEST FOR z/OS (ZVDT)",
+                subSectionContent: "<p>IBM Virtual Dev and Test For z/OS (ZVDT) is the industry’s first and only virtual environment that runs current, genuine z/OS software 
+                    and middleware on-premises Linux on IBM zSystems. It has been developed in lock step with IBM zSystems hardware, offering 
+                    unmatched performance, application portability and compatibility.</p>
+                    <p>ZVDT was designed to be used for development and early test of new application functions, as well as maintenance changes. Additionally, ZVDT can also be used for:</p>
+                <ul><li>Unit tests, early integration, and functional tests</li>
+                <li>Investigation and verification of new middleware levels (version-to-version upgrades)</li>
+                <li>Prototyping new application architectures</li>
+                <li>Demonstration of application function</li>
+                <li>Internal employee education and training.</li>
+                </ul>",
+                subSectionLinks: [
+                    {
+                    linkUrl:"https://www.ibm.com/products/virtual-dev-and-test-zos",
+                    linkText:"Learn more about IBM Virtual Dev and Test for z/OS"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Use cases",
+                subSectionContent: "<ul><li>Drive new software faster, with higher quality, to production:
+                    <ul><li>Shift-left testing</li><li>Work in isolation or parallel.</li></ul></li>
+                    <li>Employee education on an economical and easy-to-build environment.</li>
+                    <li>Easily test new z/OS and middleware versions or patches without compromising the real environment.</li>
+                    <li>Enable continuous integration and agile development methodologies for z/OS to adapt to changing business requirements easier.</li>
+                    </ul>"
+            },
+            {
+                subSectionTitle: "Get started",
+                subSectionContent:"<p><a href='https://www.ibm.com/docs/en/zvdt/1.0.0'>Technical documentation</p>
+                <p><a href='https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/luis-carlos-silva1/2022/06/09/faster-than-a-speeding-bullet-meet-ibm-zvdt'>Technical blog</p>
+                 <p><a href='https://www.ibm.com/downloads/cas/AV7PYWVW'>Solution brief</a></p>"
+            },
+            {
+                subSectionTitle: "WAZI AS A SERVICE",
+                subSectionContent: "<p>Accelerate cloud native development and testing of z/OS applications with z/OS Virtual Server in IBM Cloud® Virtual Private Cloud (VPC). 
+                    It’s your own protected space in the IBM Cloud with the security of a private cloud and the agility of a public cloud. Highlights include the following.</p>
+                    <p>Personal z/OS Dev and Test system in your Virtual Private Cloud (VPC)</p>
+                    <ul>
+                        <li>On-Demand z/OS Dev and Test system</li>
+                        <li>Stock image with pre-installed and customized software</li>
+                        <li>Near IBM zSystems Performance</li>
+                        <li>Infrastructure as a Service with flexible consumption model</li>
+                    </ul>
+                    <p>Wazi Image Builder</p>
+                    <ul>
+                        <li>Create Custom images from your on-premises LPAR</li>
+                        <li>Automation to deploy in IBM Cloud</li>
+                    </ul>
+                    <p>Strategic roadmap</p>
+                    <ul>
+                        <li>Cloud native developer experience with Wazi Code, analyze, pipeline and testing capabilities</li>
+                    </ul>",
+                    subSectionLinks: [
+                    {
+                    linkUrl:"https://www.ibm.com/cloud/wazi-as-a-service",
+                    linkText:"Learn more about Wazi as a Service"
+                    }
+                    ]
+            },
+            {
+                subSectionTitle: "Use cases",
+                subSectionContent: "<p>Wazi as a service allows for early development and testing, education, innovation and infrastructure testing.
+                </p>",
+                    subSectionLinks: [
+                    {
+                    linkUrl:"https://www.ibm.com/downloads/cas/MVK9YK8Q",
+                    linkText:"Learn more about use cases"
+                    }
+                    ]
+            },
+            {
+                subSectionTitle: "Get started",
+                subSectionContent:"<p><a href='https://www.ibm.com/docs/en/wdfrhcw/latest?topic=quick-onboarding-guide'>Quick onboarding guide</a></p>
+                 <p><a href='https://learn.ibm.com/course/view.php?id=8999'>Wazi Developer Self Paced Learning Course</a></p>"
+            },
+            {
+                subSectionTitle: "WAZI SANDBOX",
+                subSectionContent: "<p>Develop and test z/OS application components in a personal, virtual, containerized OpenShift z/OS environment. 
+                    Wazi Sandbox is a component of the <a href='https://www.ibm.com/products/z-and-cloud-modernization-stack'>Z and Cloud Modernization Stack</a>.</p>
+                    <p>Wazi Sandbox creates an environment for mainframe application demonstration, development, testing, and education without Z Mainframe 
+                        hardware, enables z/OS middleware and other z/OS software to run on Intel and other compatible computers, and emulates 
+                        z/Architecture® with virtual I/O and devices.</p>"
+            },
+            {
+                subSectionTitle: "Use cases",
+                subSectionContent: "<p>Create (self-service) a developer workspace on OpenShift with services needs.</p>
+                    <p>Early development and test in a developer-controlled workspace using their IDE of choice.</p>"
+            },
+            {
+                subSectionTitle: "Get started",
+                subSectionContent:"<p><a href='https://learn.ibm.com/course/view.php?id=8999'>Wazi Developer Self Paced Learning Course</a></p>"
+            }
+
+        ]
+    }
+
+   
+] %}
+{# END GETTING STARTED #}
+
+{# START FAQs #}
+{# Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+
+{# Learn more - optional four column section to the right of the main FAQs if needed for custom html (see example on Container Extensions #}
+{% set learnMore = "" %}
+{# END FAQs #}
+
+
+{# START FEATURED DOCUMENTATION #}
+{# set documentation = {
+    docTitle: "IBM Documentation",
+    docDescription: "Read more about how to get Started with z/OS Cloud Broker.",
+    docLinkUrl: "https://www.ibm.com/docs/en/zos-cloud-broker",
+    docLinkText: "Information about z/OS Cloud Broker in IBM Documentation."
+}
+#
+{# END FEATURED DOCUMENTATION #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to hide tile on page temporarily.
+ #}
+{% set resourcesTabs = [
+{
+        id: 1,
+        tabTitle: "Documentation and content solutions",
+        tabContent: [
+            {
+                resourceTitle: "IBM Developer for z/OS Enterprise Edition documentation",
+                resourceDescription: "Read more about how to get started with IBM Developer for z/OS Enterprise Edition.",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/developer-for-zos",
+                resourceLinkText: "Explore the IBM Developer for z/OS Enterprise Edition documentation",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Z Virtual Test Platform documentation",
+                resourceDescription: "Read more about how to get started with IBM Z Virtual Test Platform.",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zvtp",
+                resourceLinkText: "Explore the IBM Z Virtual Test Platform documentation",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Z Development and Test Environment documentation",
+                resourceDescription: "Read more about how to get started with IBM Z Development and Test Environment.",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zdt",
+                resourceLinkText: "Explore the IBM Z Development and Test Environment documentation",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Wazi Developer documentation",
+                resourceDescription: "Read more about how to get started with IBM Wazi Developer.",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/wdfrhcw",
+                resourceLinkText: "Explore the IBM Wazi Developer documentation",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM distribution for Galasa documentation",
+                resourceDescription: "Read more about how to get started with Galasa.",
+                resourceLinkUrl: "https://public.dhe.ibm.com/ibmdl/export/pub/software/htp/zos/tools/zvtp/galasa/IBM-Distribution-For-Galasa-1.0.0.zip",
+                resourceLinkText: "Explore the IBM distribution for Galasa documentation",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Developer experience for hybrid cloud with IBM Z content solution",
+                resourceDescription: "See how you can get started with the developer experience for hybrid cloud with IBM Z.",
+                resourceLinkUrl: "https://www.ibm.com/support/z-content-solutions/developer-experience-hybrid-cloud-z/",
+                resourceLinkText: "Explore the Developer experience for hybrid cloud with IBM Z content solution",
+                resourceLinkType: "contentsolution",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Other resources",
+        tabContent: [
+            {
+                resourceTitle: false,
+                resourceDescription: "Learn how to develop agile testing practices for z/OS applications and find out more about tools that can help to accelerate processes.",
+                resourceLinkUrl: "https://www.redbooks.ibm.com/abstracts/redp5683.html",
+                resourceLinkText: "Read the Redpaper",
+                resourceLinkType: "redbook",
+                resourceStatus: "new",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: false,
+                resourceDescription: "Experience tools to accelerate unit test and application integration test for your z/OS applications.",
+                resourceLinkUrl: "https://early-access.ibm.com/software/support/trial/cst/programwebsite.wss?siteId=1657&tabId=4527&w=1",
+                resourceLinkText: "No-charge 3-day trial",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png",
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: false,
+                resourceDescription: "Check out Enterprise Bug Busting: From testing through CI/CD to drive business results, by IBM Distinguished Engineer Rosalind Radcliffe.",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/AX4OVQLV",
+                resourceLinkText: "Read the ebook",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png",
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: false,
+                resourceDescription: "Stay current by joining the IBM automated testing community and sharing blogs, discussions, events and announcements.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/topic-home/blog-entries?communitykey=6827d4d1-9d33-45b1-9f53-95bda0ff83d1",
+                resourceLinkText: "Join the automated testing community",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png",
+                resourceStatus: ""
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Videos",
+        tabContent: [
+            {
+                resourceTitle: false,
+                resourceDescription: "Stay current with the latest IBM Z Test solution videos.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/playlist/details/1_5rk6keyi/categoryId/189147203",
+                resourceLinkText: "Explore videos on IBM Z Automated Testing in the IBM Media Center",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png",
+                resourceStatus: ""
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no announcement content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [5,14] %}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "March 9, 2023",
+        sectionContent: "<p>A link to a new Redpaper has been added to Announcements in the Introduction section and to the Other resources tab of the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "July 28, 2022",
+        sectionContent: "<p>A link to a free trial was added to Announcements in the Introduction section, and updates were made to the Other resources 
+            tab of the Technical resources section.</p><p>The Provision test environments tab of the How to get started section now includes information 
+            about ZD&T, ZVDT, Wazi as a Service, and Wazi Sandbox.</p>"
+    },
+    {
+        sectionTitle: "June 16, 2022",
+        sectionContent: "<p>The transcript for the overview video has been replaced.</p>"
+    },
+    {
+        sectionTitle: "April 28, 2022",
+        sectionContent: "<p>A link to the 3-day trial has been added to the Other resources tab of the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "October 21, 2021",
+        sectionContent: "<p>Links to the ebook Enterprise Bug Busting were added to several places, including the Other resources tab of the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "July 7, 2021",
+        sectionContent: "<p>Minor changes were made to the Open test framework tab of the How to get started section, and new resources were added to the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "July 1, 2021",
+        sectionContent: "<p>Transcript added for Automating and shift-left testing z/OS hybrid applications overview video.</p>"
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "-",
+    sc_security: "-"
+}
+ %}
+{# END STATCOUNTER #}
+
+{# START HOTJAR #}
+{% set hotjar = {
+    site_id: "2496724"
+}
+ %}

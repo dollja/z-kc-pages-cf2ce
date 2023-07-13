@@ -1,0 +1,547 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "Tailored Fit Pricing for IBM Z" %}
+{% set key = 18 %}
+
+{# META #}
+{% set meta_description = meta_description | default("") %}
+{% set meta_keywords = meta_keywords | default("") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "image",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/protractor.jpeg",
+    label: "protractor"
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Welcome to the Tailored Fit Pricing for IBM Z content solution, your homepage for technical resources.</p>
+<p>Tailored Fit Pricing for IBM Z® is designed to deliver unmatched simplicity, transparency, and predictability of pricing in this era of hybrid cloud.</p>
+<p>Tailored Fit Pricing for IBM Z includes several comprehensive alternatives to the rolling four-hour average, including the Software Consumption Solution (formerly known as the Enterprise Consumption Solution), which uses cloud-like consumption-based licensing, the Hardware Consumption Solution, which offers a usage-based capacity corridor for unplanned spikes in demand, and the Application Development and Test Solution, a workload-specific solution that can coexist alongside both traditional and the new consumption models. Other solutions are the Enterprise Capacity Solution, a full-capacity licensing model that offers maximum predictability and simplicity, and the New Application Solution, which allows new applications to be tightly integrated with colocated workloads.</p>
+<p>All of these solutions dramatically simplify pricing and deliver flexible deployment options that are tailored to reflect your environment. They allow you to embrace the best technical fit, greatly reducing need to architect for software costs.</p>
+<p>Technology in z/OS provides the framework to enable Tailored Fit Pricing. It provides the capability to meter and report on specific workloads in a similar manner, regardless of the solution deployed. This can be done without manual tagging and tracking or other increased monthly overhead.</p>
+<p>You can get started with Tailored Fit Pricing with minimal up-front setup.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "marketing",
+        url: "https://www.ibm.com/z/pricing"
+    }
+] %}
+
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# set announcements = [
+    {
+    announcementText: "",
+    announcementLinkText: "",
+    announcementLinkUrl: ""
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cp-bp/svg/TFP_BP1_without_number.svg",
+        iconPath: '<path d="M19.1,31.4H6c-2.6,0-5.4-1.9-5.4-5.5c0-3.1,1.4-5.1,4.7-7l3.1-1.8c0.5-0.3,0.9-0.4,1.3-0.4c1,0,1.6,0.8,1.6,1.6
+	c0,0.7-0.4,1.1-1,1.5l-1.2,0.8H20c0.9,0,1.6,0.7,1.6,1.6c0,0.3-0.1,0.6-0.3,0.9h0.2c0,0,0,0,0,0c0.4,0,0.8,0.2,1.1,0.5
+	c0.3,0.3,0.5,0.7,0.5,1.1c0,0.9-0.7,1.6-1.6,1.6h-0.2c0.2,0.3,0.3,0.6,0.3,0.9c0,0.8-0.6,1.4-1.3,1.6c0.2,0.3,0.3,0.6,0.3,0.9
+	C20.7,30.7,19.9,31.4,19.1,31.4z M9.8,17.4c-0.3,0-0.6,0.1-1,0.3l-3.1,1.8c-3.1,1.8-4.4,3.6-4.4,6.4c0,3.1,2.4,4.8,4.6,4.8h13.1
+	c0.5,0,0.9-0.4,0.9-0.9c0-0.5-0.4-0.9-0.9-0.9h-6.7v-0.7H20c0.5,0,0.9-0.4,0.9-0.9c0-0.5-0.4-0.9-0.9-0.9h-7.7v-0.7h9.2
+	c0.5,0,0.9-0.4,0.9-0.9c0-0.2-0.1-0.5-0.3-0.6c-0.2-0.2-0.4-0.3-0.6-0.3c0,0,0,0,0,0h-9.2v-0.7H20c0.5,0,0.9-0.4,0.9-0.9
+	c0-0.5-0.4-0.9-0.9-0.9H8c-0.2,0-0.3-0.1-0.3-0.3c0-0.2,0-0.3,0.1-0.4l2.2-1.5c0.5-0.4,0.6-0.6,0.6-0.9
+	C10.7,17.8,10.4,17.4,9.8,17.4z M26,15.4H12.8c-0.9,0-1.6-0.7-1.6-1.6c0-0.4,0.1-0.7,0.3-0.9c-0.7-0.2-1.3-0.8-1.3-1.6
+	c0-0.3,0.1-0.6,0.3-0.9h-0.2c-0.9,0-1.6-0.7-1.6-1.6c0-0.4,0.2-0.8,0.5-1.2c0.3-0.3,0.7-0.5,1.1-0.5c0,0,0,0,0,0h0.2
+	c-0.2-0.3-0.3-0.6-0.3-0.9c0-0.9,0.7-1.6,1.6-1.6h10.9l-1.2-0.8c-0.6-0.4-1-0.8-1-1.5c0-0.8,0.6-1.6,1.6-1.6c0.5,0,0.8,0.1,1.3,0.4
+	l3.1,1.8c3.4,1.9,4.8,4,4.8,7.1C31.4,13.4,28.6,15.4,26,15.4z M12.8,12.8c-0.5,0-0.9,0.4-0.9,0.9c0,0.5,0.4,0.9,0.9,0.9H26
+	c2.3,0,4.7-1.7,4.7-4.8c0-2.8-1.3-4.6-4.4-6.4l-3.1-1.8c-0.4-0.2-0.7-0.3-1-0.3c-0.6,0-0.8,0.4-0.8,0.9c0,0.3,0.1,0.5,0.7,0.9
+	l2.2,1.5c0.1,0.1,0.2,0.3,0.1,0.4s-0.2,0.3-0.3,0.3H11.8c-0.5,0-0.9,0.4-0.9,0.9c0,0.5,0.4,0.9,0.9,0.9h7.7v0.7h-9.3
+	C10,7.8,9.8,7.9,9.6,8C9.5,8.2,9.4,8.4,9.4,8.7c0,0.5,0.4,0.9,0.9,0.9h9.3v0.7h-7.7c-0.5,0-0.9,0.4-0.9,0.9s0.4,0.9,0.9,0.9h7.7v0.7
+	H12.8z"/>',
+        iconAlt: "define a solution",
+        description: "Work with IBM to define a Tailored Fit Pricing solution. If this is an Enterprise Capacity solution, you are done."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cp-bp/svg/TFP_BP2_without_number.svg",
+        iconPath: '<path d="M4.7,8c-0.2,0-0.4,0-0.6-0.1S3.8,7.6,3.7,7.5L4,7.2c0.1,0.1,0.2,0.2,0.3,0.3c0.1,0.1,0.3,0.1,0.4,0.1c0.2,0,0.3,0,0.4-0.1
+	s0.1-0.2,0.1-0.3c0-0.1,0-0.2-0.1-0.3C5.1,6.8,5,6.7,4.9,6.7l-0.2,0C4.3,6.6,4.1,6.5,4,6.4C3.9,6.3,3.8,6.1,3.8,5.9
+	c0-0.1,0-0.2,0.1-0.3S4,5.4,4.1,5.3c0.1-0.1,0.2-0.1,0.3-0.2s0.3-0.1,0.4-0.1c0.2,0,0.4,0,0.5,0.1c0.2,0.1,0.3,0.2,0.4,0.3L5.4,5.8
+	C5.3,5.7,5.2,5.6,5.1,5.6C5,5.5,4.9,5.5,4.7,5.5c-0.2,0-0.3,0-0.4,0.1C4.3,5.6,4.2,5.7,4.2,5.8c0,0.1,0,0.2,0.1,0.3
+	c0.1,0.1,0.2,0.1,0.3,0.1l0.2,0.1c0.3,0.1,0.5,0.1,0.6,0.3s0.2,0.3,0.2,0.5c0,0.1,0,0.2-0.1,0.4S5.6,7.6,5.5,7.7
+	C5.4,7.8,5.3,7.9,5.2,7.9C5,7.9,4.9,8,4.7,8z M7.4,8C7.2,8,7,7.9,6.9,7.9S6.6,7.7,6.5,7.6C6.4,7.5,6.3,7.3,6.2,7.1
+	C6.2,7,6.2,6.7,6.2,6.5c0-0.2,0-0.4,0.1-0.6c0.1-0.2,0.1-0.3,0.2-0.5c0.1-0.1,0.2-0.2,0.4-0.3s0.3-0.1,0.5-0.1c0.2,0,0.3,0,0.5,0.1
+	s0.3,0.2,0.4,0.3c0.1,0.1,0.2,0.3,0.2,0.5c0.1,0.2,0.1,0.4,0.1,0.6c0,0.2,0,0.4-0.1,0.6C8.4,7.3,8.3,7.5,8.2,7.6
+	C8.1,7.7,8,7.8,7.9,7.9S7.5,8,7.4,8z M7.4,7.6c0.1,0,0.2,0,0.3-0.1s0.2-0.1,0.2-0.2C7.9,7.3,8,7.2,8,7.1s0.1-0.2,0.1-0.3V6.3
+	c0-0.1,0-0.2-0.1-0.3S7.9,5.8,7.9,5.7C7.8,5.6,7.7,5.6,7.7,5.5S7.5,5.5,7.4,5.5c-0.1,0-0.2,0-0.3,0.1S6.9,5.6,6.8,5.7
+	C6.8,5.8,6.7,5.8,6.7,5.9S6.6,6.2,6.6,6.3v0.4c0,0.1,0,0.2,0.1,0.3s0.1,0.2,0.1,0.3C6.9,7.4,7,7.5,7.1,7.5S7.3,7.6,7.4,7.6z
+	 M9.1,7.9V5.1h0.5v2.4h1.1v0.4H9.1z M11.5,5.1v1.7c0,0.2,0,0.4,0.1,0.5c0.1,0.1,0.2,0.2,0.5,0.2s0.4-0.1,0.5-0.2s0.1-0.3,0.1-0.5
+	V5.1h0.4v1.6c0,0.2,0,0.4-0.1,0.5c0,0.1-0.1,0.3-0.2,0.4c-0.1,0.1-0.2,0.2-0.3,0.2c-0.1,0-0.3,0.1-0.5,0.1s-0.4,0-0.5-0.1
+	c-0.1,0-0.2-0.1-0.3-0.2c-0.1-0.1-0.1-0.2-0.2-0.4C11.1,7.1,11,7,11,6.8V5.1H11.5z M14.8,5.5v2.4h-0.5V5.5h-0.8V5.1h2.1v0.4H14.8z
+	 M16,7.9V7.5h0.4V5.5H16V5.1h1.2v0.4h-0.4v2.1h0.4v0.4H16z M18.8,8c-0.2,0-0.3,0-0.5-0.1c-0.1-0.1-0.3-0.2-0.4-0.3
+	c-0.1-0.1-0.2-0.3-0.2-0.5c-0.1-0.2-0.1-0.4-0.1-0.6c0-0.2,0-0.4,0.1-0.6c0.1-0.2,0.1-0.3,0.2-0.5c0.1-0.1,0.2-0.2,0.4-0.3
+	c0.1-0.1,0.3-0.1,0.5-0.1s0.3,0,0.5,0.1c0.1,0.1,0.3,0.2,0.4,0.3c0.1,0.1,0.2,0.3,0.2,0.5C20,6.1,20,6.3,20,6.5C20,6.7,20,7,20,7.1
+	c-0.1,0.2-0.1,0.3-0.2,0.5c-0.1,0.1-0.2,0.2-0.4,0.3C19.2,7.9,19,8,18.8,8z M18.8,7.6c0.1,0,0.2,0,0.3-0.1c0.1,0,0.2-0.1,0.2-0.2
+	c0.1-0.1,0.1-0.2,0.1-0.3c0-0.1,0.1-0.2,0.1-0.3V6.3c0-0.1,0-0.2-0.1-0.3c0-0.1-0.1-0.2-0.1-0.3c-0.1-0.1-0.1-0.1-0.2-0.2
+	c-0.1,0-0.2-0.1-0.3-0.1c-0.1,0-0.2,0-0.3,0.1s-0.2,0.1-0.2,0.2c-0.1,0.1-0.1,0.2-0.1,0.3c0,0.1-0.1,0.2-0.1,0.3v0.4
+	c0,0.1,0,0.2,0.1,0.3c0,0.1,0.1,0.2,0.1,0.3c0.1,0.1,0.1,0.1,0.2,0.2S18.7,7.6,18.8,7.6z M21.4,6.4L21,5.8h0v2.1h-0.4V5.1h0.5
+	L22,6.7l0.3,0.6h0V5.1h0.4v2.8h-0.5L21.4,6.4z M24.3,7.9V7.5h0.4V5.5h-0.4V5.1h1.2v0.4h-0.4v2.1h0.4v0.4H24.3z M26.1,5.1h1
+	c0.2,0,0.3,0,0.5,0.1c0.1,0.1,0.3,0.1,0.4,0.3c0.1,0.1,0.2,0.3,0.2,0.4c0.1,0.2,0.1,0.4,0.1,0.6c0,0.2,0,0.4-0.1,0.6
+	c-0.1,0.2-0.1,0.3-0.2,0.4c-0.1,0.1-0.2,0.2-0.4,0.3c-0.1,0.1-0.3,0.1-0.5,0.1h-1V5.1z M27.1,7.5c0.2,0,0.4-0.1,0.5-0.2
+	s0.2-0.3,0.2-0.6V6.3c0-0.3-0.1-0.4-0.2-0.6c-0.1-0.1-0.3-0.2-0.5-0.2h-0.5v2H27.1z M5.5,21H5.1l-0.6-1h0l-0.6,1H3.4l0.8-1.2
+	l-0.8-1.2h0.5l0.6,0.9h0l0.6-0.9h0.4l-0.8,1.2L5.5,21z M6.3,21l-0.6-2.4h0.4l0.2,1.2l0.2,0.8h0l0.2-0.8L7,18.6h0.4l0.3,1.2l0.2,0.8
+	h0l0.2-0.8l0.3-1.2h0.4L8.2,21H7.7l-0.3-1.3L7.2,19h0L7,19.8L6.7,21H6.3z M10.8,21H9v-0.4l1.3-1.7H9v-0.4h1.7v0.4l-1.3,1.7h1.4V21z
+	 M12.1,21.1c-0.2,0-0.3,0-0.4-0.1c-0.1-0.1-0.2-0.1-0.3-0.2c-0.1-0.1-0.2-0.2-0.2-0.4c0-0.2-0.1-0.3-0.1-0.5s0-0.4,0.1-0.5
+	c0.1-0.2,0.1-0.3,0.2-0.4c0.1-0.1,0.2-0.2,0.3-0.2c0.1-0.1,0.3-0.1,0.4-0.1s0.3,0,0.4,0.1c0.1,0.1,0.2,0.1,0.3,0.2s0.2,0.2,0.2,0.4
+	s0.1,0.3,0.1,0.5s0,0.4-0.1,0.5c-0.1,0.2-0.1,0.3-0.2,0.4c-0.1,0.1-0.2,0.2-0.3,0.2S12.2,21.1,12.1,21.1z M12.1,20.7
+	c0.1,0,0.2,0,0.3,0c0.1,0,0.1-0.1,0.2-0.1c0.1-0.1,0.1-0.1,0.1-0.2c0-0.1,0-0.2,0-0.3v-0.4c0-0.1,0-0.2,0-0.3s-0.1-0.2-0.1-0.2
+	c-0.1-0.1-0.1-0.1-0.2-0.1c-0.1,0-0.2,0-0.3,0c-0.1,0-0.2,0-0.3,0c-0.1,0-0.1,0.1-0.2,0.1c-0.1,0.1-0.1,0.1-0.1,0.2s0,0.2,0,0.3V20
+	c0,0.1,0,0.2,0,0.3c0,0.1,0.1,0.2,0.1,0.2c0.1,0.1,0.1,0.1,0.2,0.1C11.9,20.7,12,20.7,12.1,20.7z M15.4,21H15l-0.6-1h0l-0.6,1h-0.4
+	l0.8-1.2l-0.8-1.2h0.5l0.6,0.9h0l0.6-0.9h0.4l-0.8,1.2L15.4,21z M16.2,21l-0.6-2.4H16l0.2,1.2l0.2,0.8h0l0.2-0.8l0.3-1.2h0.4
+	l0.3,1.2l0.2,0.8h0l0.2-0.8l0.3-1.2h0.4L18.1,21h-0.4l-0.3-1.3L17.1,19h0l-0.2,0.7L16.6,21H16.2z M20.7,21h-1.8v-0.4l1.3-1.7h-1.3
+	v-0.4h1.7v0.4l-1.3,1.7h1.4V21z M22,21.1c-0.2,0-0.3,0-0.4-0.1c-0.1-0.1-0.2-0.1-0.3-0.2c-0.1-0.1-0.2-0.2-0.2-0.4
+	c0-0.2-0.1-0.3-0.1-0.5s0-0.4,0.1-0.5c0.1-0.2,0.1-0.3,0.2-0.4c0.1-0.1,0.2-0.2,0.3-0.2c0.1-0.1,0.3-0.1,0.4-0.1
+	c0.2,0,0.3,0,0.4,0.1c0.1,0.1,0.2,0.1,0.3,0.2s0.2,0.2,0.2,0.4c0,0.2,0.1,0.3,0.1,0.5s0,0.4-0.1,0.5c-0.1,0.2-0.1,0.3-0.2,0.4
+	c-0.1,0.1-0.2,0.2-0.3,0.2C22.3,21,22.1,21.1,22,21.1z M22,20.7c0.1,0,0.2,0,0.3,0c0.1,0,0.1-0.1,0.2-0.1c0.1-0.1,0.1-0.1,0.1-0.2
+	c0-0.1,0-0.2,0-0.3v-0.4c0-0.1,0-0.2,0-0.3s-0.1-0.2-0.1-0.2c-0.1-0.1-0.1-0.1-0.2-0.1c-0.1,0-0.2,0-0.3,0c-0.1,0-0.2,0-0.3,0
+	c-0.1,0-0.1,0.1-0.2,0.1c-0.1,0.1-0.1,0.1-0.1,0.2s0,0.2,0,0.3V20c0,0.1,0,0.2,0,0.3c0,0.1,0.1,0.2,0.1,0.2c0.1,0.1,0.1,0.1,0.2,0.1
+	C21.8,20.7,21.9,20.7,22,20.7z M25.3,21h-0.5l-0.6-1h0l-0.6,1h-0.4l0.8-1.2l-0.8-1.2h0.5l0.6,0.9h0l0.6-0.9h0.4l-0.8,1.2L25.3,21z
+	 M26.1,21l-0.6-2.4h0.4l0.2,1.2l0.2,0.8h0l0.2-0.8l0.3-1.2h0.4l0.3,1.2l0.2,0.8h0l0.2-0.8l0.3-1.2h0.4L28,21h-0.4l-0.3-1.3L27,19h0
+	l-0.2,0.7L26.5,21H26.1z M31,10.3H1.2v0.7H31V10.3z M31.4,30.4H0.6V1.6h30.7V30.4z M1.4,29.6h29.3V2.4H1.4V29.6z"/>',
+        iconAlt: "get your solution id",
+        description: "If your solution requires them, obtain the solution IDs that were assigned by IBM from the License Management Support web portal."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cp-bp/svg/TFP_BP3_without_number.svg",
+        iconPath: '<path id="code--syntax_2_" d="M29,3.5C29,3.776,28.776,4,28.5,4S28,3.776,28,3.5S28.224,3,28.5,3S29,3.224,29,3.5z M26.5,3
+	C26.224,3,26,3.224,26,3.5S26.224,4,26.5,4S27,3.776,27,3.5S26.776,3,26.5,3z M24.5,3C24.224,3,24,3.224,24,3.5S24.224,4,24.5,4
+	S25,3.776,25,3.5S24.776,3,24.5,3z M31,30.36H1c-0.199,0-0.36-0.161-0.36-0.36V2c0-0.199,0.161-0.36,0.36-0.36h30
+	c0.199,0,0.36,0.161,0.36,0.36v28C31.36,30.199,31.199,30.36,31,30.36z M1.36,29.64h29.28V5.36H1.36V29.64z M1.36,4.64h29.28V2.36
+	H1.36V4.64z M13.5,24.142l-0.662-0.283l6-14l0.662,0.283L13.5,24.142z M21.424,21.255l-0.51-0.51L24.66,17l-3.746-3.746l0.51-0.509
+	l4,4c0.141,0.141,0.141,0.369,0,0.509L21.424,21.255z M10.915,21.255l-4-4c-0.141-0.141-0.141-0.369,0-0.509l4-4l0.509,0.509
+	L7.678,17l3.745,3.745L10.915,21.255z"/>',
+        iconAlt: "update SCRT",
+        description: "Define the containers, including updating SCRT so that it can report the workload appropriately."
+    },
+    {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/cp-bp/svg/TFP_BP4_without_number.svg",
+        iconPath: '<path id="assets_1_" d="M31,0.64H10C9.801,0.64,9.64,0.801,9.64,1v2.64H1C0.801,3.64,0.64,3.801,0.64,4v27
+	c0,0.199,0.161,0.36,0.36,0.36h21c0.199,0,0.36-0.161,0.36-0.36v-2.64H31c0.199,0,0.36-0.161,0.36-0.36V1
+	C31.36,0.801,31.199,0.64,31,0.64z M21.64,30.64H1.36V4.36h14.28V10c0,0.199,0.161,0.36,0.36,0.36h5.64V30.64z M16.36,4.869
+	l4.771,4.771H16.36V4.869z M30.64,27.64h-8.28V10c0-0.096-0.038-0.187-0.105-0.254l-6-6C16.187,3.678,16.096,3.64,16,3.64h-5.64
+	V1.36h20.28C30.64,1.36,30.64,27.64,30.64,27.64z M19.36,16c0,0.199-0.161,0.36-0.36,0.36H4c-0.199,0-0.36-0.161-0.36-0.36
+	S3.801,15.64,4,15.64h15C19.199,15.64,19.36,15.801,19.36,16z M19.36,19c0,0.199-0.161,0.36-0.36,0.36H4
+	c-0.199,0-0.36-0.161-0.36-0.36S3.801,18.64,4,18.64h15C19.199,18.64,19.36,18.801,19.36,19z M19.36,22
+	c0,0.199-0.161,0.36-0.36,0.36H4c-0.199,0-0.36-0.161-0.36-0.36S3.801,21.64,4,21.64h15C19.199,21.64,19.36,21.801,19.36,22z
+	 M19.36,25c0,0.199-0.161,0.36-0.36,0.36H4c-0.199,0-0.36-0.161-0.36-0.36S3.801,24.64,4,24.64h15
+	C19.199,24.64,19.36,24.801,19.36,25z"/>',
+        iconAlt: "send the SCRT report",
+        description: "Send the SCRT report to IBM."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Software Consumption Solution",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>The Software Consumption Solution is a cloud-like usage-based licensing model. Compute is measured on the basis of MSUs consumed, which removes the need for manual or automated capping. You can configure your systems to support optimal response times and service level agreements.</p>
+                <p>Use the Software Consumption Solution in conjunction with the Application Development and Test Solution (DevTest) for a comprehensive end-to-end pricing solution for all stages of the application lifecycle. For information about the DevTest Solution, select the Application Development and Test Solution tab.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=pricing-requirements-tailored-fit-z",
+                        linkText: "Requirements"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Work with an IBM Sales representative to define an Software Consumption Solution. This includes separate solution IDs for your development and production environments.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=started-obtain-solution-id-from-lms",
+                        linkText: "Obtain a solution and get solution IDs"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>
+                <p>For a dedicated-LPAR solution, use either of the following methods to associate the solution IDs for the
+                Software Consumption Solution and the Application Development and Test Solutions.</p> 
+                <ul><li>Update your Sub-Capacity Reporting Tool (SCRT) JCL. 
+                <p> </ p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=pricing-scrt-commands-dedicated-devtest-new-application-solution'>Update SCRT</a></p></li></ul>
+                <ul><li>Use the SOLUT system parameter when IPLing a z/OS system as part of the qualified solution.
+                 <p> </ p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=pricing-dedicated-lpars'>Dedicated LPARs</a></p></li></ul>
+                <p>For a colocated-LPAR solution, update your SCRT JCL.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=pricing-scrt-commands-software-consumption-solution'>Update SCRT</a></p>
+                <p>The next time you send the SCRT report to IBM, the solution workload is reported separately.</p>"
+            }
+        ]
+    },
+      {
+        id: 2,
+        tabTitle: "Hardware Consumption Solution",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>The Hardware Consumption Solution introduces cloud-like pricing for IBM Z hardware, with an always-on, subscription-based corridor of pay-for-use capacity, on top of purchased capacity, that can alleviate the impact of short, unpredictable spikes in business-critical workloads.</p>
+                <p>The Hardware Consumption Solution is available for customers with z15, z/OS general purpose processors, and a Software Consumption Solution.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/blogs/systems/announcing-ibm-linuxone-iii-express-and-tailored-fit-pricing",
+                        linkText: "Learn more"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=pricing-requirements-tailored-fit-z",
+                        linkText: "Requirements"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Work with an IBM Sales representative to define a Hardware Consumption Solution to be used with a Software Consumption Solution. IBM uses a workload analysis to determine eligibility and fit for the Hardware Consumption Solution.</p>
+                <p>At least one native (not running under z/VM) z/OS system must be active at all times during the report period with an RMF interval of 1, 3, 5, or 15 minutes.</p>
+                <p>There can be no dedicated CPs on any LPARs, and WAIT COMPLETION = NO must be specified.</p>
+                <p>For information on planning for the Software Consumption Solution, click the Software Consumption Solution tab.</p>"
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>Include the following control statements in the SPECIAL DD of the SCRT job:</p>
+                <p><bx-code-snippet type='multi'>
+INTERVAL_RATE_DATA
+DETAIL_INTERVAL_RATE_DATA
+                </bx-code-snippet></p>
+                <p> </p>
+                <p>For information on the steps for the Software Consumption Solution, click the Software Consumption Solution tab.</p>"
+            }
+        ]
+    },
+
+    {
+        id: 3,
+        tabTitle: "Application Development and Test Solution",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>The Application Development and Test solution, by removing the need for aggressive cost controls around development and test, promotes a healthy development and test environment on z/OS.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=pricing-requirements-tailored-fit-z",
+                        linkText: "Requirements"
+                    }
+              ]
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Work with an IBM Sales representative to define a solution with an agreed upon price.</p>
+                <p>This agreement includes the decision to use either an LPAR that is dedicated to the workload or an LPAR on which the workload is colocated with other workloads. The Application Development and Test environment is typically on dedicated LPARs.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=started-obtain-solution-id-from-lms",
+                        linkText: "Obtain a solution and get solution IDs"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<p>For a dedicated-LPAR solution, use either of the following methods to associate the solution ID.</p> 
+                <ul><li>Update your SCRT JCL. 
+                <p> </ p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=pricing-scrt-commands-dedicated-devtest-new-application-solution'>Update SCRT for a dedicated-LPAR solution</a></p></li></ul>
+                <ul><li>Use the SOLUT system parameter when IPLing a z/OS system as part of the qualified solution.
+                 <p> </ p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=pricing-dedicated-lpars'>Dedicated LPARs</a></p></li></ul>
+                <p>For a colocated-LPAR solution, create definitions in WLM and then update your SCRT JCL to reflect the solution ID, which is generated as part of the agreement with IBM.</p>
+                <p>The next time you send the SCRT report to IBM, the solution workload is reported separately.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=suctfpdnas-wlm-definitions-colocated-tailored-fit-pricing-devtest-new-application-solution'>Tailored Fit Pricing definitions in WLM</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=pricing-scrt-commands-colocated-devtest-new-application-solution'>Update SCRT for a colocated-LPAR solution</a></p>"
+
+            }
+        ]
+    },
+    {
+        id: 4,
+        tabTitle: "New Application and Enterprise Capacity Solutions",
+        tabSubSections: [
+            {
+                subSectionTitle: "New Application Solution",
+                subSectionContent: "<p>The New Application Solution allows new applications to be tightly integrated with colocated workloads, with the price predictability of a dedicated environment.</p>
+                <p>Work with an IBM Sales representative to define a solution with an agreed on price. The agreement includes the decision to use either an LPAR that is dedicated to the workload or an LPAR on which the workload is colocated with other workloads.</p><p>Steps are the same as for the Application Development and Test Solution. See the Application Development and Test Solution tab for details.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=pricing-requirements-tailored-fit-z",
+                        linkText: "Requirements"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Enterprise Capacity Solution",
+                subSectionContent: "<p>The Enterprise Capacity Solution is a tailored full-capacity licensing model, offering predictable cost. Charges are connected to the size of the physical environment and are calculated based on the estimated mix of workloads running, with the flexibility to vary actual usage across workloads. Charges include increased capacity for development and test environments and reduced pricing for all types of workload growth. Charging based on the overall size of the physical environment removes the need for manual or automated capping. You can configure your systems to support optimal response times and service level agreements.</p>
+                <p>Because this is a full-capacity solution, there is no reporting requirement.</p>
+                <p>You work with an IBM Sales representative to define a solution. The agreement includes an allowance for application development and test workloads.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=pricing-requirements-tailored-fit-z",
+                        linkText: "Requirements"
+                    }
+                ]
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FAQs #}
+{# Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqs = [
+    {
+    question: "",
+    answer: ""
+    }
+]#}
+{# Learn more - optional four column section to the right of the main FAQs if needed for custom html (see example on Container Extensions #}
+{# set learnMore = "" #}
+{# END FAQs #}
+
+{# START FEATURED DOCUMENTATION #}
+{% set documentation = {
+    docTitle: "Comprehensive content collection",
+    docDescription: "Find a Comprehensive content collection about Tailored Fit Pricing for IBM Z.",
+    docLinkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=pricing-what-is-tailored-fit-z",
+    docLinkText: "Explore the collection"
+}
+%}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "Other resources",
+        tabContent: [
+            {
+                resourceDescription: "Information, tools and resources on the pricing, licensing, terms and conditions for IBM mainframe software.",
+                resourceLinkUrl: "https://www.ibm.com/it-infrastructure/z/pricing-tailored-fit",
+                resourceLinkText: "IBM Z Tailored Fit Pricing",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceDescription: "This Hot Topics article focuses on the Application Development and Test and New Application Solutions.",
+                resourceLinkUrl: "http://www.ibmsystemsmagmainframedigital.com/nxtbooks/ibmsystemsmag/mainframe_20180708/index.php#/52",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "article",
+                resourceStatus: "hide",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            },
+            {
+                resourceDescription: "See how easy it is to try a test report using sample solution IDs.",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/90WWOWGK",
+                resourceLinkText: "Read the guide",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            },
+            {
+                resourceDescription: "Learn about the technical basis for the MSU consumption metric used in the Enterprise Consumption Solution (now called the Software Consumption Solution).",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/YMW2JWP4",
+                resourceLinkText: "Read the guide",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            },
+            {
+                resourceDescription: "Understand the requirements and considerations for a colocated container pricing solution in Container Pricing (now called Tailored Fit Pricing).",
+                resourceLinkUrl: "https://github.com/IBM/IBM-Z-zOS/blob/master/zOS-WLM/Documents/Container_Pricing_The_WLM_View.pdf",
+                resourceLinkText: "View the presentation",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            },
+            {
+                resourceDescription: "Tracking and Reporting Solution Consumption License Charges (SCLC) is intended to help you understand the technical basis for SCLC, as well as the tracking and implementation of the new metric in the sub-capacity reporting tool (SCRT).",
+                resourceLinkUrl: "http://www.ibm.com/support/techdocs/atsmastr.nsf/WebIndex/PRS5393",
+                resourceLinkText: "Read the document",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            },
+            {
+                resourceDescription: "Ross Mauri, General Manager, IBM Z, explains the benefits of Tailored Fit Pricing.",
+                resourceLinkUrl: "https://www.ibm.com/blogs/systems/ibm-z-defines-the-future-of-hybrid-cloud",
+                resourceLinkText: "Read the blog",
+                resourceLinkType: "blog",
+                resourceStatus: "hide",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/cp-bp/svg/IconBlogWhiteLg.svg"
+            },
+            {
+                resourceDescription: "For DevTest and New Application solutions, use guided steps in z/OSMF to set up a Tailored Fit solution that is colocated with other workloads on an existing LPAR.",
+                resourceLinkUrl: "https://github.com/IBM/IBM-Z-zOS/blob/master/zOS-Workflow/Tailored%20Fit%20Pricing%20for%20IBM%20Z%20Workflow/workflow_tailoredfitpricing_colocated.xml",
+                resourceLinkText: "Get the workflow",
+                resourceLinkType: "workflow",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceDescription: "For DevTest and New Application solutions, use guided steps in z/OSMF to set up a Tailored Fit solution for a dedicated LPAR.",
+                resourceLinkUrl: "https://github.com/IBM/IBM-Z-zOS/blob/master/zOS-Workflow/Tailored%20Fit%20Pricing%20for%20IBM%20Z%20Workflow/workflow_tailoredfitpricing_dedicated.xml",
+                resourceLinkText: "Get the workflow",
+                resourceLinkType: "workflow",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceDescription: "Announcing the Hardware Consumption Solution and LinuxONE Express",
+                resourceLinkUrl: "https://www.ibm.com/blogs/systems/announcing-ibm-linuxone-iii-express-and-tailored-fit-pricing",
+                resourceLinkText: "Read the blog",
+                resourceLinkType: "blog",
+                resourceStatus: "new",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/cp-bp/svg/IconBlogWhiteLg.svg"
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [14] %}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "March 23, 2023",
+        sectionContent: "<p>The DevTest sizing calculator was removed from the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "October 7, 2021",
+        sectionContent: "<p>Links to z/OS documentation were updated to use the z/OS 2.5 library.</p>"
+    },
+    {
+        sectionTitle: "May 21, 2021",
+        sectionContent: "<p>The option to use the SOLUT system parameter to specify the solution ID was added to the information for the Software Consumption Solution and Devtest Solution in the How to get started section.
+        SOLUT was added with PTFs for APAR OA60198.</p>"
+    },
+    {
+        sectionTitle: "May 4, 2021",
+        sectionContent: "<ul>
+        <li>The Enterprise Consumption Solution was renamed Software Consumption Solution.</li>
+        <li>A new Hardware Consumption Solution was added.</li>
+        <li>The How to get started section was reorganized, with the New Application Solution and Enterprise Capacity Solution combined on a single tab.</li>
+        <li>Resources were added to and removed from the Technical resources section. New resources are indicated by NEW!</li>"
+    },
+    {
+        sectionTitle: "June 16, 2020",
+        sectionContent: "A video was added to the Multimedia tab of the Technical resources section."
+    },
+    {
+        sectionTitle: "February 27, 2020",
+        sectionContent: "z/OSMF workflows for setting up DevTest and New Application solutions were added to the Other Resources tab of the Technical resources section."
+    },
+    {
+        sectionTitle: "May 14, 2019",
+        sectionContent: "This page previously described Container Pricing for IBM Z. Container Pricing for IBM Z has been renamed to Tailored Fit Pricing for IBM Z. The Software Consumption and Enterprise Capacity Solutions are new with Tailored Fit Pricing for IBM Z. Some content that described Container Pricing for IBM Z was removed.<br />
+        A blog by Ross Mauri, General Manager of IBM Z, was added.<br />
+        A guide showing how to try a test report using sample solution IDs was added.<br />
+        A guide to the technical basis for the MSU consumption metric used in the Software Consumption Solution was added."
+    },
+    {
+        sectionTitle: "October 12, 2018",
+        sectionContent: "The presentation <em>Container Pricing for IBM Z - the WLM View</em> was added to the Other Resources tab of the Resources section.<br />
+        The document <em>Tracking and Reporting Solution Consumption License Charges</em> (SCLC) was added to the Other Resources tab of the Resources section.<br />
+        The video <em>Container Pricing Overview</em> was added to the Multimedia tab of the Resources section."
+    }
+] %}
+{# END WHATS NEW #}
+
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "containerpricing" %}
+{# END FEEDBACK #}
+
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "11853113",
+    sc_security: "3290bf1b"
+}
+ %}
+{# END STATCOUNTER #}
+
+{# START HOTJAR #}
+{% set hotjar = {
+    site_id: ""
+}
+ %}
+{# END HOTJAR #}

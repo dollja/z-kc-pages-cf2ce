@@ -1,0 +1,13 @@
+{% if tabs %}
+    <div class="dd-tabs ibm-graphic-tabs ibm-pb-0 ibm-background-gray-100">
+        <div class="ibm-tab-section ibm-pb-0 ibm-grid-container">
+            <div class="ibm-grid-col-lg-16-4"></div>
+            <ul class="ibm-tabs ibm-mb-0 ibm-pb-0" role="tablist">
+                {% for tab in tabs %}
+                    <li><a {% if tab.highlighted %}aria-selected="true"{% endif %} role="tab" href="{{ tab.url }}" class="ibm-type-c ibm-type-c--tight ibm-mb-0">{{ tab.text }}</a></li>
+                {% endfor %}
+            </ul>
+            <div class="ibm-grid-col-sm-4-1 ibm-grid-col-md-8-1 ibm-grid-col-lg-16-3"></div>
+        </div>
+    </div>
+{% endif %}

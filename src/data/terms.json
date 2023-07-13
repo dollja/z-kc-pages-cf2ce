@@ -1,0 +1,280 @@
+{
+"definitions": [
+  {
+    "term": "Boot volumes",
+    "description": "Boot from volume functionality not only provides you the ability to boot a virtual machine from a remotely attached volume, which moves the system disk from local to remote, but also provides improvements in management and recovery."
+  },
+  {
+    "term": "BSAM",
+    "description": "Basic sequential access method, an access method for storing or retrieving data blocks in a continuous sequence, using either a sequential access or a direct access device."
+  },
+  {
+    "term": "CICS",
+    "description": "CICS Transaction server for z/OS (CICS TS) is a secure and scalable platform for hosting transactional enterprise applications in a hybrid architecture."
+  },
+  {
+    "term": "CI/CD",
+    "description": "Continuous integration and continuous delivery."
+  },
+  {
+    "term": "Common Cryptographic Architecture",
+    "description": "IBM software that enables a consistent approach to cryptography on major IBM computing platforms. It supports application software that is written in a variety of programming languages. Application software can call on CCA services to perform a broad range of cryptographic functions, including DES and RSA encryption."
+  },
+  {
+    "term": "containers",
+    "description": "Executable units of software in which application code is packaged along with its libraries and dependencies."
+  },
+  {
+    "term": "Coupling facility encryption",
+    "description": "On systems at the z/OS V2R3 level and above, list and cache structure entry and entry adjunct data can be encrypted while the data is being transferred to and from the coupling facility and while the data resides in the coupling facility structure."
+  },
+  {
+    "term": "Coupling facility resource management (CFRM) policy statements",
+    "description": "The CFRM policy information describes the coupling facilities (CF) and structures (STRUCTURE) that can be used in the sysplex once an administrative policy is activated."
+  },
+  {
+    "term": "CPC",
+    "description": "Central processor complex, a physical collection of hardware that consists of main storage, one or more central processors, timers, and channels."
+  },
+  {
+    "term": "Data Facility Storage Management Subsystem",
+    "description": "(DFSMS) An operating environment that helps automate and centralize the management of storage."
+  },
+  {
+    "term": "Db2",
+    "description": "A relational database, it delivers fast query processing with enterprise-level performance and capabilities for online transactional processing."
+  },
+  {
+    "term": "DFSMSdss",
+    "description": "A functional component of Data Facility Storage Management Subsystem (DFSMS) that copies and moves data to help manage storage, data, and space more efficiently."
+  },
+  {
+    "term": "DFSMShsm",
+    "description": "A functional component of Data Facility Storage Management Subsystem (DFSMS) that provides automatic management of low activity and inactive data, and automatic backup and recovery of active data in both system-managed and non-system-managed environments."
+  },
+  {
+    "term": "DFSMS access methods",
+    "description": "Access method services (AMS) is a utility you can use to establish and maintain catalogs and data sets."
+  },
+  {
+    "term": "Docker",
+    "description": "An open platform that developers and system administrators can use to build, ship, and run distributed applications."
+  },
+  {
+    "term": "EAL5+",
+    "description": "Common Criteria Evaluation Assurance Level 5+. Common Criteria is an internationally recognized standard that describes the security of IT products."
+  },
+  {
+    "term": "Fibre Channel Protocol",
+    "description": "The serial SCSI command protocol used on Fibre Channel networks."
+  },
+  {
+    "term": "GDPS",
+    "description": "A set of robust, automated, resiliency solutions for mainframe system platforms designed to reduce risk and better manage complexity. GDPS solutions can help determine availability requirements, optimize configurations and provide recommendations to establish not just a high-availability disaster recovery plan, or capabilities to protect your critical data from cyber or internal attacks, but also a more robust, highly resilient foundation to help avoid downtime and remain “always on.”"
+  },
+  {
+    "term": "HiperSockets",
+    "description": "A hardware feature that provides high performance internal communications between logical partitions (LPARs) within the same central processor complex (CPC) without the use of any additional or external hardware equipment such as a channel adapter."
+  },
+  {
+    "term": "IaaS",
+    "description": "Infrastructure as a service, the delivery of a computer infrastructure, including server functionality, networking functionality, data center functionality, and storage functionality as an outsourced service."
+  },
+  {
+    "term": "IFL",
+    "description": "Integrated Facility for Linux, a processor that is dedicated to Linux workloads on IBM System z servers. The IFL is supported by the z/VM virtualization and IBM Wave for z/VM software and the Linux operating system."
+  },
+  {
+    "term": "IMS",
+    "description": "Information Management System (IMS), a message-based transaction manager and hierarchical-database manager for z/OS. External applications can use transactions to interact with applications that run inside IMS."
+  },
+  {
+    "term": "Integrated Cryptographic Service Facility (ICSF) configuration",
+    "description": "A software element of z/OS that works with hardware cryptographic features and RACF to provide secure, high-speed cryptographic services."
+  },
+  {
+    "term": "IPSec",
+    "description": "(Internet Protocol Security) A set of protocols that provide cryptographic security services at the network layer ."
+  },
+  {
+    "term": "Java Database Connectivity",
+    "description": "Java Database Connectivity, an industry standard for database-independent connectivity between the Java platform and a wide range of databases. The JDBC interface provides a call level interface for SQL-based and XQuery-based database access."
+  },
+  {
+    "term": "JSONata",
+    "description": "A query and transformation language for JSON data."
+  },
+  {
+    "term": "Kubernetes",
+    "description": "An open-source orchestration tool for containers."
+  },
+  {
+    "term": "KVM",
+    "description": "Kernel-based virtual machine, an open source virtualization software for Linux."
+  },
+  {
+    "term": "LDAP",
+    "description": "Lightweight Directory Access Protocol, an open protocol that uses TCP/IP to provide access to directories that support an X.500 model."
+  },
+  {
+    "term": "MDS",
+    "description": "Mainframe Data Service (Data Service or MDS) provides integration facilities for both IBM Z data sources and other off-platform data sources. The Data Service provides your Apache Spark application with optimized, virtualized, and parallelized access to a wide variety of data."
+  },
+  {
+    "term": "middleware",
+    "description": "Software that acts as an intermediate layer between the operating system and an end user or end-user applications. It supplies major functions not provided by the operating system."
+  },
+  {
+    "term": "MQ",
+    "description": "Messaging middleware. It uses messages and queues to support an exchange of information between applications, systems, services and files."
+  },
+  {
+    "term": "MSU",
+    "description": "Millions of service units."
+  },
+  {
+    "term": "NAS Storage",
+    "description": "Network-attached storage"
+  },
+  {
+    "term": "OpenStack",
+    "description": "A set of software tools for building and managing cloud computing platforms for public and private clouds."
+  },
+  {
+    "term": "PaaS",
+    "description": "Platform as a service, the delivery of a computing platform, including applications, optimized middleware, development tools, and Java and Web 2.0 runtime environments, in a cloud-based environment."
+  },
+  {
+    "term": "parmlib",
+    "description": "All of the members in a set of concatenated data sets, including SYS1.PARMLIB, that contain parameters setting the limits and controlling the behavior of z/OS."
+  },
+  {
+    "term": "PFA",
+    "description": "Predictive Failure Analysis (PFA) uses remote checks from IBM® Health Checker for z/OS® to collect data about your installation, and then uses machine learning to analyze this historical data to identify abnormal behavior."
+  },
+  {
+    "term": "PKCS",
+    "description": "Public Key Cryptography Standards, a set of industry-standard protocols used for secure information exchange on the Internet."
+  },
+   {
+    "term": "QSAM",
+    "description": "Queued sequential access method, an access method for storing and retrieving logical records in a continuous sequence. Input data blocks awaiting processing or output data blocks awaiting transfer to auxiliary storage are queued on the system to minimize delays in I/O operations."
+  },
+  {
+    "term": "Red Hat CodeReady Workspaces",
+    "description": "A developer tool that makes cloud-native development practical for teams, using Kubernetes and containers to provide any member of the development or IT team with a consistent,  preconfigured development environment."
+  },
+  {
+    "term": "Red Hat OpenShift pipelines",
+    "description": "A cloud-native, continuous integration and continuous delivery (CI/CD) solution based on Kubernetes resources."
+  },
+  {
+    "term": "Resource Link",
+    "description": "Resource Link is a customized Web-based solution, providing access to information for planning, installing, and maintaining IBM Systems servers and associated software."
+  },
+  {
+    "term": "RMF",
+    "description": "Resource Measurement Facility, an optional feature of z/OS that gathers data about z/OS resource usage and provides reports at any system in a sysplex."
+  },
+  {
+    "term": "RTO",
+    "description": "Recovery time objective, the maximum duration of time within which an application should be restored after any type of disaster."
+  },
+  {
+    "term": "Runtime Diagnostics",
+    "description": "Runtime Diagnostics performs many of the same tasks you might typically perform when looking for a failure, but it can do the tasks more quickly and without the need for a storage dump."
+  },
+  {
+    "term": "SCRT",
+    "description": "Sub-Capacity Reporting Tool. SCRT calculates the actual sub-capacity measurement data and sends it to IBM on a monthly basis for billing and licensing purposes."
+  },
+  {
+    "term": "SMF",
+    "description": "System Management Facilities, a component of z/OS that collects and records a variety of system and job-related information."
+  },
+  {
+    "term": "SQL",
+    "description": "Structured query language, a standardized language for defining and manipulating data in a relational database."
+  },
+  {
+    "term": "SSH",
+    "description": "(Secure Shell Protocol) A network protocol for secure data exchange between two networked devices. The client can use public-key and private-key authentication, or password authentication, to access the remote server."
+  },
+  {
+    "term": "storage area network",
+    "description": "A dedicated storage network tailored to a specific environment, combining servers, systems, storage products, networking products, software, and services."
+  },
+  {
+    "term": "System Recovery Boost",
+    "description": "System Recovery Boost enables the restoration of service and recovery of workloads substantially faster than on prior Z machines, with zero increase in IBM software licensing costs; you can start using System Recovery Boost free of charge as soon as you install your new z15 (with completion of appropriate system configuration and OS exploitation maintenance)."
+  },
+  {
+    "term": "zWIC",
+    "description": "IBM Z Workload Interaction Correlator (zWIC) provides a synchronized, standardized approach to data generation that enables the capability to dynamically define and correlate disparate customer specific performance anomalies without a predefined policy.  This correlation capability helps customers implicate or exonerate workload components, where correlated anomalous activities are identified and non-anomalous activities are exonerated. zWIC Idata can be streamed through IBM Z Common Data Provider (CDP)."
+  },
+  {
+    "term": "zWIN",
+    "description": "IBM Z Workload Information Navigator (zWIN) is a visually intuitive analytics engine designed to provide visibility into interdependencies and interactions across workloads. zWIN can help dynamically recognize anomalous behavior across one or two interval periods over multiple subsystems."
+  },
+  {
+    "term": "TCP",
+    "description": "(Transmission Control Protocol) TCP provides a reliable host-to-host protocol in packet-switched communication networks and in interconnected systems of such networks."
+  },
+  {
+    "term": "TLS",
+    "description": "(Transport Layer Security)  A set of encryption rules that uses verified certificates and encryption keys to secure communications over the Internet. TLS is an update to the SSL protocol."
+  },
+  {
+    "term": "virtualization",
+    "description": "The substitution of virtual resources for actual resources, where the virtual resources have the same functions and external interfaces as their counterparts, but differ in attributes, such as size, performance, and cost. Virtualization is commonly applied to physical hardware resources by combining multiple physical resources into shared pools from which users receive virtual resources."
+  },
+  {
+    "term": "WebSphere Application Server",
+    "description": "Provides application servers, which use Java technology to extend web server capabilities to handle web application requests. An application server makes it possible for a server to generate a dynamic, customized response to a client request."
+  },
+  {
+    "term": "WLM",
+    "description": "(Workload Manager)  A component of z/OS that provides the ability to run multiple workloads at the same time within one z/OS image or across multiple images. The system decides how much resource should be given to work based on performance goals and business importance that you define."
+  },
+  {
+    "term": "zBuRST",
+    "description": "IBM Z Business Resilience Stress Test (zBURST) enables the use of spare IBM Z physical resources/assets to load/stress test changes at production scale for the purpose of validating quality of any production change, to ensure the resilience of critical business systems running on IBM Z."
+  },
+  {
+    "term": "zEDC Express Adapter",
+    "description": "For z14 or earlier, a hardware requirement for zEnterprise Data Compression (zEDC). It is installed in the PCIe I/O drawers of the hardware system."
+  },
+  {
+    "term": "zERT SMF records",
+    "description": "You can use the list to import SMF records into the IBM zERT Network Analyzer database, then prune unwanted records from the database."
+  },
+  {
+    "term": "zFS",
+    "description": "z/OS File System, a z/OS UNIX file system."
+  },
+  {
+    "term": "zIIP",
+    "description": "z Systems Integrated Information Processor, a processor type for a dedicated workload."
+  },
+  {
+    "term": "z/OS Management Facility",
+    "description": "A task-oriented web browser interface for managing various aspects of a z/OS system."
+  },
+  {
+    "term": "z/OS Management Facility Cloud Provisioning and Management domain",
+    "description": "Defines the management scope for tenants, services, and z/OS resource pools."
+  },
+  {
+    "term": "z/TPF",
+    "description": "IBM® z/Transaction Processing Facility (z/TPF) is a high-volume, high-throughput transaction processor, that can handle large, continuous loads of complex transactions across large, geographically dispersed networks."
+  },
+  {
+    "term": "z/VM guests",
+    "description": "z/VM Guest Coupling Simulation Support is the software that simulates the hardware and software required to run an MVS sysplex environment as second level guests under z/VM."
+  },
+  {
+    "term": "z/VM",
+    "description": "An IBM mainframe operating system that acts as a hypervisor. z/VM can virtualize all system resources, including processors, memory, storage devices, communication devices, and networking, and can dynamically add or increase system resources."
+  }
+]
+}

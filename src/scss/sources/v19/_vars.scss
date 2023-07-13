@@ -1,0 +1,50 @@
+// shareable variables
+
+// Breakpoints map
+// If one needs to generate options for grid, this can be done through @each (see grid.scss as an example)
+$breakpoints: (
+    "sm": (
+        "min-width": 0,
+        "max-width": 671,
+        "columns": 4,
+    ),
+    "md": (
+        "min-width": 672,
+        "max-width": 1055,
+        "columns": 8,
+    ),
+    "lg": (
+        "min-width": 1056,
+        "max-width": 1311,
+        "columns": 16
+    ),
+    "xlg": (
+        "min-width": 1312,
+        "max-width": 1583,
+        "columns": 16
+    ),
+    "max": (
+        "min-width": 1584,
+        "max-width": 'null',
+        "columns": 16
+    ),
+);
+
+
+
+// default spacing for columns
+$gutter: 16px;
+
+
+
+
+/// Apply browser prefix for transitions
+/// @group effects
+/// @example @include transition(opacity 0.3s);
+@mixin transition($transitions...) {
+    -webkit-transition: $transitions;
+    -moz-transition: $transitions;
+    -o-transition: $transitions;
+    -ms-transition: $transitions;
+    transition: $transitions;
+}

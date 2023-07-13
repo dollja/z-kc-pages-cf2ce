@@ -1,0 +1,636 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "IBM Z Resilience" %}
+{% set key = 16 %}
+
+{# META #}
+{% set meta_description = meta_description | default("Find all the technical resources and information to get started with resilient server solutions for IBM Z.") %}
+{% set meta_keywords = meta_keywords | default("ibm z systems, zos, gdps, performance, IT resilience, security, compliance, infrastructure resilience, resilient mainframe, ibm z resilience") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "0_kfu0wijx",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/rsl/rsl-thumb1.png",
+    label: "MediaCenter - IBM Z for IT Infrastructure Resiliency",
+    noTranscript: false
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Welcome to the IBM Z®  Resilience content solution, your homepage for technical resources and use cases for resilient server solutions for IBM Z.</p>
+<p>IT resilience with IBM Z is the ability to rapidly adapt and respond to any internal or external disruption, demand, or threat, and continue business operations without significant impact. The goal is that you can run your workload 24x7, no matter what.</p>
+<p>Learn how solutions for IT resilience can optimize availability,
+keep your systems running,
+detect problems in advance and recover your critical data. Examine the key benefits and capablities of IBM Z for resilience on the z15™ platform.</p>" %}
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "marketing",
+        url: "https://www.ibm.com/z/resiliency",
+        text: "See what {title} can do for your business."
+
+    }
+] %}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# set announcements = [
+    {
+    announcementText: "",
+    announcementLinkText: "",
+    announcementLinkUrl: ""
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/rsl/rsl-1.png",
+        iconPath: '<path d="M30.4,20.2l-1.9-0.5l0.2-0.7l1.9,0.5L30.4,20.2z M1.6,20.2l-0.2-0.7L3.3,19l0.2,0.7L1.6,20.2z M31,16.4h-2v-0.7h2V16.4z
+	 M3,16.4H1v-0.7h2V16.4z M28.6,13l-0.2-0.7l1.9-0.5l0.2,0.7L28.6,13z M3.3,13l-1.9-0.5l0.2-0.7l1.9,0.5L3.3,13z M21,1.6H11
+	c-0.2,0-0.4,0.2-0.4,0.4v28c0,0.2,0.2,0.4,0.4,0.4h10c0.2,0,0.4-0.2,0.4-0.4V2C21.4,1.8,21.2,1.6,21,1.6z M11.4,2.4h5.8l-3.3,1.3
+	c-0.1,0-0.1,0.1-0.2,0.1l-2.3,3.9V2.4z M11.4,9.4h6.3l-3.9,2.3c0,0-0.1,0.1-0.1,0.1l-2.4,3.1V9.4z M11.4,16.4h6.9l-2.5,3.4l-4.4,2.6
+	V16.4z M11.4,23.4h7l-2.6,4.4l-4.4,1.8V23.4z M18.6,29.6h-5.8l3.3-1.3c0.1,0,0.1-0.1,0.2-0.1l2.3-3.9V29.6z M18.6,22.6h-6.3l3.9-2.3
+	c0,0,0.1-0.1,0.1-0.1l2.4-3.1V22.6z M18.6,15.6h-6.9l2.5-3.4l4.4-2.6V15.6z M18.6,8.6h-7l2.6-4.4l4.4-1.8V8.6z M20.6,29.6h-1.3V2.4
+	h1.3V29.6z"/>',
+        iconAlt: "A resilient and reliable base",
+        description: "Start with a resilient and reliable base."
+    }, {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/rsl/rsl-2.png",
+        iconPath: '<path id="time--lapse_1_" d="M9.252,20.312l-0.36-0.623l6.749-3.896V5h0.72v11.208L9.252,20.312z M16,30.64
+	C7.927,30.64,1.36,24.072,1.36,16C1.36,7.927,7.927,1.36,16,1.36c8.072,0,14.64,6.567,14.64,14.64c0,4.402-1.915,8.466-5.279,11.259
+	V22H24.64v6.36H31v-0.72h-4.976c3.403-2.924,5.336-7.11,5.336-11.64c0-8.47-6.89-15.36-15.36-15.36S0.64,7.53,0.64,16
+	S7.53,31.36,16,31.36V30.64z"/>',
+        iconAlt: "Failover capability",
+        description: "Reduce the duration of outages with failover capability."
+    }, {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/rsl/rsl-3.png",
+        iconAlt: "Fault-tolerant architecture",
+        iconPath: '<path id="global--network_1_" d="M16,31.36c-1.577,0-2.86-1.283-2.86-2.86s1.283-2.86,2.86-2.86s2.86,1.283,2.86,2.86
+	S17.577,31.36,16,31.36z M16,26.36c-1.18,0-2.14,0.96-2.14,2.14s0.96,2.14,2.14,2.14s2.14-0.96,2.14-2.14S17.18,26.36,16,26.36z
+	 M20.558,28.037l-0.256-0.674c3.255-1.236,5.825-3.81,7.052-7.06l0.674,0.254C26.728,24.001,24.005,26.727,20.558,28.037z
+	 M11.442,28.037C7.994,26.726,5.271,24,3.973,20.558l0.674-0.254c1.226,3.249,3.795,5.822,7.051,7.06L11.442,28.037z M16,23.36
+	c-4.058,0-7.36-3.303-7.36-7.361S11.942,8.64,16,8.64c4.059,0,7.36,3.302,7.36,7.36S20.059,23.36,16,23.36z M14.552,22.481
+	c0.466,0.104,0.951,0.158,1.448,0.158c3.217,0,5.906-2.299,6.512-5.34h-0.905c-0.334,0-0.644-0.18-0.809-0.468l-1.117-1.94
+	c-0.164-0.287-0.164-0.644,0.001-0.93l1.328-2.315c-1.121-1.289-2.73-2.142-4.537-2.27l0.715,1.238
+	c0.219,0.378,0.147,0.85-0.171,1.147l-1.858,1.737c-0.072,0.068-0.088,0.175-0.039,0.261l2.687,4.667
+	c0.218,0.375,0.148,0.846-0.169,1.144L14.552,22.481z M12.996,21.921c0.243,0.124,0.495,0.233,0.755,0.327l3.394-3.202
+	c0.072-0.068,0.088-0.174,0.039-0.259l-2.688-4.668c-0.217-0.377-0.147-0.849,0.172-1.146l1.858-1.737
+	c0.072-0.067,0.088-0.175,0.039-0.261L15.638,9.37c-2.258,0.122-4.219,1.377-5.324,3.206l0.69,1.188
+	c0.038,0.065,0.108,0.106,0.184,0.106h1.845c0.333,0,0.642,0.179,0.808,0.466l0.758,1.312c0.217,0.376,0.148,0.847-0.168,1.146
+	l-1.017,0.956c-0.072,0.067-0.088,0.175-0.038,0.261l0.671,1.163c0.167,0.287,0.167,0.645,0,0.933L12.996,21.921z M9.92,13.332
+	C9.56,14.148,9.36,15.051,9.36,16c0,2.324,1.2,4.373,3.013,5.56l1.05-1.815c0.038-0.065,0.038-0.146,0-0.211l-0.671-1.164
+	c-0.217-0.377-0.148-0.849,0.169-1.146l1.016-0.955c0.072-0.068,0.088-0.175,0.039-0.261l-0.758-1.312
+	c-0.038-0.066-0.108-0.106-0.184-0.106h-1.845c-0.331,0-0.64-0.178-0.807-0.464L9.92,13.332z M21.486,12.263l-1.181,2.058
+	c-0.038,0.065-0.038,0.146,0,0.212l1.117,1.941c0.037,0.066,0.107,0.107,0.184,0.107h1.009c0.017-0.191,0.024-0.385,0.024-0.581
+	C22.64,14.615,22.214,13.328,21.486,12.263z M28.5,18.86c-1.577,0-2.86-1.283-2.86-2.86s1.283-2.86,2.86-2.86s2.86,1.283,2.86,2.86
+	S30.077,18.86,28.5,18.86z M28.5,13.86c-1.18,0-2.14,0.96-2.14,2.14s0.96,2.14,2.14,2.14s2.14-0.96,2.14-2.14
+	C30.64,14.82,29.68,13.86,28.5,13.86z M3.5,18.86c-1.577,0-2.86-1.283-2.86-2.86s1.283-2.86,2.86-2.86S6.36,14.423,6.36,16
+	S5.077,18.86,3.5,18.86z M3.5,13.86c-1.18,0-2.14,0.96-2.14,2.14s0.96,2.14,2.14,2.14S5.64,17.18,5.64,16S4.68,13.86,3.5,13.86z
+	 M27.354,11.698c-1.234-3.247-3.805-5.817-7.052-7.052l0.256-0.673c3.438,1.307,6.161,4.029,7.47,7.469L27.354,11.698z
+	 M4.646,11.698l-0.673-0.256c1.308-3.439,4.029-6.161,7.468-7.469l0.256,0.673C8.451,5.881,5.881,8.451,4.646,11.698z M16,6.36
+	c-1.577,0-2.86-1.283-2.86-2.86S14.423,0.64,16,0.64s2.86,1.283,2.86,2.86S17.577,6.36,16,6.36z M16,1.36
+	c-1.18,0-2.14,0.96-2.14,2.14S14.82,5.64,16,5.64s2.14-0.96,2.14-2.14S17.18,1.36,16,1.36z"/>',
+        description: "Reduce the impact of outages with fault-tolerant architecture and GDPS."
+    }, {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/rsl/rsl-4.png",
+        iconPath: '<path d="M31,31.4H1c-0.2,0-0.4-0.2-0.4-0.4V1h0.7v14.6H11c0.1,0,0.2,0,0.3,0.1l7.9,7.9H31v0.7H19c-0.1,0-0.2,0-0.3-0.1l-7.9-7.9H1.4
+	v14.3H31V31.4z M30.4,8l-4.4,4.4V1h-0.7v11.4L20.8,8l-0.5,0.5l5.3,5.3l5.3-5.3L30.4,8z"/>',
+        iconAlt: "Continuous Availability",
+        description: "Add GDPS for continuous availability and maximum resilience."
+    }, {
+        id: 5,
+        iconUrl: "https://izswebpage.mybluemix.net/images/rsl/rsl-5.svg",
+        iconPath: '<path d="M25.3,31.3l-0.5-0.5l3.4-3.4H16c-7.4,0-13.4-6-13.4-13.4S8.6,0.6,16,0.6
+	s13.4,6,13.4,13.4h-0.7C28.6,7,23,1.4,16,1.4S3.4,7,3.4,14S9,26.6,16,26.6h12.1l-3.4-3.4l0.5-0.5l4.3,4.3L25.3,31.3z M16,22.4h-0.4
+	v-4.2L12.4,16l6-4l-2.7-1.8V6.4c-4,0.2-7.3,3.5-7.3,7.6c0,3.5,2.4,6.5,5.7,7.4l-0.2,0.7c-3.7-1-6.3-4.3-6.3-8.1
+	c0-4.6,3.7-8.4,8.4-8.4h0.4v4.2l3.3,2.2l-6,4l2.7,1.8v3.8c4-0.2,7.3-3.5,7.3-7.6c0-3.5-2.4-6.5-5.7-7.4l0.2-0.7
+	c3.7,0.9,6.3,4.3,6.3,8.1C24.4,18.6,20.6,22.4,16,22.4z"/>',
+        iconAlt: "z/OS Anomaly Mitigation",
+        description: "Proactively address potential anomalies."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Resilient and reliable base",
+        tabSubSections: [
+            {
+                subSectionTitle: "Resilient and reliable base",
+                subSectionContent: "Start with a resilient and reliable base. Since the installation may be exposed to planned and unplanned outages, and ad-hoc automation, the installation can improve the manageability of the environment with performance monitoring, service management and storage management software. The starting point is a single IBM Z system, based on the IBM RAS (Reliability, Availability, and Serviceability) design principles. These principles guide the system architecture to ensure resilience and reliability.",
+                subSectionLinks: [
+                    
+                ]
+            },
+            {
+                subSectionTitle: "IBM Z Hardware Resilience",
+                subSectionContent: "Resilience is the ability to provide the required capability in the face of adversity, without significant impact. Keep hardware, the operating system, middleware, and applications up and running throughout planned and unplanned outages. Recover a site from an unplanned event without data loss.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.redbooks.ibm.com/redbooks/pdfs/sg248446.pdf",
+                        linkText: "Read the IBM Redbook to see how it works"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "System Recovery Boost",
+                subSectionContent: "System Recovery Boost increases your processor capacity during startup and shutdown, decreasing the time it takes to process backlog.  Explore the content solution to see how it works.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/support/z-content-solutions/system-recovery-boost/",
+                        linkText: "System Recovery Boost content solution"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Failover capability",
+        tabSubSections: [
+            {
+                subSectionTitle: " Failover capability",
+                subSectionContent: "Reduce the duration of outages with failover capability. Add failover capabilities to the IBM Z environment. Your system can ensure fast data replication with the help of synchronous <em>Metro Mirror</em> for shorter distances and <em>Global Mirror</em> for longer distances.</p> <p>Mirroring can be enhanced with the help of <a href='https://www.ibm.com/docs/en/csm'>IBM Copy Services Manager (CSM)</a>.",
+                subSectionLinks: [
+                    
+                ]
+            },
+            {
+                subSectionTitle: "IBM Z Business Resilience Stress Test (zBuRST)",
+                subSectionContent: "zBuRST extends the IBM Z Application Development and Test Solution (DevTest) solution to 
+                increase the available capacity of your quality assurance (QA) test environment or disaster recovery assets 
+                (or separate machine) to support load and stress testing activities at production scale. 
+                zBuRST exploits On/Off Capacity-on-Demand to enable you to use spare (“dark”) IBM Z engines, resources to 
+                load and stress test changes at up to 150% production scale. You can validate the quality of any production 
+                change and ensure the resilience of your critical business services running on Z.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/downloads/cas/WXYJEAJ4",
+                        linkText: "Frequently asked questions"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/support/z-content-solutions/tailored-fit-pricing/",
+                        linkText: "About the DevTest solution"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "System Recovery Boost",
+                subSectionContent: "System Recovery Boost increases your processor capacity during startup and shutdown, decreasing the time it takes to process backlog.  Explore the content solution to see how it works.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/support/z-content-solutions/system-recovery-boost/",
+                        linkText: "System Recovery Boost content solution"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Parallel Sysplex",
+                subSectionContent: "Parallel Sysplex® is a clustering technology that allows you to operate multiple copies of a z/OS® as a single system image.
+                Images can be added to or removed from the cluster while applications continue to run. 
+                Operating systems participating in a Parallel Sysplex can span multiple servers and applications and data can be shared across systems.    
+                Benefits include no single point of failure, non-disruptive capacity and scaling, dynamic workload balancing, application compatibility, and disaster recovery.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex",
+                        linkText: "What is a Parallel Sysplex?"
+                    }
+                ]
+            } 
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Fault-tolerant architecture",
+        tabSubSections: [
+            {
+                subSectionTitle: "Fault-tolerant architecture",
+                subSectionContent: "Reduce the impact of outages with fault-tolerant architecture and fully automated recovery of failures, all of which can be handled by Geographically Dispersed Parallel Sysplex (GDPS®). Increase the fault tolerance of your system by adding z/OS parallel sysplex data sharing and disk replication of your storage resources. The benefits include:
+                <ul>
+                <li>Multiple systems and data in two or more data centers</li>
+                <li>Workload continuing even when a system fails</li>
+                <li>Dynamic workload balancing</li>
+                <li>Shared data with read and write access directly from any member of the sysplex.</li></ul>",
+                subSectionLinks: [
+                   
+                ]
+            },
+            {
+                subSectionTitle: "IBM Z hardware resilience",
+                subSectionContent: "Resilience is the ability to provide the required capability in the face of adversity, without significant impact.  Keep hardware, the operating system, middleware, and applications up and running throughout planned and unplanned outages. Recover a site from an unplanned event without data loss.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.redbooks.ibm.com/redbooks/pdfs/sg248446.pdf",
+                        linkText: "Read the IBM Redbook to see how it works"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "System Recovery Boost",
+                subSectionContent: "System Recovery Boost increases your processor capacity during startup and shutdown, decreasing the time it takes to process backlog.  Explore the content solution to see how it works.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/support/z-content-solutions/system-recovery-boost/",
+                        linkText: "System Recovery Boost content solution"
+                    }
+                ]
+            },
+            
+            {
+                subSectionTitle: "Parallel Sysplex",
+                subSectionContent: "The Parallel Sysplex cluster infrastructure provides a set of common shared services where applications can run, in parallel, 
+                concurrently across multiple systems, with a common view of time, a common view of underlying network, application and infrastructure redundancy, and the built-in recovery mechanisms to exploit that redundancy for high availability.
+                The sysplex provides ways to dynamically route transactions and workload from the system on which they are received to a system in the sysplex that might be better able to process the workload.
+                The sysplex also enables applications to route around failures and workload spikes and other issues that might arise.   
+                <br></br>
+                A Parallel Sysplex also provides a common and consistent view of sysplex-wide shared data, called data sharing. Shared data can be directly accessed from any application region on any participating system in the sysplex.
+               <br></br>
+                A well configured Parallel Sysplex and its well constructed sysplex-enabled workload can be configured to have no single point of failure.
+                A Parallel Sysplex is not dependent on the functioning of any single resource, any single CEC or operating system.
+                If any one copy happens to fail or needs to be removed for maintenance, the workload as a whole can continue to run on another systems of the cluster.</p>",
+                
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex",
+                        linkText: "What is a Parallel Sysplex?"
+                    }
+                ]
+            } 
+        ]
+    },
+    {
+        id: 4,
+        tabTitle: "GDPS continuous availability",
+        tabSubSections: [
+            {
+                subSectionTitle: "GDPS continuous availability",
+                subSectionContent: "Enable your workloads to fail over to another Parallel Sysplex for planned maintenance or unplanned workload recovery within seconds. The IBM GDPS Continuous Availability concept consists of three or more sites. The sites can be separated by virtually unlimited distances and run the same applications with the same data sources.  In this way, you maximize cross-site workload balancing, continuous availability, and disaster recovery.  
+                For an introduction to business resilience and the role of GDPS, read the IBM Redbook.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.redbooks.ibm.com/abstracts/sg246374.html?Open",
+                        linkText: "IBM GDPS Family: An Introduction to Concepts and Capabilities"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "IBM Z Hardware Resilience",
+                subSectionContent: "Resilience is the ability to provide the required capability in the face of adversity, without significant impact.  Keep hardware, the operating system, middleware, and applications up and running throughout planned and unplanned outages.  Recover a site from an unplanned event without data loss.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.redbooks.ibm.com/redbooks/pdfs/sg248446.pdf",
+                        linkText: "Read the IBM Redbook to see how it works"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "System Recovery Boost",
+                subSectionContent: "System Recovery Boost increases your processor capacity during startup and shutdown, decreasing the time it takes to process backlog.  Explore the content solution to see how it works.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/support/z-content-solutions/system-recovery-boost/",
+                        linkText: "System Recovery Boost content solution"
+                    }
+                ]
+            },
+            
+            {
+                subSectionTitle: "Parallel Sysplex",
+                subSectionContent: "GDPS integrates Parallel Sysplex technology and remote copy technology to enhance application availability and improve disaster recovery.  
+                GDPS topology is a parallel sysplex cluster distributed across two sites, with all critical data mirrored between the sites. 
+                GDPS manages the remote copy configuration and storage systems, automates parallel sysplex operational tasks, and automates failure recovery from a single point of control, thereby improving application availability. 
+                GDPS supports all transaction managers, for example, Customer Information Control System (CICS®) and Information Management System (IMS) and data base managers, for example, Db2®, IMS, and Virtual Storage Access Method (VSAM).
+                <br></br>With the introduction of GDPS Metro, end-to-end automated recovery is provided, even in the event that an entire data center becomes inoperative. A fully configured Parallel Sysplex data sharing environment, together with GDPS Metro support for HyperSwap for disk events, is designed to provide 99.99999% availability.   
+                GDPS Metro includes disk reconfiguration, managing servers, Sysplex resources, CBU, activation profiles, and so on. GDPS Metro is designed to be a near continuous availability and disaster recovery solution.
+                <br></br>GDPS Metro extends the Parallel Sysplex redundancy to disk subsystems.  The HyperSwap function can help significantly reduce the time needed to switch to the secondary set of disks while keeping the z/OS systems active, together with their applications.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex",
+                        linkText: "What is a Parallel Sysplex?"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 5,
+        tabTitle: "z/OS anomaly mitigation",
+        tabSubSections: [
+            {
+                subSectionTitle: "z/OS anomaly mitigation",
+                subSectionContent: "Proactively address potential anomalies before an availability-impacting event can develop. 
+                z/OS anomaly mitigation is the system's ability to detect anomalous behavior in real-time, improve operations staff decision-making and follow-on triage processes."
+            },
+            {
+                subSectionTitle: "Anomaly identification by Predictive Failure Analysis (PFA)",
+                subSectionContent: "PFA is intended to detect abnormal behavior early enough to allow you to correct the problem before it affects your business. 
+                PFA uses remote checks from IBM® Health Checker for z/OS to collect data about your installation, and then uses machine learning to analyze this historical data to identify abnormal behavior.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=management-predictive-failure-analysis",
+                        linkText: "Predictive Failure Analysis"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Anomaly diagnostics by z/OS Runtime Diagnostics",
+                subSectionContent: "Analyze a system with a potential problem or anomaly. Anomalies in particular are often 
+                difficult or impossible to detect and can slowly lead to the degradation of the solution that is using z/OS. Anomaly diagnostics by z/OS Runtime Diagnostics performs many of the same tasks you might typically perform when looking for a failure, but it can do the tasks more quickly and without the need for a storage dump.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=diagnostics-runtime",
+                        linkText: "Runtime Diagnostics"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Sysplex Failure Management (SFM)",
+                subSectionContent: "Allows you to define a sysplex-wide policy that specifies the actions that MVS™ is to take when certain failures occur in the sysplex, so that the system recovers automatically when a system failure is detected.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=recovery-controlling-system-availability-through-sfm-policy",
+                        linkText: "Controlling system availability and recorvery through the SFM policy"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Automatic restart manager (ARM)",
+                subSectionContent: "ARM enables automatic restart of all subsystems, in the prescribed order, when recovering from an outage. This is important for allowing retained database locks to be released and restart immediately.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=considerations-automatic-restart-manager",
+                        linkText: "Automatic restart manager"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "System Status Detection partitioning protocol",
+                subSectionContent: "The System Status Detection (SSD) partitioning protocol exploits BCPii interfaces for availability and recovery. 
+                            You can avoid SFM having to wait the failure detection interval (FDI). BCPii allows XCF to query the state of other systems via authorized interfaces through the support element and HMC network.
+                            Benefits: XCF can detect and reset failed systems more quickly, and sympathy sickness time is reduced.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=psar-using-system-status-detection-partitioning-protocol-bcpii-availability-recovery",
+                        linkText: "Using the system status detection partitioning protocol and BCPii for availability and recovery"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "SMF record flooding avoidance",
+                subSectionContent: "Avoid a potential system outage or data loss due to an unexpected increase of SMF record arrival. Set up rules for matching a flood condition of SMF data records to either issue a warning message or begin dropping records for specific SMF types.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=parameters-flood-floodpol-specifying-smf-record-flood-options",
+                        linkText: "Specifying SMF record flood options"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Message flooding avoidance",
+                subSectionContent: "Addresses the problems of runaway write-to-operator conditions that can cause sever disruptions to z/OS operation. It can include taking installation-specified actions.",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=flooding-zos-message-flood-automation",
+                        linkText: "Message Flood Automation"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Detection of anomalies by z/OS components",
+                subSectionContent: "z/OS attempts to detect anomalies as close to the source as possible, using the least amount of resources and requiring the smallest amount of the stack to be operational. Detection of an anomaly requires the ability to identify when something is wrong. Often, component processing exceeded a threshold set by the installation. It might be a “throttle”, allowing the component to manage its own work queues. Typically, the installation can make a good guess at the appropriate value. 
+                Recommendations are generally available in <a href='https://www.ibm.com/docs/en/zos'>IBM Documentation</a> and <a href='https://www.ibm.com/docs/en/zos/latest?topic=level-health-checker-zos-users-guide'>z/OS Health Checks</a>."
+            }
+        ]
+    }
+    
+    
+] %}
+{# END GETTING STARTED #}
+
+{# START LEARN MORE #}
+{# Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# Learn more - optional four column section to the right of the main FAQs if needed for custom html (see example on Container Extensions #}
+
+{# set learnMore = "
+                    <div data-widget='showhide' data-type='panel' class='ibm-show-hide'>
+                        <h2>Cyber vault</h2>
+                            <div class='ibm-container-body'>
+                            <p class='ibm-padding-bottom-1'>Process and air-gap technology to protect business data. For more, see <a href='https://www.ibm.com/downloads/cas/08D6QP6N' target='_blank'>IBM Z Cyber Vault</a>.</p>
+                            </div>
+                    </div>
+                    <div data-widget='showhide' data-type='panel' class='ibm-show-hide'>
+                        <h2>IBM Z Workload Information Correlator (zWIC)</h2>
+                        <div class='ibm-container-body'>
+                            <p class='ibm-padding-top-1'>Provides a synchronized, standardized approach to data generation that enables the ability to dynamically define and correlate disparate customer-specific performance anomalies without a predefined policy. 
+                            This correlation capability helps you implicate or exonerate workload components, where correlated anomalous activities are identified and non-anomalous activities are exonerated.
+zWIC data can be streamed through IBM Z Common Data Provider (CDP) For more information, see <a href='https://www.ibm.com/docs/en/zos/latest?topic=solutions-zos-workload-interaction-correlator' target='_blank'>IBM z/OS Workload Interaction Correlator</a> in IBM Documentation.</p>
+                        </div>
+                    </div>
+                    <div data-widget='showhide' data-type='panel' class='ibm-show-hide'>
+                        <h2>IBM Z Workload Interaction Navigator (zWIN)</h2>
+                        <div class='ibm-container-body'>
+                            <p class='ibm-padding-top-1'>A visually intuitive analytics engine designed to provide visibility into interdependencies and interactions across workloads and 
+                            to dynamically recognize anomalous behavior across one or two interval periods over multiple subsystems.
+                            For more information, see <a href='https://www.ibm.com/docs/en/zwin' target='_blank'>IBM z/OS Workload Interaction Navigator</a> in IBM Documentation.</p>
+                        </div>
+                    </div>
+                    <div data-widget='showhide' data-type='panel' class='ibm-show-hide'>
+                        <h2>IBM Z DR for Cloud</h2>
+                        <div class='ibm-container-body'>
+                            <p class='ibm-padding-top-1'>Addresses the requirement for more frequent disaster recovery (DR) testing and emerging government regulations that mandate for extended operations out of DR sites. Provides a cost efficient way to move processing capacity between Production and DR sites for extended periods of time.
+                            Z DR for Cloud works with Country Multiplex Pricing (CMP) or Tailored Fit Pricing Software Consumption Solution IBM software. For information about the Software Consumption Solution, see the <a href='https://www.ibm.com/support/z-content-solutions/tailored-fit-pricing' target='_blank'>Tailored Fit Pricing</a> content solution.
+                            </p>
+                        </div>
+                    </div>
+                    <div data-widget='showhide' data-type='panel' class='ibm-show-hide'>
+                        <h2>Health Checker for z/OS</h2>
+                        <div class='ibm-container-body'>
+                            <p class='ibm-padding-bottom-1'>Identifies potential problems before they impact your availability or cause outages. 
+                            It checks the current active z/OS and sysplex settings and definitions for a system and compares the values to those suggested by IBM or defined by you.</p>
+                            <p class='ibm-padding-bottom-2'>Read about <a href='https://www.ibm.com/docs/en/zos/latest?topic=level-health-checker-zos-users-guide' target='_blank'>Health Checker for z/OS</a> in IBM Documentation.</p> 
+                        </div>
+                    </div>
+                    <p> </p>
+                  </div>
+                </div>
+        
+                </div>"
+            
+#}
+
+
+{# SET FOR LAUNCH #}
+{% set learnMoreAccordion = 
+[
+        {
+        section: "IBM Z Resilience features",
+        categories: [
+            {
+                catTitle: "Cyber vault",
+                content:  "<p>Process and air-gap technology to protect business data. For more, see <a href='https://www.ibm.com/downloads/cas/08D6QP6N' target='_blank'>IBM Z Cyber Vault</a>.</p>"
+            },
+            {
+                catTitle: "IBM Z Workload Information Correlator (zWIC)",
+                content:  "<p>Provides a synchronized, standardized approach to data generation that enables the ability to dynamically define and correlate disparate customer-specific performance anomalies without a predefined policy.This correlation capability helps you implicate or exonerate workload components, where correlated anomalous activities are identified and non-anomalous activities are exonerated. zWIC data can be streamed through IBM Z Common Data Provider (CDP) For more information, see <a href='https://www.ibm.com/docs/en/zos/latest?topic=solutions-zos-workload-interaction-correlator' target='_blank'>IBM z/OS Workload Interaction Correlator</a> in IBM Documentation.</p>"
+            },
+            {
+                catTitle: "IBM Z Workload Interaction Navigator (zWIN)",
+                content:  "<p>A visually intuitive analytics engine designed to provide visibility into interdependencies and interactions across workloads and to dynamically recognize anomalous behavior across one or two interval periods over multiple subsystems. For more information, see <a href='https://www.ibm.com/docs/en/zwin' target='_blank'>IBM z/OS Workload Interaction Navigator</a> in IBM Documentation.</p>"
+            },
+            {
+                catTitle: "IBM Z DR for Cloud",
+                content:  "<p>Addresses the requirement for more frequent disaster recovery (DR) testing and emerging government regulations that mandate for extended operations out of DR sites. Provides a cost efficient way to move processing capacity between Production and DR sites for extended periods of time. IBM Z DR for Cloud works with Country Multiplex Pricing (CMP) or Tailored Fit Pricing Software Consumption Solution IBM software. For information about the Software Consumption Solution, see the <a href='https://www.ibm.com/support/z-content-solutions/tailored-fit-pricing' target='_blank'>Tailored Fit Pricing</a> content solution.</p>"
+            },
+            {
+                catTitle: "Health Checker for z/OS",
+                content:  "<p>Identifies potential problems before they impact your availability or cause outages. It checks the current active z/OS and sysplex settings and definitions for a system and compares the values to those suggested by IBM or defined by you.</p>
+                <p >Read about <a href='https://www.ibm.com/docs/en/zos/latest?topic=level-health-checker-zos-users-guide' target='_blank'>Health Checker for z/OS</a> in IBM Documentation.</p>"
+            }
+        ]
+}
+]
+%}
+{# END FAQs #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to hide tile on page temporarily.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "Other resources",
+        tabContent: [
+            {
+                resourceTitle: "IBM Z System Recovery Boost content solution",
+                resourceDescription: "Explore the IBM Z System Recovery Boost content solution",
+                resourceLinkUrl: "https//www.ibm.com/support/z-content-solutions/system-recovery-boost/",
+                resourceLinkText: "Explore the content solution",
+                resourceLinkType: "content solution",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "The cloud you want for cyber resilience",
+                resourceDescription: "In this engaging lightboard demonstration, IBM's Nada Santiago will show how you can build a resilient infrastructure and get back up and running faster with IBM Z and IBM LinuxONE.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/0_4avteaud",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Getting Started with IBM Z Resilience",
+                resourceDescription: "This IBM Redbooks publication gives a broad understanding of resilience on the IBM Z platform and explains how it works and why it is important.",
+                resourceLinkUrl: "https://www.redbooks.ibm.com/abstracts/sg248446.html?Open=",
+                resourceLinkText: "Read the IBM Redbook",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [17] %}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "October 7, 2021",
+        sectionContent: "Links to z/OS documentation were updated to use the z/OS 2.5 library."
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "resilience" %}
+{# END FEEDBACK #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "12504365",
+    sc_security: "9b209acc"
+}
+ %}
+{# END STATCOUNTER #}
+
+{# START HOTJAR #}
+{% set hotjar = {
+    site_id: ""
+}
+ %}
+{# END HOTJAR #}

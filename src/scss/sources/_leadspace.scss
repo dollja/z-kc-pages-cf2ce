@@ -1,0 +1,62 @@
+// leadspace overrides
+
+
+.custom-leadspace {
+    box-sizing: border-box;
+
+    // DEFAULT leadspace.
+    // "small" is the default.
+    .custom-leadspace-content {
+        height: 160px;
+        min-height: 160px;
+        justify-content: space-between;
+
+        // At start of medium grid, make leadspace increase at this proportion
+        // to go from 160 to 240px height.
+        @media (min-width: 672px) {
+            height: calc(75px + 12.5vw);
+        }
+
+        // Keep the small height at 160 until this point.
+        // This is where .18 of the VW equals 160px and allows smooth expanding from here.
+        @media (max-width: 890px) {
+            //height: 160px;
+        }
+
+        // Max height for 'small' leadspace on XL grid
+        @media (min-width: 1312px) {
+            height: 160px;
+            min-height: 240px;
+            max-height: 240px;
+        }
+    }
+
+    // "medium" lead space. Fixed at 320px.
+    &.custom-medium {
+        .custom-leadspace-content {
+            height: 320px;
+            min-height: 320px;
+            max-height: 320px;
+        }
+    }
+
+    // "large" lead space.
+    &.custom-large {
+        .custom-leadspace-content {
+            height: 400px;
+            min-height: 400px;
+
+            // At start of medium grid, make leadspace increase at this proportion
+            // to go from 400 to 560px height.
+            @media (min-width: 672px) {
+                height: calc(200px + 26vw);
+            }
+
+            // Max height for 'small' leadspace on XL grid
+            @media (min-width: 1312px) {
+                max-height: 560px;
+            }
+        }
+    }
+}
+

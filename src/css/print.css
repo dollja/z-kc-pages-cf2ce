@@ -1,0 +1,83 @@
+@page {
+	margin:.25in;
+	margin-top: .75in;
+	margin-bottom: .75in;
+	padding:0;
+	size: A4;
+}
+
+.my-print-link {
+	display: none;
+}
+
+.mtm-heading {
+    font-family: 'Roboto Slab', serif;
+    color: black;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.mtm-subheading {
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 20px;
+}
+
+.ibm-downsize {
+	max-width: 45% !important;
+	height: auto !important;
+}
+
+p { 
+	width: 75%; 
+}
+
+div {
+	width: 75%;
+}
+
+div.code {
+  background-color: #d3d7cf;
+  color: black;
+  font-family: 'Inconsolata', monospace;
+  width: 70%;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+span.code {
+  background-color: #d3d7cf;
+  color: black;
+  font-family: 'Inconsolata', monospace;
+  padding: 5px; 
+}
+
+span.output {
+  background-color: #d3d7cf;
+  color: black;
+  font-family: 'Inconsolata', monospace;
+  padding: 5px;     
+}
+
+.unix_command {
+  border-top: 1px solid black;
+  font-family: 'Inconsolata', monospace;
+  font-size: x-large;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 35px;
+  font-weight: bold;
+}
+
+.note {
+    border: 1px solid black;
+    padding: 10px;
+    width: 70%;
+    margin-bottom: 15px;
+}
+
+.notetitle {
+    font-size: large;
+    font-weight: bold;
+}

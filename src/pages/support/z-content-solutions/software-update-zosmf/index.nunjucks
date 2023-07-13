@@ -1,0 +1,361 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "Software Update with z/OSMF" %}
+{% set key = 3 %}
+
+{# META #}
+{% set meta_description = meta_description | default("") %}
+{% set meta_keywords = meta_keywords | default("") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "image",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/LP_SUZ.svg",
+    label: "IBM Software Update zOSMF pictogram"
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Welcome to the Software Updates with z/OSMF content solution, your homepage for technical resources.</p>
+<p>Software Update, an application available on z/OSMF, provides a guided experience for installing corrective, recommended, and functional updates to your system. This capability is available for operating system, subsystem, middleware, and other software products, whether they are supplied by IBM or another vendor. The Software Update application simplifies the traditional PTF installation process by providing a graphical user interface to organize, review, and resolve updates to your software. Using Software Update with z/OSMF achieves the same results as the traditional method, while requiring less time and experience to perform it.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{# set introLinks = [
+    {
+        id: 1,
+        type: "",
+        url: "",
+        text: ""
+
+    }
+] #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# set announcements = [
+    {
+    announcementText: "",
+    announcementLinkText: "",
+    announcementLinkUrl: ""
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/suz/bp/bp-softwareupdate-1.svg",
+        iconPath: '<polygon points="13.99 22.52 9.73 18.27 10.24 17.76 13.99 21.5 23.75 11.74 24.25 12.26 13.99 22.52"/><path class="cls-1" d="M16,31.36A15.36,15.36,0,1,1,31.36,16,15.38,15.38,0,0,1,16,31.36Zm0-30A14.64,14.64,0,1,0,30.64,16,14.66,14.66,0,0,0,16,1.36Z"/>',
+        iconAlt: "check that zosmf is installed",
+        description: "Make sure you have z/OSMF installed. You must also have authority to log in and access its resources."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/suz/bp/bp-softwareupdate-2.svg",
+        iconPath: '<path class="cls-1" d="M16,31.36a.36.36,0,0,1-.24-.09C15.3,30.85,4.64,21.05,4.64,12a11.36,11.36,0,0,1,22.72,0c0,8.06-10.65,18.8-11.11,19.25A.36.36,0,0,1,16,31.36Zm0-30A10.65,10.65,0,0,0,5.36,12c0,8,9,16.93,10.63,18.5C17.6,28.82,26.64,19.1,26.64,12A10.65,10.65,0,0,0,16,1.36Zm0,15A4.36,4.36,0,1,1,20.36,12,4.37,4.37,0,0,1,16,16.36Zm0-8A3.64,3.64,0,1,0,19.64,12,3.64,3.64,0,0,0,16,8.36Z"/>',
+        iconAlt: "select target swi",
+        description: "Decide where you want to install the update."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/suz/bp/bp-softwareupdate-3.svg",
+        iconPath: '<path d="M28,31.23a3.36,3.36,0,0,1-3.34-3H16a.36.36,0,0,1-.36-.36V16.23H11v-.72h4.64V3.87A.36.36,0,0,1,16,3.51h8.66a3.36,3.36,0,1,1,0,.72h-8.3V15.51h8.3a3.36,3.36,0,1,1,0,.72h-8.3V27.51h8.3A3.36,3.36,0,1,1,28,31.23Zm0-6a2.64,2.64,0,1,0,2.64,2.64A2.64,2.64,0,0,0,28,25.23Zm0-12a2.64,2.64,0,1,0,2.64,2.64A2.64,2.64,0,0,0,28,13.23Zm0-12a2.64,2.64,0,1,0,2.64,2.64A2.64,2.64,0,0,0,28,1.23Z"/></g><path class="cls-1" d="M11,21.36H1A.36.36,0,0,1,.64,21V11A.36.36,0,0,1,1,10.64H11a.36.36,0,0,1,.36.36V21A.36.36,0,0,1,11,21.36Zm-9.64-.72h9.28V11.36H1.36Z"/>',
+        iconAlt: "installation paths",
+        description: "Choose one of three paths that fit your software update use case."
+    },
+    {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/suz/bp/bp-softwareupdate-4.svg",
+        iconPath: '<path d="M31,31.36H1A.36.36,0,0,1,.64,31V23h.72v7.64H30.64V23h.72v8A.36.36,0,0,1,31,31.36Z"/><polygon class="cls-1" points="16 23.51 9.75 17.25 10.25 16.75 15.64 22.13 15.64 1 16.36 1 16.36 22.13 21.75 16.75 22.25 17.25 16 23.51"/>',
+        iconAlt: "install",
+        description: "Install updates."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Configure",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>IBM z/OS Management Facility (z/OSMF) provides a framework for managing various aspects of a z/OS system through a task oriented, Web browser interface. By streamlining some traditional tasks and automating others, z/OSMF can help to simplify some areas of system management and reduce the level of expertise needed for a managing a system.</p>
+                <p>Make sure that you are authorized to use z/OSMF Software Management in order to use the Software Update application.</p>"
+            },
+            {
+                subSectionTitle: "z/OSMF Base Configuration",
+                subSectionContent: "<p>In order to install ServerPac using z/OSMF, you must first ensure that you have z/OSMF properly configured and are granted the necessary authorization to use it.</p>
+                <p>For a new installation of z/OSMF, it is recommended that you begin by creating a base configuration. If you are installing z/OSMF for the first time. please begin by clicking the link below and following the directions listed.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=guide-introduction-zosmf'>Install z/OSMF for the first time</a></p>
+                <p>If you are upgrading from a previous release of z/OSMF, perform the upgrade actions for z/OSMF.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=level-zos-upgrade-workflow'>Upgrade your z/OSMF platform</a></p>"
+            },
+            {
+                subSectionTitle: "PTF on Software Update",
+                subSectionContent: "<p>In addition to z/OSMF, you must also have the Software Management plugin activated and the authority to use Software Management.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=services-configure-software-management-service'>Configure the Software Management service</a></p>
+                <p>Beyond plugins and authority, you must also have the following PTFs installed on z/OS 2.3 or 2.4:</p>
+                <p>This new task is available with the PTFs for APAR PH28412, which are UI72029 for z/OS V2.4 and UI72028 for z/OS V2.3.</p>"
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Select Target SWI",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>To install a software update with z/OSMF, you can use the graphical user interface (GUI) of the Software Update application to choose the software instance that requires an update and complete the installation using the guided steps. By using the application, the need for deep SMP/E knowledge or job control language (JCL) is removed. Whether you decide to use the Software Update GUI or the traditional JCL, you will achieve the same end result.</p>
+                <p>Once z/OSMF is configured on your system, define the software instance that you want to install to. If you do not already have one, you can create a new software instance.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=task-defining-your-software-zosmf",
+                        linkText: "Learn more about software instances"
+                    },
+                    {
+                        linkUrl: "https://mediacenter.ibm.com/media/EKD+2022+-+Software+Update+for+Recommended+PTFs%2C+including+SECINT%21/1_ya26d1ha",
+                        linkText: "Watch: How to install Recommended PTFs with z/OSMF Software Update (10:59)"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Find your Software Instance",
+                subSectionContent: "<ol><li>On your z/OSMF desktop, select the <strong>Software Update</strong> icon to open the application. This will display a list of software instances from your currently defined software.</li>
+                <li>Select the target <strong>Zone</strong>. Typically, only one is available, though there may be more.</li></ol>"
+            },
+            {
+                subSectionTitle: "Create a Software Instance",
+                subSectionContent: "<p>If the software instance you need to update does not appear on the list of defined software, you must create a new software instance.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=page-objective-create-new-software-instance'>Create a new software instance</a></p>
+                <p>Once created, follow the steps under <strong>Find your Software Instance</strong> and proceed with the rest of the process.</p>"
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Installation paths",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Once you have selected your software instance and your target zone, you must choose the installation path suited to your need. There are three paths to install updates as supported by z/OSMF: 1) install updates by name, 2) install a vendor’s recommended updates, and 3) install updates for selected functional categories.</p>"
+            },
+            {
+                subSectionTitle: "Choosing your Installation Path",
+                subSectionContent: "<p>There are three separate Install options: Install Corrective, Install Recommended, and Install Functional. Determine which option best suits your need:</p>
+                <p>A. If you are installing updates by name intended to fix a known issue, select <strong>Install Corrective</strong>.</p>
+                <p>B. If you are installing updates recommended by a vendor, select <strong>Install Recommended</strong>.</p>
+                <p>C. If you are installing updates intended for selected functional categories (such to support new hardware devices, software functions, or software product releases), select <strong>Install Functional</strong>.</p>
+                <p>Note: If the update you want to install is not found by Software Update, you will need to acquire it. You can use SMP/E RECEIVE ORDER or other methods to acquire the update.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=guide-preparing-use-internet-service-retrieval",
+                        linkText: "Use SMP/E RECEIVE ORDER to acquire your intended update"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 4,
+        tabTitle: "Install",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Once you have selected the software instance, target zone, and installation path, it is time to begin installation. The Software Update application will guide you through a series of steps to install the update.</p>
+                <p>Once this process has been completed, your updates have been installed and the software is ready to use.</p>"
+            },
+            {
+                subSectionTitle: "Installation steps",
+                subSectionContent: "<ol><li>After selecting your installation path, a timeline of steps will be displayed to keep track of your progress. At the Preparing Updates step, click <strong>Next</strong>. This will trigger the system to ensure you are not missing any requisites for the selected updates, and identify any HOLDs that need resolution.<br/>
+                <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/zos/latest?topic=statements-hold-mcs' class='ibm-forward-link'>Learn more about HOLDs</a></p></li>
+                <li>You will then be presented with the opportunity to Resolve HOLDs. These HOLDs contain information that require attention before installation can be finalized. You can choose to resolve these immediately, wait until after installation to resolve, or exclude the update that requires HOLD resolution. Click <strong>Next</strong> to begin verifying updates and HOLD resolution choices.</li>
+                <li>The system will automatically begin verifying HOLD resolution choices from the previous step. Once completed, it will indicate the verification process is done and you are ready to click <strong>Next</strong>.</li>
+                <li>The Pre-Install Summary will list and confirm the updates that are ready to be installed. Verify these are the updates you want to install and click <strong>Next</strong>. Upon clicking Next, the system will automatically begin installing the identified updates.</li>
+                <li>After the updates are installed, you will be given the chance to resolve any HOLDs that were not addressed during Step 2. Click <strong>Next</strong> to finalize the installation.</li>
+                <li>At this point, the update process is complete.</li>
+                </ol>
+                <p><em>Optional</em>: If you wish to view a copy of the installation output on your workstation, click the download icon. You may also go back to previous installations and download the output on the Completed Updates page.</p>"
+            }
+        ]
+    },
+{
+    id: 5,
+    tabTitle: "Try It",
+    tabSubSections: [
+      {
+        subSectionTitle: "Try z/OSMF Software Update",
+        subSectionContent: "<p>To try Software Update, you must already have a software instance defined to Software Management. With any software instance, you can install Corrective, Recommended, and Functional updates. This can be done on an existing software instance that you defined, or you can create a new software instance by deploying a sample portable software instance (PSWI).</p>
+        <p class='ibm-ind-link'><a class='ibm-forward-link' href='http://www.ibm.com/marketing/iwm/platform/mrs/assets?source=szospsi'>Deploy sample z/OSMF Portable Software Instance</a></p>
+        <p>The Corrective update action requires you to know the names of the PTFs you want to install, while Functional and Recommended updates will automatically determine which PTFs need to be installed.</p>"
+      },
+      {
+        subSectionTitle: "Try Software Update on your existing software",
+        subSectionContent: "<p>To try Software Update on an existing software instance, it must be defined to Software Management. </p>
+        <p>To learn more about how to define a software instance, follow the steps outlined in the <strong>Select Target SWI</strong> tab of this Content Solution.</p>"
+      },
+      {
+        subSectionTitle: "Try Software Update on a sample z/OSMF Portable Software Instance",
+        subSectionContent: "<p>If you do not have a software instance defined, or you do not wish to make changes to your existing software, you can try Software Update with a sample z/OSMF Portable Software Instance.</p>
+        <p>Once you install the sample PSWI, you can use Software Update on the sample software instance to make changes and learn about the functionality. </p>
+        <p> When using the Install Corrective Updates action, the following PTFs can be specified for the sample software instance: </p>
+        <p> HL00001, HL00002, HL00003, HL00004, HL00005, HL00006, HL00007, HL00008, HL00009, HL00010, HL00011, HL00012, HL00013 </p>
+        <p> For more information on installing a sample portable software instance, visit the Try It tab of the <a href='https://www.ibm.com/support/z-content-solutions/serverpac-install-zosmf/'>ServerPac Installation using z/OSMF content solution</a>.</p>"
+      }
+    ]
+  }
+
+
+] %}
+{# END GETTING STARTED #}
+
+{# START FEATURED DOCUMENTATION #}
+{% set documentation = {
+    docTitle: "IBM Documentation",
+    docDescription: "Read more about key features and getting started with the Software Update task.",
+    docLinkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=software-update-task",
+    docLinkText: "IBM Documentation"
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "",
+        tabContent: [
+            {
+                resourceTitle: "ServerPac Installation using z/OSMF",
+                resourceDescription: "Learn about this this new streamlined and uniform installation experience.",
+                resourceLinkUrl: "https://www.ibm.com/support/z-content-solutions/serverpac-install-zosmf/",
+                resourceLinkText: "Explore the content solution",
+                resourceLinkType: "contentsolution",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Documentation",
+                resourceDescription: "Read more about key features and getting started with the Software Update task.",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=software-update-task",
+                resourceLinkText: "IBM Documentation",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Z Hot Topics",
+                resourceDescription: "Read about how z/OSMF Software Update lets you skip SMP/E drudgery.",
+                resourceLinkUrl: "https://www.zos-hot-topics.com/2020/zosmf-software-update-lets-you-skip-smpe-drudgery/",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "article",
+                resourceStatus: "new",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "EKD 2022 - Software Update for Recommended PTFs, including SECINT!",
+                resourceDescription: "Learn how to install Recommended PTFs with z/OSMF Software Update.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/EKD+2022+-+Software+Update+for+Recommended+PTFs%2C+including+SECINT%21/1_ya26d1ha",
+                resourceLinkText: "Watch the video (10:59)",
+                resourceLinkType: "video",
+                resourceStatus: "new",
+                resourceIcon: false,
+                linkTarget:"newTab"
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [2] %}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "June 18, 2021",
+        sectionContent: "A link to an IBM Z Hot Topics article was added to the Technical resources section."
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "softwareupdate" %}
+{# END FEEDBACK #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "12376184",
+    sc_security: "501fa80b"
+}
+ %}
+{# END STATCOUNTER #}
+
+{# START HOTJAR #}
+{% set hotjar = {
+    site_id: ""
+}
+ %}
+{# END HOTJAR #}

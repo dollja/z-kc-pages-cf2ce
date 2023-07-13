@@ -1,0 +1,40 @@
+<script type="module">
+    const l1Data = {
+        title: "IBM Z and LinuxONE Content Solutions",
+        url: "/support/z-content-solutions/",
+        menuItems: [
+            {% for category, solutions in solutions | groupby("category") %}
+                {
+                    title: "{{ category }}",
+                    titleEnglish: "{{ category }}",
+                    url: "/support/z-content-solutions/#{{ category | replace(" ", "") | lower }}",
+                    hasMenu: true,
+                    hasMegapanel: false,
+                    menuSections: [
+                        {
+                            heading: "Explore",
+                            menuItems: [
+                                {% for solution in solutions | sort(attribute = 'title') %}
+                                {% if solution.draft %}
+                                {% else %}
+                                    {
+                                        title: "{{ solution.title }}",
+                                        url: "/support/z-content-solutions/{{ solution.pageUrl }}/"
+                                    },
+                                {% endif %}
+                                {% endfor %}
+                                {
+                                    title: "View all",
+                                    url: "/support/z-content-solutions/#{{ category | replace(" ", "") | lower }}"
+                                }
+                            ]
+                        }
+                    ]
+                },
+            {% endfor %}
+        ]
+    }
+            document
+                .querySelector("dds-dotcom-shell-container")
+                .l1Data = l1Data;
+</script>

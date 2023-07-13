@@ -1,0 +1,490 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "IBM Z System Recovery Boost" %}
+{% set key = 17 %}
+
+{# META #}
+{% set meta_description = meta_description | default("Explore how System Recovery Boost works and learn how to obtain and install a System Recovery Boost system.") %}
+{% set meta_keywords = meta_keywords | default("systems recovery, instant recovery on z, ibm z instant recovery, system recovery technologies, instant recovery") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,  
+    type: "video",
+    videoID: "1_qhn8btn6",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/srb/thumb-blue.png",
+    label: "IBM Z System Recovery Boost overview and recent enhancements"
+} %} 
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>System Recovery Boost is a feature introduced with the IBM z15™, and enhanced with the IBM z16, that provides capabilities to reduce the time it takes to shut down and restart (IPL) a system, by providing additional processor capacity and throughput for the boosted image.</p>
+<p>In addition to boosting shutdown and IPL, System Recovery Boost can provide short-term acceleration for specific system and sysplex recovery and diagnostic capture events in z/OS, including, with the IBM z16, SVC dumps, HyperSwap configuration load, and middleware region startup.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "marketing",
+        url: "https://www.ibm.com/products/zos/system-recovery"
+    }
+] %}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "systemrecoveryboost" %}
+{# END FEEDBACK #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# set announcements = [
+    {
+    announcementText: "",
+    announcementLinkText: "",
+    announcementLinkUrl: ""
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/srb/bp_srb_1.svg",
+        iconPath: '<path class="st0" d="M25.5,27.6l-1.2-1.2l-0.5,0.5l1.8,1.8l3.2-3.3l-0.5-0.5L25.5,27.6z M21.4,5.9c0-0.4-0.2-0.8-0.6-1
+	c-0.4-0.2-0.8-0.2-1.2,0l-3.5,2c-2,1.1-3.5,2.9-4.5,4.9l-1.5,3.3H7c-0.2,0-0.4,0.2-0.4,0.4v3h0.7v-2.7h3c0.1,0,0.3-0.1,0.3-0.2
+	l1.6-3.6c0.9-1.9,2.4-3.6,4.2-4.6l3.5-2c0.2-0.1,0.5,0,0.6,0.2c0,0.1,0.1,0.1,0.1,0.2v4c0,2.1-0.7,4.2-1.9,5.9L16.5,19
+	c-0.1,0.1-0.1,0.3,0,0.4L18,22l-2.3,1.3l0.4,0.6l2.6-1.5c0.1,0,0.1-0.1,0.2-0.2c0-0.1,0-0.2,0-0.3l-1.6-2.7l2.1-3
+	c1.3-1.9,2-4.1,2-6.3L21.4,5.9z M15.3,14.4c0.3,0.2,0.7,0.3,1.1,0.3c0.8,0,1.5-0.4,1.9-1.1l0,0c0.6-1,0.2-2.4-0.8-3
+	c-1-0.6-2.4-0.2-3,0.8l0,0C13.9,12.4,14.3,13.8,15.3,14.4z M15.1,11.8c0.2-0.3,0.5-0.6,0.9-0.7c0.1,0,0.3,0,0.4,0
+	c0.3,0,0.5,0.1,0.7,0.2c0.7,0.4,0.9,1.3,0.5,2c0,0,0,0,0,0c-0.2,0.3-0.5,0.6-0.9,0.7c-0.4,0.1-0.8,0-1.1-0.1
+	c-0.3-0.2-0.6-0.5-0.7-0.9C14.9,12.5,14.9,12.1,15.1,11.8z M10.5,23.9c-0.2,0.1-0.2,0.3-0.2,0.5c0.1,0.1,0.2,0.2,0.3,0.2
+	c0.1,0,0.1,0,0.2,0c0.8-0.3,1.5-0.8,2-1.5c0.6-1,0.2-2.4-0.8-2.9c0,0,0,0-0.1,0c-1-0.6-2.4-0.3-3,0.8c0,0,0,0,0,0.1
+	c-0.3,0.8-0.4,1.6-0.3,2.4c0,0.2,0.2,0.3,0.4,0.3c0,0,0,0,0,0c0.2,0,0.3-0.2,0.3-0.4c-0.1-0.7,0-1.4,0.2-2c0.4-0.7,1.3-0.9,2-0.5
+	c0.3,0.2,0.6,0.5,0.7,0.9c0.1,0.4,0,0.8-0.2,1.1C11.7,23.2,11.1,23.6,10.5,23.9z M1.4,1.5h26.3v17.6h0.7v-18c0-0.2-0.2-0.4-0.4-0.4
+	H1c-0.2,0-0.4,0.2-0.4,0.4l0,0v27c0,0.2,0.2,0.4,0.4,0.4c0,0,0,0,0,0h18v-0.7H1.4V1.5z M26,20.7c-3,0-5.4,2.4-5.4,5.4
+	s2.4,5.4,5.4,5.4s5.4-2.4,5.4-5.4S29,20.7,26,20.7C26,20.7,26,20.7,26,20.7z M26,30.7c-2.6,0-4.6-2.1-4.6-4.6c0-2.6,2.1-4.6,4.6-4.6
+	c2.6,0,4.6,2.1,4.6,4.6l0,0C30.6,28.7,28.6,30.7,26,30.7z"/>',
+        iconAlt: "implement Boost",
+        description: "IPL boost is enabled by default and delivers extra processor capacity after an IPL to get you back up and running faster."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/srb/bp_srb_2.svg",
+        iconPath: '<path class="st0" d="M24.5,3.1c0.3,0,0.5,0.2,0.5,0.5s-0.2,0.5-0.5,0.5S24,3.9,24,3.6S24.2,3.1,24.5,3.1z M28.5,3.1
+	c0.3,0,0.5,0.2,0.5,0.5s-0.2,0.5-0.5,0.5S28,3.9,28,3.6S28.2,3.1,28.5,3.1z M26.5,3.1c0.3,0,0.5,0.2,0.5,0.5s-0.2,0.5-0.5,0.5
+	S26,3.9,26,3.6S26.2,3.1,26.5,3.1z M31,1.8H1c-0.2,0-0.4,0.2-0.4,0.4v28c0,0.2,0.2,0.4,0.4,0.4c0,0,0,0,0,0h30
+	c0.2,0,0.4-0.2,0.4-0.4c0,0,0,0,0,0v-28C31.4,1.9,31.2,1.8,31,1.8z M30.6,29.8H1.4V5.5h29.3V29.8z M30.6,4.8H1.4V2.5h29.3V4.8z
+	 M11.2,10.3l-0.5-0.5L7,13.5l-1.8-1.7l-0.5,0.5L7,14.5L11.2,10.3z M8,24.4c1.9,0,3.4-1.5,3.4-3.4c0-1.9-1.5-3.4-3.4-3.4
+	c-1.8,0-3.3,1.5-3.4,3.3C4.6,22.9,6.1,24.4,8,24.4C8,24.4,8,24.4,8,24.4z M8,18.4c1.5,0,2.6,1.2,2.6,2.6c0,1.5-1.2,2.6-2.6,2.6
+	c-1.5,0-2.6-1.2-2.6-2.6c0,0,0,0,0,0C5.4,19.6,6.6,18.4,8,18.4z M7.2,22.6c0.1,0,0.1,0,0.2,0l2.1-1.2c0.1-0.1,0.2-0.2,0.2-0.4
+	c0-0.1-0.1-0.2-0.2-0.3l-2.1-1.2c-0.1-0.1-0.2-0.1-0.4,0c-0.1,0.1-0.2,0.2-0.2,0.3v2.4c0,0.1,0.1,0.2,0.2,0.3
+	C7.1,22.6,7.2,22.6,7.2,22.6z M7.6,20.5l1,0.6l-1,0.6L7.6,20.5z M14,12.4h12c0.2,0,0.4-0.2,0.4-0.4c0-0.2-0.2-0.4-0.4-0.4H14
+	c-0.2,0-0.4,0.2-0.4,0.4C13.6,12.2,13.8,12.4,14,12.4z M14,21.4h12c0.2,0,0.4-0.2,0.4-0.4c0-0.2-0.2-0.4-0.4-0.4H14
+	c-0.2,0-0.4,0.2-0.4,0.4C13.6,21.2,13.8,21.4,14,21.4z"/>',
+        iconAlt: "Recovery process boost",
+        description: "Recovery process boost provides increased short-duration processor capacity for the acceleration of some sysplex recovery situations. With the IBM z16, additional recovery events can be boosted."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/srb/bp_srb_3.svg",
+        iconPath: '<path class="st0" d="M1.3,16H0.6c0,0.3,0,0.7,0,1h0.8C1.3,16.6,1.3,16.3,1.3,16z M11,30.5c0.6,0.2,1.3,0.4,1.9,0.5l0.1-0.7
+	c-0.6-0.1-1.2-0.3-1.9-0.5L11,30.5z M7.4,28.8c0.6,0.4,1.1,0.7,1.7,1l0.3-0.6c-0.6-0.3-1.1-0.6-1.7-1L7.4,28.8z M15,30.6v0.7
+	c0.3,0,0.7,0,1,0s0.7,0,1,0v-0.7C16.3,30.7,15.7,30.7,15,30.6z M4.4,26.1c0.4,0.5,0.9,1,1.4,1.4L6.3,27c-0.5-0.4-0.9-0.9-1.3-1.3
+	L4.4,26.1z M0.9,19c0.1,0.7,0.3,1.3,0.5,2l0.7-0.2c-0.2-0.6-0.4-1.2-0.5-1.9L0.9,19z M2.2,22.8c0.3,0.6,0.6,1.2,1,1.7l0.6-0.4
+	c-0.4-0.5-0.7-1.1-1-1.7L2.2,22.8z M31,13c-0.1-0.7-0.3-1.3-0.5-1.9l-0.7,0.2c0.2,0.6,0.4,1.2,0.5,1.9L31,13z M28.2,7.9
+	c0.4,0.5,0.7,1.1,1,1.7l0.6-0.3c-0.3-0.6-0.6-1.2-1-1.7L28.2,7.9z M28.1,24.1l0.6,0.4c0.4-0.6,0.7-1.1,1-1.7l-0.6-0.3
+	C28.8,23.1,28.5,23.6,28.1,24.1z M29.8,20.7l0.7,0.2c0.2-0.6,0.4-1.3,0.5-2l-0.7-0.1C30.2,19.5,30,20.1,29.8,20.7z M25.6,27l0.5,0.5
+	c0.5-0.4,1-0.9,1.4-1.4L27,25.7C26.6,26.1,26.1,26.6,25.6,27z M31.3,15l-0.7,0.1c0,0.3,0,0.6,0,0.9s0,0.7,0,1l0.7,0c0-0.3,0-0.7,0-1
+	S31.3,15.4,31.3,15z M18.8,30.4l0.1,0.7c0.7-0.1,1.3-0.3,1.9-0.5l-0.2-0.7C20.1,30.1,19.4,30.2,18.8,30.4z M22.4,29.1l0.3,0.6
+	c0.6-0.3,1.2-0.6,1.7-1l-0.4-0.6C23.6,28.5,23,28.9,22.4,29.1z M26.8,5.1c-6-6-15.7-6-21.7,0C4.8,5.4,4.6,5.7,4.3,6V1H3.6v6.4H10
+	V6.6H4.7c5.2-6.2,14.4-7.1,20.6-1.9c0.3,0.3,0.7,0.6,1,0.9l0.2-0.3l-0.2,0.3c0.2,0.2,0.5,0.5,0.7,0.7l0.5-0.5
+	C27.3,5.6,27.1,5.4,26.8,5.1L26.8,5.1z M16.7,15.7c0.3,0.2,0.6,0.3,1,0.3c0.2,0,0.4,0,0.5-0.1c0.5-0.1,1-0.5,1.2-1
+	c0.5-1,0.2-2.2-0.8-2.7c-1-0.5-2.2-0.2-2.7,0.8C15.4,13.9,15.8,15.1,16.7,15.7L16.7,15.7z M16.6,13.3c0.2-0.4,0.7-0.7,1.1-0.7
+	c0.2,0,0.5,0.1,0.7,0.2c0.6,0.4,0.8,1.2,0.5,1.8c-0.4,0.6-1.2,0.8-1.8,0.5C16.4,14.7,16.2,13.9,16.6,13.3
+	C16.6,13.3,16.6,13.3,16.6,13.3z M21.8,6.8c-0.3-0.2-0.8-0.2-1.1,0l-3.2,1.9c-1.8,1.1-3.3,2.7-4.2,4.6l-1.4,3.1H9
+	c-0.2,0-0.4,0.2-0.4,0.4l0,0v2.7h0.7v-2.4h2.8c0.1,0,0.3-0.1,0.3-0.2l1.5-3.3c0.8-1.8,2.2-3.3,3.9-4.3l3.2-1.9
+	c0.1-0.1,0.3-0.1,0.4,0c0.1,0.1,0.2,0.2,0.2,0.3v3.7c0,2-0.6,3.9-1.8,5.5l-2.1,2.9c-0.1,0.1-0.1,0.3,0,0.4l1.4,2.4l-2.1,1.2l0.4,0.6
+	l2.4-1.4c0.1,0,0.1-0.1,0.2-0.2c0-0.1,0-0.2,0-0.3l-1.5-2.5l2-2.8c1.2-1.7,1.9-3.8,1.9-5.9V7.8C22.4,7.4,22.2,7,21.8,6.8z M13.7,21
+	c-0.9-0.6-2.2-0.3-2.7,0.7c0,0,0,0.1,0,0.1c-0.3,0.7-0.4,1.5-0.2,2.2c0,0.2,0.2,0.3,0.4,0.3c0,0,0,0,0,0c0.2,0,0.4-0.2,0.3-0.4
+	c0,0,0,0,0,0c-0.1-0.6,0-1.3,0.2-1.9c0.2-0.3,0.5-0.5,0.8-0.6c0.7-0.2,1.4,0.2,1.6,0.9c0.1,0.3,0,0.7-0.2,1c-0.4,0.4-0.9,0.8-1.5,1
+	c-0.2,0.1-0.2,0.3-0.1,0.5c0.1,0.1,0.2,0.2,0.3,0.2c0.1,0,0.1,0,0.2,0c0.7-0.3,1.3-0.8,1.8-1.4C15,22.8,14.6,21.5,13.7,21z"/>',
+        iconAlt: "Shutdown boost",
+        description: "Shutdown boost enables a faster shutdown by delivering extra processor capacity upon indication that a shutdown is in progress."
+    },
+    {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/srb/bp_srb_4.svg",
+        iconPath: '<path class="cls-1" d="M30.91,31.33h-6a.36.36,0,0,1-.36-.36V25a.36.36,0,0,1,.36-.36h6a.36.36,0,0,1,.36.36v6A.36.36,0,0,1,30.91,31.33Zm-5.64-.72h5.28V25.33H25.27Zm-3.36-2.28h-15a6.36,6.36,0,0,1,0-12.72h3v.72h-3a5.64,5.64,0,0,0,0,11.28h15Zm-3-9h-6a.36.36,0,0,1-.36-.36V13a.36.36,0,0,1,.36-.36h6a.36.36,0,0,1,.36.36v6A.36.36,0,0,1,18.91,19.33Zm-5.64-.72h5.28V13.33H13.27Zm11.64-2.28h-3v-.72h3a5.64,5.64,0,1,0,0-11.28h-15V3.61h15a6.36,6.36,0,0,1,0,12.72Zm-18-9h-6A.36.36,0,0,1,.55,7V1A.36.36,0,0,1,.91.61h6A.36.36,0,0,1,7.27,1V7A.36.36,0,0,1,6.91,7.33ZM1.27,6.61H6.55V1.33H1.27Z"/>',
+        iconAlt: "Automation",
+        description: "Update your automation to ensure that System Recovery Boost is optimized for your system and to take advantage of System Recovery Boost Upgrade."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Boost classes",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>There are three classes of boost: IPL (startup) boost, recovery process boost, and shutdown boost. Each class has different capabilities.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=setup-prerequisites",
+                        linkText: "Prerequisites"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "IPL boost",
+                subSectionContent: "<p>IPL boost is enabled by default and delivers extra processor capacity after an IPL to get you back up and running faster.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=boost-startup",
+                        linkText: "Learn more about IPL boost"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Recovery process boost",
+                subSectionContent: "<p>Recovery process boost provides increased short-duration processor capacity for the acceleration of sysplex recovery situations.</p>
+                <h5 class='ibm-h5 ibm-bold ibm-padding-top-2'>Planning and setup:</h5>
+                <p>These recovery process boosts are enabled by default: HyperSwap, Coupling Facility data-sharing member recovery, Coupling Facility structure recovery, sysplex partitioning, and, with the IBM z16, HyperSwap configuration load. 
+                    With the IBM z16, you can configure these additional recovery process boosts: SVC dumps and middleware region startups.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=boost-recovery-process",
+                        linkText: "Learn more about recovery process boost"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=boost-managing-recovery-process",
+                        linkText: "Enable SVC dump boosts with a dump size threshold"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=boost-managing-recovery-process",
+                        linkText: "Enable middleware region startup boosts with the WLM service definition"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Shutdown boost",
+                subSectionContent: "<p>Shutdown boost enables a faster shutdown by delivering extra processor capacity upon indication that a shutdown is in progress.</p>
+                <h5 class='ibm-h5 ibm-bold ibm-padding-top-2'>Planning and setup:</h5>
+                <p>Update your shutdown automation to automatically use the START IEASDBS system command during your shutdown process to use shutdown boost to speed up the shutdown.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=boost-shutdown",
+                        linkText: "Learn more about shutdown boost"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Boost types",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>There are two boost types, Speed Boost and zIIP Boost.</p>"
+            },
+            {
+                subSectionTitle: "Speed Boost",
+                subSectionContent: "<p>Speed Boost is a capability of System Recovery Boost that improves the recovery time of exploiting operating systems when running on a subcapacity CPC. If you are running on a subcapacity CPC, then while System Recovery Boost is active, z/OS will request that the CPC firmware increase the CP speed of the image to full capacity model speed for the duration of the boost. After the boost ends, the image will return to the subcapacity model speed.</p>
+                <p>Speed Boost applies to each of the three boost classes: IPL boost, recovery process boost, and shutdown boost.</p>
+                <h5 class='ibm-h5 ibm-bold ibm-padding-top-2'>Planning and setup:</h5>
+                <p>Speed Boost applies only to the image being boosted; all other images not being boosted will run at subcapacity model speed.</p>
+                <p>If you’re running on a subcapacity machine, there is no reason not to run with speed boost. Any processing activity that uses CPs will benefit from Speed Boost. Use the following links to learn more:</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=setup-turning-system-recovery-boost",
+                        linkText: "Turning on System Recovery Boost"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "zIIP Boost",
+                subSectionContent: "<p>If your system has z Integrated Information Processors (zIIPs), then zIIP boost can improve z/OS recovery time, assuming zIIP capacity is available to the image.</p>
+                <p>z/OS is the only operating system that can exploit the zIIP boost capability, as it’s the only OS that can natively exploit zIIPs. While zIIP Boost is active, z/OS will make non-zIIP eligible work zIIP eligible, thus allowing most work to run on zIIPs if there isn’t sufficient CP capacity available. This provides additional capacity and parallelism to accelerate processing during the boost periods. IBM refersto this as blurring the CPs and zIIPs together.</p>
+                <p>zIIP boost applies to each of the following boost classes: IPL boost, recovery process boost, and shutdown boost.</p>
+                <p class='ibm-ind-link ibm-padding-bottom-2'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=terminology-ziip-boost'>Learn more about zIIP boost</a></p>
+                <h5 class='ibm-h5 ibm-bold ibm-textcolor-black-core'>Planning and setup:</h5>
+                <p>There are variations of zIIP boost, depending on how the CPC is configured, as well as the priced System Recovery Boost Upgrade offering that will allow you to take additional advantage of zIIP boost.</p>
+                <p>The most basic type of zIIP boost is when you have defined Initial zIIPs, and no Reserved zIIPs that are backed by real processors. In this case, the zIIP blurring will happen for the duration of the boost on your defined, entitled zIIPs and at the end of the boost period. Normally, non-zIIP eligible work will stop running on zIIPs.</p>
+                <p><strong>zIIP Boost with Reserved zIIPs</strong></p>
+                <p>This is the case when you have some zIIPs that are defined as reserved, and some number of those can be backed by physical zIIPs. Those reserved zIIPs that can be backed by physical zIIPs will be brought online by the system at the beginning of the boost period, and then taken offline when the boost period is over.</p>
+                <p><strong>System Recovery Boost Upgrade</strong></p>
+                <p>This is a priced feature for the IBM z15 that requires you to have purchased an annual subscription for the Boost feature for your CPC that will allow you to bring up to 20 additional physical zIIPs online to the CPC for the duration of the capacity record activation, limited by the number of unused “dark core” processors you have in your CPC. System Recovery Boost Upgrade can be used with IPL boost and shutdown boost.</p>"
+            },
+            {
+                subSectionTitle: "90-day free trial for System Recovery Boost Upgrade",
+                subSectionContent: "<p>IBM is offering a <strong>90-day free trial for System Recovery Boost Upgrade</strong>, so that you can test out System Recovery Boost Upgrade in your own environment. The trial gives you 30 activations, each of which can be used to unlock up to 20 additional zIIP processors for up to 6 hours.</p>
+                <p>You can order the 90-day trial record using Resource Link. Resource Link will immediately stage the record for download upon ordering. Ordering requires online-buying enablement and the associated contract supplements, as well as SRB Upgrade Authorization.</p>
+                <p>You are eligible for the trial if you are a new or existing IBM z15 T01 or IBM z16 A01 customer, and if you have not already purchased the full System Recovery Boost Upgrade offering.</p>
+                <p>Use the following links to learn more:</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=boost-ziip-reserved-ziips",
+                        linkText: "Learn more about zIIP boost with Reserved zIIPS"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=boost-system-recovery-upgrade-record",
+                        linkText: "Learn more about System Recovery Boost Upgrade"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "GDPS performance and paralellism",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>GDPS® performance and parallelism increases the speed with which GDPS drives hardware actions, along with enhancing the speed of the underlying hardware services. The GDPS enhancements are available in GDPS 4.2 and above running on an IBM z15 or IBM z16.</p>
+                <p>GDPS takees advantage of the HyperSwap exploitation of recovery process boost.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=boost-recovery-process",
+                        linkText: "Learn more about recovery process boost"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=terminology-gdps",
+                        linkText: "Learn more about GDPS"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/it-infrastructure/z/technologies/gdps",
+                        linkText: "Go to the GDPS website"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning and setup",
+                subSectionContent: "<p>IBM recommends reading the following GDPS manuals, which describe how to implement these RTO improvements:</p>
+                <ul><li>GDPS Metro Planning and Implementation Guide (ZG24-6755), section 4.7.2, SYSPLEX script statement.</li>
+                <li>GDPS Global - GM Installation and Customization Guide (ZG24-6757), section 4.5.7, SYSPLEX script statement.</li>
+                <li>GDPS Global - XRC Installation and Customization Guide (ZG24-6759), section 4.6.9, SYSPLEX script statement.</li></ul>"
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FAQs #}
+{# Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqs = [
+    {
+    question: "",
+    answer: ""
+    }
+]#}
+{# Learn more - optional four column section to the right of the main FAQs if needed for custom html (see example on Container Extensions #}
+{# set learnMore = "" #}
+{# END FAQs #}
+
+{# START FEATURED DOCUMENTATION #}
+{% set documentation = {
+    docTitle: "Comprehensive content collection",
+    docDescription: "Find a comprehensive collection of content about System Recovery Boost in IBM Documentation.",
+    docLinkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=solutions-system-recovery-boost",
+    docLinkText: "Explore the collection"
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+
+    Was in technical resources, but isn't updated:
+            {
+                resourceDescription: "Do you have a question about System Recovery Boost? Take a look at the list of frequently asked questions.",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/1NWEJKOX",
+                resourceLinkText: "Frequently asked questions",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/IconWhitePaper.png",
+                resourceStatus: "new"
+            }
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "Other resources",
+        tabContent: [
+            {
+                resourceDescription: "Take a deep dive into the capabilities of System Recovery Boost and understand how it works.",
+                resourceLinkUrl: "http://ibm.biz/z15SRBWhitePaper",
+                resourceLinkText: "Read the System Recovery Boost white paper",
+                resourceLinkType: "whitepaper",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/IconWhitePaper.png"
+            },
+            {
+                resourceDescription: "How you benefit from System Recovery Boost will depend on your system configuration. For general information on improving your Mean Time to Recovery, see the IBM Redbook: System z Mean Time To Recovery",
+                resourceLinkUrl: "https://www.redbooks.ibm.com/abstracts/sg247816.html?Open",
+                resourceLinkText: "Read the IBM Redbook",
+                resourceLinkType: "redbook",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/redbook-white.png"
+            },
+            {
+                resourceDescription: "This summary of System Recovery Boost provides use cases and proof points.",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/46NY0XNZ",
+                resourceLinkText: "Read the summary",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/IconWhitePaper.png"
+            },
+            {
+                resourceDescription: "This summary of System Recovery Boost Upgrade provides more information about this priced feature.",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/JEA04A1O",
+                resourceLinkText: "Read the summary",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/IconWhitePaper.png",
+                resourceStatus: "new"
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Multimedia",
+        tabContent: [
+            {
+                resourceTitle: "Infrastructure Resiliency",
+                resourceDescription: "Designed for continuous availability and rapid disaster recovery, IBM Z provides industry-leading resiliency to protect your business from downtime. Watch the video to learn how IBM Z can help you achieve your availability goals.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/0_kfu0wijx",
+                resourceLinkText: "Watch the video (4:42)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Terminal Talk Podcast",
+                resourceDescription: "Episode 87 of Terminal Talk with Frank and Jeff features Tyler King and Kevin McKenzie discussing Instant Recovery, and how maintenance windows will get shorter with this feature of IBM Z.",
+                resourceLinkUrl: "https://overcast.fm/+JTjWe5qyY",
+                resourceLinkText: "Listen (24:28)",
+                resourceLinkType: "podcast",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "System Recovery Boost Overview",
+                resourceDescription: "This video provides an overview of System Recovery Boost.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/1_p5rx56vh",
+                resourceLinkText: "Watch the video (6:23)",
+                resourceLinkType: "video",
+                resourceIcon: false
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [16] %}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "August 4, 2022",
+        sectionContent: "The overview video was replaced. It now includes more detail about recent enhancements. The previous overview video was added to the Multimedia tab of the Technical resrources section."
+    },
+    {
+        sectionTitle: "May 19, 2022",
+        sectionContent: "The overview video was updated to describe the recent enhancements."
+    },
+    {
+        sectionTitle: "April 5, 2022",
+        sectionContent: "The page was updated for System Recovery Boost enhancements, including those for the IBM z16 and new use cases for recovery process boost, which are described on the Boost classes tab of the How to get started section.
+        For details on recent enhancements to System Recovery Boost, see <a href='https://www.ibm.com/docs/en/SSLTBW_2.5.0/com.ibm.zos.v2r5.izsb100/izsb100soc-v2r5.htm'>Summary of changes</a> in IBM Documentation.</p>"
+    },
+    {
+        sectionTitle: "October 7, 2021",
+        sectionContent: "Under Technical resources, a link to the new Resilience content solution was added.
+                        <p>Links to z/OS documentation were updated to use the z/OS 2.5 library.</p>"
+    },
+    {
+        sectionTitle: "August 5, 2021",
+        sectionContent: "Under Technical resources, the white paper has been updated. See <a href='http://ibm.biz/z15SRBWhitePaper' >System Recovery Boost for the IBM z15</a>."
+    },
+    {
+        sectionTitle: "July 1, 2021",
+        sectionContent: "Transcript added for System Recovery Boost overview video."
+    },
+    {
+        sectionTitle: "June 25, 2021",
+        sectionContent: "The Big Picture section has been modified for accessibility."
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "12099951",
+    sc_security: "e213cc8e"
+}
+ %}
+{# END STATCOUNTER #}
+
+{# START HOTJAR #}
+{% set hotjar = {
+    site_id: ""
+}
+ %}
+{# END HOTJAR #}

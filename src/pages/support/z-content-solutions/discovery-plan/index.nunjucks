@@ -1,0 +1,639 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "Discover and plan for z/OS hybrid applications" %}
+{% set key = 31 %}
+
+{# META #}
+{% set meta_description = meta_description | default("Work smarter and minimize risk by discovering application insights and make changes with confidence.") %}
+{% set meta_keywords = meta_keywords | default("IBM Application Discovery and Delivery Intelligence, ADDI, discovery, planning, application changes, application insights, data insights, API candidates") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>
+In a <a href='https://www.ibm.com/cloud/blog/lower-costs-and-increase-roi-with-application-modernization-on-a-hybrid-cloud'>recent IBM® Institute for Business Value study</a>, 71% of executives say mainframe-based applications are central to their business strategy and four out of five respondents say their organizations need to rapidly transform to keep up with competition. The importance and complexity of these mission-critical applications means teams must apply a high degree of due diligence to discover and analyze how the application works and its relationship with other applications.
+</p>
+<p>With tens of millions of lines of code, hundreds of dependencies, and dated documentation, architects and developers can spend weeks or months trying to understand the impact of changes, with no guarantee the updates won’t have unintended rippling effects. 
+</p>
+<p>An analysis tool, like IBM Application Discovery and Delivery Intelligence (ADDI), provides up-to-date, consumable information about your mainframe software assets and resources, allowing you to confidently plan your changes. Once the development has started, a collaborate tool, like IBM Engineering Workflow Management (EWM), allows teams to track their work, share their changes, and easily communicate with each other. These tools accelerate discovery and planning, allowing organizations to quickly and accurately implement application changes. 
+</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "other",
+        text: "Lower Costs and Increase ROI with Application Modernization on a Hybrid Cloud",
+        url: "https://www.ibm.com/cloud/blog/lower-costs-and-increase-roi-with-application-modernization-on-a-hybrid-cloud"
+    }
+] %}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in the right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# END INTRODUCTION #}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dsc/bp-dsc-1.svg",
+        iconPath: '<path id="analyze_1_" d="M16,31.36H6c-0.096,0-0.187-0.038-0.254-0.105l-5-5C0.678,26.188,0.64,26.096,0.64,26V11
+	c0-0.199,0.161-0.36,0.359-0.36l4.647-0.003C5.838,5.092,10.409,0.64,16,0.64c5.713,0,10.36,4.647,10.36,10.36
+	c0,2.646-0.986,5.141-2.785,7.066l7.68,7.679l-0.51,0.51l-7.679-7.68c-1.838,1.717-4.194,2.693-6.707,2.778V31
+	C16.36,31.199,16.199,31.36,16,31.36z M6.36,30.64h9.28v-9.286c-5.428-0.187-9.81-4.568-9.994-9.997L1.36,11.36v14.28H6
+	c0.199,0,0.36,0.161,0.36,0.36V30.64z M1.869,26.36l3.771,3.771V26.36H1.869z M16,1.36c-5.315,0-9.64,4.325-9.64,9.64
+	s4.325,9.64,9.64,9.64c2.574,0,4.994-1.003,6.815-2.824S25.64,13.573,25.64,11C25.64,5.685,21.315,1.36,16,1.36z M9.578,13.907
+	l-0.623-0.36l2.732-4.73c0.071-0.123,0.201-0.195,0.349-0.178c0.141,0.015,0.261,0.111,0.305,0.247l0.979,3.005l2.365-4.074
+	c0.067-0.116,0.199-0.185,0.328-0.179c0.134,0.006,0.253,0.086,0.31,0.208l1.944,4.158l3.424-5.691l0.617,0.371l-3.772,6.271
+	c-0.068,0.113-0.195,0.18-0.327,0.174c-0.133-0.007-0.251-0.086-0.308-0.207l-1.938-4.146l-2.424,4.175
+	c-0.072,0.123-0.208,0.193-0.35,0.177c-0.141-0.015-0.26-0.111-0.304-0.247l-0.978-3.002L9.578,13.907z"/>',
+        iconAlt: "Select applications",
+        description: "Select the applications to be modernized and begin discovery."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dsc/bp-dsc-2.svg",
+        iconPath: '<path id="flow--chart--detail_1_" d="M30.746,31.255L19.763,20.287C17.73,22.192,14.999,23.36,12,23.36
+	C5.736,23.36,0.64,18.264,0.64,12S5.736,0.64,12,0.64c3.909,0,7.363,1.984,9.408,5H31v0.72h-9.142
+	c0.41,0.715,0.746,1.479,0.994,2.28H31v0.72h-7.95c0.176,0.735,0.28,1.498,0.305,2.28H31v0.72h-7.646
+	c-0.024,0.782-0.129,1.546-0.304,2.281H31v0.72h-8.147c-0.518,1.669-1.411,3.175-2.58,4.418l10.981,10.967L30.746,31.255z
+	 M1.904,15.361C3.314,19.586,7.307,22.64,12,22.64c1.828,0,3.55-0.463,5.055-1.278H16c-0.199,0-0.36-0.161-0.36-0.36v-2.64H11
+	c-0.199,0-0.36-0.161-0.36-0.36V12.36H6.359v2.641c0,0.199-0.161,0.36-0.36,0.36C5.999,15.361,1.904,15.361,1.904,15.361z
+	 M16.359,20.641h1.843c1.799-1.294,3.179-3.136,3.894-5.279H16.36v5.279H16.359z M11.36,17.641h4.28v-2.639
+	c0-0.199,0.161-0.36,0.36-0.36h6.309c0.216-0.845,0.331-1.73,0.331-2.642c0-0.91-0.114-1.795-0.331-2.639H16
+	c-0.199,0-0.36-0.161-0.36-0.36V6.36h-4.28C11.36,6.36,11.36,17.641,11.36,17.641z M1.692,14.642H5.64v-5.28H1.691
+	C1.475,10.205,1.36,11.09,1.36,12C1.36,12.911,1.475,13.797,1.692,14.642z M6.359,11.641h4.281V6c0-0.199,0.161-0.36,0.36-0.36h4.64
+	V3.001c0-0.199,0.161-0.36,0.36-0.36h1.059C15.554,1.825,13.83,1.36,12,1.36c-4.694,0-8.688,3.056-10.097,7.282H6
+	c0.199,0,0.36,0.161,0.36,0.36L6.359,11.641L6.359,11.641z M16.359,8.642h5.737c-0.714-2.143-2.094-3.985-3.892-5.28h-1.846v5.28
+	H16.359z"/>',
+        iconAlt: "Application insights",
+        description: "Gain application insights."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dsc/bp-dsc-3.svg",
+        iconPath: '<path d="M16,7.36H2C1.801,7.36,1.64,7.199,1.64,7V2c0-0.199,0.161-0.36,0.36-0.36h14c0.199,0,0.36,0.161,0.36,0.36v5
+		C16.36,7.199,16.199,7.36,16,7.36z M2.36,6.64h13.28V2.36H2.36V6.64z M10,3.64H4v0.72h6V3.64z M16,14.36H2
+		c-0.199,0-0.36-0.161-0.36-0.36V9c0-0.199,0.161-0.36,0.36-0.36h14c0.199,0,0.36,0.161,0.36,0.36v5
+		C16.36,14.199,16.199,14.36,16,14.36z M2.36,13.64h13.28V9.36H2.36V13.64z M10,10.64H4v0.72h6V10.64z M30,23.36H16
+		c-0.199,0-0.36-0.161-0.36-0.36v-5c0-0.199,0.161-0.36,0.36-0.36h14c0.199,0,0.36,0.161,0.36,0.36v5
+		C30.36,23.199,30.199,23.36,30,23.36z M16.36,22.64h13.28v-4.28H16.36V22.64z M24,19.64h-6v0.721h6V19.64z M30,30.36H16
+		c-0.199,0-0.36-0.161-0.36-0.36v-5c0-0.199,0.161-0.36,0.36-0.36h14c0.199,0,0.36,0.161,0.36,0.36v5
+		C30.36,30.199,30.199,30.36,30,30.36z M16.36,29.64h13.28v-4.28H16.36V29.64z M24,26.64h-6v0.721h6V26.64z M28.36,8
+		c0-0.199-0.161-0.36-0.36-0.36H18v0.72h9.64V16h0.721L28.36,8L28.36,8z M14,23.64H4.36V16H3.64v8c0,0.199,0.161,0.36,0.36,0.36h10
+		V23.64z"/>',
+        iconAlt: "Data insights",
+        description: "Gain data insights."
+    },
+    {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dsc/bp-dsc-4.svg",
+        iconPath: '<path id="api_2_" d="M12.44,15.996c-0.42,0-0.721-0.112-0.903-0.336s-0.296-0.504-0.343-0.84h-0.07
+	c-0.159,0.448-0.42,0.784-0.784,1.008s-0.798,0.336-1.302,0.336c-0.766,0-1.36-0.196-1.785-0.588s-0.637-0.924-0.637-1.596
+	c0-0.681,0.25-1.204,0.749-1.568c0.499-0.364,1.276-0.546,2.331-0.546h1.428v-0.714c0-0.513-0.14-0.905-0.42-1.176
+	C10.424,9.705,9.995,9.57,9.416,9.57c-0.439,0-0.805,0.098-1.099,0.294s-0.539,0.457-0.735,0.784l-0.672-0.63
+	c0.196-0.392,0.508-0.726,0.938-1.001c0.429-0.275,0.97-0.413,1.624-0.413c0.877,0,1.559,0.214,2.044,0.643s0.728,1.024,0.728,1.788
+	v3.967h0.826v0.994C13.07,15.996,12.44,15.996,12.44,15.996z M9.22,15.211c0.28,0,0.537-0.032,0.77-0.098
+	c0.233-0.065,0.434-0.159,0.602-0.28c0.168-0.121,0.299-0.261,0.392-0.42s0.14-0.331,0.14-0.518v-1.19H9.64
+	c-0.644,0-1.113,0.093-1.407,0.28c-0.294,0.187-0.441,0.457-0.441,0.812v0.294c0,0.354,0.128,0.63,0.385,0.826
+	C8.434,15.114,8.781,15.211,9.22,15.211z M14.666,8.771h1.12v1.163h0.056c0.187-0.453,0.459-0.788,0.819-1.005
+	c0.359-0.217,0.791-0.326,1.295-0.326c0.448,0,0.854,0.089,1.219,0.266c0.363,0.177,0.674,0.429,0.931,0.756s0.452,0.724,0.588,1.19
+	c0.135,0.467,0.203,0.99,0.203,1.568s-0.068,1.101-0.203,1.568c-0.136,0.467-0.331,0.863-0.588,1.19s-0.567,0.579-0.931,0.756
+	s-0.771,0.266-1.219,0.266c-0.98,0-1.685-0.443-2.114-1.331h-0.056v3.962h-1.12C14.666,18.794,14.666,8.771,14.666,8.771z
+	 M17.648,15.169c0.635,0,1.134-0.199,1.498-0.598s0.546-0.921,0.546-1.569v-1.238c0-0.647-0.182-1.17-0.546-1.569
+	s-0.863-0.598-1.498-0.598c-0.252,0-0.492,0.035-0.721,0.105c-0.229,0.072-0.427,0.168-0.595,0.29s-0.301,0.27-0.399,0.443
+	c-0.098,0.174-0.147,0.359-0.147,0.556v2.702c0,0.234,0.049,0.443,0.147,0.626c0.098,0.183,0.231,0.338,0.399,0.464
+	s0.366,0.223,0.595,0.289C17.156,15.137,17.396,15.169,17.648,15.169z M23.346,7.078c-0.242,0-0.418-0.058-0.524-0.175
+	c-0.107-0.117-0.161-0.269-0.161-0.455V6.266c0-0.187,0.054-0.338,0.161-0.455c0.106-0.117,0.282-0.175,0.524-0.175
+	c0.243,0,0.418,0.058,0.525,0.175s0.161,0.269,0.161,0.455v0.182c0,0.187-0.054,0.338-0.161,0.455S23.589,7.078,23.346,7.078z
+	 M22.786,8.771h1.12v7.224h-1.12V8.771z M31,31.36H1v-0.72h30V31.36z M31,24.36H1c-0.199,0-0.36-0.161-0.36-0.36V1
+	c0-0.199,0.161-0.36,0.36-0.36h30c0.199,0,0.36,0.161,0.36,0.36v23C31.36,24.199,31.199,24.36,31,24.36z M1.36,23.64h29.28V1.36
+	H1.36V23.64z"/>',
+        iconAlt: "API candidates",
+        description: "Identify API candidates."
+    },
+    {
+        id: 5,
+        iconUrl: "https://izswebpage.mybluemix.net/images/dsc/bp-dsc-5.svg",
+        iconPath: '<path id="cloud_planning_1_" d="M21.5,21.36h-11c-0.199,0-0.36-0.161-0.36-0.36v-9c0-0.199,0.161-0.36,0.36-0.36h2.64V11
+	c0-0.199,0.161-0.36,0.36-0.36s0.36,0.161,0.36,0.36v0.64h4.28V11c0-0.199,0.161-0.36,0.36-0.36s0.36,0.161,0.36,0.36v0.64h2.64
+	c0.199,0,0.36,0.161,0.36,0.36v9C21.86,21.199,21.699,21.36,21.5,21.36z M10.86,20.64h10.28v-8.28h-2.28V13
+	c0,0.199-0.161,0.36-0.36,0.36s-0.36-0.161-0.36-0.36v-0.64h-4.28V13c0,0.199-0.161,0.36-0.36,0.36s-0.36-0.161-0.36-0.36v-0.64
+	h-2.28V20.64z M16,31.36C7.53,31.36,0.64,24.47,0.64,16S7.53,0.64,16,0.64S31.36,7.53,31.36,16S24.47,31.36,16,31.36z
+	 M15.385,30.627c0.204,0.009,0.409,0.013,0.615,0.013c4.741,0,8.963-2.265,11.64-5.77V12.008h0.721v11.831
+	c1.442-2.268,2.279-4.957,2.279-7.839c0-1.999-0.402-3.904-1.13-5.641L18.363,3.924l0.36-0.624l10.249,5.917
+	c-2.174-4.141-6.273-7.119-11.101-7.738L6.723,7.916l-0.36-0.624l10.252-5.919C16.412,1.364,16.206,1.36,16,1.36
+	c-4.741,0-8.963,2.266-11.64,5.771v12.862H3.64V8.161C2.197,10.429,1.36,13.119,1.36,16c0,1.998,0.402,3.903,1.13,5.641
+	l11.147,6.436l-0.36,0.623L3.028,22.782c2.174,4.142,6.273,7.12,11.101,7.739l11.148-6.437l0.359,0.623L15.385,30.627z"/>',
+        iconAlt: "Next steps",
+        description: "Plan your next steps."
+    }
+
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Select applications",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Selecting the application(s) starts with prioritizing work aligned with your business goals. To do this, you need to:</p>
+                <ul><li>Identify organization’s business objectives and priorities by considering revenue goals, known issues or pain points, and the modernization journey of the company.</li>
+                <li>Based on the business objectives, select the application(s) to be modernized.</li>
+                <li>Determine and prioritize enhancements needed to be addressed for the selected application(s).</li>
+                <li>Perform research to find all the architectural collateral, determine all dependencies, and manually document these dependencies OR use ADDI to scan the source code, automate the discovery process, and auto-generate graphs and reports.</li>
+                </ul>"
+            }
+        }
+    },
+     {
+        id: 2,
+        tabTitle: "Gain application insights",
+        tabSubSections: [
+            {
+                subSectionTitle: "",
+                subSectionContent: "<p>Discovery application boundaries, interdependencies, dependencies, syntax issues, unused code, and more in order to understand what changes are required.</p>"
+            },
+            {
+                subSectionTitle: "Use Cases",
+                subSectionContent: "<p>Click a use case to find out more.</p>",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "Deep-dive analysis of applications",
+                        accordionContent: "<p>Deep dive analysis includes interdependencies, as well as the resources, databases, and variables that are accessed. This can be done by reviewing all of the code in the application and architectural diagrams OR using an analysis tool, like ADDI, you can run the reports to collect the same information. Examples of what you can do in ADDI are:</p>
+                        <ul><li>Generate program call graphs to show how programs, transactions, databases and files are connected in complex environments.</li>
+                        <li>Leverage usage reports to show where certain resources or variables are accessed.</li>
+                        <li>Use impact analysis reports to show multi-level impacts of changes to variables and databases across programs.</li>
+                        <li>Locate complex programs which could be candidates for refactoring by generating complexity reports.</li>
+                        <li>Generate cross application flow graphs to gain insights into interactions with other applications.</li>
+                        </ul>"
+                    },
+                    {
+                        accordionTitle: "Analyze Hogan Core Banking and CAMS applications",
+                        accordionContent: "<p>Hogan® Core Banking and CAMS application calls look like a black box to the developer, making it difficult, if not impossible, to analyze, debug, and understand the relationship between Hogan and non-Hogan applications. 
+                        </p>
+                        <p>IBM worked with DXC™ to create a Hogan®/CAMS™ Connector for ADDI. Rather than manually reviewing code and architectural diagrams, developers can use ADDI with the Connector from DXC™ to gain visibility into the relationships, including process dictionary components like maps, transactions, and activities.
+                        </p>
+                        <p>Watch this <a href='https://www.youtube.com/watch?v=maDLzRJ4cLU'>video</a> to earn more about Hogan and CAMS application support.
+                        </p>"
+                    },
+                    {
+                        accordionTitle: "Accelerate Git migration",
+                        accordionContent: "<p>An application can be made up of thousands of programs and copy books. Moving to a modern SCM, like Git, allows for the opportunity to better organize these files so that they can be more easily maintained.</p>
+                        <p>To do this, developers need to review the application to discover the relationships of programs, as well as their local copybooks, which could take days or months depending on the size of the application.</p>
+                        <p>Using a tool, like ADDI, you can quickly identify clusters of programs and their local copybooks that should be stored together. In addition, you can identify shared copybooks to be stored in a separate Git repository to ensure there is no duplication of copybooks.</p>"
+                    },
+                    {
+                        accordionTitle: "Discover Cryptographic calls",
+                        accordionContent: "<p>Applications use cryptography to protect, authenticate, and validate sensitive information from cyber-security threats. As quantum computers become more powerful, they will be able to break classic encryption algorithms, so the industry has developed new quantum-safe algorithms that are resistant to attacks from both traditional computers and quantum computers.</p>
+                        <p>The architect must manually go through their COBOL applications to pinpoint where cryptography is used in an application and what Integrated Cryptographic Service Facility (ICSF) Crypto API calls exist, including encryption rules and other important parameters.</p>
+                        <p>Or, using ADDI, security architects can auto-discover where applications use cryptography and what crypto algorithms they use. In addition, it discovers calls to the ICSF. If customers have created their own custom abstraction layer for cryptography, then they can also configure ADDI to discover calls to that abstraction layer.</p>
+                        <p>The data collected by ADDI is then passed to a cryptography dashboard where security architects can assess the vulnerability of both the cryptography and ICSF calls within an application. This information is then used in the planning process to protect against harvesting of confidential data.</p>
+                        <p>Learn more by watching <a href='https://mediacenter.ibm.com/media/Quantum-Safe+Cryptography+and+the+ADDI+Tool/1_wvbv08ng'>Quantum-Safe Cryptography and the ADDI Tool</a>.</p>"
+                    },
+                    {
+                        accordionTitle: "Prepare for COBOL migration",
+                        accordionContent: "<p>Prior to migrating to a later version of COBOL, it’s important to first address any old syntax issues and application dependencies to ensure the correct parameters are being sent between applications.</p>
+                        <p>Manual analysis can be done to discover syntax issues and application dependencies, OR ADDI can be used to quickly identify these parameters to accelerate your migration journey.</p>
+                        <p>Learn more or connect with IBM COBOL experts directly on the <a href='https://www.ibm.com/docs/en/cobol-zos/latest?topic=SS6SG3_6.4.0/migration-portal.html'>COBOL Migration Portal</a>.</p>"
+                    }
+                ]
+            }
+        ]
+    },
+     {
+        id: 3,
+        tabTitle: "Gain data insights",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>Before making changes to an application, it is important to understand where the data is sourced. On the other hand, before making changes to a database attribute, it is important to understand what applications are affected. Both scenarios require extensive analysis of the application. This analysis is further complicated when data is sourced from a non-relational database. Other data insights are needed to:</p>
+                <ul>
+                    <li>Determine data lineage required during audits</li>
+                    <li>Modernize your data to simplify access to non-relational data</li>
+                    <li>Integrate your IBM Z data into your company’s data fabric.</li>
+                    </ul>"
+            },
+            {
+                subSectionTitle: "Use Cases",
+                subSectionContent: "<p>Click a use case to find out more.</p>",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "Determine data lineage",
+                        accordionContent: "<p>A change to a field in a database has a rippling effect to all the applications that query and update it (i.e., increase size of account number). This is referred to as data lineage.</p>
+                        <p>To discover data lineage, the architect or developer must manually analyze data to determine its dependencies with other applications OR use ADDI to generate a report that provides a deep dive analysis into where the data originates and the extent to which it is shared across programs within an application.</p>
+                        <p>This report provides the insight needed to discover exactly where changes need to be made.</p>
+                        <p>In addition, auditors may require proof of where data is sourced (i.e., GDPR). This can be complicated when applications that reference fields in a database use different names for that field (i.e., customer name vs client name).</p>
+                        <p>Manually analyze the data to determine where data is sourced OR use ADDI to run a data lineage report.</p>
+                        <p>This report quickly identifies the specific field within a database from where the data is sourced, satisfying auditors and making your organization compliance ready.</p>"
+                    },
+                    {
+                        accordionTitle: "Modernize your data to simplify access",
+                        accordionContent: "<p>Unleashing data on Z to the broader organization starts with providing a simple way to access it. To do this, organizations need a way to access non-relational data the same they with would a relational database. In order to accomplish this, you need the metadata and a means to generate a virtual table that emulates that experience.</p>
+                        <ul>
+                            
+                            <li>To do this, customers create a map for the fields in each file via a manual configuration process. This can be very time consuming for thousands or tens of thousands of files.</li>
+                            <li>Using ADDI, you can auto-discover and auto-document the non-relational metadata.</li>
+                            <li>IBM Data Virtualization Manager (DVM) then uses this meta data to auto-generate the virtual tables.</li>
+                            </ul>"
+                    },
+                    {
+                        accordionTitle: "Integrate IBM Z data into your data fabric",
+                        accordionContent: "<p>Companies leveraging AI need a comprehensive data fabric. By incorporating IBM Z into a data fabric, organizations can access current transactional data at its source to deliver real-time insights from that data to make better decisions and maintain a competitive advantage. Much of the information is stored in non-relational databases on IBM Z. By modernizing this non-relational data on IBM Z, it can be easily integrated into the data fabric.</p>
+                        <p>To do this, customers create a map for the fields and define the metadata in each file via a manual configuration process. This can be very time consuming for thousands or tens of thousands of files. Alternatively, you can use ADDI to auto-discover and auto-document the non-relational metadata. IBM Data Virtualization Manager (DVM) then uses this meta data to auto-generate the virtual tables. This data is then ready to be integrated into the data fabric.</p>"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 4,
+        tabTitle: "Identify API candidates",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>APIs expose enterprise applications and data that are hosted on all platforms, including ones on IBM Z. Reuse existing assets for the API economy and accelerate modernization by finding API candidates.</p>
+                <p>To identify strong API candidates, look for:</p>
+                <ul>
+                <li<Complex conditional statements with parameters that reference other programs.</li>
+                <li>Direct callouts to third party vendors.</li>
+                <li>Programs which directly or indirectly access certain Databases/Data Sets.</li>
+                </ul>
+                <p>Discovering the items above without a tool involves manual analysis of the source code, which is both time-consuming and error-prone.</p>
+                <p>Using ADDI, you can quickly gain insights by exploring the analysis reports and identify the right API candidates to improve your business agility.</p>"
+            }
+        ]
+    },
+    {
+        id: 5,
+        tabTitle: "Plan your next steps",
+        tabSubSections: [
+            {
+                subSectionTitle: "",
+                subSectionContent: "<p>Now that you have completed your analysis of the insights, it is time to plan your next steps.</p>
+                <ul>
+                <li>Based on the discovery, define the project and size the work effort.</li>
+                <li>Distribute the work amongst the team and complete.</li>
+                <li>Onboard new talent by sharing the updated documentation from the deep dive analysis.
+                    <p>Documentation generated with ADDI enables new developers to become productive more quickly without heavily relying on subject matter experts.</p>
+                </li>
+                <li>Continue leveraging application analysis during development to ensure all dependencies are addressed so future changes can be made with confidence.</li>
+                <li>Remember to save your documentation for regulatory and compliance audits.</li>
+                </ul>"
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FAQs #}
+{# Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{% set faqs = [
+    {
+    question: "Before making changes to an application, what do I need to know?",
+    answer: "Whether you are being asked to implement a new feature or fix a defect, you need to first determine which applications need to be updated and how complex the change is. More specifically, a thorough analysis of the following ensures you will know exactly what changes need to be made, what are the rippling effects of those changes, as well as what testing needs to be done to ensure no rollbacks from production:
+        <ul>
+            <li>Where the changes need to be made within an application</li>
+            <li>The relation or dependencies across other enterprise-wide applications</li>
+            <li>The data lineage</li>
+            <li>Which batch jobs are impacted</li>
+            <li>Is there duplicate and dead code</li>
+        </ul>"
+    },
+    {
+    question: "Why do I need a tool to perform discovery?",
+    answer: "Architects and developers can spend weeks or months trying to understand all the changes needed. Depending on the size of the application, you may find yourself reviewing millions of lines of code, hundreds of dependencies, and dated and incomplete documentation.</p>
+    <p>Discovery tools can also improve current visualizations of applications. Many times, application diagrams were manually created by subject matter experts (SMEs). This is a problem because:</p>
+        <ul>
+            <li>Manual diagrams are prone to human error</li>
+            <li>The relation or dependencies across other enterprise-wide applications</li>
+            <li>Since these diagrams are only understood by the current SMEs, they must take time to explain to others what these diagrams mean and how to read them </li>
+            <li>Visualizations were not updated in real-time, so did not show the latest analysis of the applications</li>
+        </ul>
+        <p>Using a discovery tool will improve accuracy of visualizations, synchronizing in real-time to show the latest analysis of applications.</p>"
+    },
+    {
+    question: "Does IBM offer a tool to perform discovery?",
+    answer: "Yes, IBM offers Application Discovery and Delivery Intelligence (ADDI). ADDI is your go-to discovery tool for application modernization. By adopting ADDI, organizations can significantly reduce time spent completing these activities. Using ADDI, you can:</p>
+        <ul>
+            <li>Visualize and auto-document your assets: Turn source libraries into accurate call graphs in a click. Isolate and troubleshoot in hours, not weeks.</li>
+            <li>Discover application dependencies: Know exactly where your data is sourced from (data lineage). Visualize and analyze relationships to make changes safely and efficiently – no more rollbacks!</li>
+            <li>Modernize and transform with confidence: Discover business rules and recommend APIs. Seamlessly integrate CI/CD support to accelerate development.</li>
+        </ul>"
+    },
+    {
+    question: "What business benefits will I see from using a tool to perform discovery?",
+    answer: "Organizations that implemented ADDI saw the below business benefits:</p>
+        <ul>
+            <li>Boost potential profitability
+            <p>Developer productivity is increased by 20–30%, providing more time for innovation</p></li>
+            <li>Achieve positive ROI fast
+            <p>Clients using ADDI were able to achieve an ROI of 163% over three years, with an average payback period of under one year</p></li>
+            <li>Faster time to market with quality
+            <p>Cost saving of up to 10% due to infrastructure consolidation</p></li>
+            <li>Reduce application code search times by up to 50% compared with manual approaches</li>
+        </ul>
+        <p>Read more in the <a href='https://www.ibm.com/account/reg/us-en/signup?formid=urx-51352'>Forrester Total Economic Impact of ADDI study - Analyst paper</a></p>
+        <p>For more business results from our customers, see these customer case studies:</p>
+        <ul><li><a href='https://www.ibm.com/case-studies/sun-life/'>Sun Life accelerates digital transformation through modernization</a></li>
+        <li><a href='https://www.ibm.com/case-studies/swedbank-systems-software-devops'>Swedbank empowers their developers with the insight to work faster and smarter</a></li>
+        <li>Rabobank understands complex application changes while creating an integrated pipeline. <a href='https://event.on24.com/eventRegistration/EventLobbyServlet?target=reg20.jsp&partnerref=SystemsPublisher&eventid=3191147&sessionid=1&key=F73876BA8F50AB79C454B016E1F9FE65&regTag=&V2=false&sourcepage=reg'>Listen</a></li>
+        </ul>"
+    },
+    {
+    question: "What environments does ADDI support?",
+    answer: "ADDI supports the following:
+        <ul>
+            <li>Languages: COBOL, PL/I, Assembler, Java, Natural, C, JCL, & SQL</li>
+            <li>Middleware: CICS, IMS/TM, DB2, IMS/DB, IDMS, ADABAS, & DATACOM</li>
+            <li>Scheduler: CA7, IWS, Control-M, & AAUTO</li>
+            <li>Core banking: Hogan & CAMS</li>
+            <li>File types: VSAM</li>
+            <li>Source code management (SCM) systems: GIT, ChangeMan, Endevor, IBM Engineering Workflow Management (RTC), & Librarian</li>
+        </ul>"
+    },
+    {
+    question: "Do I need to perform analysis during my development process?",
+    answer: "Yes, developers iterate changes to their code. Throughout the development process, developers can utilize ADDI to analyze those changes in real-time to ensure completeness."
+    },
+    {
+    question: "Is there a tool to track a release and promote collaboration between the team more effectively during development?",
+    answer: "Yes, using a tool like <a href='https://www.ibm.com/products/ibm-engineering-workflow-management?mhsrc=ibmsearch_a&mhq=ewm'>Engineering Workflow Management (EWM)</a> allows development organizations to adopt agile practices more easily. EWM makes it easy and efficient for your team to follow the processes you define. Developers use EWM to track their work, share their changes, and collaborate with each other. Team leads and project managers use it to plan releases and monitor progress by viewing plans, dashboards, and reports."
+    }
+
+]%}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to hide tile on page temporarily.
+ #}
+{% set resourcesTabs = [
+{
+        id: 1,
+        tabTitle: "Other resources",
+        tabContent: [
+            {
+                resourceTitle: "ADDI product page",
+                resourceDescription: "Learn more about ADDI and how you can accelerate your digital transformation",
+                resourceLinkUrl: "https://www.ibm.com/products/app-discovery-and-delivery-intelligence",
+                resourceLinkText: "Explore the product page",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: ""
+            },
+            {
+                resourceTitle: "Forrester Consulting Total Economic Impact Study",
+                resourceDescription: "Read the Forrester Total Economic Impact of ADDI.",
+                resourceLinkUrl: "https://www.ibm.com/account/reg/us-en/signup?formid=urx-51352",
+                resourceLinkText: "Read more",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: ""
+            },
+            {
+                resourceTitle: "Architecture Center",
+                resourceDescription: "Use understanding of applications through detailed analysis throughout the DevOps life cycle in responding to business needs.",
+                resourceLinkUrl: "https://www.ibm.com/cloud/architecture/architectures/z-application-discovery-pattern",
+                resourceLinkText: "Learn about the application discovery pattern",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: ""
+            },
+            {
+                resourceTitle: "Accelerator - Application Discovery & Delivery Intelligence (ADDI) ",
+                resourceDescription: "Accelerate adoption of ADDI, enabling your organization to successfully deploy the product.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/community-home/librarydocuments/viewdocument?DocumentKey=4cb329ed-1515-45f1-8ec3-9c72df457ced&Step=1&CommunityKey=336bb81c-ac97-46d5-95bb-319e41258fbe&ReturnUrl=/community/user/ibmz-and-linuxone/groups/community-home/librarydocuments/viewdocument?DocumentKey%3d4cb329ed-1515-45f1-8ec3-9c72df457ced%26Step%3d1%26CommunityKey%3d336bb81c-ac97-46d5-95bb-319e41258fbe%26ReturnUrl%3d%2fcommunity%2fuser%2fibmz-and-linuxone%2fgroups%2fcommunity-home%2flibrarydocuments%2fviewdocument%3fDocumentKey%3d4cb329ed-1515-45f1-8ec3-9c72df457ced%26Step%3d1%26CommunityKey%3d336bb81c-ac97-46d5-95bb-319e41258fbe%26ReturnUrl%3d%252fcommunity%252fuser%252fibmz-and-linuxone%252fgroups%252fcommunity-home%252flibrarydocuments%252fviewdocument%253fDocumentKey%253d4cb329ed-1515-45f1-8ec3-9c72df457ced%2526Step%253d1%2526CommunityKey%253d336bb81c-ac97-46d5-95bb-319e41258fbe%2526ReturnUrl%253d%25252fcommunity%25252fuser%25252fibmz-and-linuxone%25252fgroups%25252fcommunity-home%25252flibrarydocuments%25252fviewdocument%25253fDocumentKey%25253d4cb329ed-1515-45f1-8ec3-9c72df457ced%252526Step%25253d1%252526CommunityKey%25253d5bf125bd-1412-41a8-8843-750e6590b9c5%252526ReturnUrl%25253d%2525252fcommunity%2525252fuser%2525252fibmz-and-linuxone%2525252fgroups%2525252ftopic-home%2525252flibrary%2525253fCommunityKey%2525253d5bf125bd-1412-41a8-8843-750e6590b9c5%252526Action%25253dnew",
+                resourceLinkText: "Accelerate your learning of ADDI",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: ""
+            },
+            {
+                resourceTitle: "IBM Z software trial",
+                resourceDescription: "Try ADDI to manage your software lifecycle and digital and cloud transformation.",
+                resourceLinkUrl: "https://www.ibm.com/it-infrastructure/z/software-trials",
+                resourceLinkText: "3-day free trial",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: ""
+            },
+            {
+                resourceTitle: "ADDI Community",
+                resourceDescription: "Stay current with ADDI by following blogs, discussions, events, and videos.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/topic-home?CommunityKey=5bf125bd-1412-41a8-8843-750e6590b9c5",
+                resourceLinkText: "Explore the ADDI community ",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: ""
+            },
+            {
+                resourceTitle: "IBM Documentation",
+                resourceDescription: "Explore the documentation for IBM products and tools.",
+                resourceLinkUrl: "https://www.ibm.com/docs/en",
+                resourceLinkText: "IBM Documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: ""
+            },
+            {
+                resourceTitle: "Forrester’s Guide to Quantum Computing Risks",
+                resourceDescription: "Are you quantum safe? Read Forrester’s Guide to Quantum Computing Risks.",
+                resourceLinkUrl: "https://www.ibm.com/account/reg/signup?formid=urx-51622",
+                resourceLinkText: "Read more",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: ""
+            },
+            {
+                resourceTitle: "IBM Redbooks",
+                resourceDescription: "Read the Quantum Safe IBM Redbook to learn about potential threats and how to utilize IBM’s quantum-safe capabilities.",
+                resourceLinkUrl: "https://www.redbooks.ibm.com/abstracts/sg248525.html",
+                resourceLinkText: "Read the IBM Redbook",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: ""
+            },
+            {
+                resourceTitle: "IBM Z Capabilities",
+                resourceDescription: "Enterprise DevOps for IBM Z Enterprise Mainframes",
+                resourceLinkUrl: "https://www.ibm.com/it-infrastructure/z/capabilities/enterprise-devops?mhsrc=ibmsearch_a&mhq=enterprise%20devops",
+                resourceLinkText: "Read more",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: ""
+            },
+            {
+                resourceTitle: "IBM Cloud Architecture",
+                resourceDescription: "Application modernization for IBM Z architecture",
+                resourceLinkUrl: "https://www.ibm.com/cloud/architecture/architectures/application-modernization-mainframe",
+                resourceLinkText: "Read more",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: ""
+            },
+            {
+                resourceTitle: "DevOps Acceleration Program",
+                resourceDescription: "Start your DevOps transformation journey with the DevOps acceleration program.",
+                resourceLinkUrl: "https://ibm.github.io/mainframe-downloads/DevOps_Acceleration_Program/devops-acceleration-program.html",
+                resourceLinkText: "Read more",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "",
+                linkTarget: ""
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Multimedia",
+        tabContent: [
+            {
+                resourceTitle: "IBM Application Discovery and Delivery Intelligence",
+                resourceDescription: "Learn more about ADDI and its components, Application Discovery, Wazi Analyze and ADDI Extension.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/IBM%20Application%20Discovery%20and%20Delivery%20Intelligence%20(ADDI)%20Overview/1_zmz9xgwr",
+                resourceLinkText: "Watch the video (5:32)",
+                resourceLinkType: "video",
+                resourceIcon: "false",
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "Quantum-Safe Cryptography & the ADDI Tool",
+                resourceDescription: "Attackers are always on the hunt to find and exploit information; any encrypted information is a target. Organizations must take these steps to safeguard their firms from imminent quantum risks.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/Quantum-Safe%20Cryptography%20and%20the%20ADDI%20Tool/1_wvbv08ng",
+                resourceLinkText: "Watch the video (10:09)",
+                resourceLinkType: "video",
+                resourceIcon: "false",
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "Introducing IBM Wazi Analyze",
+                resourceDescription: "IBM Wazi Analyze is a containerized offering that creates rapid, graphical analysis in an installation-free and configuration-free web UI.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/Introducing%20IBM%C2%AE%20Wazi%20Analyze%20/1_n6v6smr4",
+                resourceLinkText: "Watch the video (3:41)",
+                resourceLinkType: "video",
+                resourceIcon: "false",
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "GitLab and IBM Wazi Analyze",
+                resourceDescription: "GitLab can be integrated with IBM Z DevOps solutions to cover various aspects of Mainframe application development.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/GitLab%20and%20IBM%20Wazi%20Analyze/1_sswpedog",
+                resourceLinkText: "Watch the video (5:02)",
+                resourceLinkType: "video",
+                resourceIcon: "false",
+                resourceStatus: "",
+                linkTarget: "newTab"
+            },
+            {
+                resourceTitle: "Cognitive Computing and IBM Application Discovery and Delivery Intelligence",
+                resourceDescription: "IBM Application Discovery and Delivery Intelligence and cognitive computing unite to address the challenges in DevOps.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/Cognitive%20Computing%20and%20IBM%20Application%20Discovery%20and%20Delivery%20Intelligence/1_x4u8egx3",
+                resourceLinkText: "Watch the video (2:46)",
+                resourceLinkType: "video",
+                resourceIcon: "false",
+                resourceStatus: "",
+                linkTarget: "newTab"
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [5] %}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = false %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "",
+        sectionContent: ""
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "discover" %}
+{# END FEEDBACK #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "-",
+    sc_security: "-"
+}
+ %}
+{# END STATCOUNTER #}

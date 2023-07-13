@@ -1,0 +1,551 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "ServerPac Installation using z/OSMF" %}
+{% set key = 2 %}
+
+{# META #}
+{% set meta_description = meta_description | default("Find the technical resources you need to complete a z/OS Installation Using ServerPac.") %}
+{% set meta_keywords = meta_keywords | default("installation, serverPac, z/OS environment, operating system") %}
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "1_ut5efarv",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/svp/serverpac-vid-hold.jpg",
+    label: "MediaCenter - ServerPac in z/OSMF"
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Welcome to the ServerPac Installation using z/OSMF content solution, your homepage for technical resources.</p>
+<p>z/OS V2.5, CICS®, IMS, Db2®, and other products from the z/OS stack are now available to be delivered as a ServerPac in z/OSMF Software Management portable software instance format. The z/OSMF portable software instance format is designed to be deployed using z/OSMF Software Management and ServerPac Workflows. This new offering represents the next step in IBM's collaboration with other leading <a href='https://www.ibm.com/it-infrastructure/z/zos' target='_blank'>z/OS</a>® platform software vendors to deliver a consistent package format intended to be used with z/OSMF Software Management as a common installer.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{# set introLinks = [
+    {
+        id: 1,
+        type: "",
+        url: "",
+        text: ""
+
+    }
+] #}
+
+{# START NOTIFICATIONS #}
+{# Added for ServerPac notifications 5/15. Uses inline informational notification component, can be one or multiple.
+Title in bold (title) followed by a line break, and then the subtitle (subtitle) #}
+{% set notifications = [
+    {
+        title: "The z/OSMF Software Management data set merge function is now available with APAR PH42028 on z/OS V2.2 and higher.",
+        subtitle: "This function is enabled in z/OSMF ServerPac Portable Software Instance orders as of May 6, 2022."
+    },
+    {
+        title: "The CustomPac Dialog installation method from Shopz is being removed on July 10, 2022.",
+        subtitle: "After this date, any ServerPac for z/OS, program products, or subsystems ordered via Shopz will only be packaged and installable with z/OSMF."
+    }
+    ] %}
+{# END NOTIFICATIONS #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "serverpac" %}
+{# END FEEDBACK #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+{% set announcements = [
+    {
+    announcementText: "Announced! Updated plans for data set merge function in z/OSMF Software Management and ServerPac CustomPac dialog removal",
+    announcementLinkText: "Read more",
+    announcementLinkUrl: "https://www.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/4/897/ENUS222-214/index.html&request_locale=en"
+    } 
+]%}
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION %}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/svp/bp/bp-serverpac-1.svg",
+        iconPath: "<polygon class='cls-1' points='13.99 22.52 9.73 18.27 10.24 17.76 13.99 21.5 23.75 11.74 24.25 12.26 13.99 22.52'/><path class='cls-1' d='M16,31.36A15.36,15.36,0,1,1,31.36,16,15.38,15.38,0,0,1,16,31.36Zm0-30A14.64,14.64,0,1,0,30.64,16,14.66,14.66,0,0,0,16,1.36Z'/>",
+        iconAlt: "check that zosmf is installed",
+        description: "Make sure you have z/OSMF installed. You must also have authority to log in and access its resources."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/svp/bp/bp-serverpac-2.svg",
+        iconPath: "<path class='cls-1' d='M31,13.36H1A.36.36,0,0,1,.64,13V9A.36.36,0,0,1,1,8.64H31a.36.36,0,0,1,.36.36v4A.36.36,0,0,1,31,13.36ZM1.36,12.64H30.64V9.36H1.36Z'/><path class='cls-1' d='M26,29.36H6a.35.35,0,0,1-.35-.27l-4-16,.7-.18L6.28,28.64H25.72l3.93-15.73.7.18-4,16A.35.35,0,0,1,26,29.36Z'/><path class='cls-1' d='M7,9.36a.38.38,0,0,1-.26-.11.36.36,0,0,1,0-.51l7-6.88a.36.36,0,0,1,.51.51l-7,6.89A.35.35,0,0,1,7,9.36Z'/><path class='cls-1' d='M25,9.36a.32.32,0,0,1-.25-.11l-7-7a.33.33,0,0,1,0-.5.33.33,0,0,1,.5,0l7,7a.33.33,0,0,1,0,.5A.32.32,0,0,1,25,9.36Z'/><rect class='cls-1' x='13.64' y='17' width='0.72' height='8'/><rect class='cls-1' x='17.64' y='17' width='0.72' height='8'/><rect class='cls-1' x='9.64' y='17' width='0.72' height='8'/><rect class='cls-1' x='21.64' y='17' width='0.72' height='8'/>",
+        iconAlt: "place the order",
+        description: "Visit Shopz and place the order for your z/OSMF ServerPac."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/svp/bp/bp-serverpac-3.svg",
+        iconPath: "<g id='download--02'><path class='cls-1' d='M31,31.36H1A.36.36,0,0,1,.64,31V12A.36.36,0,0,1,1,11.64H9v.72H1.36V30.64H30.64V12.36H23v-.72h8a.36.36,0,0,1,.36.36V31A.36.36,0,0,1,31,31.36Z'/><polygon class='cls-1' points='16 25.51 9.75 19.25 10.25 18.75 15.64 24.13 15.64 1 16.36 1 16.36 24.13 21.75 18.75 22.25 19.25 16 25.51'/></g>",
+        iconAlt: "download the cics serverpac",
+        description: "Download the ServerPac using z/OSMF to your system."
+    },
+    {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/svp/bp/bp-serverpac-4.svg",
+        iconPath: "<g id='reset--settings'><path class='cls-1' d='M14,29.36A13.36,13.36,0,0,1,5.78,5.47L6.22,6A12.64,12.64,0,1,0,26.64,16V3.87L23.25,7.25l-.5-.5L27,2.49l4.25,4.26-.5.5L27.36,3.87V16A13.37,13.37,0,0,1,14,29.36Z'/></g><path class='cls-1' d='M19.63,23.36H7.37a.73.73,0,0,1-.73-.73V10.37a.73.73,0,0,1,.73-.73H19.63a.73.73,0,0,1,.73.73V22.63A.73.73,0,0,1,19.63,23.36Zm-12.26-13V22.64H19.63V10.37Z'/><circle class='cls-1' cx='18.49' cy='11.51' r='0.51'/><rect class='cls-1' x='10' y='17.5' width='7' height='1'/><rect class='cls-1' x='7' y='12.64' width='13' height='0.72'/>",
+        iconAlt: "deploy cics",
+        description: "Follow the directions to deploy your z/OSMF ServerPac."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Configure",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>IBM z/OS Management Facility provides a framework for managing various aspects of a z/OS system through a task oriented, Web browser interface. By streamlining some traditional tasks and automating others, z/OSMF can help to simplify some areas of system management and reduce the level of expertise needed for managing a system.</p>
+                <p>In order to have ServerPac installed with z/OSMF Software Management, you should have z/OSMF up and running on at least one system. Therefore, z/OSMF Software Management is a driving system requirement.</p>"
+            },
+            {
+                subSectionTitle: "z/OSMF Base Configuration",
+                subSectionContent: "<p>In order to install ServerPac using z/OSMF, you must first ensure that you have z/OSMF properly configured and are granted the necessary authorization to use it.</p>
+                <p>For a new installation of z/OSMF, it is recommended that you begin by creating a base configuration. If you are installing z/OSMF for the first time. please begin by clicking the link below and following the directions listed.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=guide-introduction-zosmf' target='_blank'>Install z/OSMF for the first time</a></p>
+                <p>If you are upgrading from a previous release of z/OSMF, perform the upgrade actions for z/OSMF.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=level-zos-upgrade-workflow' target='_blank'>Upgrade your z/OSMF platform</a></p>"
+            },
+            {
+                subSectionTitle: "Specific Requirements for Installing a Portable Software Instance",
+                subSectionContent: "<p>In addition to z/OSMF, you must also have the Software Management plugin activated and the authority to use both Software Management and Workflows.</p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=services-configure-software-management-service' target='_blank'>Configure the Software Management service</a></p>
+                <p class='ibm-ind-link'><a class='ibm-forward-link' href='https://www.ibm.com/docs/en/zos/latest?topic=services-configure-zosmf-workflows-task' target='_blank'>Configure the z/OSMF Workflows task</a></p>
+                <p>Beyond plugins and authority, you must also have certain PTFs installed on your system used to drive the installation actions (the system where the z/OSMF server is running).  These PTFs are identified by <strong>SMP/E Fix Category IBM.DrivingSystem-RequiredService.</strong>  To determine if you are missing any of the required PTFs, follow these steps:</p>
+                <p><strong>Obtain the latest HOLDDATA</strong></p>
+                <p>Obtain the latest HOLDDATA from IBM using your preferred method and receive it into the SMP/E global zone for your driving system.  The HOLDDATA contains information to associate fix categories to PTFs.</p>
+                <p></p>
+                <p><strong>Run the SMP/E REPORT MISSINGFIX command</strong></p>
+                <p>The SMP/E REPORT MISSINGFIX command identifies PTFs associated with fix categories that are not yet installed. Run the REPORT MISSINGFIX command like this:<p></ul>
+
+                <bx-code-snippet type='multi'>SET BDY(GLOBAL). <br />REPORT MISSINGFIX ZONES(ZOS24)<br />   FIXCAT(IBM.DrivingSystem-RequiredService).</bx-code-snippet>
+
+                <p>Specify the target zone name for your driving system on the ZONES operand.  If any PTFs are identified in the report, they are missing.  That is, they are required for installing a ServerPac Portable Software Instance but are not yet installed.  You must install them before installing a ServerPac Portable Software Instance.</p>"
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Order",
+        tabSubSections: [
+            {
+                subSectionTitle: "Ordering a z/OSMF ServerPac in Shopz",
+                subSectionContent: "<p>ServerPac is orderable from Shopz. As of July 10, 2022, every order for ServerPac will use the z/OSMF installation method; therefore, the installation method option in Shopz has been removed.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www-03.ibm.com/software/shopzseries/ShopzSeries_public.wss",
+                        linkText: "Begin the ordering process at Shopz",
+                        linkTarget:"newTab"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Download",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>For ServerPac orders that are delivered in portable software instance format, you will use z/OSMF Software Management to acquire the files. The eletronic delivery method are ones that you are already using, and you can continue to use with a ServerPac portable software instance. There are two download options for ServerPac in portable software instance format</p>
+                <p>The download option you select will depend on whether you have direct connection to an IBM download server.</p>
+                <p>You need to have acquired it through z/OSMF in order to deploy it.</p>
+
+                <p class='ibm-padding-bottom-0'>To learn more about how to download a portable software instance, watch the tutorial videos:</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://mediacenter.ibm.com/playlist/dedicated/101043781/1_mzzf31vy/1_f1qhec1j",
+                        linkText: "Gain access to a PSWI (3:13)",
+                        linkTarget:"newTab"
+                    },
+                    {
+                        linkUrl: "https://mediacenter.ibm.com/playlist/dedicated/101043781/1_mzzf31vy/1_33n9zm2m",
+                        linkText: "Add a PSWI from a local workstation or download server (4:36)",
+                        linkTarget:"newTab"
+                    },
+                    {
+                        linkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/viewdocument/zosmf-guild-session-3-jan-19-20?CommunityKey=1ca674e5-aada-4194-a16e-059cafe7b807&tab=librarydocuments",
+                        linkText: "Access z/OSMF Guild Session 3 for more information on acquiring and installing portable software instances",
+                        linkTarget:"newTab"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Download direct to your z/OS System",
+                subSectionContent: "<p>If you currently download software orders from IBM’s download server direct to your z/OS System, you can continue to do so for a portable software instance. On the Software Management Portable Software Instance page, choose <strong>Actions --> Add --> From Download Server</strong>.</p>
+                <p>As you have done before, the Shopz download page for your order will contain information necessary to add your portable software instance with z/OSMF.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=page-adding-portable-software-instances-from-download-server",
+                        linkText: "Adding portable software instances from a download server",
+                        linkTarget:"newTab"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Download to your workstation and upload to your z/OS System",
+                subSectionContent: "<p>If you currently download software orders from IBM’s download server to your workstation and subsequently upload them to a z/OS System, you can continue to do so for a portable software instance. Do the following:</p>
+                <ul><li>On the Shopz download page for your order, use Download to your workstation using IBM Download Director to download the files from the IBM server to your workstation.</li>
+                <li>On the Software Management Portable Software Instance page, choose <strong>Actions --> Add --> From Local Workstation</strong> to upload the files from your workstation to z/OS.</li></ul>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=page-adding-portable-software-instances-from-local-workstation#izuDhpPSIAddlocal",
+                        linkText: "Download procedure",
+                        linkTarget:"newTab"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 4,
+        tabTitle: "Deploy",
+        tabSubSections: [
+            {
+                subSectionTitle: "Deploying a Portable Software Instance",
+                subSectionContent: "<p>A Software Management task deployment is a checklist that guides you through the software deployment process, and it is the object in which z/OSMF stores your input and any output generated for each step in the checklist. Deployment is the process you use to install your z/OSMF Portable Software Instance.</p>
+                <p>When the deployment is complete, your software will be installed, configured, and verified. The configuration and verification will be accomplished with z/OSMF workflows, provided with the portable software instance, performed during the deployment operation.</p>
+                
+                <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/zos/latest?topic=task-deploying-software' class='ibm-forward-link ibm-textcolor-blue-50' target='_blank'>Deploying software</a></p>
+                
+                <p class='ibm-ind-link'><a href='https://www.ibm.com/docs/en/zos/latest?topic=page-deployment-checklist' class='ibm-forward-link ibm-textcolor-blue-50' target='_blank'>Deployment checklist page</a></p>
+                
+                <p class='ibm-padding-bottom-0'>To learn more about how to deploy a portable software instance, watch the tutorial videos:</p>",
+                
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://mediacenter.ibm.com/playlist/dedicated/101043781/1_mzzf31vy/1_8539n1yr",
+                        linkText: "Deploy: Install the software contained in the PSWI (4:02)",
+                        linkTarget:"newTab"
+                    },
+                    {
+                        linkUrl: "https://mediacenter.ibm.com/playlist/dedicated/101043781/1_mzzf31vy/1_lxgr0yl6",
+                        linkText: "Configure the deployment (8:05)",
+                        linkTarget:"newTab"
+                    },
+                    {
+                        linkUrl: "https://mediacenter.ibm.com/playlist/dedicated/101043781/1_mzzf31vy/1_bnjym0wz",
+                        linkText: "Generate JCL (4:27)",
+                        linkTarget:"newTab"
+                    },
+                    {
+                        linkUrl: "https://mediacenter.ibm.com/playlist/dedicated/101043781/1_mzzf31vy/1_5m25ano1",
+                        linkText: "Perform Workflows for setup and configuration tasks (4:29)",
+                        linkTarget:"newTab"
+                    },
+                    {
+                        linkUrl: "https://mediacenter.ibm.com/playlist/dedicated/101043781/1_mzzf31vy/1_35ryccl7",
+                        linkText: "Finish the deployment (2:46)",
+                        linkTarget:"newTab"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 5,
+        tabTitle: "Try it",
+        tabSubSections: [
+            {
+                subSectionTitle: "z/OSMF Portable Software Instance Demo",
+                subSectionContent: "<p>To try it yourself, install a sample z/OSMF Portable Software Instance onto your system by using the demo package below. By installing this sample, you can help verify your z/OSMF configuration and learn the steps to download and deploy a z/OSMF Portable Software Instance.</p>
+                <p>You can use z/OSMF Software Management to download the sample Portable Software Instance directly to your z/OS host, or you can download the Portable Software Instance to your workstation and then use z/OSMF Software Management to upload it from your workstation to your z/OS host.</p>
+                <p class='ibm-ind-link'><a href='http://www.ibm.com/marketing/iwm/platform/mrs/assets?source=szospsi' class='ibm-forward-link ibm-textcolor-blue-50' target='_blank'>Download the Sample z/OSMF Portable Software Instance</a></p>
+                <p>Watch the tutorial series for step-by-step instructions on how to download and install software onto z/OS using z/OSMF Software Management. This series provides an end-to-end walkthrough, from gaining access to a Portable Software Instance to finishing the deployment.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://mediacenter.ibm.com/playlist/dedicated/101043781/1_mzzf31vy/1_f1qhec1j",
+                        linkText: "Watch the tutorial series",
+                        linkTarget:"newTab"
+                    }
+
+                ]
+            }
+        ]
+    }
+] %},
+
+
+{% set faqSection = [
+    {
+        categories: [
+            {
+                catTitle: "General Information",
+                faqs: [
+                    {
+                        question: "What is a ServerPac?",
+                        answer: "A ServerPac is a product upgrade or system replacement package where IBM performs the SMP/E install (RECEIVE, APPLY, ACCEPT) of the products and installs service in your order. The latest Recommended Service Upgrade (RSU) level and all HIPER and PRP service available approximately one day before your order is built will be installed for the products included in your order. The resulting target libraries, distribution libraries, and the SMP/E environment are delivered in the order package. During the ServerPac installation, you configure your installation to map to your environment, such as data set naming, data set placement, catalog specification, etc. The Shopz ordering checklist for ServerPac is refreshed monthly to add/withdraw product support; therefore products are typically supported within a month of their General Availability (GA).
+                        <p>Additionally, ServerPacs can be delivered in Portable Software Instance (PSWI) format that are deployed using z/OSMF Software Management and workflows.</p>"
+                    }, {
+                        question: "I see that z/OS V2.5 will be installable as a z/OSMF ServerPac (also know as a portable software instance). Can I order z/OS V2.4 as a z/OSMF ServerPac?",
+                        answer: "No. z/OS V2.5 will be available as a z/OSMF ServerPac, but z/OS V2.4 will not be a z/OSMF ServerPac. In fact, no Z038 SREL product is available as a z/OSMF ServerPac, until the general availability of z/OS V2.5 (planned for September 2021).</p>
+                        <p>For example, before z/OS V2.5 is generally available, MQ is not available a z/OSMF ServerPac.</p>"
+                    }, {
+                        question: "Must I get z/OS V2.5 as a z/OSMF ServerPac?",
+                        answer: "If you order z/OS V2.5 (or CICS, Db2, or IMS) as a ServerPac after CustomPac dialog is removed (this date will be announced in 2Q 2022), then yes, you can only receive a z/OSMF ServerPac. However, let's look specifically at all the IBM products available as a ServerPac on Shopz:</p>
+                        <p>Today, CICS, Db2, IMS, and z/OS V2.5 are available as a ServerPac which can install either as a CustomPac ISPF dialog or z/OSMF. You have a choice to install either ServerPac before the discontinuance of the CustomPac ISPF dialog, which is planned to be announced in 2Q 2022. IBM encourages you to select z/OSMF as that will be the only ServerPac option available after CustomPac dialog is removed. This is also a great way to learn how to install a z/OSMF portable software instance if you have not done already.</p>
+
+                        <p>For z/OS V2.5 (and the rest of the Z038 SREL, like MQ): Between z/OS V2.5 GA of September 2021 and the date included in the 2Q 2022 announcement, you will have the same choice as you see for CICS, Db2, and IMS today: CustomPac ISPF dialog or z/OSMF ServerPac. This means you have to take into consideration your ordering choices when you choose to order z/OS V2.5. This might make you order z/OS V2.5 sooner than you might have wanted to - or not. But do take these dates into consideration."
+                    }, {
+                        question: "What will happen to the Shopz ServerPac CustomPac Installation Dialog method, after the date included in the 2Q 2022 announcement?",
+                        answer: "The CustomPac Installation Dialog method for ServerPac will be removed across the Shopz ServerPac catalog, leaving only the z/OSMF ServerPac as the sole ServerPac choice. CBPDO is not being removed. Remember, though, CBPDO may be harder to install for a product as large as z/OS V2.5. If you've always preferred doing a CBPDO for CICS, IMS, or DB2, then this ServerPac ordering choice removal may not affect you."
+                    },{
+                        question: "Why was the CustomPac ISPF dialog extended in Shopz from January 2022 until a date that will be provided in 2Q2022?",
+                        answer: "In order to ensure that those customers who must have the ability to perform data set merges during the installation of z/OS V2.5, we decided that the CustomPac ISPF dialog must be extended beyond the originally planned January 2022 date. Meaning, because some customers need to perform data set merges during the installation of z/OS V2.5, the CustomPac ISPF dialog will still be available and will provide that necessary function until data set merge becomes available in z/OSMF Software Management.</p>
+                        <p>When the CustomPac ISPF dialog is removed depends on two things:</p>
+                        <ol>
+                        <li>The z/OSMF Software Management function itself needs to deliver the data set merge capability in APAR PH42028.</li>
+                        <li>Then, your z/OSMF portable software instance can be created with this data set merge capability integrated  into your Shopz order.</li>
+                        </ol>
+                        <p>For the first dependency, APAR PH42028 is planned to be available in April 2022. Moving to the second dependency, that capability will be announced in the 2Q 2022 Announcement. It is not anticipated that it would be long after the 2Q 2022 Announcement that the CustomPac ISPF dialog installation method will be discontinued. For this reason, it is most prudent to not plan on having CustomPac ISPF dialog as a Shopz option after 2Q 2022. By preparing now, and anticipating that the installation of z/OS V2.5 after 2Q22 will likely only be with z/OSMF, removal of the CustomPac Dialog installation method may not impact you.</p>"
+
+                    },{
+
+                        question: "What is the high level flow of installing a z/OSMF ServerPac?",
+                        answer: "<ol><li>Open <strong>z/OSMF Software Management</strong></li>
+                        <li>Go to <strong>Portable Software Instance</strong> --> <strong>Add</strong></li>
+                        <li>Go to <strong>Deployment</strong> and complete the <strong>Deployment Steps</strong>, including <strong>Perform Workflows</strong> for the first 2 workflows</li>
+                        <li>Once complete, IPL your target system</li>
+                        <li>Go back to the <strong>Deployment Checklist</strong> to the <strong>Perform Workflows</strong> step and do the third workflow</li>
+                        </ol>"
+                    }
+                ]
+            },
+            {
+            catTitle: "ServerPac Deployment",
+            faqs: [
+                {
+                    question: "What are the driving system requirements for z/OS V2.5, as a z/OSMF ServerPac?",
+                    answer: "The requirements are provided in the z/OS V2.5 Planning for Installation book, but you can also find the list on this website <em>z/OSMF ServerPac Overview</em> found above."
+                },
+                {
+                    question: "What if I can't get z/OSMF active on my driving system before I have to install z/OS V2.5?",
+                    answer: "If you can't get z/OSMF active on your driving system, then you can get a Customized Offerings Driver (COD). Remember, z/OSMF automatically starts when IPLing z/OS V2.3, and the z/OSMF quick start instructions help to get just the minimum driving system activated. At z/OS V2.5 GA, the COD will have z/OSMF active and will be able to install a z/OS V2.5 z/OSMF ServerPac."
+                }, {
+                    question: "If I install z/OS as a z/OSMF ServerPac, what will the resulting system look like? Can I still use my local deployment tools on it?",
+                    answer: "It will look exactly like what you had when you installed z/OS as a ServerPac for CustomPac Dialog. You will have SMP/E CSIs, you will have target libraries, you will have DLIBs, you will have sample libraries. You will have run batch jobs (from a workflow) which did configuration of the products you ordered. You will have full access to do SMP/E maintenance on the resulting system. Just as a ServerPac fits into your existing enterprise's environment, this z/OS portable software instance will also fit into your environment. Your existing deployment tooling should be able to be used, as is. IBM recommends that you consider using the deployment function in z/OSMF Software Management for subsequent deployments into your enterprise."
+                }, {
+                    question: "If I install z/OS V2.5 with a z/OSMF ServerPac, must I use z/OSMF Software Update to install PTFs on it?",
+                    answer: "No. You can use the SMP/E batch JCL jobs you've always used for z/OS. Of course, IBM recommends that you try to use z/OSMF Software Update, though, to see if that simplified method of service installation is beneficial to you (see <a href='https://www.ibm.com/support/z-content-solutions/software-update-zosmf/' target='_blank'>z/OSMF Software Update</a>). We do welcome feedback and we have several customer requirements which we know we need to do for z/OSMF Software Update, so keep an eye out for future new function in z/OSMF Software Update."
+                }, {
+                    question: "I am looking to make my z/OSMF portable software instance install simpler. Am I able to save a previous configuration and merge it forward?",
+                    answer: "Yes! If you have a software instance that is similar to the portable software instance you are installing, then you can model after it during deployment. This will bring forward to your new software instance configuration information you had specified previously. This will save you a lot of time, as your prior customization information, such as data set names and volume placement will be re-used. Of course, any changes you'd like make to that configuration are still able to be done.</p>
+                    <p>Let's look at a specific example. If you are installing a z/OS V2.5 z/OSMF portable software instance, and you wanted to model it after your existing z/OS V2.4, you would define your existing z/OS V2.4 system as a z/OSMF software instance (<strong>Software Instance -> Actions -> Add</strong>). Then, when installing your z/OS V2.5 z/OSMF portable software instance, you would use the Model function (<strong>Deploy -> Configure -> Model -> An existing software instance</strong>)."
+                }
+            ]
+        }, {
+            catTitle: "Workflows",
+            faqs: [
+                {
+                    question: "What configuration and verification assistance is provided when deploying a z/OS portable software instance",
+                    answer: "Just as with a CustomPac ServerPac installation, configuration and verification assistance is provided. For the CustomPac ServerPac installation, that assistance was provided in JCL jobs that you submit. For a z/OSMF ServerPac (which is a portable software instance) those configuration and verification steps have been included in two z/OSMF workflows for you: POSTDEPLOY and VERIFY. There is another workflow (YOURORDER) which contains useful information on your specific order, but does not contain configuration or verification steps."
+                }, {
+                    question: "Where will the steps in the ServerPac-supplied POSTDEPLOY and VERIFY Workflows run?",
+                    answer: "During the Perform Workflows step of the z/OS portable software instance deployment, the POSTDEPLOY Workflow will perform any configuration tasks you will need for the products in your portable software instance. This workflow will be run from your driving system prior to the first IPL of z/OS.</p>
+                    <p>The VERIFY Workflow will perform the verification steps to ensure that your products were installed and configured correctly. The VERIFY Workflow should be run after your z/OS system is IPLed, on the target system."
+                }, {
+                    question: "During the <strong>Perform Workflows</strong> step of the z/OS portable software instance deployment, in the POSTDEPLOY Workflow, the first step is called '<strong>Collect Configuration Options</strong>'. What does the 'Installation Type' mean, and which option should I select?",
+                    answer: "The 'Installation Type' identifies which operational data sets you will use for z/OS. Operational data sets must be provided for a first successful IPL of z/OS, and include parmlib, page, spool, and other system control files. You have a choice of creating new operational data sets or using your existing operational data sets.</p>
+                    <p>'<strong>Create new operational data sets for an IPLable standalone system</strong>'</p>
+
+                    <p>When you allow IBM to create a set of operational data sets for you, you are assured of having a successful first IPL. When you select this option, new operational data sets will be created for you. The steps to do this are provided in this workflow and are marked with a state of Ready, and the step title begins with “(Optional)”. By performing each of these steps, you will be provided with a complete set of operational data sets for the first IPL of z/OS. If you choose not to run a particular step identified as “Optional”, that operational data set will not be provided for your first IPL os z/OS.</p>
+
+                    <p>'<strong>Use existing operational data sets. You must update them prior to IPLing the new system</strong>'</p>
+                    <p>Use this option when you wish to provide your own operational data sets for the first IPL of z/OS. You will be responsible for ensuring that these operational data sets are adequate for the z/OS system you IPL. When selecting this option, the steps that provide new operational data sets are marked with a state of Skipped, and the step title begins with '(Optional)'. You may still decide to run a Skipped step if you desire to create that specific operational data set from the workflow.</p>"
+                }, {
+                    question: "Does this mean that the IPL'd z/OS target system should have z/OSMF active, or be part of a sysplex that has z/OSMF active?",
+                    answer: "Either. From the <strong>Perform Workflows</strong> step of the z/OS portable software instance deployment, when you create the VERIFY Workflow instance, you will be prompted to provide the “System (where the workflow steps will be performed)”. Here, the active target system should be specified - ensuring that system has z/OSMF up and running or is within a sysplex that has z/OSMF active, so the verification steps in the workflow can be run. Note that the target system needs to be known from the driving system's z/OSMF Systems definition for the VERIFY Workflow instance to be created. For information on how this is done, consult the <a href='https://www.ibm.com/docs/en/zos/latest?topic=facility-zos-management-configuration-guide' target='_blank'>z/OSMF Configuration Guide</a>. Also, note that as of z/OS V2.3, z/OSMF automatically starts at IPL time."
+                }
+            ]
+        }
+    ]
+}] %}
+{# END GETTING STARTED #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "Other resources",
+        tabContent: [
+            {
+                resourceTitle: "z/OSMF Configuration Guide",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=facility-zos-management-configuration-guide",
+                resourceLinkText: "Explore the guide",
+                resourceLinkType: "knowledgeCenter",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png",
+                linkTarget:"newTab"
+            },
+            {
+                resourceTitle: "z/OSMF Helps",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=software-management-task",
+                resourceLinkText: "Learn more",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png",
+                linkTarget:"newTab"
+            },
+            {
+                resourceTitle: "IBM Z Hot Topics",
+                resourceDescription: "Learn more about how ServerPac Installation using z/OSMF will streamline software management.",
+                resourceLinkUrl: "https://www.zos-hot-topics.com/2020/serverpac-installation-using-ibmzosmf-streamlines-software-mgmt/",
+                resourceLinkText: "Read the article",
+                resourceLinkType: "article",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png",
+                resourceStatus: "new",
+                linkTarget:"newTab"
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Multimedia",
+        tabContent: [
+            {
+                resourceTitle: "ServerPac Installation Using z/OSMF Tutorial",
+                resourceDescription: "This video series provides an end-to-end walkthrough, from gaining access to a Portable Software Instance to finishing the deployment.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/playlist/dedicated/101043781/1_mzzf31vy/1_f1qhec1j",
+                resourceLinkText: "View the playlist",
+                resourceLinkType: "video",
+                resourceIcon: false, 
+                resourceStatus: "new",
+                linkTarget:"newTab"
+            },
+            {
+                resourceTitle: "ServerPac Installation Using z/OSMF Overview",
+                resourceDescription: "See an overview of how a single install method within z/OSMF can help system programmers manage software more consistently and be productive more quickly.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/ServerPac+Installation+using+z+OSMF+for+Platform-wide+Simplification/1_ut5efarv",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                linkTarget:"newTab",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "z/OSMF Guild Session 3",
+                resourceDescription: "Learn more about acquiring and installing portable software instances.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/viewdocument/zosmf-guild-session-3-jan-19-20?CommunityKey=1ca674e5-aada-4194-a16e-059cafe7b807&tab=librarydocuments",
+                resourceLinkText: "Access the presentation",
+                resourceLinkType: "video",
+                linkTarget:"newTab",
+                resourceIcon: false
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{# set related = [12,14] #}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "July 7, 2022",
+        sectionContent: "<p>The link to the announcement was updated to show the z/OS V2.5 2Q 2022 enhancements.</p>"
+    },
+    {
+        sectionTitle: "July 1, 2021",
+        sectionContent: "<p>Transcript added for ServerPac Installation using z/OSMF overview video.</p>"
+    },
+    {
+        sectionTitle: "June 18, 2021",
+        sectionContent: "The link for <em>ServerPac Installation Using IBM z/OS Management Facility Streamlines Software Management</em>, on the Other resources tab in the Technical resources section, was updated to find the article on the new <a href='https://www.zos-hot-topics.com/'>IBM Z Hot Topics</a> website."
+    },
+    {
+        sectionTitle: "March 5, 2021",
+        sectionContent: "Added tutorial videos for ServerPac Installation."
+    },
+    {
+        sectionTitle: "August 14, 2020",
+        sectionContent: "Added a new link for a Hot Topics article in the Technical resources section."
+    },
+    {
+        sectionTitle: "April 30, 2020",
+        sectionContent: "z/OSMF Portable Software Instance Demo added to the Try It tab of the Getting started section."
+    },
+    {
+        sectionTitle: "December 6, 2019",
+        sectionContent: "An intro video was added to the top of the page and the Multimedia tab of the Resources section."
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "12146822",
+    sc_security: "c93b12bc"
+}
+ %}
+{# END STATCOUNTER #}
+
+{# START HOTJAR #}
+{% set hotjar = {
+    site_id: ""
+}
+ %}
+{# END HOTJAR #}

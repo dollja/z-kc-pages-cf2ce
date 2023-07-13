@@ -1,0 +1,14 @@
+# $Id: robots-blocked.txt,v 1.5 2017/06/01 20:35:10 ydoleh Exp $
+#
+# Site:
+#    http://www.ibm.com/
+# Contact:
+#    Corporate Webmaster/New York/IBM@IBMUS (NUS_N_NIWWW)
+#
+# See <URL:http://www.robotstxt.org/wc/exclusion.html#robotstxt> for details on robots.txt
+
+#
+# Block all access for alias hostnames
+#
+User-agent: *
+Disallow:  /

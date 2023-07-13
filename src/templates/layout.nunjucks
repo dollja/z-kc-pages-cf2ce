@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<link rel="icon" href="//www.ibm.com/favicon.ico">
+{# <link rel="canonical" href="http://izswebpage.mybluemix.net/">  #}
+ 
+<meta name="description" content="{{meta_description|safe}}" /> 
+<meta name="keywords" content="{{meta_keywords|safe}}" />  
+<meta name="dcterms.date" content="2018-07-16">
+<meta name="dcterms.rights" content="© Copyright IBM Corp. 2018">
+<meta name="geo.country" content="US">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>IBM Z Content Solutions | {{ title }} </title>
+
+
+<link rel="stylesheet" href="//1.www.s81c.com/common/v18/css/www.css" media="all" />
+<link rel="stylesheet" href="//1.www.s81c.com/common/v18/css/grid-fluid.css" media="all" />
+<link rel="stylesheet" href="//1.www.s81c.com/common/v18/css/textcolumns.css" media="all" />
+<link rel="stylesheet" href="https://izswebpage.mybluemix.net/css/overrides.css" media="all" /> 
+
+<script src="//1.www.s81c.com/common/stats/ida_stats.js"></script>
+<script src="//1.www.s81c.com/common/v18/js/www.js"></script>
+<script src="//1.www.s81c.com/common/v18/js/dyntabs.js"></script>
+
+<script type="text/javascript">
+    IBMCore.common.util.config.set({
+        "backtotop": {
+            "enabled": true
+            }
+        
+    });
+</script>
+
+<script type="text/javascript">
+digitalData = {
+        page: {
+            category: {
+                primaryCategory: "????"
+            },
+            pageInfo: {
+                effectiveDate: "2018-07-16",
+                expiryDate: "2030-07-16",
+                language: "en-US",
+                publishDate: "2018-07-16",
+                publisher: "IBM Corporation",
+                version: "v18",
+                focusArea: "",
+                ibm: {
+                    contentDelivery: "IBM Cloud",
+                    contentProducer: "Pok CDD, HTML, Summer 2018",
+                    country: "US",
+                    owner: "Jacky M Doll/Poughkeepsie/IBM",
+                    type: "?????"
+                }
+            }
+        }
+    };
+</script>
+<script type="text/javascript">
+    IBMCore.common.util.config.set({
+        "backtotop": {
+            "enabled": true
+        },
+        "masthead" : {
+            "type" : "alternate"
+        },
+        "footer" : {
+            "type" : "alternate",
+            "socialLinks" : {
+                "enabled" : false
+            }
+        }
+    });
+</script>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Inconsolata" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+{# ADDED FOR CONTACT MODULE <script src="https://www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js" defer></script> #}
+
+
+</head>
+
+
+                <!-- MASTHEAD_BEGIN -->
+        <div id="ibm-masthead" role="banner" aria-label="IBM" class="ibm-mhtype-minimal">
+<div id="ibm-mast-options">
+<ul role="toolbar" aria-labelledby="ibm-masthead">
+<li id="ibm-geo" role="presentation">
+<a href="http://www.ibm.com/planetwide/select/selector.html">United States</a></li>
+</ul>
+</div>
+<div id="ibm-universal-nav" class="">
+
+<div id="ibm-home"><a href="http://www.ibm.com/us-en/?lnk=m">IBM®</a></div>
+<div class="ibm-parent-site-name"><a href="/support/z-content-solutions">IBM Z and LinuxONE Content Solutions</a></div>
+<ul id="ibm-menu-links" role="toolbar" aria-label="Site map" class="ibm-hide">
+<li><a href="http://www.ibm.com/sitemap/us/en/">Site map</a></li>
+</ul><div class="ibm-masthead-rightside"><div id="ibm-search-module" role="search" aria-labelledby="ibm-masthead" class="ibm-has-scope">
+<div class="ibm-masthead-search-close"><p class="ibm-ind-link ibm-icononly ibm-padding-bottom-0"><a href="#" class="ibm-close-link ibm-nospacing">Close</a></p></div>
+<form id="ibm-search-form" action="https://www.ibm.com/Search/" method="get" aria-labelledby="ibm-masthead">
+          <p>
+            <label for="q">IBM</label>
+            <input type="text" maxlength="100" value="" placeholder="Search" name="q" id="q" aria-label="Search" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="ibm-search-typeahead-container"><input name="lnk" type="hidden" value="mhsrch">
+            <input type="hidden" value="18" name="v">
+            <input type="hidden" value="utf" name="en">
+            <input type="hidden" value="en" name="lang">
+            <input type="hidden" value="us" name="cc">
+            <button role="button" type="submit" id="ibm-search" class="ibm-search-link" value="Submit"><span class="ibm-access">Submit</span></button>
+          </p>
+        </form>
+</div><div id="ibm-search-typeahead-container" aria-expanded="false" class="ibm-search-typeahead-container"></div><ul aria-label="Tools" role="menubar" class="ibm-masthead-iconsonly"><li role="presentation" class="ibm-masthead-item-signin"><button role="button" aria-haspopup="true" aria-owns="ibm-signin-minimenu-container" class="ibm-profile-link">My IBM</button><ul id="ibm-signin-minimenu-container" role="menu" aria-label="Profile" class="ibm-dropdown-menu"><li role="presentation"><a role="menuitem" href="https://myibm.ibm.com/?lnk=mmi">My IBM</a></li><li role="presentation" data-linktype="signin"><a role="menuitem" href="https://idaas.iam.ibm.com/idaas/oidc/endpoint/default/authorize?response_type=token&amp;client_id=v18loginprod&amp;state=http%3A%2F%2Fnorthstarexamples.mybluemix.net%2Fv18%2Felements%2Fmasthead-search-local%2F&amp;redirect_uri=https://myibm.ibm.com/OIDCHandler.html&amp;scope=openid&amp;nonce=8675309">Log in</a></li></ul></li><li role="presentation" class="ibm-masthead-item-menu"><button role="button" aria-haspopup="true" aria-owns="ibm-burger-menu-container" class="ibm-menu-link">Site navigation</button></li></ul></div>
+
+
+</div>
+</div>
+        <!-- MASTHEAD_END -->
+</head>
+        <!-- MAIN CONTAINER BEGIN -->
+        {% block content %} {% endblock %}
+        <!-- MAIN CONTAINER END -->
+        </div>
+        </div>
+        </div>
+        </main>
+      <!-- FOOTER_BEGIN -->
+        <div id="ibm-footer-module"></div>
+        <footer aria-label="IBM" role="contentinfo">
+            <div id="ibm-footer">
+                <h2 class="ibm-access">Footer links</h2>
+                <ul>
+                    <li><a href="http://www.ibm.com/contact/us/en/">Contact</a></li>
+                    <li><a href="http://www.ibm.com/privacy/us/en/">Privacy</a></li>
+                    <li><a href="http://www.ibm.com/legal/us/en/">Terms of use</a></li>
+                    <li><a href="http://www.ibm.com/accessibility/us/en/">Accessibility</a></li>
+                </ul>
+            </div>
+        </footer>
+        <!-- FOOTER_END -->
+
+    </div>
+</body>
+</html>

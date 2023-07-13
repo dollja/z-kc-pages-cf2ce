@@ -1,0 +1,456 @@
+@mixin focus-tag-border($alternate: false) {
+  @if $alternate {
+    &:focus {
+      -webkit-box-shadow: inset 2px 0px 0px 0px v19aColor('blue', 50),
+      inset -2px 0px 0px 0px v19aColor('blue', 50),
+      inset 0px -2px 0px 0px v19aColor('blue', 50),
+      inset 0px 2px 0px 0px v19aColor('blue', 50);
+      -moz-box-shadow: inset 2px 0px 0px 0px v19aColor('blue', 50),
+      inset -2px 0px 0px 0px v19aColor('blue', 50),
+      inset 0px -2px 0px 0px v19aColor('blue', 50),
+      inset 0px 2px 0px 0px v19aColor('blue', 50);
+      box-shadow: inset 2px 0px 0px 0px v19aColor('blue', 50),
+      inset -2px 0px 0px 0px v19aColor('blue', 50),
+      inset 0px -2px 0px 0px v19aColor('blue', 50),
+      inset 0px 2px 0px 0px v19aColor('blue', 50);
+      z-index: 2;
+    }
+  } @else {
+    &:focus {
+      -webkit-box-shadow: -2px 0px 0px 0px v19aColor('blue', 50),
+      inset -2px 0px 0px 0px v19aColor('blue', 50),
+      inset 0px -2px 0px 0px v19aColor('blue', 50),
+      inset 0px 2px 0px 0px v19aColor('blue', 50);
+      -moz-box-shadow: -2px 0px 0px 0px v19aColor('blue', 50),
+      inset -2px 0px 0px 0px v19aColor('blue', 50),
+      inset 0px -2px 0px 0px v19aColor('blue', 50),
+      inset 0px 2px 0px 0px v19aColor('blue', 50);
+      box-shadow: -2px 0px 0px 0px v19aColor('blue', 50),
+      inset -2px 0px 0px 0px v19aColor('blue', 50),
+      inset 0px -2px 0px 0px v19aColor('blue', 50),
+      inset 0px 2px 0px 0px v19aColor('blue', 50);
+      z-index: 2;
+    }
+  }
+}
+
+@mixin selected-tag-border($alternate: false) {
+  @if $alternate {
+    &[aria-selected='true'] {
+      -webkit-box-shadow: 2px 0px 0px 0px v19aColor('white','core'),
+      inset 0px -2px 0px 0px v19aColor('blue', 50);
+      -moz-box-shadow:2px 0px 0px 0px v19aColor('white','core'), 
+      inset 0px -2px 0px 0px v19aColor('blue', 50);
+      box-shadow: 2px 0px 0px 0px v19aColor('white','core'),
+      inset 0px -2px 0px 0px v19aColor('blue', 50);
+      z-index: 1;
+    } 
+  } @else {
+    &[aria-selected='true'] {
+      -webkit-box-shadow: -1px 0px 0px 0px #cacaca,
+      inset -1px 0px 0px 0px #cacaca,
+      inset 0px 0px 0px 0px #cacaca,
+      inset 0px 2px 0px 0px v19aColor('blue', 60);
+      -moz-box-shadow: -1px 0px 0px 0px #cacaca,
+      inset -1px 0px 0px 0px #cacaca,
+      inset 0px 0px 0px 0px #cacaca,
+      inset 0px 2px 0px 0px v19aColor('blue', 60);
+      box-shadow: -1px 0px 0px 0px #cacaca,
+      inset -1px 0px 0px 0px #cacaca,
+      inset 0px 0px 0px 0px #cacaca,
+      inset 0px 2px 0px 0px v19aColor('blue', 60);
+      z-index: 1;
+    } 
+  }
+}
+
+@mixin default-border($alternate: false) {
+  @if $alternate {
+    -webkit-box-shadow: 2px 0px 0px 0px v19aColor('white','core'), 
+    inset 0px -2px 0px 0px v19aColor('gray',20);
+    -moz-box-shadow: 2px 0px 0px 0px  v19aColor('white','core'),
+    inset 0px -2px 0px 0px v19aColor('gray',20);
+    box-shadow: 2px 0px 0px 0px  v19aColor('white','core'),
+    inset 0px -2px 0px 0px v19aColor('gray',20);
+    z-index: 0;
+  }@else {
+    -webkit-box-shadow: inset 1px 0px 0px 0px #cacaca,
+    inset -1px 0px 0px 0px transparent,
+    inset 0px -1px 0px 0px #cacaca,
+    inset 0px 0px 0px 0px #cacaca;
+    -moz-box-shadow: -1px 0px 0px 0px #cacaca,
+    inset -1px 0px 0px 0px transparent,
+    inset 0px -1px 0px 0px #cacaca,
+    inset 0px 0px 0px 0px #cacaca;
+    box-shadow: -1px 0px 0px 0px #cacaca,
+    inset -1px 0px 0px 0px transparent,
+    inset 0px -1px 0px 0px #cacaca,
+    inset 0px 0px 0px 0px #cacaca;
+    z-index: 0;
+  }
+}
+
+@mixin alternate-hover-border {
+  -webkit-box-shadow: 2px 0px 0px 0px v19aColor('white','core'), 
+  inset 0px -2px 0px 0px #cacaca;
+  -moz-box-shadow: 2px 0px 0px 0px  v19aColor('white','core'),
+  inset 0px -2px 0px 0px #cacaca;
+  box-shadow: 2px 0px 0px 0px  v19aColor('white','core'),
+  inset 0px -2px 0px 0px #cacaca;
+  z-index: 0;
+}
+
+@mixin default-tab-border($alternate: false) {
+  @if $alternate {
+    @include default-border($alternate);
+    @include alternate-hover-border();
+    @include focus-tag-border($alternate);
+    @include selected-tag-border($alternate); 
+  } @else {
+    @include default-border();
+    @include focus-tag-border();
+    @include selected-tag-border(); 
+  }
+}
+
+@mixin last-tab-borders($alternate : false) {
+  @if $alternate {
+    @include default-border($alternate);
+    @include alternate-hover-border();
+    @include focus-tag-border($alternate);
+    @include selected-tag-border($alternate);
+  } @else {
+    @include default-border();
+    @include focus-tag-border(); 
+    
+    &[aria-selected='true'] {
+      -webkit-box-shadow: -1px 0px 0px 0px #cacaca,
+      inset -1px 0px 0px 0px transparent,
+      inset 0px 0px 0px 0px #cacaca,
+      inset 0px 2px 0px 0px v19aColor('blue', 60);
+      -moz-box-shadow: -1px 0px 0px 0px #cacaca,
+      inset -1px 0px 0px 0px transparent,
+      inset 0px 0px 0px 0px #cacaca,
+      inset 0px 2px 0px 0px v19aColor('blue', 60);
+      box-shadow: -1px 0px 0px 0px #cacaca,
+      inset -1px 0px 0px 0px transparent,
+      inset 0px 0px 0px 0px #cacaca,
+      inset 0px 2px 0px 0px v19aColor('blue', 60);
+      z-index: 1;
+    }
+  } 
+}
+
+@mixin first-tab-borders($alternate : false) {
+  @if $alternate {
+    @include default-border($alternate);
+    @include alternate-hover-border();
+    @include focus-tag-border($alternate);
+    @include selected-tag-border($alternate);
+  } @else {
+    @include default-border();
+    &:focus {
+      -webkit-box-shadow: inset 2px 0px 0px 0px v19aColor('blue', 50),
+      inset -1px 0px 0px 0px v19aColor('blue', 50),
+      1px 0px 0px 0px v19aColor('blue', 50),
+      inset 0px -2px 0px 0px v19aColor('blue', 50),
+      inset 0px 2px 0px 0px v19aColor('blue', 50);
+      -moz-box-shadow: inset 2px 0px 0px 0px v19aColor('blue', 50),
+      inset -1px 0px 0px 0px v19aColor('blue', 50),
+      1px 0px 0px 0px v19aColor('blue', 50),
+      inset 0px -2px 0px 0px v19aColor('blue', 50),
+      inset 0px 2px 0px 0px v19aColor('blue', 50);
+      box-shadow: inset 2px 0px 0px 0px v19aColor('blue', 50),
+      inset -1px 0px 0px 0px v19aColor('blue', 50),
+      1px 0px 0px 0px v19aColor('blue', 50),
+      inset 0px -2px 0px 0px v19aColor('blue', 50),
+      inset 0px 2px 0px 0px v19aColor('blue', 50);
+      z-index: 3;
+    }
+    @include selected-tag-border();
+  } 
+}
+
+
+.ibm-text-tabs {
+  .ibm-tabs {
+    a {
+      &:hover,
+      &:focus {
+        border: 4px v19aColor('blue', 50);
+      }
+      &:active,
+      &.ibm-active {
+        outline: none;
+      }
+    }
+    li a[aria-selected='true'] {
+      border-top: 4px v19aColor('blue', 50);
+      border-bottom: 0;
+    }
+  }
+}
+
+.ibm-graphic-tabs {
+  padding-bottom: 0;
+  > .ibm-tab-section {
+    padding-bottom: 0;
+  }
+  .ibm-tabs {
+    background: transparent;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    padding-bottom: 0;
+    li {
+      border-right: none;
+      border-top: none;
+      background: transparent;
+      max-width: 10rem; 
+      a {
+        //background: v19aColor('gray',20);
+        border-left: none;
+        color: v19aColor('gray',70);
+        height: 100%;
+        padding: 1rem 3rem 1rem 1.25rem;
+        word-wrap: break-word;
+        text-align: left;
+        position:relative;
+        &::before {
+          color: v19aColor('gray',70);
+        }
+        &::after {
+          content: none;
+        }
+        &:hover {
+          color:v19aColor('gray',90);
+          background: #cacaca;
+          &::after {
+            content : none;
+          }
+          &::before {
+            color: v19aColor('gray',90);
+          }                     
+        } 
+        &:focus {
+          outline: none;                   
+          color: v19aColor('gray',90);
+          z-index: 5;
+          &::before {
+            color: v19aColor('black','core');
+          }                    
+          &::after {
+            content: none;
+          }    
+          border: 0;                
+        }                
+        &[aria-selected='true'] {
+          background: v19aColor('gray',10);
+          color: v19aColor('gray',90);
+          &::before {
+            color: v19aColor('gray',90);
+          }                    
+          &::after {
+            content: none;
+          }
+        } 
+        &::before {
+          right: 1rem;
+          line-height: 1.2rem;
+          font-size: inherit;
+        }
+        &.ibm-active {
+          outline: none;
+        }
+        @include default-tab-border(); 
+      }
+
+      &:first-child {
+        a {
+          @include first-tab-borders();
+        }              
+      }
+      &:last-child {
+        a {
+          @include last-tab-borders();
+        }                 
+      }
+            
+      @media only screen and (min-width: #{map-get(map-get($breakpoints, 'sm'), "min-width")}px) 
+      and (max-width: #{map-get(map-get($breakpoints, 'sm'), "max-width")}px) {
+        min-width: 9rem;
+        max-width: 10rem; 
+        min-height: 3rem;
+        &:nth-child(2) {
+          a {
+            @include last-tab-borders();
+          }
+          ~ li {
+            display: none;
+          }
+        }                
+      }
+      @media only screen and (min-width: #{map-get(map-get($breakpoints, 'md'), "min-width")}px) 
+      and (max-width: #{map-get(map-get($breakpoints, 'md'), "max-width")}px) {
+        min-width: 10rem;
+        max-width: 10rem;
+        min-height: 3rem;
+        &:nth-child(4) {
+          a {
+            @include last-tab-borders();
+          }
+          ~ li {
+            display: none;
+          }
+        }                
+      }
+      @media only screen and (min-width: #{map-get(map-get($breakpoints, 'lg'), "min-width")}px) 
+      and (max-width: #{map-get(map-get($breakpoints, 'lg'), "max-width")}px) {
+        max-width: 10rem;
+        max-width: 10rem;
+        min-height: 3.5rem;
+        &:nth-child(6) {
+          a {
+            @include last-tab-borders();
+          }
+          ~ li {
+            display: none;
+          }
+        }                
+      }
+      @media only screen and (min-width: #{map-get(map-get($breakpoints, 'xlg'), "min-width")}px) 
+      and (max-width: #{map-get(map-get($breakpoints, 'xlg'), "max-width")}px) {
+        max-width: 10rem;
+        min-height: 3.5rem;
+        &:nth-child(8) {
+          a {
+            @include last-tab-borders();
+          }
+          ~ li {
+            display: none;
+          }
+        }                
+      }
+      @media only screen and (min-width: #{map-get(map-get($breakpoints, 'max'), "min-width")}px) 
+      and (max-width: #{map-get(map-get($breakpoints, 'max'), "max-width")}px) {
+        max-width: 10rem;
+        min-height: 3.5rem;
+        &:nth-child(9) {
+          a {
+            @include last-tab-borders();
+          }
+          ~ li {
+            display: none;
+          }
+        }                
+      }            
+    }        
+  } 
+
+  // Set things to block and vertical stack.
+  &.ibm-vertical-tabs {
+    ul.ibm-tabs li a {
+      &:hover::after,
+      &[aria-selected='true']::after {
+        border-top: 4px v19aColor('blue', 50);
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+.ibm-tabs-content {
+  background: color('gray',10);
+  padding: 16px 20px;
+  text-align: left;
+  background-color: v19aColor('gray',10);
+}
+
+.ibm-tabs-alternate{
+  .ibm-tabs {
+    li {
+      a {
+        margin-right: 2px; 
+        background: v19aColor('white','core');
+
+        &:hover{
+          background: v19aColor('white','core');                 
+        } 
+
+        &[aria-selected='true'] {
+          background: v19aColor('white','core');
+        }
+
+        @include default-tab-border($alternate : true);
+      }
+      &:first-child{
+        a{
+          @include first-tab-borders($alternate: true);                   
+        }              
+      }
+      &:last-child{
+        a{
+          @include last-tab-borders($alternate: true);                          
+        }                 
+      } 
+      @media only screen and (min-width: #{map-get(map-get($breakpoints, 'sm'), "min-width")}px) 
+      and (max-width: #{map-get(map-get($breakpoints, 'sm'), "max-width")}px) {
+        &:nth-child(2) {
+          a {
+            @include last-tab-borders($alternate: true);
+          }
+        }                
+      }
+      @media only screen and (min-width: #{map-get(map-get($breakpoints, 'md'), "min-width")}px) 
+      and (max-width: #{map-get(map-get($breakpoints, 'md'), "max-width")}px) {
+        &:nth-child(4) {
+          a {
+            @include last-tab-borders($alternate: true);
+          }
+        }                
+      }
+      @media only screen and (min-width: #{map-get(map-get($breakpoints, 'lg'), "min-width")}px) 
+      and (max-width: #{map-get(map-get($breakpoints, 'lg'), "max-width")}px) {
+        &:nth-child(6) {
+          a {
+            @include last-tab-borders($alternate: true);
+          }
+        }                
+      }
+      @media only screen and (min-width: #{map-get(map-get($breakpoints, 'xlg'), "min-width")}px) 
+      and (max-width: #{map-get(map-get($breakpoints, 'xlg'), "max-width")}px) {
+        &:nth-child(8) {
+          a {
+            @include last-tab-borders($alternate: true);
+          }
+        }                
+      }
+      @media only screen and (min-width: #{map-get(map-get($breakpoints, 'max'), "min-width")}px) 
+      and (max-width: #{map-get(map-get($breakpoints, 'max'), "max-width")}px) {
+        &:nth-child(9) {
+          a {
+            @include last-tab-borders($alternate: true);
+          }
+        }                
+      }                       
+    }
+  }
+
+  .ibm-tabs-content{
+    background: v19aColor('white','core');
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////
+// 
+// New masthead height of 48px adjustment.
+//
+////////////////////////////////////////////////////////////////////////
+.ibm-sticky-tabs #ibm-pritabs-ph {
+  height: 48px;
+}
+
+.ibm-sticky-tabs.ibm-masthead-sticky-showing #ibm-primary-tabs {
+  transform: translate3d(0, 49px, 0);
+}

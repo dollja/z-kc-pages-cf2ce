@@ -1,0 +1,780 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "Journey to LinuxONE" %}
+{% set key = 15 %}
+
+{# START META #}
+{% set meta_description = meta_description | default("Explore how LinuxONE works and learn how to obtain and install a LinuxONE system.") %}
+{% set meta_keywords = meta_keywords | default("Linuxone emperor 4, linuxone III, linux one III, linuxone 3, ibm linuxone, linux one 3, linuxone, ibm linux one III, ibm linuxone 3, linux one, ibm linuxone III, ibm linux one") %}
+{# END META #}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+
+Video was 1_3twep7un, replaced with Emperor 4
+#}
+{% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "1_ev1upbfx",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/loj/linuxone_intro_video_thumbnail.jpg", 
+    label: "Journey to LinuxONE"
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>IBM® LinuxONE is a platform for the Linux® operating system built on a secure, reliable, scalable and <a href='https://www.ibm.com/products/linuxone-emperor-4/sustainability'>sustainable</a> architecture. It is used in many different industries worldwide.</p>
+<p>LinuxONE is available in single-frame and multi-frame servers, including an air-cooled single-frame server that is designed for business of all sizes, 
+and a LinuxONE Express offering that makes it easy to start small and grow. <a href='https://www.ibm.com/products/linuxone-emperor-4'>LinuxONE Emperor 4</a> servers can have up to 200 cores running at 5.2 GHz, and up to 40 TB of memory.</p>
+<p>Use this content solution to understand how LinuxONE works, and to understand the experience of obtaining and installing a LinuxONE system.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        text: "See what LinuxONE can do for your business.",
+        type: "other",
+        url: "https://www.ibm.com/linuxone"
+    },
+    {
+        id: 2,
+        text: "Learn more about LinuxONE Express.",
+        type: "other",
+        url: "https://www.ibm.com/blogs/systems/announcing-ibm-linuxone-iii-express-and-tailored-fit-pricing"
+    }
+] %}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{% set announcements = [
+    {
+    announcementText: "Connect with peers and industry experts through Compass L",
+    announcementLinkText: "Learn more about Compass L",
+    announcementLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/community-home?CommunityKey=8df148bb-b9bb-46e5-80cd-853b5927c3f9&joinOurCommunity=1."
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION %}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/loj/bp/BPLinuxONEJournIcon1NoNum.svg",
+        iconPath: '<path d="M23.3,11.6V11c0-4.2-3.3-7.5-7.3-7.5h-1v0.9h1c3.5,0,6.4,3,6.4,6.6v0.5c0,3.7-2.9,6.6-6.4,6.6H7.4l-1.4-4
+	c-0.2-0.5-0.3-1-0.3-1.5v-1.5H4.8v1.5c0,0.6,0.1,1.2,0.3,1.8l1.3,3.7H2v0.9h4.8l1.8,5.1c0.1,0.2,0.1,0.5,0.1,0.7v6.5h0.9v-6.5
+	c0-0.3-0.1-0.7-0.2-1l-1.7-4.8H16C20,19.1,23.3,15.7,23.3,11.6z M29.9,18.5l-3.6-7.2c0-3.7-1.4-6.7-3.9-8.5
+	c-1.9-1.4-4.5-2.3-7.1-2.3C12,0.5,7,2.5,7,6.9c0,2.5,1.3,3.7,2.5,4.3c0.8,0.4,1.6,0.6,2.4,0.6h6.7l-1.2,1.2l0.6,0.6l1.9-1.9
+	c0.2-0.2,0.2-0.5,0-0.6l-1.9-2l-0.7,0.6l1.2,1.3h-6.7c-0.2,0-4-0.2-4-4c0-4.1,5.2-5.5,7.5-5.5c4.6,0,10.1,2.6,10.1,10
+	c0,0.1,0,0.1,0,0.2l3.3,6.6h-2.8c-0.3,0-0.5,0.2-0.5,0.5v5c0,1.1-0.9,1.9-1.9,1.9h-4.9v0.9h1v5h0.9v-5h3c1.6,0,2.8-1.3,2.8-2.8v-4.5
+	h3.1c0.2,0,0.3-0.1,0.4-0.2C30,18.8,30,18.6,29.9,18.5z M13.2,8.9h0.9v0.9h-0.9V8.9z M15.3,8.9h0.9v0.9h-0.9V8.9z M15.3,12.8h0.9
+	v0.9h-0.9V12.8z M13.2,12.8h0.9v0.9h-0.9V12.8z"/>',
+        iconAlt: "learn about linuxone",
+        description: "Learn about LinuxONE."
+    }, {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/loj/bp/BPLinuxONEJournIcon2NoNum.svg",
+        iconPath: '<path d="M7.1,26.1v-4.2H2.7v0.9h3.5v3.3H7.1z M23.7,26.8H6.1l-4.2-4.1V5.2h21.8v5.2h0.9V4.7c0-0.3-0.2-0.5-0.5-0.5H1.4
+	c-0.3,0-0.5,0.2-0.5,0.5v18.2c0,0.1,0,0.3,0.1,0.3l4.5,4.4c0.1,0.1,0.2,0.1,0.3,0.1h18.2c0.3,0,0.5-0.2,0.5-0.5v-5.6h-0.9V26.8z
+	 M30.9,11.5L28.4,9c-0.2-0.2-0.5-0.2-0.6,0l-8.6,8.3l-2.6-2.5c-0.2-0.2-0.5-0.2-0.6,0l-2.7,2.6c-0.2,0.2-0.2,0.5,0,0.6l0,0l5.6,5.5
+	c0.2,0.2,0.5,0.2,0.6,0l11.4-11.4c0.1-0.1,0.1-0.2,0.1-0.3C31.1,11.7,31,11.6,30.9,11.5z M19.2,22.6l-5-4.9l2-1.9l2.6,2.5
+	c0.2,0.2,0.5,0.2,0.6,0l8.6-8.3l1.9,1.8L19.2,22.6z"/>',
+        iconAlt: "find your solutions",
+        description: "Find your solutions."
+    }, {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/loj/bp/BPLinuxONEJournIcon3NoNum.svg",
+        iconPath: '<path class="st0" d="M25.5,12.8c-3.1-2.5-6.3-3.9-9.4-3.9c-3.9,0-7.3,2.1-9.6,3.9c-1.5,1.1-2.8,2.4-4,3.8c-0.1,0.1-0.1,0.3,0,0.5
+	c0.2,0.3,5.6,7.7,13.4,7.7s13.1-7.4,13.4-7.7c0.1-0.1,0.1-0.3,0-0.5C28.2,15.2,27,13.9,25.5,12.8z M16,23.9
+	c-6.6,0-11.5-5.8-12.5-7.1c1.1-1.3,2.3-2.4,3.6-3.4c2.1-1.7,5.4-3.7,9-3.7s6.8,2,8.8,3.6c1.3,1,2.4,2.2,3.4,3.4
+	C27.4,18.1,22.5,23.9,16,23.9z M16,10.4c-3.6,0-6.5,2.9-6.5,6.5c0,3.6,2.9,6.5,6.5,6.5c3.6,0,6.5-2.9,6.5-6.5l0,0
+	C22.4,13.3,19.5,10.4,16,10.4z M16,22.5c-3.1,0-5.6-2.5-5.6-5.6s2.5-5.6,5.6-5.6s5.6,2.5,5.6,5.6l0,0C21.6,19.9,19.1,22.5,16,22.5z
+	 M16,12.5c-2.5,0-4.5,2-4.5,4.5s2,4.6,4.5,4.6s4.5-2,4.5-4.5C20.5,14.5,18.5,12.5,16,12.5z M16.4,17.2c0.4,0.1,0.7,0.5,0.7,0.9
+	c0,0.5-0.4,0.7-0.7,0.8V17.2z M15.5,16.2C15.2,16,15,15.8,15,15.5c0-0.5,0.1-0.9,0.6-1V16.2z M12.3,17.1c0-1.9,1.4-3.4,3.3-3.7v0.3
+	c-0.9,0.1-1.4,0.8-1.4,1.9c0,0.8,0.7,1.4,1.4,1.6V19c-0.4-0.1-0.7-0.6-0.7-1h-0.9c0,0.9,0.7,1.8,1.6,1.9v0.9
+	C13.7,20.5,12.3,18.9,12.3,17.1z M16.4,20.7v-0.9c1.1-0.2,1.6-0.9,1.6-1.7c0-1.1-0.9-1.7-1.6-1.8v-1.8c0.1,0,0.3,0.1,0.4,0.2
+	c0.2,0.2,0.2,0.5,0.2,0.8l0.4,0l0.4,0c0-0.5-0.1-1-0.4-1.4c-0.3-0.3-0.6-0.5-1-0.5v-0.3c2,0.2,3.5,2.1,3.2,4.1
+	C19.4,19.2,18.1,20.5,16.4,20.7L16.4,20.7z M26.7,11.2C23.3,8.5,19.7,7,16.3,7C12,7,8.1,9.3,5.6,11.2c-1.6,1.2-3.2,2.6-4.5,4.2
+	L1.7,16c1.3-1.5,2.8-2.9,4.4-4.1c4.4-3.3,7.9-4,10.1-4c4,0,7.6,2.2,9.8,4c1.5,1.2,2.9,2.5,4.1,4l0.7-0.5
+	C29.6,13.8,28.2,12.4,26.7,11.2z"/>',
+        iconAlt: "see total cost of ownership",
+        description: "See total cost of ownership."
+    }, {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/loj/bp/BPLinuxONEJournIcon4NoNum.svg",
+        iconPath: '<path d="M7.3,0.6H1.2v6.1h6.1L7.3,0.6L7.3,0.6z M6.3,5.7H2.2V1.6h4.1L6.3,5.7L6.3,5.7z M17.6,16.8v-6.1h-6.1v6.1H17.6z
+	 M12.5,11.7h4.1v4.1h-4.1V11.7z M26.8,8.7c0,2.5-2.1,4.6-4.6,4.6h-2.4v1h2.4c3.1,0.1,5.6-2.4,5.7-5.4c0.1-3.1-2.4-5.6-5.4-5.7
+	c-0.1,0-0.1,0-0.2,0H9.8v1h12.4C24.7,4.2,26.8,6.2,26.8,8.7z M22.2,21.8l-1-1c-0.2-0.2-0.5-0.2-0.7,0l-2.8,2.8H6.7
+	c-2.5,0-4.5-2.2-4.5-4.7c0-2.4,2-4.4,4.5-4.5h2.4v-1H6.7c-3.1,0-5.6,2.5-5.6,5.6s2.5,5.6,5.6,5.6h9.9l0,0c-0.2,0.2-0.2,0.5,0,0.7
+	l1,1c0.2,0.2,0.5,0.2,0.7,0l3.8-3.8C22.3,22.3,22.3,21.9,22.2,21.8z M30.7,23.6l-3.8-3.8c-0.2-0.2-0.5-0.2-0.7,0l-1,1
+	c-0.2,0.2-0.2,0.5,0,0.7l3.8,3.8c0.2,0.2,0.5,0.2,0.7,0l1-1C30.9,24.1,30.9,23.8,30.7,23.6z M26.8,26.6c0,0-0.1,0-0.1-0.1l-2.5-2.5
+	c0,0-0.1,0-0.1,0c-0.3,0.1-0.6,0.4-0.6,0.7c0,0.2-0.1,0.5-0.3,0.7c-0.2,0.2-0.4,0.3-0.6,0.3h0c-0.5,0-0.9-0.4-0.9-0.9
+	c0-0.4,0.1-0.7,0.2-1.1c0-0.1,0.1-0.2,0.2-0.3h-0.1c-0.1,0-0.3,0-0.4,0.2l-2.6,2.6l0.4,0.5l0.5-0.5c0.2-0.2,0.6-0.2,0.8,0l0,0
+	l0.2,0.2c0.1,0.1,0.2,0.2,0.2,0.4c0.1,0,0.3,0.1,0.4,0.2l0.2,0.2c0.1,0.1,0.2,0.2,0.2,0.4c0.1,0,0.3,0.1,0.4,0.2l0.2,0.2
+	c0.1,0.1,0.2,0.3,0.2,0.4l0,0c0.1,0,0.3,0.1,0.4,0.2l0.2,0.2c0.2,0.2,0.2,0.6,0,0.8l0,0l-0.5,0.5c0,0.1,0,0.1,0.1,0.2l1,1
+	c0.1,0.1,0.2,0.1,0.3,0.1s0.2,0,0.3-0.1l0.1-0.1c0.2-0.2,0.2-0.5,0-0.7l0,0l-0.9-0.9l0.1-0.2l0.9,0.9c0.2,0.2,0.5,0.2,0.7,0l0,0
+	l0.1-0.1c0.2-0.2,0.2-0.5,0-0.7l0,0l-0.9-0.9l0,0l0.1-0.2c0,0,1,1,1,1c0.1,0.1,0.2,0.1,0.3,0.1s0.2,0,0.3-0.1l0.1-0.1
+	c0.2-0.2,0.2-0.5,0-0.7l0,0c0,0-1-1-1-1l0.2-0.2c0,0,1,1,1,1c0.2,0.2,0.5,0.2,0.7,0l0,0l0.1-0.1c0.2-0.2,0.2-0.5,0-0.7l0,0
+	L26.8,26.6z M22.3,23.5c-0.1,0.1-0.2,0.3-0.3,0.4c-0.1,0.3-0.2,0.6-0.2,0.9c0,0.3,0.3,0.6,0.6,0.6h0c0.2,0,0.3-0.1,0.4-0.2
+	c0.1-0.1,0.2-0.3,0.2-0.4c0-0.5,0.4-0.9,0.8-1c0.1,0,0.2,0,0.3,0l2.6,2.6l0.8-0.9c0.1-0.1,0.2-0.2,0.2-0.4c0-0.1,0-0.3-0.2-0.4
+	l-2.2-2.2c-0.4-0.4-1-0.5-1.5-0.2C23.4,22.6,22.8,23,22.3,23.5z M20.8,27c0-0.1,0-0.2-0.1-0.2l-0.2-0.2c0,0-0.1-0.1-0.2-0.1
+	s-0.1,0-0.2,0.1l-0.8,0.8c-0.1,0.1-0.1,0.3,0,0.4l0,0l0.2,0.2c0,0,0.1,0.1,0.2,0.1h0c0,0,0-0.1,0.1-0.1l0.8-0.8
+	C20.7,27.1,20.7,27,20.8,27z M21.6,27.8c0-0.1,0-0.2-0.1-0.3l-0.2-0.2c0,0-0.1-0.1-0.2-0.1s-0.1,0-0.2,0.1L20,28.1
+	c-0.1,0.1-0.1,0.3,0,0.4l0.2,0.2c0,0,0.1,0.1,0.2,0.1c0,0,0,0,0.1,0c0,0,0-0.1,0.1-0.1L21.6,27.8C21.5,27.9,21.5,27.9,21.6,27.8z
+	 M22.4,28.7c0-0.1,0-0.2-0.1-0.3l-0.2-0.2c-0.1-0.1-0.3-0.1-0.4,0l0,0L20.8,29c-0.1,0.1-0.1,0.3,0,0.4l0,0l0.2,0.2
+	c0,0,0.1,0.1,0.2,0.1c0,0,0.1,0,0.1,0c0,0,0-0.1,0.1-0.1l0.8-0.8C22.3,28.7,22.3,28.7,22.4,28.7z M23.1,29.2L22.9,29
+	c0,0-0.1-0.1-0.2-0.1c-0.1,0-0.1,0-0.2,0.1l-0.8,0.8c-0.1,0.1-0.1,0.3,0,0.4l0.2,0.2c0,0,0.1,0.1,0.2,0.1s0.1,0,0.2-0.1l0.8-0.8
+	C23.3,29.5,23.3,29.3,23.1,29.2z"/>',
+        iconAlt: "plan and order",
+        description: "Plan and order."
+    }, {
+        id: 5,
+        iconUrl: "https://izswebpage.mybluemix.net/images/loj/bp/BPLinuxONEJournIcon5NoNum.svg",
+        iconPath: '<path class="st0" d="M6.6,9.3c-0.1,0-0.2,0.1-0.2,0.2v1.8c0,0.1,0.1,0.2,0.2,0.2h1.8c0.1,0,0.2-0.1,0.2-0.2V9.5
+	c0-0.1-0.1-0.2-0.2-0.2H6.6z M8.2,11.1H6.8l0-1.4h1.4V11.1z M12,15.1c-0.1,0-0.2,0.1-0.2,0.2v1.8c0,0.1,0.1,0.2,0.2,0.2h1.8
+	c0.1,0,0.2-0.1,0.2-0.2v-1.8c0-0.1-0.1-0.2-0.2-0.2H12z M13.6,16.9h-1.4v-1.4h1.4V16.9z M2.7,27.9c0-0.2,0.2-0.4,0.4-0.4
+	c0.2,0,0.4,0.2,0.4,0.4c0,0.2-0.2,0.4-0.4,0.4C2.9,28.3,2.7,28.1,2.7,27.9z M11.4,9.5c0-0.1-0.1-0.2-0.2-0.2H9.3
+	c-0.1,0-0.2,0.1-0.2,0.2v1.8c0,0.1,0.1,0.2,0.2,0.2h1.8c0.1,0,0.2-0.1,0.2-0.2V9.5z M10.9,11.1H9.6V9.7h1.4V11.1z M14.1,9.5
+	c0-0.1-0.1-0.2-0.2-0.2H12c-0.1,0-0.2,0.1-0.2,0.2v1.8c0,0.1,0.1,0.2,0.2,0.2h1.8c0.1,0,0.2-0.1,0.2-0.2V9.5z M13.6,11.1h-1.4V9.7
+	h1.4V11.1z M11.1,12.2H9.3c-0.1,0-0.2,0.1-0.2,0.2v1.8c0,0.1,0.1,0.2,0.2,0.2h1.8c0.1,0,0.2-0.1,0.2-0.2v-1.8
+	C11.3,12.3,11.2,12.2,11.1,12.2z M10.9,14H9.5v-1.4h1.4V14z M30.1,26.3h-5.8c-0.2,0-0.4,0.2-0.4,0.4v2.4c0,0.2,0.2,0.4,0.4,0.4h5.8
+	c0.2,0,0.4-0.2,0.4-0.4v-2.4C30.5,26.5,30.3,26.3,30.1,26.3z M29.6,28.7h-4.9v-1.5h4.9V28.7z M31.1,18.2L31.1,18.2v2.3
+	c0,1.6-0.9,4.6-0.9,4.7c0,0.2-0.2,0.3-0.4,0.3h-3.4v-0.9h3.1c0.2-0.8,0.8-2.9,0.8-4.2v-2.3c0-0.2-0.2-0.3-0.4-0.3
+	c-0.1,0-0.2,0-0.2,0.1c0,0,0,0,0,0.1v1.5c0,0.2-0.2,0.4-0.4,0.4c-0.2,0-0.4-0.2-0.4-0.4v-1.3c0-0.1,0-0.1,0-0.2v-0.7
+	c-0.1-0.3-0.3-0.4-0.6-0.4h-0.1v1.9c0,0.2-0.2,0.4-0.4,0.4s-0.4-0.2-0.4-0.4v-2.1c0-0.2-0.2-0.5-0.4-0.5c-0.1,0-0.2,0-0.3,0v1.9
+	c0,0.2-0.2,0.4-0.4,0.4s-0.4-0.2-0.4-0.4v-4.6c0-0.2-0.2-0.4-0.4-0.4s-0.4,0.2-0.4,0.4v6.8c0,0.2-0.2,0.4-0.4,0.4
+	c-0.2,0-0.3-0.1-0.4-0.3c0-0.1-0.6-1.5-0.7-2c0,0,0-0.1-0.1-0.1c-0.1-0.1-0.2-0.1-0.4,0c-0.2,0.1-0.2,0.2-0.2,0.3v1.4
+	c0.1,0.5,0.3,1,0.5,1.4c0.2,0.3,0.5,0.6,0.7,0.9c0.5,0.7,1,1.2,1.1,1.7v0l0.1,1.2l-0.9,0.1L24.1,24c-0.1-0.3-0.5-0.8-0.9-1.3
+	c-0.3-0.3-0.5-0.7-0.7-1c-0.4-0.6-0.6-1.2-0.7-1.9v-1.4c0-0.5,0.3-1,0.8-1.1c0.4-0.1,0.8-0.1,1.2,0.2c0.1,0.1,0.2,0.2,0.3,0.3v-4.3
+	c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v1.9h0.3c0.5,0,0.9,0.3,1.1,0.7h0.2c0.7,0,1.3,0.4,1.4,1.1c0.1,0,0.2,0,0.3,0
+	C30.5,17,31.1,17.5,31.1,18.2z M28.4,28c0-0.2,0.2-0.4,0.4-0.4c0.2,0,0.4,0.2,0.4,0.4c0,0.2-0.2,0.4-0.4,0.4
+	C28.6,28.4,28.4,28.2,28.4,28z M7.7,26.3H1.9c-0.2,0-0.4,0.2-0.4,0.4v2.4c0,0.2,0.2,0.4,0.4,0.4h5.8c0.2,0,0.4-0.2,0.4-0.4v-2.4
+	C8.2,26.5,8,26.3,7.7,26.3z M7.3,28.6H2.4v-1.5h4.9V28.6z M9.5,23.3h12.8v0.9H9.5V23.3z M10.1,19.8c-0.1,0.7-0.3,1.3-0.7,1.9
+	c-0.2,0.3-0.5,0.7-0.7,1c-0.4,0.5-0.8,1-0.9,1.3l-0.1,1.2l-0.9-0.1L7,23.9c0,0,0,0,0,0c0.1-0.5,0.5-1,1.1-1.7
+	c0.2-0.3,0.5-0.6,0.7-0.9c0.3-0.4,0.5-0.9,0.5-1.4v-1.4c0-0.1,0-0.2-0.2-0.3c-0.1,0-0.3,0-0.4,0c0,0-0.1,0.1-0.1,0.1
+	c-0.2,0.4-0.7,1.9-0.7,2c-0.1,0.2-0.3,0.3-0.6,0.3C7.1,20.5,7,20.4,7,20.2v-6.8c0-0.2-0.2-0.4-0.4-0.4c-0.2,0-0.4,0.2-0.4,0.4V18
+	c0,0.2-0.2,0.4-0.4,0.4S5.4,18.3,5.4,18v-1.9H5.2c-0.3,0-0.5,0.2-0.5,0.5v2.1c0,0.2-0.2,0.4-0.4,0.4c-0.2,0-0.4-0.2-0.4-0.4v-1.9
+	H3.8c-0.3,0-0.5,0.2-0.6,0.4V18c0,0.1,0,0.1,0,0.2v1.3c0,0.2-0.2,0.4-0.4,0.4s-0.4-0.2-0.4-0.4V18c0,0,0,0,0-0.1
+	c-0.1,0-0.2-0.1-0.2-0.1c-0.3,0-0.4,0.2-0.4,0.3v2.3c0,1.2,0.6,3.4,0.8,4.2h3.1v0.9H2.2c-0.2,0-0.4-0.1-0.4-0.3
+	c0-0.1-0.9-3.1-0.9-4.7v-2.3C0.8,17.5,1.4,17,2,17c0,0,0,0,0,0c0.1,0,0.2,0,0.3,0c0.2-0.7,0.8-1.1,1.4-1.1H4
+	c0.2-0.4,0.7-0.7,1.1-0.7h0.3v-1.9c0-0.7,0.5-1.2,1.2-1.2c0.7,0,1.2,0.5,1.2,1.2v4.4c0.1-0.1,0.2-0.2,0.3-0.3
+	c0.3-0.2,0.8-0.3,1.2-0.2c0.5,0.1,0.8,0.6,0.8,1.1V19.8z M19.4,12.4c0-0.1-0.1-0.2-0.2-0.2h-1.8c-0.1,0-0.2,0.1-0.2,0.2v1.8
+	c0,0.1,0.1,0.2,0.2,0.2h1.8c0.1,0,0.2-0.1,0.2-0.2V12.4z M19,14h-1.4v-1.4H19V14z M22.9,9.3c-0.1,0-0.2,0.1-0.2,0.2v1.8
+	c0,0.1,0.1,0.2,0.2,0.2h1.8c0.1,0,0.2-0.1,0.2-0.2V9.5c0-0.1-0.1-0.2-0.2-0.2H22.9z M24.5,11.1h-1.4V9.7h1.4V11.1z M21.9,12.2h-1.8
+	c-0.1,0-0.2,0.1-0.2,0.2v1.8c0,0.1,0.1,0.2,0.2,0.2h1.8c0.1,0,0.2-0.1,0.2-0.2v-1.8C22.2,12.3,22.1,12.2,21.9,12.2z M21.7,14h-1.4
+	v-1.4h1.4V14z M22.2,9.5c0-0.1-0.1-0.2-0.2-0.2h-1.8c-0.1,0-0.2,0.1-0.2,0.2v1.8c0,0.1,0.1,0.2,0.2,0.2H22c0.1,0,0.2-0.1,0.2-0.2
+	V9.5z M21.8,11.1h-1.4V9.7h1.4V11.1z M3.2,14.8H2.3V8.1c0-0.2,0.2-0.4,0.4-0.4h12.5V6.9h-4.6c-0.7,0-1.3-0.6-1.3-1.3
+	c0-0.7,0.6-1.3,1.3-1.3h10.1c0.2,0,0.4-0.2,0.4-0.4v0c0-0.2-0.2-0.4-0.4-0.4h-5.1V2.7h5.2c0.7,0,1.3,0.6,1.3,1.3v0
+	c0,0.7-0.5,1.3-1.2,1.3H10.7c-0.2,0-0.4,0.2-0.4,0.4c0,0.2,0.2,0.4,0.4,0.4h5.1c0.2,0,0.4,0.2,0.4,0.4v1.2h12.7
+	c0.2,0,0.4,0.2,0.4,0.4V15h-0.9V8.5H3.2V14.8z M25.6,9.3c-0.1,0-0.2,0.1-0.2,0.2v1.8c0,0.1,0.1,0.2,0.2,0.2h1.8
+	c0.1,0,0.2-0.1,0.2-0.2V9.5c0-0.1-0.1-0.2-0.2-0.2H25.6z M27.2,11.1h-1.4V9.7h1.4V11.1z M16.5,15.1h-1.8c-0.1,0-0.2,0.1-0.2,0.2v1.8
+	c0,0.1,0.1,0.2,0.2,0.2h1.8c0.1,0,0.2-0.1,0.2-0.2v-1.8C16.7,15.2,16.6,15.1,16.5,15.1z M16.3,16.9h-1.4v-1.4h1.4V16.9z M17.4,15.1
+	c-0.1,0-0.2,0.1-0.2,0.2v1.8c0,0.1,0.1,0.2,0.2,0.2h1.8c0.1,0,0.2-0.1,0.2-0.2v-1.8c0-0.1-0.1-0.2-0.2-0.2H17.4z M19,16.9h-1.4v-1.4
+	H19V16.9z M16.8,9.5c0-0.1-0.1-0.2-0.2-0.2h-1.8c-0.1,0-0.2,0.1-0.2,0.2v1.8c0,0.1,0.1,0.2,0.2,0.2h1.8c0.1,0,0.2-0.1,0.2-0.2V9.5z
+	 M16.4,11.1H15V9.7h1.4V11.1z M14,12.4c0-0.1-0.1-0.2-0.2-0.2H12c-0.1,0-0.2,0.1-0.2,0.2v1.8c0,0.1,0.1,0.2,0.2,0.2h1.8
+	c0.1,0,0.2-0.1,0.2-0.2V12.4z M13.6,14h-1.4v-1.4h1.4V14z M16.7,12.4c0-0.1-0.1-0.2-0.2-0.2h-1.8c-0.1,0-0.2,0.1-0.2,0.2v1.8
+	c0,0.1,0.1,0.2,0.2,0.2h1.8c0.1,0,0.2-0.1,0.2-0.2V12.4z M16.3,14h-1.4v-1.4h1.4V14z M19.5,9.5c0-0.1-0.1-0.2-0.2-0.2h-1.8
+	c-0.1,0-0.2,0.1-0.2,0.2v1.8c0,0.1,0.1,0.2,0.2,0.2h1.8c0.1,0,0.2-0.1,0.2-0.2V9.5z M19.1,11.1h-1.4l0-1.4h1.4V11.1z"/>',
+        iconAlt: "set up and start",
+        description: "Set up and start."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+ #}
+
+{% set getStartedTabs = [
+        {
+        id: 1,
+        tabTitle: "Learn about LinuxONE",
+        tabSubSections: [
+            {
+                subSectionTitle: "How LinuxONE works",
+                subSectionContent: "<p>In a word, virtualization. Rather than adding more physical servers, system administrators provision new <em>virtual machine servers</em> in minutes or seconds. You can run thousands of virtual servers on one LinuxONE server, keeping networking overhead low and promoting efficient sharing of resources.</p>
+                <p>Choose from or combine these options:</p>
+                <ul>
+                    <li>Logical partitions (LPARs), a hardware approach that offers superior isolation of workloads. You can define up to 85 LPARs.</li>
+                    <li>Hypervisor software that enables multiple operating systems to share physical computing resources, including <a href='https://www.ibm.com/docs/en/linux-on-systems?topic=virtualization-kvm'>KVM</a> (open source) and <a href='https://www.ibm.com/docs/en/linux-on-systems?topic=virtualization-zvm'>z/VM</a>®.</li>
+                </ul>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://mediacenter.ibm.com/media/t/1_cdbz9ycm",
+                        linkText: "See how LinuxONE works for Techcom Bank"
+                    }
+                ],
+                subSectionImage: "https://izswebpage.mybluemix.net/images/loj/linuxone-diagram-single.svg",
+                subSectionMediaAlt: "virtualization and logical partitioning"
+            },
+            {
+                subSectionTitle: "Hybrid cloud",
+                subSectionContent: "<p>LinuxONE’s security, privacy, resiliency, and flexibility make it perfectly suited  for hybrid cloud infrastructure. Developers leverage cloud-native development, including containers and Kubernetes, along with <a href='https://www.ibm.com/cloud/paks'>IBM Cloud Paks</a> built on Red Hat OpenShift, to efficiently and effectively develop and deploy applications.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/downloads/cas/E97LZYVG",
+                        linkText: "Learn more about benefits and best practices"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/downloads/cas/7PZGV1QX",
+                        linkText: "Elevate your hybrid cloud experience with IBM Cloud Paks® and Red Hat® OpenShift® Container Platform"
+                    }
+                ],
+                subSectionVideo: "1_6jr37m8r",
+                subSectionVideoThumbnail: "https://izswebpage.mybluemix.net/images/loj/cloudpaksthumbnail.jpg",
+                subSectionMediaAlt: "Video - Intro to IBM Cloud Paks"
+            },
+            {
+                subSectionTitle: "Security and privacy",
+                subSectionContent: "<p>With LinuxONE, encrypt pervasively rather than selectively — it’s built into every processor chip. The IBM Crypto Express adapter enables industry-leading protection of encryption keys. On-chip acceleration of compression speeds processing and makes data storage more efficient.</p>
+                <p>Protect your assets from security breaches with the EAL5+ workload isolation provided by logical partitions (LPARs). <a href='https://www.ibm.com/docs/en/linux-on-systems?topic=virtualization-introducing-secure-execution-linux'>IBM Secure Execution</a> for Linux isolates workloads at the virtual machine level and protects you from insider and outsider threats.</p>
+                <p>Protect Linux®  workloads throughout the lifecycle with <a href='https://www.ibm.com/docs/en/hpvs/2.1.x''>IBM Hyper Protect Virtual Servers</a>, a software solution built on the IBM Secure Service Container framework. Application developers can build in a trusted, encrypted environment. Operations personnel manages applications without access to sensitive data.</p>",
+                subSectionVideo: "0_o8pusddl",
+                subSectionVideoThumbnail: "https://izswebpage.mybluemix.net/images/loj/pevideothumbnail3.jpg",
+                subSectionMediaAlt: "Video - Pervasive Encryption for Data Volumes thumbnail"
+            },
+            {
+                subSectionTitle: "Resiliency and availability",
+                subSectionContent: "<p>LinuxONE is designed to deliver 99.999% availability and beyond, with redundancy in internal components, including Redundant Array of Independent Memory (RAIM), which detects and recovers from memory failures.</p>",
+                subSectionVideo: "",
+                subSectionVideoThumbnail: "",
+                subSectionMediaAlt: ""
+            },
+            {
+                subSectionTitle: "Sustainability",
+                subSectionContent: "<p>LinuxONE is designed to help you meet your sustainability goals. Consolidating workloads 
+                    from many x86 servers onto a single LinuxONE server can reduce energy costs, carbon footprint, and floor space.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/products/linuxone-emperor-4/sustainability",
+                        linkText: "Sustainability and LinuxONE Emperor 4"
+                    }
+                ]
+            }
+        ]
+        },
+        {
+        id: 2,
+        tabTitle: "Solutions",
+        tabSubSections: [
+                {
+                    subSectionContent: "<p>You work with IBM and possibly a <a href='https://www.ibm.com/partnerworld/systems/linuxone'>business partner</a> to understand your LinuxONE software solution, including the Linux distribution and other software. Key capabilities that have been validated for LinuxONE include the following:</p>
+                    <ul>
+                    <li>Languages: Python, Pearl, COBOL, Java, Node.js</li>
+                    <li>Management: WAVE, IBM Cloud Manager, Openstack, Docker, Chef, Puppet, VMware vRealize Automation</li>
+                    <li>Database: Oracle, DB2LUW, MariaDB, MongoDB, PostgreSQL</li>
+                    <li>Analytics Tools with Hadoop, Big Insights, DB2BLU and Spark</li>
+                    </ul>
+                    <p>Of course, many others are available.</p>"
+                },
+                {
+                    subSectionTitle: "Linux distributions",
+                    subSectionContent: "<p>Linux Distributions for LinuxONE are offered by RedHat and by Linux distribution partners Canonical (ubuntu) and SUSE, who provide services and support. IBM also offers services for all eligible Linux distributions for LinuxONE and support for the distributions from Red Hat and SUSE.</p>",
+                    subSectionLinks: [
+                        {
+                            linkUrl: "https://www.ibm.com/it-infrastructure/z/os/linux-tested-platforms",
+                            linkText: "IBM tested and partner-certified Linux environments"
+                        }
+                    ]
+                },
+                {
+                    subSectionTitle: "Software",
+                    subSectionContent: "<p>You can choose solutions from IBM software, open source software, and software from independent software vendors, such as Oracle. IBM collaborates with the Linux community and is one of the leading commercial contributors to Linux. Container images offer lightweight and self-contained software to enable deployment at scale. Use the following links to get a first look at supported software:</p>",
+                    subSectionLinks: [
+                        {
+                            linkUrl: "https://www-356.ibm.com/partnerworld/gsd/search.do#v%3D%2B1%26q%3D%26ql%3Den%2Cja%2Cde%2Cko%2Cpt-BR%2Ces%2Cru%2Cfr%2Czh%2Cit%26filter%3DGSD.OperatingSystem%3AX09RH6%2CXOSLE11%2COE35D%2BGSD.Hardware%3A5000026%2BGSD.LanguagesDisplay%3AEN",
+                            linkText: "Independent software vendor software on LinuxONE"
+                        },
+                        {
+                            linkUrl: "https://catalog.redhat.com/software/containers/search?p=1&architecture=s390x",
+                            linkText: "Container images"
+                        }
+                    ]
+                },
+                {
+                    subSectionTitle: "Storage and devices",
+                    subSectionContent: "<p>Storage devices must fully conform to Fibre Channel Protocol (FCP) standard specifications. They must be connected using a storage area network (SAN) topology supported by LinuxONE (switched fabric recommended). Storage vendors must provide a support statement for use of the storage device with LinuxONE. In particular, the vendor must agree to perform problem analysis as IBM does not have access to these storage systems.</p>
+                    <p>For NAS Storage, a support statement must come from the Linux distribution vendor, as they own the NAS Linux support. There is no support to boot from NAS in LinuxONE.</p>",
+                    subSectionLinks: [
+                        {
+                            linkUrl: "https://www-03.ibm.com/systems/support/storage/ssic/interoperability.wss",
+                            linkText: "Storage with LinuxONE"
+                        },
+                        {
+                            linkUrl: "https://www-01.ibm.com/servers/resourcelink/lib03020.nsf/pages/switchesAndDirectorsQualifiedForIbmSystemZRFiconRAndFcpChannels?OpenDocument",
+                            linkText: "Switches attached to LinuxONE (and IBM Z®)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+        id: 3,
+        tabTitle: "Total cost of ownership",
+        tabSubSections: [
+            {
+            subSectionContent: "<p> You work with IBM and possibly a <a href='https://www.ibm.com/partnerworld/systems/linuxone'>business partner</a> to understand the total cost of ownership of LinuxONE based on the solution that you have identified.</p>
+            <p>As a first step, you might do a sizing -- that is, answer the question, how big does each element of the solution need to be?</p>
+            <p>Total cost of ownership of LinuxONE can be lowered significantly, when compared with other platforms, by several factors, including:</p>
+            <ul>
+                <li>Consolidating workloads. With LinuxONE, fewer servers can mean energy and space savings, and dramatically fewer cores can result in dramatically reduced software licensing costs
+                for software that is priced by the core. LinuxONE requires fewer cores than x86, as a result of:</p>
+                <ul>
+                    <li>Faster processor speed  </li>
+                    <li>Specialized engines that offload I/O to persistent storage</li>
+                    <li>High-speed, in-memory communication across LPARs, provided by HiperSockets</li>
+                    <li>Design for very high utilization levels (close to 100%) with no performance impact.</li>
+                </ul>
+                </li>
+                <li>Open source system software.</li>
+                <li>Support in the architecture for higher utilization, which reduces the tendency found with other architectures to provision more computing resources than are needed as a way to avoid bottlenecks caused by peaks in utilization.</li>
+            </ul>
+            <p>A total cost of ownership calculator provides a personalized estimate for LinuxONE.</p>",
+            subSectionLinks: [
+                {
+                linkUrl: "https://www.ibm.com/it-infrastructure/resources/tools/linuxone-tco-calculator/",
+                linkText: "IBM LinuxONE TCO calculator"
+                }
+                ]
+            }
+            ]
+        },
+        {
+        id: 4,
+        tabTitle: "Plan and order",
+        tabSubSections: [
+            {
+                subSectionContent: "<p>Work with IBM and possibly a <a href='https://www.ibm.com/partnerworld/systems/linuxone'>business partner</a> to choose the configuration, either off-the-shelf or fully customizable, that meets your needs. LinuxONE III offers:</p>
+                    <ul>
+                        <li>Up to 4 19-inch frames, depending on your capacity requirements</li>
+                        <li>Both raised and non-raised floor environments</li>
+                        <li>Top and bottom exit I/O and power.</li>
+                    </ul>
+                    <p>The steps for obtaining a new LinuxONE system vary, depending on your needs, but typically IBM: </p>
+                    <ul>
+                        <li>Prepares a proposal</li>
+                        <li>Discusses financing with you</li>
+                        <li>Works with you to place an order</li>
+                        <li>Builds and tests your system.</li>
+                    </ul>"
+            },
+            {
+                subSectionTitle: "Site planning information",
+                subSectionContent: "<p>IBM provides detailed site planning information, including a checklist, in a publication that you can download.</p>
+                    <p class='ibm-ind-link ibm-padding-bottom-2'>
+                        <a href='https://izswebpage.mybluemix.net/docs/SitePlanningChecklist_summary.pdf' class='ibm-margin-bottom-0 ibm-forward-link ibm-textcolor-blue-50'>See a summary of the site planning checklist</a>
+                    </p>
+                    <p>To see the full checklist and other site planning information, use the link for the appropriate publication.</p>
+                    <ul>     
+                                <li>Rockhopper 4 Rack Mount Bundle: <a href='https://www.ibm.com/docs/en/systems-hardware/linuxone/3932-AGL?topic=library-installation-manual-physical-planning'>LinuxONE Rockhopper 4 Rack Mount Bundle Installation Manual for Physical Planning</a>
+                                </li>
+                                <li>Rockhopper 4 Model LA2: <a href='https://www.ibm.com/docs/en/systems-hardware/linuxone/3932-LA2?topic=library-installation-manual-physical-planning'>3932 Single Frame Installation Manual for Physical Planning (Models A02/LA2)</a>
+                                </li>
+                    </ul>
+                    <p>For the following models, download the PDF from Resource Link, a customized Web-based solution providing access to information for planning, 
+                    installing, and maintaining IBM Systems servers and associated software. If you do not have an IBM ID, or have not registered your IBM ID to 
+                    Resource Link, see <a href='https://www.ibm.com/servers/resourcelink'>information for new users</a>.</p>
+                    <ul>
+                    <li>Emperor 4: <a href='https://www-40.ibm.com/servers/resourcelink/lib03010.nsf/pagesByDocid/96E10E0A5158435285258807006DF24E?OpenDocument'>3931 Installation Manual for Physical Planning</a>
+                    </li>
+                    <li>LinuxONE III single-frame: <a href='https://www.ibm.com/support/pages/node/6257603'>8562 Installation Manual for Physical Planning</a>
+                    </li>
+                    <li>LinuxONE III multi-frame: <a href='https://www.ibm.com/support/pages/node/6019888'>8561 Installation Manual for Physical Planning</a>
+                    </li></ul>"
+                }
+            ]
+        },
+        {
+        id: 5,
+        tabTitle: "Set up and start",
+        tabSubSections: [
+            {
+            subSectionContent: "<p>You work with IBM and possibly a <a href='https://www.ibm.com/partnerworld/systems/linuxone'>business partner</a> to set up and start your LinuxONE system. </p>
+            <p>IBM ships your system to you and:</p>
+            <ol>
+                <li>Unloads and unboxes your system at your location</li>
+                <li>Moves it into your data center</li>
+                <li>Verifies that it is complete</li>
+                <li>Cables the system</li>
+                <li>Brings it up.</li>
+            </ol>
+            <p>Use these resources to continue your journey to LinuxONE.</p>",
+            subSectionLinks: [
+                {
+                linkUrl: "https://www.ibm.com/it-infrastructure/linuxone",
+                linkText: "Learn more and contact IBM"
+                },
+                {
+                linkUrl: "https://developer.ibm.com/components/ibm-linuxone/gettingstarted/",
+                linkText: "Test drive LinuxONE"
+                },
+                {
+                linkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/community-home?CommunityKey=8df148bb-b9bb-46e5-80cd-853b5927c3f9&joinOurCommunity=1",
+                linkText: "Connect with peers and industry experts through Compass L"
+                },
+                {
+                linkUrl: "https://www.ibm.com/it-infrastructure/services/lab-services/z-linuxone",
+                linkText: "Let experts help you design, build, and implement Linux infrastructure"
+                }
+            ]
+        }
+        ]
+     }
+] %}
+{# END GETTING STARTED #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast", "blog"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "Other resources",
+        tabContent: [
+            {
+                resourceDescription: "Find descriptions, server specifications, testimonials, case studies, and more.",
+                resourceLinkUrl: "https://www.ibm.com/it-infrastructure/linuxone",
+                resourceLinkText: "Explore LinuxONE",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceDescription: "Find information to unleash your open source apps and services on the Linux platform.",
+                resourceLinkUrl: "https://www.redbooks.ibm.com/Redbooks.nsf/domains/linuxone?Open",
+                resourceLinkText: "Explore LinuxONE redbooks",
+                resourceLinkType: "redbook",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/redbook-white.png"
+            },
+            {
+                resourceDescription: "Get timely information about LinuxONE topics.",
+                resourceLinkUrl: "https://www.ibm.com/blogs/systems/tag/ibm-linuxone/",
+                resourceLinkText: "Explore LinuxONE blogs",
+                resourceLinkType: "blog",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/cp-bp/svg/IconBlogWhiteLg.svg"
+            },
+            {
+                resourceDescription: "View documentation for development.",
+                resourceLinkUrl: "https://www.ibm.com/developerworks/linux/linux390/documentation_dev.html",
+                resourceLinkText: "Explore documentation",
+                resourceLinkType: "developer",
+                resourceStatus: "hide",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/dW-white.png"
+            },
+            {
+                resourceDescription: "Find information about Secure Service Container.",
+                resourceLinkUrl: "https://www.ibm.com/us-en/marketplace/secure-service-container",
+                resourceLinkText: "Explore Secure Service Container",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceDescription: "Find information about services to help you design and implement solutions on LinuxONE.",
+                resourceLinkUrl: "https://www.ibm.com/it-infrastructure/services/lab-services/z-linuxone",
+                resourceLinkText: "Explore Lab Services",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceDescription: "Find information about services to help you build secure cloud applications on LinuxONE.",
+                resourceLinkUrl: "https://www.ibm.com/cloud/hyper-protect-services",
+                resourceLinkText: "Explore IBM Cloud Hyper Protect Services",
+                resourceLinkType: "wepage",
+                resourceStatus: "hide",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceDescription: "Test drive LinuxONE and access other resources on the IBM LinuxONE Community Cloud.",
+                resourceLinkUrl: "https://developer.ibm.com/components/ibm-linuxone/gettingstarted/",
+                resourceLinkText: "Explore the IBM LinuxONE Community Cloud",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceDescription: "z/VM and Linux on IBM Z and LinuxONE Bootcamp",
+                resourceLinkUrl: "https://www.ibm.com/services/learning/course/ZL00G",
+                resourceLinkText: "Explore the course",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceDescription: "Hybrid cloud: The best of all worlds",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/E97LZYVG?_ga=2.194994541.1300699343.1605134105-55594193.1597331439",
+                resourceLinkText: "Learn benefits and best practices",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            },
+            {
+                resourceDescription: "IBM PartnerWorld for LinuxONE",
+                resourceLinkUrl: "https://www.ibm.com/partnerworld/systems/linuxone",
+                resourceLinkText: "Explore resources for IBM Business Partners",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceDescription: "Announcing LinuxONE Express and the Tailored Fit Pricing Hardware Consumption Solution",
+                resourceLinkUrl: "https://www.ibm.com/blogs/systems/announcing-ibm-linuxone-iii-express-and-tailored-fit-pricing",
+                resourceLinkText: "Read the blog",
+                resourceLinkType: "blog",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/cp-bp/svg/IconBlogWhiteLg.svg"
+            },
+            {
+                resourceDescription: "Connect with peers and industry experts through Compass L, the technical exchange platform for Linux on LinuxONE and IBM Z.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/community-home?CommunityKey=8df148bb-b9bb-46e5-80cd-853b5927c3f9&joinOurCommunity=1",
+                resourceLinkText: "Explore Compass L",
+                resourceLinkType: "webpage",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            },
+            {
+                resourceDescription: "LinuxONE and sustainability",
+                resourceLinkUrl: "https://www.ibm.com/products/linuxone-emperor-4/sustainability",
+                resourceLinkText: "Learn more",
+                resourceLinkType: "webpage",
+                resourceStatus: "new",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/ibm-desktop-white.png"
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Videos",
+        tabContent: [
+            {
+                resourceDescription: "Look inside LinuxONE.",
+                resourceLinkUrl: "https://apps.kaonadn.net/4882011/index.html#C1165",
+                resourceLinkText: "Explore the LinuxONE interactive Product Catalog",
+                resourceLinkType: "webpage"
+            },
+            {
+                resourceDescription: "LinuxONE videos on IBM Media Center",
+                resourceLinkUrl: "https://mediacenter.ibm.com/tag?tagid=linuxone",
+                resourceLinkText: "Explore videos",
+                resourceLinkType: "video"
+            },
+            {
+                resourceDescription: "Accelerated Data Compression with Linux on LinuxONE III - Managing Data Growth",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_xyknhu3e",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video"
+            },
+            {
+                resourceDescription: "Accelerated Data Compression for Linux Databases on LinuxONE III",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_bd2n3wmn",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video"
+            },
+            {
+                resourceDescription: "Pervasive Encryption for Data Volumes",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/0_o8pusddl",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video"
+            },
+            {
+                resourceDescription: "Setting Up Data Volumes for Pervasive Encryption in Less than 10 Minutes",
+                resourceLinkUrl: "https://www.youtube.com/watch?v=U-rEzucjGuM",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceStatus: "hide"
+            },
+            {
+                resourceDescription: "Linux on LinuxONE: Enterprise Key Management for Pervasive Encryption of Data Volumes",
+                resourceLinkUrl: "https://video.ibm.com/recorded/130688362",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video"
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Documentation",
+        tabContent: [
+            {
+                resourceDescription: "Documentation for LinuxONE",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/systems-hardware/linuxone",
+                resourceLinkText: "Explore the documentation",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png",
+                resourceStatus: "new"
+            },
+            {
+                resourceDescription: "Documentation for Linux on LinuxONE and Z",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/linux-on-systems?topic=linux-z-linuxone",
+                resourceLinkText: "Explore the documentation",
+                resourceLinkType: "document",
+                resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no announcement content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [25,23] %}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "April 20, 2023",
+        sectionContent: "<p>On the Plan and order tab of the How to get started section, the links to documentation now include recently announced models."
+    },
+    {
+        sectionTitle: "February 16, 2023",
+        sectionContent: "<p>On the Learn about LinuxONE tab of the How to get started section, the sections about resiliency, availability, and sustainability have been edited for clarity."
+    },
+    {
+        sectionTitle: "November 17, 2022",
+        sectionContent: "<p>On the Learn about LinuxONE tab of the How to get started section, the link for more information about Hyper Protect Virtual Servers now goes to the documentation. In the Technical resources section, the tile for the Hyper Protect Virtual Servers content solution has been removed, because the content solution has been removed."
+    },
+    {
+        sectionTitle: "November 15, 2022",
+        sectionContent: "<p>Information about Hyper Protect Data Controller was removed, as it is withdrawn."
+    },
+    {
+        sectionTitle: "November 1, 2022",
+        sectionContent: "<p>Information about sustainability was added."
+    },
+    {
+        sectionTitle: "September 14, 2022",
+        sectionContent: "<p>Information was updated to reflect the availability of LinuxONE Emperor 4."
+    },
+    {
+        sectionTitle: "October 7, 2021",
+        sectionContent: "<p>Links to Compass L, the technical exchange platform for Linux on Z and LinuxONE, were added."
+    },
+    {
+        sectionTitle: "August 12, 2021",
+        sectionContent: "<p>An overview video was added to the Introduction section."
+    },
+    {
+        sectionTitle: "July 29, 2021",
+        sectionContent: "<p>A video was added to the hybrid cloud section of the Learn about LinuxONE tab. A video, Linux on LinuxONE: Enterprise Key Management for Pervasive Encryption of Data Volumes, was added to the Technical resources section."
+    },
+    {
+        sectionTitle: "July 9, 2021",
+        sectionContent: "<p>A video, The z15 Core of LinuxONE, was added to the Learn about LinuxONE tab of the How to get started section and to the Technical resources section."
+    },
+    {
+        sectionTitle: "May 7, 2021",
+        sectionContent: "<p>The Total cost of ownership tab in the How to get started section links to a new TCO calculator."
+    },
+    {
+        sectionTitle: "May 4, 2021",
+        sectionContent: "<ul>
+        <li>Updates for the new LinuxONE Express offering were added to the Introduction section and to the Plan and order tab of the How to get started section.</li>
+        <li>Resources were added to the Technical resources section.</li>
+        <li>The video in the Consolidation section of the Learn tab is new.</li>
+        </ul>"
+    },
+    {
+        sectionTitle: "January 8, 2021",
+        sectionContent: "<ul>
+            <li>Links to IBM PartnerWorld were added to the Solutions tab of the How to get started section and to the Other resources tab of the Technical resources section.</li>
+            <li>Links to new videos were added to the Multimedia tab of the Technical resources section.</li>
+        </ul>"
+    },
+    {
+        sectionTitle: "December 4, 2020",
+        sectionContent: "<ul>
+            <li>A link to a LinuxONE channel on IBM Media Center was added to the Multimedia tab of the Technical resources section.</li>
+            <li>A summary site planning checklist was added to the Plan and order tab of the What to expect section.</li>
+            <li>Minor edits were made for accessibility and usability.</li>
+        </ul>"
+    },
+    {
+        sectionTitle: "November 12, 2020",
+        sectionContent: "<p>A link to <em>Hybrid cloud: The best of all worlds</em> was added to the Learn about LinuxONE tab and to the Other resources tab of the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "August 4, 2020",
+        sectionContent: "<ul >
+            <li>In the What to expect section, the information on the Learn tab was expanded and reorganized, and links to Installation Manual for Physical Planning were added to the Plan and Order tab.</li>
+            <li>New resources were added to the Technical resources section, including a new tab for product libraries.</li>
+        </ul>"
+    },
+    {
+        sectionTitle: "June 26, 2020",
+        sectionContent: "<p>A link to the LinuxONE Community Cloud was added to the Set Up and Start tab of the What to expect section, and to the Other resources tab of the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "April 30, 2020",
+        sectionContent: "<p>The Learn about LinuxONE tab was updated to reflect the new air-cooled, single-frame model. On the Solutions tab, the link to information about open source software was changed.</p>
+        <p>Data Privacy Passports was added to the Other resources tab of the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "February 27, 2020",
+        sectionContent: "<p>Some content was edited, including the section on virtualization. Links to Lab Services and to IBM Cloud Hyper Protect Services were added to the Technical resources section.</p>"
+    },
+    {
+        sectionTitle: "November 25, 2019",
+        sectionContent: "<p>Some content was edited, including content in the section “How does LinuxONE compare to x86?” Use the link in that section for comparisons of LinuxONE to x86 servers.</p>"
+    }
+] %}
+{# END WHATS NEW #}
+
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "journeytolinuxone" %}
+{# END FEEDBACK #}
+
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "12099955",
+    sc_security: "b6fc0035"
+}
+ %}
+{# END STATCOUNTER #}
+
+{# START HOTJAR #}
+{% set hotjar = {
+    site_id: "2496729"
+}
+ %}
+ {# END HOTJAR #}

@@ -1,0 +1,569 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "IBM Watson Machine Learning for z/OS" %}
+{% set key = 36 %}
+
+{# META #}
+{% set meta_description = meta_description | default("Explore this page for technical resources to get you started with IBM Watson Machine Learning for z/OS.") %}
+{% set meta_keywords = meta_keywords | default("machine learning mainframe, real time analytic server, z machine learning, ai platforms, ai operations, ai technologies, ai strategy") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "image",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/aiz/aiz-0.png",
+    label: "z15"
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Welcome to the IBM Watson Machine Learning for z/OS content solution, your homepage for technical resources.</p>
+<p>IBM Watson Machine Learning for z/OS (WMLz) is an enterprise machine learning solution for IBM zSystems. Combining an intuitive user interface and APIs for various services, enterprise teams can import and create models, as well as deploy and monitor them in applications running in z/OS and beyond. When coupled with the power of the integrated accelerator for AI on the IBM z16, WMLz users can achieve real-time insights against every transaction, driving new value across business applications and IT operations.</p>
+<p>Use this page to help your enterprise team plan to get started with WMLz.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "marketing",
+        url: "https://www.ibm.com/products/machine-learning-for-zos",
+        text: ""
+
+    }
+] %}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "wmlz" %}
+{# END FEEDBACK #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{% set announcements = [
+    {
+    announcementText: "Try the free WMLz Online Scoring Community Edition",
+    announcementLinkText: "Read more",
+    announcementLinkUrl: "https://www.ibm.com/resources/mrs/assets/mrs_landing_page?source=ibmwmlzos&lang=en_US"
+    }
+]%}
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/wmlz/wmlz1.svg",
+        iconPath: '<path id="documentation_00000169549664209796938480000018167874221036921985_" d="M28,31.36H4c-0.199,0-0.36-0.161-0.36-0.36V1
+	c0-0.199,0.161-0.36,0.36-0.36h18c0.096,0,0.188,0.038,0.255,0.105l6,6C28.322,6.813,28.36,6.904,28.36,7v24
+	C28.36,31.199,28.199,31.36,28,31.36z M4.36,30.64h23.28V7.36H22c-0.199,0-0.36-0.161-0.36-0.36V1.36H4.36V30.64z M22.36,6.64h4.771
+	L22.36,1.869V6.64z M24,27.36H8v-0.72h16V27.36z M24,23.36H8v-0.72h16V23.36z M24,19.36H8v-0.72h16V19.36z M24,15.36H8v-0.72h16
+	V15.36z M24,11.36H8v-0.72h16V11.36z"/>',
+        iconAlt: "pictogram for step one - plan and install",
+        description: "Plan for and install WMLz via SMP/E and PTFs"
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/wmlz/wmlz2.svg",
+        iconPath: '<path id="workflows_00000114066186493791105350000008236478240720686000_" d="M18,14.36h12c0.199,0,0.36-0.161,0.36-0.36V2
+	c0-0.199-0.161-0.36-0.36-0.36H18c-0.199,0-0.36,0.161-0.36,0.36v5.64h-3.28V2c0-0.199-0.161-0.36-0.36-0.36H2
+	C1.801,1.64,1.64,1.801,1.64,2v12c0,0.199,0.161,0.36,0.36,0.36h5.64v3.28H2c-0.199,0-0.36,0.161-0.36,0.36v12
+	c0,0.199,0.161,0.36,0.36,0.36h12c0.199,0,0.36-0.161,0.36-0.36v-5.64h3.28V30c0,0.199,0.161,0.36,0.36,0.36h12
+	c0.199,0,0.36-0.161,0.36-0.36V18c0-0.199-0.161-0.36-0.36-0.36H18c-0.199,0-0.36,0.161-0.36,0.36v5.64h-3.28V18
+	c0-0.199-0.161-0.36-0.36-0.36H8.36v-3.28H14c0.199,0,0.36-0.161,0.36-0.36V8.36h3.28V14C17.64,14.199,17.801,14.36,18,14.36z
+	 M18.36,8.36h5.771l-1.386,1.386l0.51,0.509L25.509,8l-2.254-2.254l-0.51,0.509l1.386,1.386H18.36V2.36h11.28v11.28H18.36V8.36z
+	 M18.36,24.36h4.328c0.158,0.575,0.687,1,1.312,1c0.75,0,1.36-0.61,1.36-1.36s-0.61-1.36-1.36-1.36c-0.625,0-1.153,0.425-1.312,1
+	H18.36v-5.28h11.28v11.28H18.36V24.36z M23.36,24c0-0.353,0.287-0.64,0.64-0.64s0.64,0.287,0.64,0.64s-0.287,0.64-0.64,0.64
+	S23.36,24.353,23.36,24z M8,23.36c0.353,0,0.64,0.287,0.64,0.64S8.353,24.64,8,24.64S7.36,24.353,7.36,24S7.647,23.36,8,23.36z
+	 M13.64,29.64H2.36V18.36h5.28v4.328c-0.576,0.158-1,0.687-1,1.312c0,0.75,0.61,1.36,1.36,1.36c0.625,0,1.153-0.425,1.312-1h4.329
+	v5.28H13.64z M13.64,18.36v5.279H9.312c-0.126-0.461-0.491-0.824-0.952-0.951V18.36H13.64z M8,8.64C7.647,8.64,7.36,8.353,7.36,8
+	S7.647,7.36,8,7.36c0.353,0,0.64,0.287,0.64,0.64C8.64,8.353,8.353,8.64,8,8.64z M13.64,13.64H8.36V9.312
+	C8.821,9.185,9.185,8.821,9.312,8.36h4.329v5.28H13.64z M13.64,7.64H9.312c-0.158-0.576-0.686-1-1.312-1C7.25,6.64,6.64,7.25,6.64,8
+	c0,0.625,0.424,1.153,1,1.312v4.329H2.36V2.36h11.28C13.64,2.36,13.64,7.64,13.64,7.64z"/>',
+        iconAlt: "pictogram for step two - set up WMLz",
+        description: "Set up WMLz using an intuitive configuration tool"
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/wmlz/wmlz3.svg",
+        iconPath: '<path d="M31.36,9h-0.72V1.36H1.36V9H0.64V1c0-0.199,0.161-0.36,0.36-0.36h30c0.199,0,0.36,0.161,0.36,0.36V9z"/>
+                	<polygon points="16.36,31 15.64,31 15.64,9.869 10.254,15.254 9.746,14.746 16,8.491 22.255,14.746 21.745,15.254 16.36,9.869 	"/>',
+        iconAlt: "pictogram for step three - import or develop models",
+        description: "Import models from file, or develop new ones with an embedded Jupyter server"
+    },
+    {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/wmlz/wmlz4.svg",
+        iconPath: '<path id="deployment_00000104673426494689286260000005737712930317178767_" d="M30.36,30.36H22v-0.72h7.131L16.673,17.182
+	c-0.397,0.227-0.948,0.227-1.346,0L2.869,29.64H10v0.721H1.64V22h0.72v7.131l12.458-12.458C14.705,16.474,14.64,16.245,14.64,16
+	s0.065-0.474,0.178-0.673L2.36,2.869V10H1.64V1.64H10v0.72H2.869l12.458,12.458c0.397-0.227,0.948-0.227,1.346,0L29.131,2.36H22
+	V1.64h8.36V10h-0.72V2.869L17.182,15.327c0.113,0.199,0.179,0.428,0.179,0.673c0,0.245-0.065,0.474-0.179,0.673L29.64,29.131V22
+	h0.721L30.36,30.36L30.36,30.36z M16,15.36c-0.353,0-0.64,0.287-0.64,0.64s0.287,0.64,0.64,0.64s0.64-0.287,0.64-0.64
+	S16.353,15.36,16,15.36z"/>',
+        iconAlt: "pictogram for step four - deploy models",
+        description: "Deploy your models to applications running on IBM zSystems and beyond"
+    },
+    {
+        id: 5,
+        iconUrl: "https://izswebpage.mybluemix.net/images/wmlz/wmlz5.svg",
+        iconPath: '<path id="monitor_00000058560226699192581640000012012125014103348631_" d="M9,29.36c-0.75,0-1.36-0.61-1.36-1.36
+	S8.25,26.64,9,26.64c0.121,0,0.238,0.017,0.35,0.046l1.875-3.216c-5.558-2.058-9.316-6.991-9.514-7.254L1.55,16l0.162-0.216
+	c0.197-0.263,3.953-5.193,9.509-7.252L9.349,5.315C9.237,5.344,9.121,5.36,9,5.36C8.25,5.36,7.64,4.75,7.64,4S8.25,2.64,9,2.64
+	S10.36,3.25,10.36,4c0,0.37-0.148,0.707-0.389,0.952l1.945,3.341C13.196,7.886,14.564,7.64,16,7.64
+	c6.325,0,11.369,4.804,13.435,7.123c0.173-0.079,0.364-0.123,0.565-0.123c0.75,0,1.36,0.61,1.36,1.36s-0.61,1.36-1.36,1.36
+	c-0.201,0-0.394-0.045-0.565-0.123C27.368,19.556,22.322,24.36,16,24.36c-1.434,0-2.8-0.246-4.08-0.651l-1.948,3.34
+	c0.24,0.246,0.388,0.581,0.388,0.951C10.36,28.75,9.75,29.36,9,29.36z M9,27.36c-0.353,0-0.64,0.287-0.64,0.64S8.647,28.64,9,28.64
+	S9.64,28.353,9.64,28S9.353,27.36,9,27.36z M12.298,23.061C13.469,23.423,14.71,23.64,16,23.64c6.021,0,10.877-4.618,12.883-6.865
+	c-0.087-0.125-0.153-0.265-0.194-0.415H22.35c-0.187,3.34-2.964,6-6.35,6c-1.039,0-2.021-0.251-2.888-0.694L12.298,23.061z
+	 M2.459,16c0.799,0.985,4.323,5.065,9.143,6.826l0.889-1.524C10.774,20.162,9.64,18.211,9.64,16c0-2.208,1.131-4.157,2.844-5.298
+	l-0.888-1.526C6.779,10.937,3.258,15.016,2.459,16z M13.475,21.043c0.76,0.382,1.618,0.597,2.525,0.597
+	c2.989,0,5.442-2.337,5.629-5.28h-2.288c-0.18,1.684-1.609,3-3.341,3c-0.488,0-0.953-0.105-1.372-0.293L13.475,21.043z
+	 M12.848,11.326c-1.5,1.015-2.488,2.731-2.488,4.674c0,1.946,0.991,3.665,2.494,4.679l1.152-1.976
+	C13.178,18.091,12.64,17.107,12.64,16c0-1.104,0.535-2.084,1.358-2.697L12.848,11.326z M16,13.36c-1.456,0-2.64,1.185-2.64,2.64
+	c0,1.456,1.185,2.64,2.64,2.64c1.456,0,2.64-1.184,2.64-2.64S17.456,13.36,16,13.36z M30,15.36c-0.353,0-0.64,0.287-0.64,0.64
+	s0.287,0.64,0.64,0.64s0.64-0.287,0.64-0.64S30.353,15.36,30,15.36z M22.35,15.64h6.339c0.041-0.15,0.107-0.29,0.194-0.415
+	C26.878,12.979,22.023,8.36,16,8.36c-1.292,0-2.535,0.218-3.708,0.581l0.813,1.396C13.974,9.892,14.958,9.64,16,9.64
+	C19.386,9.64,22.163,12.3,22.35,15.64z M19.341,15.64h2.288c-0.187-2.943-2.64-5.28-5.629-5.28c-0.91,0-1.77,0.217-2.532,0.601
+	l1.15,1.976c0.422-0.191,0.89-0.297,1.382-0.297C17.731,12.64,19.161,13.956,19.341,15.64z M9,3.36C8.647,3.36,8.36,3.647,8.36,4
+	S8.647,4.64,9,4.64S9.64,4.353,9.64,4S9.353,3.36,9,3.36z"/>',
+        iconAlt: "pictogram for step five - monitor models",
+        description: "Continually monitor models for performance and impact"
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Overview",
+        tabSubSections: [
+            {
+                subSectionTitle: "Key capabilities",
+                subSectionContent: "<p>Watson Machine Learning for z/OS (WMLz) provides a suite of tools for development, deployment, and management of machine learning models across your enterprise. With both an intuitive interface and a suite of APIs, models can be deployed as services to applications running on IBM zSystems, allowing for real-time insights against your mission critical workloads.</p>
+                                    <p>The introduction of WMLz 3.1 provides a variety of new features and enhancements, including:</p>
+                                    <ul>
+                                        <li>WMLz configuration tool: an intuitive browser-based set-up tool for WMLz Core and WMLz Enterprise (including the ability to configure a high availability scoring cluster)</li>
+                                        <li>Spark 3.2 support</li>
+                                        <li>Python AI Toolkit for IBM z/OS support</li>
+                                        <li>An embedded database providing a repository for WMLz metadata</li>
+                                        <li>Java v11 support</li>
+                                        <li>Enhanced Jupyter Notebook server access from the WMLz UI dashboard</li>
+                                        <li>Watson Core time series inferencing support</li>
+                                        <li>User certificate support for JWT token generation</li>
+                                        </ul>"
+            },
+            {
+                subSectionTitle: "Use cases for WMLz",
+                subSectionContent: "<p>By using WMLz to deploy machine learning models to your core business applications, a number of use cases become available. The following examples are just a selection of possible exploitations. To read more about each use case, and the other relevant technologies used to implement it, visit the <a href='https://www.ibm.com/support/z-content-solutions/journey-to-ai-on-z/'>Journey to AI on IBM zSystems and LinuxONE content solution</a>.</p>",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "Fraud detection",
+                        accordionContent: "<p>Achieve real-time fraud scoring through co-locating an AI model with the IBM zSystems applications managing your transactions. This enables you to analyze 100% of transactions running through your on-premises systems, and significantly reducing risk to both your business and customers.</p>"
+                    },
+                    {
+                        accordionTitle: "Claims fraud prevention",
+                        accordionContent: "<p>Eliminate the manually intensive auditing process through a machine learning model trained in detecting fraud for your claims processing systems. This enables you to rapidly analyze claims and significantly reduce overall human intervention.</p>"
+                    },
+                    {
+                        accordionTitle: "Clearing and settlement",
+                        accordionContent: "<p>By training a model on risk exposure and co-locating it with transactional workloads, unlock insights about risk on a transaction-to-transaction basis.</p>"
+                    },
+                    {
+                        accordionTitle: "Enhanced loan approval",
+                        accordionContent: "<p>Co-locate an inferencing model for analyzing loan applications, alongside the automation of rules-based business decisions, to achieve rapid insights, low latency, and minimal exposure of customer and lender data.</p>"
+                    },
+                    {
+                        accordionTitle: "Insurance approval based on weather",
+                        accordionContent: "<p>Co-locate an inferencing model for analyzing correlations between weather patterns and insurance risk alongside transactional systems, allowing you to achieve rapid insights.</p>"
+                    },
+                    {
+                        accordionTitle: "Geospatial analysis",
+                        accordionContent: "<p>Enable accurate analysis of satellite imagery with a deep learning learning model deployed to the IBM zSystems platform, ensuring the sensitive care of aerial images while driving rapid insights.</p>"
+                    },
+                    {
+                        accordionTitle: "Medical imaging",
+                        accordionContent: "<p>Achieve effective and energy-efficient computer vision for medical imaging through the training and inferencing of AI models on the IBM zSystems platform.</p>"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "z/OS system programmer",
+        tabSubSections: [
+            {
+                subSectionTitle: "Prerequisites",
+                subSectionContent: "<p>In the context of WMLz, the z/OS system programmer is primarily focused on installing and configuring the solution for use by their organization.</p>
+                                    <p>The installation and configuration roadmap, including the priority and skills required at each step, is thoroughly detailed <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=installation-roadmap'>on IBM Documentation</a>.</p>
+                                    <p>Before beginning installation and configuration, take the following preparatory steps:</p>",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "Ensure prerequisite hardware and software are available",
+                        accordionContent: "<p>In order to successfully install and configure WMLz, some additional IBM and open source technologies should be in place.</p>
+                                            <p>The minimally required technologies include:</p>
+                                            <ul>
+                                            <li>IBM z16, z15™, z14, z13®, or zEnterprise® EC12 system</li>
+                                            <li>z/OS 2.5 or 2.4</li>
+                                            <li>z/OS UNIX System Services configured</li>
+                                            <li>z/OS Integrated Cryptographic Service Facility (ICSF)</li>
+                                            <li>z/OS OpenSSH</li>
+                                            <li>IBM 64-bit SDK for z/OS Java Technology Edition Version 8 SR7, or Version 11.0.17 or later</li>
+                                            <li>IBM WebSphere Application Server for z/OS Liberty version 22.0.0.9 or later</li>
+                                            <li>Python AI Toolkit for IBM z/OS (for WMLz Enterprise Edition)</li>
+                                            </ul>
+                                            <p>Note: additional prerequisites will be required if you plan for specific use cases, for example, to use the IBM z16 on-chip AI acceleration for scoring ONNX models or to run a scoring service in a CICS region. For a full listing of prerequisites broken down by use case, <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=wmlz-installing-prerequisites'>view IBM Documentation</a>.</p>"
+                    },
+                    {
+                        accordionTitle: "Ensure sufficient system capacity",
+                        accordionContent: "<p>WMLz performs the best when adequate system capacity in terms of server, processor, memory, and disk space is available. Allocate sufficient capacity for WMLz on your z/OS system to meet the demands of your enterprise machine learning workload.</p>
+                        <bx-data-table>
+                        <bx-table>
+                            <bx-table-head>
+                            <bx-table-header-row>
+                                <bx-table-header-cell>CPU per LPAR/server</bx-table-header-cell>
+                                <bx-table-header-cell>Memory (GB) per LPAR/server</bx-table-header-cell>
+                                <bx-table-header-cell>DASD/Disk Space (GB) per LPAR/server</bx-table-header-cell>
+                            </bx-table-header-row>
+                            </bx-table-head>
+                            <bx-table-body>
+                            <bx-table-row>
+                                <bx-table-cell>1 GCP/4 zIIPs</bx-table-cell>
+                                <bx-table-cell>100 GB</bx-table-cell>
+                                <bx-table-cell>100 GB</bx-table-cell>
+                            </bx-table-row>
+                            </bx-table-body>
+                        </bx-table>
+                        </bx-data-table>
+                                            <p>Note that additional capacity may be needed depending on the training workload you plan to run on IBM zSystems. This may be influenced by the number of concurrent training jobs, the type of models being trained, the size of the training data set, the number of data features, and the specification of model parameters. For guidance on planning capacity for your training workloads, <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=wmlz-planning-system-capacity#plancapacity4baseenter__title__4'>view IBM Documentation</a>.</p>"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Installing WMLz",
+                subSectionContent: "<p>WMLz is installable via SMP/E. When receiving a purchase order for WMLz, you should receive the following materials:</p>
+                                    <ul>
+                                        <li>SMP/E images</li>
+                                        <li>Program directories</li>
+                                        <li>License information</li>
+                                        <li>Available maintenance packages</li>
+                                        </ul>
+                                    <p>Along with receiving these materials, ensure that you’ve <a href='https://www.ibm.com/support/pages/node/876300'>obtained the PTFs</a> containing the latest technical and service updates.</p>
+                                    <p>Once all necessary materials are retrieved, complete the installation instructions as <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=wmlz-installing'>defined in IBM Documentation</a>.</p>"
+            },
+            {
+                subSectionTitle: "Planning for configuration",
+                subSectionContent: "<p>WMLz can be set up with the WMLz configuration tool—a graphical interface to gradually walk you through key steps. Before using the WMLz configuration tool, complete the following steps:</p>",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "Identify a team member with UNIX System Services (USS) skills",
+                        accordionContent: "<p>USS skills are necessary throughout the configuration process, including configuring essential user IDs, port definitions, and authentications for the product.</p>
+                                            <p>For a full view of which configuration steps require USS skills, <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=installation-roadmap#installroadmapenter__title__3'>view IBM Documentation</a>.</p>"
+                    },
+                    {
+                        accordionTitle: "Become familiar with relevant environment variables and user IDs",
+                        accordionContent: "<p>There are a number of terms you will encounter when configuring WMLz that are essential for understanding how the product is set up.</p>
+                                            <p>For a listing of essential terms to know, <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=installation-terms-definitions'>view IBM Documentation</a>.</p>"
+                    },
+                    {
+                        accordionTitle: "Plan for configuration with your z/OS security administrator",
+                        accordionContent: "<p>Your security administrator can help you configure a WMLz setup user ID, which is necessary for using the WMLz configuration tool. For ease of access control, it is recommended that you plan to also use this same user ID for WMLz services.</p>
+                                            <p>For further information about configuring the WMLz setup user ID, <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=wmlz-configuring-setup-user-id'>view IBM Documentation</a>.</p>
+                                            <p>Your security administrator will also be responsible for ensuring that a RACF KeyRing is created for user IDs that must be created for WMLz, and will help to establish the requisite IDs and authorizations. They will also be involved in securing network communications for WMLz with AT-TLS.</p>
+                                            <p>For further information about securing network connections and configuring the keystore, <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=wmlz-configuring-secure-network-communications'>view IBM Documentation</a>.</p>"
+                    },
+                    {
+                        accordionTitle: "Plan for configuration with your z/OS network administrator",
+                        accordionContent: "<p>Your network administrator can help you reserve the various ports which need to be dedicated to the purpose of WMLz communicating across systems and services. A number of required and optional ports should be accounted for prior to using the WMLz configuration tool.</p>
+                                            <p>For further information about configuring ports for WMLz, <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=wmlz-configuring-ports'>view IBM Documentation</a>.</p>"
+                    },
+                    {
+                        accordionTitle: "Plan for configuration with your z/OS database administrator",
+                        accordionContent: "<p>Your z/OS database administrator can help you plan for the storage of metadata objects in the repository of your choice: an embedded database with WMLz or a Db2 for z/OS database.</p>
+                                            <p>For further information about creating and storing metadata objects, <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=wmlz-creating-metadata-objects'>view IBM Documentation</a>.</p>"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Configuring WMLz",
+                subSectionContent: "<p>Once you have completed the previously mentioned steps, you can start the WMLz configuration tool using a shell script located in the <strong>$IML_INSTALL_DIR/iml-utilities/configtool</strong> directory. Once opened, the WMLz configuration tool will guide you through the process of setting up the various components and services of the product.</p>
+                                    <p>As you near completion, you will have an opportunity to review inputs prior to configuration, including the various file paths where configurations will occur. It is recommended that you save these directory locations so that you may directly adjust configurations later as needed.</p>
+                                    <p>For further information about starting and using the WMLz configuration tool, <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=wmlz-configuring'>view IBM Documentation</a>.</p>
+                                    <p>Configuration of WMLz involves the set-up of the following four major components:</p>",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "Metadata repository",
+                        accordionContent: "<p>You must select one of two options for storing important metadata about models. Selecting the embedded WMLz database doesn’t require further configuration, but limits the availability of WMLz services. Selecting Db2 for z/OS allows for high availability, but requires that you have a ready Db2 system, and also requires that you provide network, authentication, and schema details for WMLz metadata objects.</p>"
+                    },
+                    {
+                        accordionTitle: "WMLz services",
+                        accordionContent: "<p>You must specify host system details for both the WMLz UI and core services, as well as credentials for the default admin user and the WMLz application developer. You can also enable audit trace for governance of model data, model versions, and model deployments. Lastly, if you had selected Db2 for z/OS as your metadata repository, you can add WMLz core services to a cluster, which routes services to an alternate WMLz instance if one isn’t available.</p>"
+                    },
+                    {
+                        accordionTitle: "Runtime environments",
+                        accordionContent: "<p>You must create a name for the WMLz runtime environment, as well as provide details for both the Spark runtime engine and the Python runtime engine. The Spark runtime engine is a high-performance analytics engine for large-scale data processing able to perform in-memory computing, and you will need to allocate various ports for its configuration, as well as determine the maximum number of retries for port binding. You will also have the option of enabling client-side Spark authentication. The Python runtime environment allows for the use of a Python-based scoring service, as well as the enablement of a Jupyter Notebook server for model development in the WMLz UI. For Python, you will need to specify the Python virtual environment name and the Python packages installation source.</p>"
+                    },
+                    {
+                        accordionTitle: "Scoring services",
+                        accordionContent: "<p>You must provide a name for the WMLz scoring service. A scoring service is where your AI models are deployed to for real-time inferencing. You can choose to create a standalone scoring instance, or to set it to a cluster for high availability. Creating a cluster scoring services requires that you had selected Db2 for z/OS as your metadata repository, and will require you selecting an available cluster to join, or creating a new one by providing network details for the sysplex distributor.</p>"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Data scientist",
+        tabSubSections: [
+            {
+                subSectionTitle: "Supported model types",
+                subSectionContent: "<p>The role of the data scientist is largely based around the development and importing of models to WMLz. To that end, it is recommended that you review the algorithms, data sources, data types, and model types supported by WMLz. For a thorough listing of what’s supported, <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=owe-supported-algorithms-data-sources-data-types-model-types'>view IBM Documentation</a>.</p>
+                                    <p>The following model types can be imported to WMLz, or trained, saved, and deployed in WMLz:</p>
+                                    <ul>
+                                        <li>SparkML</li>
+                                        <li>Scikit-learn</li>
+                                        <li>XGBoost</li>
+                                        <li>ARIMA or Seasonal ARIMA</li>
+                                        </ul>
+                                    <p>The following model types can be developed on another platform and imported to WMLz to be saved and deployed:</p>
+                                    <ul>
+                                        <li>PMML</li>
+                                        <li>ONNX</li>
+                                        </ul>"
+            },
+            {
+                subSectionTitle: "Importing models to WMLz",
+                subSectionContent: "<p>You can import models to WMLz directly through the UI. In the <strong>Models</strong> tab, click “Import model”, and then select the relevant tab for whether you want to import from file or from IBM Cloud Pak for Data.</p>
+                                    <p>If importing from file, you will need to provide a name for the file to be displayed in the WMLz UI, and you will need to select the model type.</p>
+                                    <p>If importing from IBM Cloud Pak for Data, you will need to provide connection and authentication details, as well as provide a name for the file and select the model type.</p>"
+            },
+            {
+                subSectionTitle: "Creating models in WMLz",
+                subSectionContent: "<p>You can create models in WMLz with a Jupyter Notebook server which can be accessed directly from the UI. In the <strong>Models</strong> tab, click “Create model” to open a view of the Jupyter Notebook interface which you can use to create and save new models for WMLz. If you’re unfamiliar with the interface or basic workflows of notebooks, <a href='https://jupyter-notebook.readthedocs.io/en/latest/notebook.html'>view the open source documentation</a> published by Project Jupyter.</p>"
+            }
+        ]
+    },
+    {
+        id: 4,
+        tabTitle: "Application developer",
+        tabSubSections: [
+            {
+                subSectionTitle: "Deploying models in WMLz",
+                subSectionContent: "<p>As an application developer, you can use WMLz to deploy a model, allowing machine learning predictions to be made against the data relevant to your application. In the <strong>Models</strong> tab, navigate to a row displaying with a ready status (a green check mark will be shown), open the overflow menu, and click “Create deployment”. Then input the relevant details for the deployment, including a display name, a deployment type (online or batch), and a scoring service type (standalone or cluster).</p>
+                                    <p>Once completed, your deployment will appear in the <strong>Deployments</strong> tab of the UI.</p>"
+            },
+            {
+                subSectionTitle: "Infusing AI with IBM zSystems applications",
+                subSectionContent: "<p>By deploying machine learning models with your business applications running on IBM zSystems, a host of new insights and capabilities can become possible. This topic is thoroughly covered in the publication, <a href='https://izswebpage.mybluemix.net/docs/plan-infusing-ai-into-apps.pdf'>“Planning AI infusion into applications on IBM zSystems”</a>, as well as the article <a href='https://medium.com/@shuangyu_76333/deploy-ai-models-for-real-time-inferencing-in-your-z-os-ims-transactions-ibm-watson-machine-54ca980476bd'>“Deploy AI models for real-time inferencing in your z/OS IMS transactions”</a>. The following are brief excerpts and related details to provide an overview of the available infusion methods:</p>",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "Infusing models with IBM CICS® Transaction Server for z/OS® applications",
+                        accordionContent: "<p>'For CICS, the WMLz scoring engine can be hosted in a WebSphere Liberty server within the CICS runtime and provides a program ALNSCORE that can be invoked with EXEC CICS LINK, passing the data using CICS channels and containers.'</p>
+                                            <p>Refer to the <a href='https://izswebpage.mybluemix.net/docs/plan-infusing-ai-into-apps.pdf'>“Planning AI infusion”</a> publication for further detail.</p>"
+                    },
+                    {
+                        accordionTitle: "Infusing models with IBM IMS Transaction Manager for z/OS applications",
+                        accordionContent: "<p>For IMS, the WMLz WOLA (WebSphere Optimized Local Adapter) scoring interface can be invoked from IMS COBOL applications for high performance real-time inferencing in IMS online transactions.</p>
+                                            <p>Refer to the <a href='https://medium.com/@shuangyu_76333/deploy-ai-models-for-real-time-inferencing-in-your-z-os-ims-transactions-ibm-watson-machine-54ca980476bd'>“Deploy AI models for real-time inferencing”</a> article for further detail.</p>"
+                    },
+                    {
+                        accordionTitle: "Infusing models with IBM WebSphere® Application Server for z/OS applications",
+                        accordionContent: "<p>'For WebSphere, a Java API can be used to call the WMLz scoring feature configured in a WebSphere server.'</p>
+                                            <p>Refer to the <a href='https://izswebpage.mybluemix.net/docs/plan-infusing-ai-into-apps.pdf'>“Planning AI infusion”</a> publication for further detail.</p>"
+                    },
+                    {
+                        accordionTitle: "Using IBM Operational Decision Manager with IBM Watson Machine Learning for z/OS",
+                        accordionContent: "<p>'An ODM rule driven by the runtime application can be enhanced to reference a model deployed to WMLz, and then use the prediction from the model in the rule. ODM uses a highly efficient interface between ODM and WMLz.</p>
+                                            <p>Many CICS and IMS applications already use ODM rules to inform their decisions, in which case a rule called by the application can be enhanced with machine learning to drive an AI model deployed to WMLz. If the application does not currently use ODM rules, it can be updated to use an ODM rule that drives the AI model via WMLz, and hence include additional insight in the result from the rule.'</p>
+                                            <p>Refer to the <a href='https://izswebpage.mybluemix.net/docs/plan-infusing-ai-into-apps.pdf'>“Planning AI infusion”</a> publication for further detail.</p>"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Monitoring models for impact",
+                subSectionContent: "<p>When utilizing machine learning and deep learning with your transactional applications, it’s important to continually ensure that deployed models are working as intended. WMLz offers a method for evaluating the performance of SparkML and PMML models to ensure accuracy.</p>
+                                    <p>To do so, select a model from the <strong>Models</strong> tab, open the overflow menu, and click “Create evaluation”. Then add a data source and choose whether to run the evaluation over a time range, and click “Create”. The evaluation for deployments of that model can then be triggered using the overflow menu in the <strong>Deployments</strong> tab. The evaluation can also be scheduled to run repeatedly.</p>
+                                    <p>For full detail about this procedure, <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=wmlz-evaluating-reevaluating-models'>view IBM Documentation</a>.</p>
+                                    <p>You can also validate and explain your models using IBM Watson OpenScale on Cloud Pak for Data. This can be performed by selecting an online deployment in WMLz in the Deployments tab, clicking “View details”, and updating the endpoint address of the deployment to that of your WMLz UI. This allows you to configure Watson OpenScale to access the model deployment from your WMLz UI.</p>
+                                    <p>For full detail about this procedure, <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=wmlz-validating-models-watson-openscale'>view IBM Documentation</a>.</p>"
+            },
+            {
+                subSectionTitle: "Available APIs",
+                subSectionContent: "<p>A number of APIs are available to connect WMLz services with applications running both on and off the z/OS platform. Follow the links provided to view relevant information for each API.</p>
+                                    <ul>
+                                    <li><a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=apis-model-utility-api'>WMLz model utility API</a></li>
+                                    <li><a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/3.1.0?topic=SSFZZH_3.1.0/src/api/scaladocs/mlz_repositoryapis.htm'>Repository library APIs</a></li>
+                                    <li><a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=apis-wmlz-core'>WMLz Core APIs</a></li>
+                                        </ul>"
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# SET FOR LAUNCH #}
+{% set learnMoreAccordion =
+[
+        {
+        section: "General questions",
+        categories: [
+            {
+                catTitle: "How does WMLz work across a sysplex?",
+                content:  "<p>WMLz can be configured for high availability (HA) within a sysplex when it is set up with Db2 for z/OS as the metadata repository. An existing WMLz instance can be quickly cloned onto a new port within the same LPAR, or in a separate LPAR using the Sysplex Distributor. This allows WMLz core services—including model training, deployment, batch scoring, ingestion, repository, and data connection management—to fail over to another active system if necessary.</p>
+                            <p><a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=wmlz-configuring-cluster-high-availability'>View IBM Documentation</a> for further detail on this topic.</p>"
+            },
+            {
+                catTitle: "How much USS knowledge will I need to get this running?",
+                content:  "<p>USS skills are recommended throughout the configuration process. To view what actions will be supported with USS skills, <a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=installation-roadmap'>view IBM Documentation</a>.</p>"
+            },
+            {
+                catTitle: "What's ONNX, and how does it work with WMLz?",
+                content:  "<p>The Open Neural Network Exchange (ONNX) is an open standard used for converting between different machine learning frameworks. You can import, deploy, and manage ONNX models on WMLz by using the required ONNX compiler service.</p>
+                            <p><a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=wmlz-configuring-onnx-compiler-service'>View IBM Documentation</a> for further detail on this topic.</p>"
+            },
+            {
+                catTitle: "How much z/OS knowledge would a data scientist need to leverage WMLz?",
+                content:  "<p>WMLz’s user interface allows for models to be created or imported without extensive knowledge of z/OS. That being said, it’s critical to understand the algorithms, data sources, data types, and model types supported by WMLz, and how that relates to available options for creating your machine learning or deep learning models. For example, a data scientist requiring the use of Db2 for z/OS data for a Python or Scala model will need to understand how to connect to their data source through the use of MDS.</p>
+                            <p><a href='https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest?topic=owe-supported-algorithms-data-sources-data-types-model-types'>View IBM Documentation</a> for further detail on this topic.</p>"
+            }
+]}]
+%}
+
+{# END FAQs #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "General resources",
+        tabContent: [
+            {
+                resourceTitle: "IBM Documentation",
+                resourceDescription: "View technical content for the end-to-end use of WMLz.",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/wml-for-zos/enterprise/latest",
+                resourceLinkText: "Read the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Products page",
+                resourceDescription: "View high-level information about the WMLz product, including pricing and related offerings.",
+                resourceLinkUrl: "https://www.ibm.com/products/machine-learning-for-zos",
+                resourceLinkText: "View the webpage",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Planning AI infusion into applications on IBM zSystems",
+                resourceDescription: "View guidance for infusing AI models with applications running in CICS TS, IMS TS, WebSphere, and z/TPF.",
+                resourceLinkUrl: "https://izswebpage.mybluemix.net/docs/plan-infusing-ai-into-apps.pdf",
+                resourceLinkText: "Read the document",
+                resourceLinkType: "document",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Redbook: Optimized Inferencing and Integration with AI on IBM zSystems",
+                resourceDescription: "View detailed guidance for configuring and optimizing AI integration with IBM zSystems.",
+                resourceLinkUrl: "https://www.redbooks.ibm.com/abstracts/redp5661.html",
+                resourceLinkText: "Read the Redbook",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Redbook: Solving challenges of instant payments by using AI on IBM zSystems",
+                resourceDescription: "Read a business-oriented review for solving challenges around instant payments utilizing WMLz.",
+                resourceLinkUrl: "https://www.redbooks.ibm.com/redpieces/abstracts/redp5698.html",
+                resourceLinkText: "Read the Redbook",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "AI on IBM Z & LinuxONE community",
+                resourceDescription: "Join a community of practitioners and experts discussing AI for the IBM zSystems and LinuxONE platforms.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/topic-home?CommunityKey=038560b2-e962-4500-b0b5-e3745175a065",
+                resourceLinkText: "Join the community",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [20, 32] %}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = false %}
+{# END WHATS NEW #}
+
+{# START STATCOUNTER #}
+{# set statcounter = {
+    sc_project: "12504397",
+    sc_security: "f2466e8d"
+}
+ #}
+{# END STATCOUNTER #}
+{# START HOTJAR #}
+{#set hotjar = {
+    site_id: "2496717"
+}
+ #}

@@ -1,0 +1,712 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "Journey to open data analytics" %}
+{% set key = 32 %}
+
+{# META #}
+{% set meta_description = meta_description | default("") %}
+{% set meta_keywords = meta_keywords | default("") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+
+{% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "1_jlxwphug",
+    label: "Journey to open data analytics"
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>With z/OS at the core of your business, a wealth of data is at your disposal. By charting your journey to open data analytics, you can derive new insights and advantages from each transaction. The following capabilities allow you accelerate this journey:</p>
+<p>IBM Z Platform for Apache Spark allows multiple, disconnected data sources to be virtually integrated within a single application. Apache Spark is the enterprise engine for processing unified data and scaling integrations with business applications.</p>
+<p>Python AI Toolkit for IBM z/OS maintains hundreds of open source packages available on z/OS for your data science, machine learning, and deep learning needs. Reviewing and acquiring the packages of your choice can be conducted through an intuitive and secure IBM repository.</p>
+<p>IBM&reg; Data Virtualization Manager for z/OS&reg; provides virtual, integrated views of data residing on IBM Z. It enables users and applications read/write access to IBM Z data in place, without having to move, replicate or transform the data.</p>" %}
+
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "other",
+        url: "https://www.ibm.com/docs/en/zpas/1.1.0",
+        text: "View documentation for IBM Z Platform for Apache Spark"
+
+    },
+    {
+        id: 2,
+        type: "other",
+        url: "https://ibm.biz/pyaitoolkit",
+        text: "See what Python AI Toolkit for IBM z/OS can do for your business"
+
+    },
+        {
+        id: 3,
+        type: "other",
+        url: "https://www.ibm.com/products/data-virtualization-manager-for-zos",
+        text: "See what IBM Data Virtualization Manager for z/OS can do for your business"
+
+    }
+] %}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction.  #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# START NOTIFICATIONS #}
+{# Added for ServerPac notifications 5/15. Uses inline informational notification component, can be one or multiple.
+Title in bold (title) followed by a line break, and then the subtitle (subtitle) #}
+
+{# END NOTIFICATIONS #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/jtoda/jtoda1.svg",
+        iconPath: '<path id="ideate_1_" d="M16,29.36c-7.083,0-12.897-5.542-13.333-12.518l-1.412,1.412l-0.509-0.51L3,15.491l2.254,2.254l-0.509,0.51
+	l-1.354-1.354C3.855,23.452,9.333,28.64,16,28.64c5.891,0,10.949-3.998,12.302-9.723l0.701,0.166
+	C27.573,25.134,22.227,29.36,16,29.36z M29,16.509l-2.255-2.255l0.51-0.509l1.354,1.354C28.145,8.548,22.667,3.36,16,3.36
+	c-5.889,0-10.946,3.998-12.298,9.723L3,12.917C4.43,6.866,9.776,2.64,16,2.64c7.083,0,12.897,5.542,13.334,12.517l1.411-1.412
+	l0.51,0.509L29,16.509z M17,24.36h-2v-0.72h2V24.36z M18,22.36h-4v-0.72h4V22.36z M18,20.36h-4c-0.199,0-0.36-0.161-0.36-0.36
+	v-0.269c0-1.082-0.488-2.108-1.492-3.137c-1.295-1.328-2.008-2.817-2.008-4.194c0-3.123,2.684-5.76,5.86-5.76
+	c3.177,0,5.86,2.638,5.86,5.76c0,1.377-0.714,2.866-2.009,4.194c-1.004,1.029-1.491,2.055-1.491,3.137V20
+	C18.36,20.199,18.199,20.36,18,20.36z M14.359,19.64h3.282c0.026-1.244,0.581-2.406,1.695-3.548c0.674-0.69,1.804-2.088,1.804-3.691
+	c0-2.732-2.354-5.041-5.14-5.041s-5.14,2.309-5.14,5.041c0,1.602,1.13,3,1.804,3.691C13.778,17.233,14.333,18.396,14.359,19.64z"/>',
+        iconAlt: "pictogram for step 1 - identify your needs",
+        description: "Identify your needs for accessing and leveraging z/OS data."
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/jtoda/jtoda2.svg",
+        iconPath: '<path id="networking--03_1_" d="M31,31.36h-6c-0.199,0-0.36-0.161-0.36-0.36v-6c0-0.199,0.161-0.36,0.36-0.36h6
+	c0.199,0,0.36,0.161,0.36,0.36v6C31.36,31.199,31.199,31.36,31,31.36z M25.36,30.64h5.279v-5.28H25.36V30.64z M22,28.36H7
+	c-3.507,0-6.36-2.853-6.36-6.359c0-3.508,2.853-6.361,6.36-6.361h3v0.72H7c-3.11,0-5.64,2.531-5.64,5.641
+	c0,3.109,2.53,5.639,5.64,5.639h15V28.36z M19,19.36h-6c-0.199,0-0.36-0.161-0.36-0.36v-6c0-0.199,0.161-0.36,0.36-0.36h6
+	c0.199,0,0.36,0.161,0.36,0.36v6C19.36,19.199,19.199,19.36,19,19.36z M13.36,18.64h5.28v-5.28h-5.28
+	C13.36,13.36,13.36,18.64,13.36,18.64z M25,16.36h-3v-0.72h3c3.11,0,5.64-2.53,5.64-5.641c0-3.11-2.529-5.64-5.64-5.64H10V3.64h15
+	c3.507,0,6.36,2.853,6.36,6.359C31.36,13.507,28.507,16.36,25,16.36z M7,7.36H1C0.801,7.36,0.64,7.199,0.64,7V1
+	c0-0.199,0.161-0.36,0.36-0.36h6c0.199,0,0.36,0.161,0.36,0.36v6C7.36,7.199,7.199,7.36,7,7.36z M1.36,6.64h5.28V1.36H1.36V6.64z"/>',
+        iconAlt: "pictogram for step 2 - install and configure IBM Z Platform for Apache Spark",
+        description: "Plan, install, and configure IBM Z Platform for Apache Spark."
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/jtoda/jtoda3.svg",
+        iconPath: '<path id="art--tools--01_1_" d="M1,31.36c-0.094,0-0.186-0.037-0.254-0.105c-0.104-0.104-0.134-0.262-0.077-0.396l3-7
+	c0.018-0.042,0.044-0.081,0.077-0.113L26.451,1.04c0.256-0.257,0.598-0.398,0.961-0.398c0,0,0,0,0.001,0
+	c0.363,0,0.705,0.141,0.962,0.398l2.586,2.586c0.529,0.53,0.529,1.392,0,1.923L8.254,28.255c-0.032,0.032-0.07,0.058-0.113,0.076
+	l-7,3C1.096,31.351,1.048,31.36,1,31.36z M2.472,28.48l-0.786,1.834l1.833-0.786L2.472,28.48z M2.777,27.768l1.455,1.456
+	l3.408-1.461V26.36H6c-0.199,0-0.36-0.161-0.36-0.36v-1.64H4.237L2.777,27.768z M6.36,25.64H8c0.199,0,0.36,0.161,0.36,0.36v1.131
+	L25.991,9.5L22.5,6.009L4.869,23.64H6c0.199,0,0.36,0.161,0.36,0.36V25.64z M23.01,5.5l3.49,3.491L27.491,8L24,4.509L23.01,5.5z
+	 M24.51,4L28,7.491l2.451-2.451c0.249-0.25,0.249-0.656,0-0.905l-2.586-2.586c-0.121-0.121-0.281-0.188-0.452-0.188
+	c-0.001,0-0.001,0-0.001,0c-0.171,0-0.331,0.067-0.451,0.188L24.51,4z M26,31.36c-0.092,0-0.185-0.035-0.255-0.105l-9-9l0.509-0.51
+	l1.245,1.246l2.245-2.246l0.51,0.51L19.009,23.5L21,25.491l1.245-1.246l0.51,0.51L21.509,26l1.991,1.991l2.245-2.246l0.51,0.51
+	L24.009,28.5L26,30.491L30.491,26l-8.746-8.745l0.51-0.509l9,9c0.141,0.141,0.141,0.369,0,0.51l-5,5
+	C26.185,31.325,26.092,31.36,26,31.36z M8.754,23.755l-0.509-0.51l14.5-14.5l0.51,0.509L8.754,23.755z M9.746,15.254l-9-9
+	c-0.141-0.141-0.141-0.368,0-0.509l5-5c0.141-0.141,0.368-0.141,0.509,0l9,9l-0.509,0.509L6,1.509L1.509,6L3.5,7.991l2.246-2.245
+	l0.509,0.509L4.009,8.5L6,10.491l1.246-1.245l0.509,0.509L6.509,11L8.5,12.991l2.246-2.245l0.509,0.509L9.009,13.5l1.245,1.246
+	L9.746,15.254z"/>',
+        iconAlt: "pictogram for step 3 - install and configure Python AI Toolkit for IBM z/OS",
+        description: "Plan, install, and configure Python AI Toolkit for IBM z/OS."
+    },
+    {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/jtoda/jtoda4.svg",
+        iconPath: '<path id="api_2_" d="M12.44,15.996c-0.42,0-0.721-0.112-0.903-0.336s-0.296-0.504-0.343-0.84h-0.07
+	c-0.159,0.448-0.42,0.784-0.784,1.008s-0.798,0.336-1.302,0.336c-0.766,0-1.36-0.196-1.785-0.588s-0.637-0.924-0.637-1.596
+	c0-0.681,0.25-1.204,0.749-1.568c0.499-0.364,1.276-0.546,2.331-0.546h1.428v-0.714c0-0.513-0.14-0.905-0.42-1.176
+	C10.424,9.705,9.995,9.57,9.416,9.57c-0.439,0-0.805,0.098-1.099,0.294s-0.539,0.457-0.735,0.784l-0.672-0.63
+	c0.196-0.392,0.508-0.726,0.938-1.001c0.429-0.275,0.97-0.413,1.624-0.413c0.877,0,1.559,0.214,2.044,0.643s0.728,1.024,0.728,1.788
+	v3.967h0.826v0.994C13.07,15.996,12.44,15.996,12.44,15.996z M9.22,15.211c0.28,0,0.537-0.032,0.77-0.098
+	c0.233-0.065,0.434-0.159,0.602-0.28c0.168-0.121,0.299-0.261,0.392-0.42s0.14-0.331,0.14-0.518v-1.19H9.64
+	c-0.644,0-1.113,0.093-1.407,0.28c-0.294,0.187-0.441,0.457-0.441,0.812v0.294c0,0.354,0.128,0.63,0.385,0.826
+	C8.434,15.114,8.781,15.211,9.22,15.211z M14.666,8.771h1.12v1.163h0.056c0.187-0.453,0.459-0.788,0.819-1.005
+	c0.359-0.217,0.791-0.326,1.295-0.326c0.448,0,0.854,0.089,1.219,0.266c0.363,0.177,0.674,0.429,0.931,0.756s0.452,0.724,0.588,1.19
+	c0.135,0.467,0.203,0.99,0.203,1.568s-0.068,1.101-0.203,1.568c-0.136,0.467-0.331,0.863-0.588,1.19s-0.567,0.579-0.931,0.756
+	s-0.771,0.266-1.219,0.266c-0.98,0-1.685-0.443-2.114-1.331h-0.056v3.962h-1.12C14.666,18.794,14.666,8.771,14.666,8.771z
+	 M17.648,15.169c0.635,0,1.134-0.199,1.498-0.598s0.546-0.921,0.546-1.569v-1.238c0-0.647-0.182-1.17-0.546-1.569
+	s-0.863-0.598-1.498-0.598c-0.252,0-0.492,0.035-0.721,0.105c-0.229,0.072-0.427,0.168-0.595,0.29s-0.301,0.27-0.399,0.443
+	c-0.098,0.174-0.147,0.359-0.147,0.556v2.702c0,0.234,0.049,0.443,0.147,0.626c0.098,0.183,0.231,0.338,0.399,0.464
+	s0.366,0.223,0.595,0.289C17.156,15.137,17.396,15.169,17.648,15.169z M23.346,7.078c-0.242,0-0.418-0.058-0.524-0.175
+	c-0.107-0.117-0.161-0.269-0.161-0.455V6.266c0-0.187,0.054-0.338,0.161-0.455c0.106-0.117,0.282-0.175,0.524-0.175
+	c0.243,0,0.418,0.058,0.525,0.175s0.161,0.269,0.161,0.455v0.182c0,0.187-0.054,0.338-0.161,0.455S23.589,7.078,23.346,7.078z
+	 M22.786,8.771h1.12v7.224h-1.12V8.771z M31,31.36H1v-0.72h30V31.36z M31,24.36H1c-0.199,0-0.36-0.161-0.36-0.36V1
+	c0-0.199,0.161-0.36,0.36-0.36h30c0.199,0,0.36,0.161,0.36,0.36v23C31.36,24.199,31.199,24.36,31,24.36z M1.36,23.64h29.28V1.36
+	H1.36V23.64z"/>',
+        iconAlt: "pictogram for step 4 - install and configure IBM Data Virtualization Manager for z/OS",
+        description: "Plan, install, and configure IBM Data Virtualization Manager for z/OS."
+    },
+    {
+        id: 5,
+        iconUrl: "https://izswebpage.mybluemix.net/images/jtoda/jtoda5.svg",
+        iconPath: '<path id="integration_1_" d="M23.5,29.36h-15c-0.129,0-0.248-0.069-0.312-0.181l-7.5-13.01c-0.064-0.111-0.064-0.249,0-0.36
+	l7.5-12.99C8.252,2.708,8.372,2.64,8.5,2.64h15c0.129,0,0.247,0.068,0.312,0.18l7.5,12.99c0.064,0.111,0.064,0.249,0,0.36
+	l-7.5,13.01C23.748,29.291,23.629,29.36,23.5,29.36z M9.124,28.64h13.753L16,16.72L9.124,28.64z M16.618,16.35L23.5,28.279
+	l6.877-11.929C30.377,16.35,16.618,16.35,16.618,16.35z M1.623,16.35L8.5,28.279l6.882-11.929C15.382,16.35,1.623,16.35,1.623,16.35
+	z M16.629,15.63h13.747L23.5,3.72L16.629,15.63z M1.624,15.63h13.748L8.5,3.72L1.624,15.63z M9.124,3.36L16,15.28l6.877-11.92
+	C22.877,3.36,9.124,3.36,9.124,3.36z"/>',
+        iconAlt: "pictogram for step 5 - coordinate data sources",
+        description: "Coordinate and integrate disparate data sources."
+    },
+    {
+        id: 6,
+        iconUrl: "https://izswebpage.mybluemix.net/images/jtoda/jtoda6.svg",
+        iconPath: '<path id="web--developer_1_" d="M19.49,3c0,0.276-0.224,0.5-0.5,0.5s-0.5-0.224-0.5-0.5s0.224-0.5,0.5-0.5S19.49,2.724,19.49,3z
+	 M16.99,2.5c-0.276,0-0.5,0.224-0.5,0.5s0.224,0.5,0.5,0.5s0.5-0.224,0.5-0.5S17.266,2.5,16.99,2.5z M14.99,2.5
+	c-0.276,0-0.5,0.224-0.5,0.5s0.224,0.5,0.5,0.5s0.5-0.224,0.5-0.5S15.266,2.5,14.99,2.5z M31.36,31h-0.72
+	c0-4.341-2.941-8.161-7.153-9.29c-0.144-0.038-0.248-0.159-0.265-0.307c-0.018-0.146,0.058-0.289,0.188-0.358
+	c1.678-0.898,2.72-2.636,2.72-4.534c0-2.84-2.306-5.151-5.14-5.151c-2.835,0-5.141,2.311-5.141,5.151
+	c0,1.898,1.042,3.636,2.72,4.534c0.13,0.069,0.205,0.212,0.188,0.358c-0.017,0.147-0.121,0.269-0.265,0.307
+	c-4.199,1.125-7.131,4.945-7.131,9.29h-0.72c0-4.402,2.801-8.304,6.903-9.75c-0.359-0.261-0.686-0.561-0.973-0.89H1
+	c-0.199,0-0.36-0.161-0.36-0.36V1c0-0.199,0.161-0.36,0.36-0.36h20c0.199,0,0.36,0.161,0.36,0.36v9.652
+	c3.059,0.192,5.489,2.747,5.489,5.859c0,1.893-0.909,3.645-2.415,4.739C28.55,22.698,31.36,26.6,31.36,31z M1.36,19.64h14.673
+	c-0.582-0.919-0.905-1.999-0.905-3.129c0-3.12,2.442-5.679,5.511-5.86V5.36H1.36V19.64z M1.36,4.64h19.28V1.36H1.36V4.64z
+	 M10.99,14.36h-8v-0.72h8V14.36z M10.99,11.36h-8v-0.72h8V11.36z M10.989,8.36h-8V7.64h8V8.36z"/>',
+        iconAlt: "pictogram for step 6 - Begin development",
+        description: "Begin development using your choice of open source tooling."
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Overview",
+        tabSubSections: [
+            {
+                subSectionTitle: "IBM Z Platform for Apache Spark",
+                subSectionContent: "<p>IBM Z Platform for Apache Spark is a distribution of the open source, in-memory processing Apache Spark engine. Designed for big data, it enables users of z/OS to combine Apache Spark with the advantage of analyzing business-critical data in place.</p>
+                                    <p>Apache Spark offers a number of benefits, including:</p>
+                                    <ul>
+                                    <li>
+                                    <p>Streamlined development. Users can leverage expertise with common programming languages, including Scala, Python, and SQL.</p>
+                                    </li>
+                                    <li>
+                                    <p>Simplified data access. Apache Spark offers access to enterprise data with familiar tools, and its built-in libraries offer easy querying and fast responses.</p>
+                                    </li>
+                                    <li>
+                                    <p>Wide algorithmic support. Users can rapidly develop and deploy all workloads, including machine learning, iterative, and batch.</p>
+                                    </li>
+                                    <li>
+                                    <p>Accelerated analytics results. With in-memory data processing, users can rapidly derive results.</p>
+                                    </li>
+                                    </ul>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/common/ssi/cgi-bin/ssialias?infotype=an&subtype=ca&appname=gpateam&supplier=897&letternum=ENUS222-046",
+                        linkText: "For more information, read the product announcement letter."
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Python AI Toolkit for IBM z/OS",
+                subSectionContent: "<p>Python AI Toolkit for IBM z/OS is a secure repository of popular open source packages for machine learning and data science. The interface allows for users to quickly browse hundreds of available options, read license and usage notes, and plan installation in a seamless flow.</p>
+                                    <p>Python AI Toolkit for IBM z/OS provides the following benefits:</p>
+                                    <ul>
+                                    <li>
+                                    <p>Unlocks vetted open source software with IBM supply chain security</p>
+                                    </li>
+                                    <li>
+                                    <p>Industry-leading AI Python packages</p>
+                                    </li>
+                                    <li>
+                                    <p>Enables a familiar, flexible, and agile delivery experience</p>
+                                    </li>",
+                subSectionVideo: "1_ns5n0wty",
+                subSectionVideoThumbnail: "https://izswebpage.mybluemix.net/images/jtoda/thumbnail_overview.jpg",
+                subSectionMediaAlt: "Video - Overview of Python AI Toolkit for IBM z/OS",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/1/897/ENUS223-021/index.html",
+                        linkText: "For more information, read the product announcement letter."
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "IBM Data Virtualization Manager for z/OS",
+                subSectionContent: "<p>IBM Data Virtualization Manager for z/OS unlocks IBM Z data using popular, industry-standard APIs. Mainframe data is virtualized and mapped in place, making live data instantly accessible. Applications can be enabled to update and modify data with minimal impact to IBM Z systems.</p>
+                                    <p>IBM Data Virtualization Manager for z/OS can deliver the following benefits:</p>
+                                    <ul>
+                                    <li>
+                                    <p>Create a single, integrated view of IBM Z and non-IBM Z data</p>
+                                    </li>
+                                    <li>
+                                    <p>Minimize risks associated with Extract, Transform, and Load (ETL) data movement by keeping data in-place within the security-rich IBM Z infrastructure</p>
+                                    </li>
+                                    <li>
+                                    <p>Enable the modernization of batch applications with direct real-time read/write access to relational and traditional non-relational IBM Z data sources</p>
+                                    </li>
+                                    </ul>",
+                subSectionLinks: [
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "IBM Z Platform for Apache Spark",
+        tabSubSections: [
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Note that IBM Z Platform for Apache Spark can only work if the prerequisite hardware and software is installed and operational.</p>
+                                    <p>The solution requires the use of one of the following IBM Z servers:</p>
+                                    <ul>
+                                    <li>
+                                    <p>IBM z16</p>
+                                    </li>
+                                    <li>
+                                    <p>IBM z15 Models T01 or T02</p>
+                                    </li>
+                                    <li>
+                                    <p>IBM z14 Models M01-M05</p>
+                                    </li>
+                                    <li>
+                                    <p>IBM z14 Model ZR1</p>
+                                    </li>
+                                    <li>
+                                    <p>IBM z13</p>
+                                    </li>
+                                    <li>
+                                    <p>IBM z13s</p>
+                                    </li>
+                                    </ul>
+                                    <p>The solution requires the following software:</p>
+                                    <ul>
+                                    <li>
+                                    <p>z/OS V2R3 or higher</p>
+                                    </li>
+                                    <li>
+                                    <p>z/OS ICSF V2R1 or higher</p>
+                                    </li>
+                                    <li>
+                                    <p>IBM 64-bit SDK for z/OS Java Version 8, SR7 or higher.</p>
+                                    </li>
+                                    <li>
+                                    <p>Bourne Again Shell (bash) version 4.3.48 or higher</p>
+                                    </li>
+                                    </ul>
+                                    <p>For further detail about planning, see the 'Before you begin' section of the <a href='https://www.ibm.com/docs/en/zpas/1.1.0?topic=installation-installing-z-platform-apache-spark'>IBM Z Platform for Apache Spark Installation and Customization Guide</a>.</p>",
+                subSectionLinks: [
+                ]
+            },
+            {
+                subSectionTitle: "Installing",
+                subSectionContent: "<p>The tasks detailed in this section will likely require the collaboration of the following IT roles:</p>
+                                    <ul>
+                                    <li>
+                                    <p>z/OS system programmer</p>
+                                    </li>
+                                    <li>
+                                    <p>z/OS system programmer with UNIX skills</p>
+                                    </li>
+                                    <li>
+                                    <p>Security administrator</p>
+                                    </li>
+                                    <li>
+                                    <p>Network administrator</p>
+                                    </li>
+                                    </ul>
+                                    <p>You can install IBM Z Platform for Apache Spark through a Custom-Built Product Delivery Offering (CBPDO) or, alternatively, through a SystemPac or ServerPac.</p>
+                                    <p>To install through a CBPDO, follow these steps:</p>
+                                    <ul>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/zpas/1.1.0?topic=guide-installation'>Install Apache Spark</a> (see also, <a href='https://www.ibm.com/docs/en/SSARLE_1.1.0/pdf/ProgramDirectory-HSPK130.pdf'>Program Directory for IBM Z Platform for Apache Spark</a>)</p>
+                                    </li>
+                                    </ul>
+                                    <p>To install through SystemPac or ServerPac, refer to the IBM Documentation chapter on <a href='https://www.ibm.com/docs/en/zos/2.5.0?topic=level-serverpac-using-installation-dialog'>ServerPac: Using the Installation Dialog</a>.</p>
+                                    <p>For further information to support your installation process, refer to <a href='https://www.ibm.com/docs/en/SSARLE_1.1.0/pdf/ProgramDirectory-HSPK130.pdf'>Program Directory for IBM Z Platform for Apache Spark, GI13-4318-00 (PDF)</a>.</p>",
+                subSectionLinks: [
+                ]
+            },
+            {
+                subSectionTitle: "Configuring",
+                subSectionContent: "<p>Complete the following steps in order to configure IBM Z Platform for Apache Spark successfully:</p>
+                                    <ul>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/zpas/1.1.0?topic=guide-customization'>Customize your environment for IBM Z Platform for Apache Spark</a></p>
+                                    </li>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/zpas/1.1.0?topic=spark-setting-up-user-id-use-zos'>Create User ID</a></p>
+                                    </li>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/zpas/1.1.0?topic=spark-customizing-apache-directory-structure'>For Apache Spark, customize directory structure</a></p>
+                                    </li>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/zpas/1.1.0?topic=spark-configuring-zos-client-authentication'>For Apache Spark, configure client authentication</a></p>
+                                    </li>
+                                    <li>
+                                    <p>Configure <a href='https://www.ibm.com/docs/en/zpas/1.1.0?topic=spark-configuring-networking-apache'>network ports</a>, <a href='https://www.ibm.com/docs/en/zpas/1.1.0?topic=spark-configuring-networking-apache'>firewalls</a>, <a href='https://www.ibm.com/docs/en/zpas/1.1.0?topic=spark-configuring-networking-apache'>memory</a>, and <a href='https://www.ibm.com/docs/en/zpas/1.1.0?topic=spark-configuring-memory-cpu-options'>CPU options</a></p>
+                                    </li>
+                                    <li>
+                                    <p>Set up <a href='https://www.ibm.com/docs/en/zpas/1.1.0?topic=authentication-defining-security-authorization-policy-agent'>security authorizations</a></p>
+                                    </li>
+                                    <li>
+                                    <p>Customize <a href='https://www.ibm.com/docs/en/zpas/1.1.0?topic=guide-customization'>Apache Spark</a></p>
+                                    </li>
+                                    </ul>",
+                subSectionLinks: [
+                ]
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Python AI Toolkit for IBM z/OS",
+        tabSubSections: [
+            {
+                subSectionTitle: "Access the application",
+                subSectionContent: "<p>You may access Python AI Toolkit for IBM z/OS through the provided link.</p>",
+                subSectionLinks: [
+                {
+                    linkUrl:"https://ibm.biz/pyaitoolkit",
+                    linkText:"Go to the repository"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Plan key actions to enable the successful configuration and use of Python AI Toolkit for IBM z/OS.</p>
+                                <p>Note: IBM Open Enterprise SDK for Python is a pre-requisite for Python AI Toolkit for IBM z/OS. For more more information, view <a href='https://www.ibm.com/products/open-enterprise-python-zos'>the product page.</a></p>
+                                <p>The pip package installer is required to pull packages from the repository to your local environment. Using the given <em>requirements.txt</em> file allows for the simplest installation experience. If individual package installation is desired, by default, pip will install packages from pypi.org, but it can be configured to only pull packages from Python AI Toolkit for IBM z/OS.</p>
+                                <p>To find the <em>requirements.txt</em> file and instructions to configure pip as described, refer to the Get Started tab of the application.
+                                <p>Once properly configured, the user can browse and install the available packages of their choice.</p>",
+                subSectionVideo: "1_x2q4fh56",
+                subSectionVideoThumbnail: "https://izswebpage.mybluemix.net/images/jtoda/thumbnail_getstarted.jpg",
+                subSectionMediaAlt: "Video - Getting started with Python AI Toolkit for IBM z/OS",
+                subSectionLinks: [
+                ]
+            },
+            {
+                subSectionTitle: "Installing packages",
+                subSectionContent: "<p>With the environment configured for use with Python AI Toolkit for IBM z/OS, installing packages from the repository only requires a few steps.</p>
+                                    <p>To install all the packages available, simply use the provided requirements.txt along with the pip install command.</p>
+                                    <p>Otherwise, if specific packages are desired, you can browse the repository and determine a package you would like to use, copy the provided installation command and run it on your local system.</p>
+                                    <p>For further instructions to install packages as described, refer to 'Acquire packages' in the Get Started tab of the application.</p>",
+                subSectionLinks: [
+                ]
+            },
+            {
+                subSectionTitle: "Configuring",
+                subSectionContent: "<p>When installing with the given <em>requirements.txt</em> file, no configuration is required.</p>
+                                    <p>If individual packages are desired, you may opt to configure pip to perform the installation globally for all users.</p>
+                                    <p>For instructions to configure pip as described, refer to 'Set up environment' in the Get Started tab of the application.</p>
+                                    <p>While there are no other specific requirements for configuring Python AI Toolkit for IBM z/OS, you should periodically monitor the repository for updated package versions over time.</p>",
+                subSectionLinks: [
+                ]
+            }
+        ]
+    },
+        {
+
+        id: 4,
+        tabTitle: "IBM Data Virtualization Manager for z/OS",
+        tabSubSections: [
+            {
+                subSectionTitle: "Planning",
+                subSectionContent: "<p>Complete the following prerequisite tasks prior to the installation and configuration of IBM Data Virtualization Manager for z/OS:</p>
+                                    <ol>
+                                    <li>
+                                    <p>Review required naming conventions</p>
+                                    </li>
+                                    <li>
+                                    <p>Create server data sets</p>
+                                    </li>
+                                    <li>
+                                    <p>Define security authorizations</p>
+                                    </li>
+                                    <li>
+                                    <p>Configure Workload Manager (WLM)</p>
+                                    </li>
+                                    <li>
+                                    <p>APF-authorize LOAD library data sets</p>
+                                    </li>
+                                    <li>
+                                    <p>Optionally, copy your target libraries</p>
+                                    </li>
+                                    </ol>
+                                    <p>For further detail about each prerequisite step, refer to the IBM Documentation chapter on <a href='https://www.ibm.com/docs/en/dvm/1.1.0?topic=installing-prerequisites'>Prerequisites</a>.</p>
+                                    <p>Note that IBM Data Virtualization Manager for z/OS supports a broad range of data sources across a variety of platforms, including mainframe relational/non-relational databases, distributed data stores running on Linux, Unix, and Windows, and non-mainframe IBM databases such as IBM Db2, and more.</p>
+                                    <p>For further detail, refer to the IBM Documentation chapter on <a href='https://www.ibm.com/docs/en/dvm/1.1.0?topic=overview-supported-data-sources'>Supported data sources</a>.</p>",
+                subSectionLinks: [
+                ]
+            },
+            {
+                subSectionTitle: "Installing",
+                subSectionContent: "<p>Complete the following steps to successfully install IBM Data Virtualization Manager for z/OS:</p>
+                                    <ol>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/dvm/1.1.0?topic=server-installing-data-virtualization-manager'>Install the Data Virtualization Manager server</a></p>
+                                    </li>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/dvm/1.1.0?topic=installing-client-drivers'>Install the supported client drivers</a></p>
+                                    </li>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/dvm/1.1.0?topic=installing-data-virtualization-manager-studio'>Install Data Virtualization Manager studio (optional)</a></p>
+                                    </li>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/dvm/1.1.0?topic=installing-jdbc-gateway'>Install JDBC Gateway (optional)</a></p>
+                                    </li>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/dvm/1.1.0?topic=installing-avz-interface-aci'>Install AVZ interface for ACI (optional)</a></p>
+                                    </li>
+                                    </ol>
+                                    <p>Note that Data Virtualization Manager studio and JDBC Gateway also have a number of prerequisite requirements spanning permissions, memory, storage, software, and more.</p>",
+                subSectionLinks: [
+                ]
+            },
+            {
+                subSectionTitle: "Configuring",
+                subSectionContent: "<p>The following configuration steps are possible with the Data Virtualization Manager server:</p>
+                                    <ol>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/dvm/1.1.0?topic=server-configuring-support-code-pages-dbcs'>Configuring support for code pages and DBCS</a></p>
+                                    </li>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/dvm/1.1.0?topic=server-customizing-initialization-member'>Customizing the server initialization member</a></p>
+                                    </li>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/dvm/1.1.0?topic=server-configuring-started-task-jcl'>Configuring the started task JCL</a></p>
+                                    </li>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/dvm/1.1.0?topic=server-configuring-ispf-application'>Configuring the ISPF application</a></p>
+                                    </li>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/dvm/1.1.0?topic=server-configuring-generation-data-set-retrieval'>Configuring generation data set retrieval</a></p>
+                                    </li>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/dvm/1.1.0?topic=server-configuring-delimited-data-support'>Configuring delimited data support</a></p>
+                                    </li>
+                                    <li>
+                                    <p><a href='https://www.ibm.com/docs/en/dvm/1.1.0?topic=server-configuring-alternate-started-task-id'>Configuring alternate started task ID</a></p>
+                                    </li>
+                                    </ol>",
+                subSectionLinks: [
+                ]
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+
+{# START FAQs #}
+{#
+Two formats are available, with or without accordion wrapped category sections. Only use one, not both.
+
+Original pattern: Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqs = [
+    {
+    question: "",
+    answer: ""
+    }
+]#}
+
+{# OR Accordion pattern
+catTitle: Title for category will be placed in accordion header
+faqs: Associated with this category and wrapped in accordion container. Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "Technical resources",
+        tabContent: [
+            {
+                resourceDescription: "Access Python AI Toolkit for IBM z/OS",
+                resourceLinkUrl: "https://ibm.biz/pyaitoolkit",
+                resourceLinkText: "View the repository",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceDescription: "Python AI Toolkit for IBM z/OS: FAQs",
+                resourceLinkUrl: "https://izswebpage.mybluemix.net/docs/FAQ_zPAIT_v2.pdf",
+                resourceLinkText: "Read the FAQs",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceDescription: "Overview of Python AI Toolkit for IBM z/OS",
+                resourceLinkUrl: "https://ibm.biz/zPAIT_overview",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+                        {
+                resourceDescription: "Getting started with Python AI Toolkit for IBM z/OS",
+                resourceLinkUrl: "https://ibm.biz/zPAIT_demo",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceDescription: "IBM is evolving the Open Data Analytics offering to give customers newer versions of the IzODA software faster.",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/steven-jones1/2023/02/09/the-evolution-of-izoda",
+                resourceLinkText: "Read the blog",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceDescription: "Access technical content for the planning, installation, configuration, and use of IBM Z Platform for Apache Spark",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zpas/1.1.0",
+                resourceLinkText: "Read the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceDescription: "This IBM Redbooks publication presents an overview of the IBM Data Virtualization Manager for IBM z/OS® offering and the role it plays in accessing traditional non-relational data on IBM Z",
+                resourceLinkUrl: "https://www.redbooks.ibm.com/abstracts/sg248514.html?Open",
+                resourceLinkText: "Read the IBM Redbook",
+                resourceLinkType: "redbook",
+                resourceIcon: false
+            },
+            {
+                resourceDescription: "Access technical content for IBM Data Virtualization Manager for z/OS",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/dvm",
+                resourceLinkText: "Read the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceDescription: "Access technical content for IBM Open Enterprise SDK for Python",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/python-zos",
+                resourceLinkText: "Read the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceDescription: "Read blog posts about IBM Open Enterprise SDK for Python",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/topic-home/blog-entries?communitykey=d867d066-1659-4aad-ab24-d14d92093531",
+                resourceLinkText: "View the blogs",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceDescription: "Watch an overview about IBM Open Enterprise SDK for Python",
+                resourceLinkUrl: "https://mediacenter.ibm.com/playlist/dedicated/209147013/1_p1nnefbk/1_mni8zaqu",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceDescription: "View featured resources for IBM Open Enterprise SDK for Python",
+                resourceLinkUrl: "https://www.ibm.com/products/open-enterprise-python-zos/resources",
+                resourceLinkText: "Explore the resources",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceDescription: "Visit the portal to request enhancements to IBM Open Enterprise SDK for Python",
+                resourceLinkUrl: "https://ibm-z-software-portal.ideas.ibm.com/?project=PY",
+                resourceLinkText: "View the portal",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [20] %}
+{# end RELATED SOLUTIONS #}
+
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "April 20, 2023",
+        sectionContent: "<p>Two new videos for Python AI Toolkit for IBM z/OS added. Updated FAQ document.</p>"
+    },
+    {
+        sectionTitle: "February 24, 2023",
+        sectionContent: "<p>New content for Python AI Toolkit for IBM z/OS added.</p>"
+    },
+    {
+        sectionTitle: "February 17, 2023",
+        sectionContent: "<p>New resource (blog post) added.</p>"
+    }
+] %}
+{# END WHATS NEW #}
+
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "journey-to-open-data-analytics" %}
+{# END FEEDBACK #}
+
+
+{# START STATCOUNTER #}
+
+{# END STATCOUNTER #}
+
+{# START HOTJAR #}
+{% set hotjar = {
+    site_id: ""
+}
+ %}
+{# END HOTJAR #}

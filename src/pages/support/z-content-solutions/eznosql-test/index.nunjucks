@@ -1,0 +1,470 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+{# Optional sections are commented out by default, to activate them, change the # to % in their enclosing brackets. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "EzNoSQL for z/OS" %}
+
+{# Solution key - Format is just number, no quotes.
+Replace 00 with number higher than last existing solution. Find existing key list in /data/pages.json and Related Solutions Box note, and update both places with all relevant information. #}
+{% set key = 30 %}
+
+{# META #}
+{% set meta_description = meta_description | default("NoSQL EzNoSQL for z/OS JSON databases C-based APIs Java-based APIs.") %}
+
+
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "",
+    videoID: "",
+    thumbnailUrl: "",
+    label: ""
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Welcome to the EzNoSQL for z/OS® content solution, your first stop for learning about IBM's EzNoSQL solution. Use it to improve your application design by creating JSON key:value databases on z/OS and take advantage of the advanced data sharing capabilities provided by IBM® Parallel Sysplex® technology.</p>
+<p>With EzNoSQL you can easily create and access JSON databases through a comprehensive set of C- or Java-based APIs. The data can be shared from multiple application instances running on different processors, and EzNoSQL provides all the necessary serialization to protect the data.</p>
+<p>Worried about having to code for eventual consistency with traditional NoSQL databases? Not with EzNoSQL’s single instance of the data. Data integrity and performance are met with EzNoSQL’s store-through caching design, in-memory buffering, and easy horizontal scaling. Let EzNoSQL be the database of choice to meet the growing demands of your application.</p>
+<p>EzNoSQL is available with required service on z/OS 2.4 and above.</p>" %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# set announcements = [
+    {
+    announcementText: "",
+    announcementLinkText: "",
+    announcementLinkUrl: ""
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+*NEW FOR CARBON*
+iconPath: Pictograms must be added as SVG paths. The <svg> enclosing tag is already included in the template (layout-dot-com, line 333), with its necessary styles and classes, so this will be the inner content excluding that and starting with <g>, <path>, <polygon>, etc. Open svg file in VS code to grab path. Any custom pictograms should be made following Carbon guidelines and grid at 32px x 32px.
+***
+iconUrl: Full link to the pictogram used for this step. *NO LONGER NEEDED IN CARBON, but can still be added for reference to the source file for the path.
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconPath: '<path id="inspect--data_1_" d="M15.707,23.121c-0.469,0-0.873-0.09-1.21-0.27s-0.616-0.438-0.836-0.775s-0.381-0.752-0.484-1.242
+	c-0.103-0.492-0.154-1.053-0.154-1.684c0-0.623,0.051-1.183,0.154-1.678c0.103-0.495,0.264-0.911,0.484-1.249
+	c0.22-0.337,0.499-0.596,0.836-0.775s0.741-0.27,1.21-0.27c0.469,0,0.873,0.09,1.21,0.27s0.617,0.438,0.836,0.775
+	c0.22,0.337,0.381,0.753,0.483,1.249c0.104,0.495,0.154,1.055,0.154,1.678c0,0.631-0.051,1.191-0.154,1.684
+	c-0.103,0.49-0.264,0.905-0.483,1.242c-0.22,0.338-0.499,0.596-0.836,0.775C16.58,23.031,16.176,23.121,15.707,23.121z
+	 M15.707,22.318c0.308,0,0.572-0.061,0.792-0.182c0.22-0.121,0.398-0.291,0.534-0.512c0.136-0.22,0.236-0.485,0.303-0.797
+	c0.065-0.312,0.099-0.662,0.099-1.051v-1.254c0-0.381-0.033-0.73-0.099-1.045s-0.167-0.583-0.303-0.803s-0.313-0.391-0.534-0.512
+	c-0.22-0.121-0.484-0.181-0.792-0.181c-0.308,0-0.572,0.061-0.792,0.181c-0.22,0.121-0.397,0.292-0.533,0.512
+	s-0.237,0.488-0.303,0.803c-0.066,0.314-0.099,0.664-0.099,1.045v1.254c0,0.389,0.033,0.738,0.099,1.051
+	c0.066,0.312,0.167,0.577,0.303,0.797c0.136,0.221,0.313,0.391,0.533,0.512C15.135,22.258,15.399,22.318,15.707,22.318z
+	 M15.707,19.799c-0.256,0-0.434-0.051-0.533-0.154c-0.099-0.102-0.148-0.227-0.148-0.373V19.03c0-0.146,0.049-0.271,0.148-0.374
+	s0.277-0.153,0.533-0.153c0.257,0,0.435,0.051,0.534,0.153s0.148,0.228,0.148,0.374v0.242c0,0.146-0.049,0.271-0.148,0.373
+	C16.141,19.748,15.963,19.799,15.707,19.799z M19.931,22.989v-0.804h2.2v-6.192h-0.077l-1.937,1.804l-0.539-0.582l2.035-1.904h1.441
+	v6.875h2.023v0.804h-5.146V22.989z M0.64,12h0.72V1H0.64V12z M13.36,1h-0.72v5h0.72V1z M4.64,16h0.72V5H4.64V16z M0.64,28h0.72v-8
+	H0.64V28z M0.64,16h0.72v-3H0.64V16z M4.64,23h0.72v-6H4.64V23z M4.64,31h0.72v-5H4.64V31z M4.64,4h0.72V1H4.64V4z M9.36,4H8.64v8
+	h0.72C9.36,12,9.36,4,9.36,4z M21.36,1h-0.72v6h0.721L21.36,1L21.36,1z M8.64,30h0.72v-4H8.64V30z M0.64,19h0.72v-2H0.64V19z
+	 M9.36,1H8.64v2h0.72C9.36,3,9.36,1,9.36,1z M17.36,1h-0.72v3h0.72V1z M17.36,5h-0.72v2h0.72V5z M4.64,25h0.72v-1H4.64V25z M13.36,7
+	h-0.72v1h0.72V7z M30.279,30.773l-3.772-4.649c1.837-1.935,2.853-4.45,2.853-7.125c0-5.712-4.647-10.36-10.36-10.36
+	C13.288,8.64,8.64,13.288,8.64,19c0,5.713,4.647,10.36,10.36,10.36c2.614,0,5.073-0.973,6.99-2.731l3.731,4.598L30.279,30.773z
+	 M9.36,19c0-5.315,4.325-9.64,9.64-9.64s9.64,4.325,9.64,9.64c0,2.573-1.003,4.993-2.824,6.815C23.993,27.637,21.573,28.64,19,28.64
+	C13.685,28.64,9.36,24.315,9.36,19z"/>
+<rect id="_Transparent_Rectangle" style="fill:none;" width="32" height="32"/>',
+        iconUrl: "https://izswebpage.mybluemix.net/images/eznosql/bp-eznosql-1.svg",
+        iconAlt: "Sharing",
+        description: "Allows processors to share a single instance of a database, without the need for data sharing, replicating the updates, or 
+        programming for eventual consistency.​"
+    },
+    {
+        id: 2,
+        iconPath: '<path id="expand--horz_1_" d="M31,1.37c-0.199,0-0.36-0.161-0.36-0.36S30.801,0.645,31,0.645S31.36,0.801,31.36,1v0.01
+	C31.36,1.208,31.199,1.37,31,1.37z M31.36,29.01v-0.02c0-0.199-0.161-0.351-0.36-0.351s-0.36,0.171-0.36,0.37s0.161,0.36,0.36,0.36
+	S31.36,29.209,31.36,29.01z M31.36,27.01v-0.02c0-0.199-0.161-0.351-0.36-0.351s-0.36,0.171-0.36,0.37s0.161,0.36,0.36,0.36
+	S31.36,27.209,31.36,27.01z M31.36,25.01v-0.02c0-0.199-0.161-0.351-0.36-0.351s-0.36,0.171-0.36,0.37s0.161,0.36,0.36,0.36
+	S31.36,25.209,31.36,25.01z M31.36,23.01v-0.02c0-0.199-0.161-0.351-0.36-0.351s-0.36,0.171-0.36,0.37s0.161,0.36,0.36,0.36
+	S31.36,23.209,31.36,23.01z M31.36,21.01v-0.02c0-0.199-0.161-0.351-0.36-0.351s-0.36,0.171-0.36,0.37s0.161,0.36,0.36,0.36
+	S31.36,21.209,31.36,21.01z M31.36,19.01v-0.02c0-0.199-0.161-0.351-0.36-0.351s-0.36,0.171-0.36,0.37s0.161,0.36,0.36,0.36
+	S31.36,19.209,31.36,19.01z M31.36,17.01v-0.02c0-0.199-0.161-0.35-0.36-0.35s-0.36,0.171-0.36,0.37c0,0.199,0.161,0.36,0.36,0.36
+	S31.36,17.209,31.36,17.01z M31.36,15.01v-0.02c0-0.199-0.161-0.35-0.36-0.35s-0.36,0.171-0.36,0.37s0.161,0.36,0.36,0.36
+	S31.36,15.208,31.36,15.01z M31.36,13.01v-0.02c0-0.199-0.161-0.35-0.36-0.35s-0.36,0.171-0.36,0.37s0.161,0.36,0.36,0.36
+	S31.36,13.208,31.36,13.01z M31.36,11.01v-0.02c0-0.199-0.161-0.35-0.36-0.35s-0.36,0.171-0.36,0.37s0.161,0.36,0.36,0.36
+	S31.36,11.208,31.36,11.01z M31.36,9.01V8.99c0-0.199-0.161-0.35-0.36-0.35s-0.36,0.171-0.36,0.37S30.801,9.37,31,9.37
+	S31.36,9.208,31.36,9.01z M31.36,7.01V6.99c0-0.199-0.161-0.35-0.36-0.35s-0.36,0.171-0.36,0.37S30.801,7.37,31,7.37
+	S31.36,7.208,31.36,7.01z M31.36,5.01V4.99c0-0.199-0.161-0.35-0.36-0.35s-0.36,0.171-0.36,0.37S30.801,5.37,31,5.37
+	S31.36,5.209,31.36,5.01z M31.36,3.01V2.99c0-0.199-0.161-0.35-0.36-0.35s-0.36,0.171-0.36,0.37S30.801,3.37,31,3.37
+	S31.36,3.209,31.36,3.01z M31.36,31v-0.01c0-0.199-0.161-0.355-0.36-0.355S30.64,30.801,30.64,31s0.161,0.36,0.36,0.36
+	S31.36,31.199,31.36,31z M1.36,1H0.64v30h0.72V1z M28.509,16l-3.254-3.254l-0.51,0.509l2.386,2.386H4v0.72h23.131l-2.386,2.385
+	l0.51,0.51L28.509,16z"/>
+<rect id="_Transparent_Rectangle" style="fill:none;" width="32" height="32"/>',
+        iconUrl: "https://izswebpage.mybluemix.net/images/eznosql/bp-eznosql-2.svg",
+        iconAlt: "Horizontal scability",
+        description: "Allows easy horizontal scalability by adding additional processors (or system instances) without additional overhead for improved performance.​"
+    },
+    {
+        id: 3,
+        iconPath: '<path id="storage--product_1_" d="M30,31.36H8c-0.199,0-0.36-0.161-0.36-0.36v-5c0-0.199,0.161-0.36,0.36-0.36h22
+	c0.199,0,0.36,0.161,0.36,0.36v5C30.36,31.199,30.199,31.36,30,31.36z M8.36,30.64h21.28v-4.28H8.36V30.64z M6,31.36H2
+	c-0.199,0-0.36-0.161-0.36-0.36V1c0-0.199,0.161-0.36,0.36-0.36h11c0.199,0,0.36,0.161,0.36,0.36v9h-0.72V1.36H2.36v29.28H6V31.36z
+	 M28.36,30h-0.72v-2h0.721L28.36,30L28.36,30z M26.36,30h-0.72v-2h0.721L26.36,30L26.36,30z M24.36,30h-0.72v-2h0.721L24.36,30
+	L24.36,30z M22.36,30h-0.72v-2h0.721L22.36,30L22.36,30z M30,24.36H8c-0.199,0-0.36-0.161-0.36-0.36v-5
+	c0-0.199,0.161-0.36,0.36-0.36h22c0.199,0,0.36,0.161,0.36,0.36v5C30.36,24.199,30.199,24.36,30,24.36z M8.36,23.64h21.28v-4.28
+	H8.36V23.64z M28.36,23h-0.72v-2h0.721L28.36,23L28.36,23z M26.36,23h-0.72v-2h0.721L26.36,23L26.36,23z M24.36,23h-0.72v-2h0.721
+	L24.36,23L24.36,23z M22.36,23h-0.72v-2h0.721L22.36,23L22.36,23z M30,17.36H8c-0.199,0-0.36-0.161-0.36-0.36v-5
+	c0-0.199,0.161-0.36,0.36-0.36h22c0.199,0,0.36,0.161,0.36,0.36v5C30.36,17.199,30.199,17.36,30,17.36z M8.36,16.64h21.28v-4.28
+	H8.36V16.64z M28.36,16h-0.72v-2h0.721L28.36,16L28.36,16z M26.36,16h-0.72v-2h0.721L26.36,16L26.36,16z M24.36,16h-0.72v-2h0.721
+	L24.36,16L24.36,16z M22.36,16h-0.72v-2h0.721L22.36,16L22.36,16z M6,4.36H4V3.64h2V4.36z"/>
+<rect id="_Transparent_Rectangle" style="fill:none;" width="32" height="32"/>',
+        iconUrl: "https://izswebpage.mybluemix.net/images/eznosql/bp-eznosql-3.svg",
+        iconAlt: "Features",
+        description: "Includes desired features such as system-managed storage, encryption, and data compression."
+    },
+    {
+        id: 4,
+        iconPath: '<path id="business--continuity_1_" d="M25,22.36c-3.382,0-6.07-2.901-6.261-3.112l-1.994-1.993l0.509-0.509l2,2l0.013,0.015
+	c0.026,0.028,2.623,2.88,5.732,2.88c3.11,0,5.64-2.529,5.64-5.64c0-3.11-2.529-5.64-5.64-5.64c-2.114,0-3.897,1.202-4.771,1.918
+	l-0.457-0.557C20.721,10.944,22.662,9.64,25,9.64c3.507,0,6.36,2.853,6.36,6.36S28.507,22.36,25,22.36z M12.732,13.24
+	c-0.026-0.029-2.623-2.88-5.732-2.88c-3.11,0-5.64,2.53-5.64,5.64S3.89,21.64,7,21.64c2.115,0,3.897-1.201,4.772-1.918l0.456,0.557
+	C11.28,21.056,9.339,22.36,7,22.36c-3.507,0-6.36-2.854-6.36-6.36S3.493,9.64,7,9.64c3.382,0,6.071,2.901,6.261,3.112l1.993,1.994
+	l-0.509,0.509l-2-2L12.732,13.24z M13.254,19.255l-0.509-0.51l5.385-5.385H16v-0.72h3.36V16h-0.72v-2.131L13.254,19.255z"/>
+<rect id="_Transparent_Rectangle" style="fill:none;" width="32" height="32"/>',
+        iconUrl: "https://izswebpage.mybluemix.net/images/eznosql/bp-eznosql-4.svg",
+        iconAlt: "APIs",
+        description: "Allows transaction consistency through simple commit and backout APIs.​"
+    },
+    {
+        id: 5,
+        iconPath: '<path d="M16,7.36H2C1.801,7.36,1.64,7.199,1.64,7V2c0-0.199,0.161-0.36,0.36-0.36h14c0.199,0,0.36,0.161,0.36,0.36v5
+		C16.36,7.199,16.199,7.36,16,7.36z M2.36,6.64h13.28V2.36H2.36V6.64z M10,3.64H4v0.72h6V3.64z M16,14.36H2
+		c-0.199,0-0.36-0.161-0.36-0.36V9c0-0.199,0.161-0.36,0.36-0.36h14c0.199,0,0.36,0.161,0.36,0.36v5
+		C16.36,14.199,16.199,14.36,16,14.36z M2.36,13.64h13.28V9.36H2.36V13.64z M10,10.64H4v0.72h6V10.64z M30,23.36H16
+		c-0.199,0-0.36-0.161-0.36-0.36v-5c0-0.199,0.161-0.36,0.36-0.36h14c0.199,0,0.36,0.161,0.36,0.36v5
+		C30.36,23.199,30.199,23.36,30,23.36z M16.36,22.64h13.28v-4.28H16.36V22.64z M24,19.64h-6v0.721h6V19.64z M30,30.36H16
+		c-0.199,0-0.36-0.161-0.36-0.36v-5c0-0.199,0.161-0.36,0.36-0.36h14c0.199,0,0.36,0.161,0.36,0.36v5
+		C30.36,30.199,30.199,30.36,30,30.36z M16.36,29.64h13.28v-4.28H16.36V29.64z M24,26.64h-6v0.721h6V26.64z M28.36,8
+		c0-0.199-0.161-0.36-0.36-0.36H18v0.72h9.64V16h0.721L28.36,8L28.36,8z M14,23.64H4.36V16H3.64v8c0,0.199,0.161,0.36,0.36,0.36h10
+		V23.64z"/>
+</g>
+<rect id="_Transparent_Rectangle" style="fill:none;" width="32" height="32"/>',
+        iconUrl: "https://izswebpage.mybluemix.net/images/eznosql/bp-eznosql-5.svg",
+        iconAlt: "Access to documents",
+        description: "Allows access to documents from multiple elements through the creation of secondary indices.​"
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    ~NEW~ subSectionAccordion: Adds accordion/twisties section after main content, example can be seen in Use Cases on FHE. accordionContent accepts HTML and will be filtered for definition tooltips.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Overview",
+        tabSubSections: [
+            {
+                subSectionContent: "<p>Before creating your first EzNoSQL database on z/OS, ensure the proper system configuration is available to your 
+                    application.  If the required configuration is not available, help from the z/OS system administrators will be required to complete the  
+                    setup.</p>
+                    <p>Once the proper configuration is available, customize and execute a sample program found in the system's z/OS UNIX System Services (z/OS UNIX) directory: /samples/IBM/igwznsqsamp1.c for C or /samples/IBM/Igwznsqsamp1.java for Java. Any necessary customization steps are documented in the prolog or Java comments.</p>
+                    <p>If the sample program successfully executes, you are now ready to design your own application using EzNoSQL.  Refer to the 
+                    documentation below for a detailed explanation of the APIs and the database features.</p>",
+                    subSectionLinks: [
+                    {
+                        linkUrl: "https://github.com/IBM/IBM-Z-zOS/blob/main/zOS-EzNoSQL/zNoSQL%20Documentation.md#Introduction-to-EzNoSQL",
+                        linkText: "EzNoSQL sysplex design"
+                    }
+                ] 
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Configuration requirements",
+        tabSubSections: [
+            {
+                subSectionTitle: "z/OS system programmer",
+                subSectionContent: "<p>EzNoSQL requires RLS, which requires at least one z/OS image installed and running in sysplex mode. Sysplex mode 
+                    requires at least one internal or external coupling facility (CF). For better availability, configure more than one z/OS image and CF. 
+                </p>
+                <p>For C APIs, install OA62553.</p>
+                <p>For Java APIs, install OA64018 for z/OS 2.4 or z/OS 2.5, or OA64811 for z/OS 3.1. Both require OA62553.</p>
+                <p>Initialize the SMSVSAM server address space on each z/OS instance in the sysplex or required by the application architect.  If 
+                transactional consistency is required, enable the DFSMS transaction server (DFSMSTVS).</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=sysplex-abstract-mvs-setting-up",
+                        linkText: "Setting up a sysplex"
+                    },
+                    {
+                        linkUrl: "https://www.redbooks.ibm.com/abstracts/sg246105.html",
+                        linkText: "VSAM Demystified (chapters 5 and 6)"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "z/OS storage administrator",
+                subSectionContent: "<p>Ensure the availability of one or more SMS storage classes (STORCLAS) which contain a RLS CACHESET with the name of a 
+                    valid CF cache structure. The STORCLAS names can be provided to the application architect or assigned by the SMS ACS routines.</p>
+                    <p>Optionally ensure the availability of one or more SMS data classes (DATACLAS) which contain database attributes such as data compression,
+                    encryption, 64-bit buffering, and do on. The DATACLAS names can be provided to the application architect or assigned by the SMS ACS 
+                    routines.</p>",
+                subSectionLinks: [
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=sharing-defining-storage-classes-vsam-rls#dscrls",
+                        linkText: "Defining storage classes for VSAM RLS"
+                    },
+                    {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=sharing-defining-vsam-rls-attributes-in-data-classes",
+                        linkText: "Defining VSAM RLS attributes in data classes"
+                    },
+                    {
+                        linkUrl: "https://www.redbooks.ibm.com/abstracts/sg246105.html",
+                        linkText: "VSAM Demystified (chapters 5 and 6)"
+                    },
+                                        {
+                        linkUrl: "https://www.ibm.com/docs/en/zos/latest?topic=attributes-defining-shareoptions-rls-data-class#dorlsadc",
+                        linkText: "Defining Shareoptions and RLS attributes for data class"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Verifying the configuration",
+        tabSubSections: [
+            {
+                subSectionTitle: "Overview",
+                subSectionContent: "<p>The application architect verifies the configuration."
+            },
+            {
+                subSectionTitle: "Steps",
+                subSectionContent: "<ol>
+                <li>Customize and execute the sample C or Java program to verify the EzNoSQL configuration is available and to become familiar with the APIs used in the sample programs. 
+                <p>The sample program can be found in the system’s z/OS UNIX directory, /samples/IBM/igwznsqsamp1.c for C or /samples/IBM/Igwznsqsamp1.java for Java.</p></li>
+                <li>Perform customization steps that are documented in the prolog of the sample program.</li>
+                <li>Refer to the documentation to <a href='https://github.com/IBM/IBM-Z-zOS/blob/main/zOS-EzNoSQL/zNoSQL%20Documentation.md'>Learn about the database features and the available APIs</a>.</li>     
+                </ol>"
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# START FAQs #}
+{#
+Two formats are available, with or without accordion wrapped category sections. Only use one, not both.
+
+Original pattern: Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqs = [
+    {
+    question: "",
+    answer: ""
+    }
+]#}
+
+{# OR Accordion pattern 
+catTitle: Title for category will be placed in accordion header
+faqs: Associated with this category and wrapped in accordion container. Format is question (will be wrapped in an <h3>) and answer (will be wrapped in <p>) for each section point. Will return with html formatting, so line breaks and links can be added to answers as needed.
+#}
+{# set faqSection = [
+    {
+        categories: [
+            {
+                catTitle: "",
+                faqs: [
+                    {
+                        question: "",
+                        answer: ""
+                    }
+                ]
+            }
+        ]
+    }
+] #}
+
+{# Learn more - optional section below the main FAQs if needed. Can support as many sections as needed following this pattern:
+heading: section heading string
+content: paragraph text content
+links: link section below
+    linkURL: link address
+    linkText: link display text
+    linkType: "local" or "external"
+ #}
+{# New for Zowe page - change Learn more to custom text, and optional intro paragraph #}
+{#set customLMTitle = "" #}
+{# set learnMoredescription = ""#}
+
+{# set learnMore =  [
+    {
+        heading: "",
+        content: "",
+        links: [
+            {
+            linkUrl: "",
+            linkText: "",
+            linkType: ""
+        }
+        ]
+    }
+]
+#}
+
+{# Learn more ALTERNATE pattern for Resilience solution with accordion section
+section: Subheading under Learn more, above accordions
+categories: Each is an accordion wrapper
+    catTitle: Accordion heading
+    content: Supports any custom html content, wrap with appropriate tags
+ #}
+{# set learnMoreAccordion = 
+[
+        {
+        section: "",
+        categories: [
+            {
+                catTitle: "",
+                content:  ""
+            }
+        ]
+        }
+]
+#}
+{# END FAQs #}
+
+{# START FEATURED DOCUMENTATION #}
+{% set documentation = {
+    docTitle: "Documentation",
+    docDescription: "EzNoSQL Overview and API Reference",
+    docLinkUrl: "https://github.com/IBM/IBM-Z-zOS/blob/main/zOS-EzNoSQL/zNoSQL%20Documentation.md",
+    docLinkText: "Explore the documentation"
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to hide tile on the page temporarily.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "Technical resources",
+        tabContent: [
+            {
+                resourceTitle: "Technical resources for C",
+                resourceDescription: "Documentation, presentations, and more",
+                resourceLinkUrl: "https://github.com/IBM/IBM-Z-zOS/blob/main/zOS-EzNoSQL",
+                resourceLinkText: "View the README.md file",
+                resourceLinkType: "document",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Technical resources for Java",
+                resourceDescription: "Javadoc",
+                resourceLinkUrl: "https://izswebpage.mybluemix.net/docs/javadoc-1-0-0-preGA.zip",
+                resourceLinkText: "Explore the Javadoc",
+                resourceLinkType: "document",
+                resourceIcon: false,
+                resourceStatus: "new"
+            },
+            {
+                resourceTitle: "Request for enhancements with the IBM Ideas portal",
+                resourceDescription: "Send us your ideas, vote or comment on ideas, and more! Add your idea under product IBM Z and operating System z/OS, then select category DFSMS EzNoQSL.",
+                resourceLinkUrl: "https://ideas.ibm.com/new-idea",
+                resourceLinkText: "Explore the Ideas portal",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: "new"
+            }
+        ]
+    }
+    
+] %}
+{# START END RESOURCES #}
+
+{# *** NEW IN CARBON *** #}
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{# set related = [] #}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "July 13, 2023",
+        sectionContent: "Updates were made to the Introduction and How to get started sections for support for Java APIs and for z/OS 3.1. The Technical resources section was updated with a link to Javadoc."
+    },
+    {
+        sectionTitle: "October 13, 2022",
+        sectionContent: "A link to the IBM Ideas portal, for submitting requests for enhancements, was added to the Technical resources section."
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "eznosql" %}
+{# END FEEDBACK #}
+
+{# START STATCOUNTER #}
+{% set statcounter = {
+    sc_project: "-",
+    sc_security: "-"
+}
+ %}
+{# END STATCOUNTER #}

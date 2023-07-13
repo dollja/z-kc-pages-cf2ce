@@ -1,0 +1,482 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "IBM z/OS Cloud Broker" %}
+{% set key = 8 %}
+
+{# META #}
+{% set meta_description = meta_description | default("z/OS Cloud Broker provides access to z/OS resources from Red Hat® OpenShift® Container Platform, integrating z/OS resources into cloud-native applications.") %}
+{% set meta_keywords = meta_keywords | default("cloud broker, ibm cloud broker, ibm cloud brokerage, ibm cloud z/os, ibm mainframe cloud, ibm z cloud, z/os broker, z/os cloud, z/os cloud broker, z/os in the cloud, z/os on the cloud, zos cloud, zos cloud broker, zos ibm") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "video",
+    videoID: "1_t8bovehi",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/cb/thumb.png",
+    label: "IBM z/OS Cloud Broker"
+} %}
+
+{# Introduction parapgraphs:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "IBM® z/OS® Cloud Broker provides access to z/OS® resources and services from Red Hat® OpenShift® Container Platform, which enables you to integrate your z/OS infrastructure with hybrid multi-cloud environments and strategies. By using z/OS Cloud Broker, cloud administrators and system programmers can expose z/OS resources in the OpenShift Container Platform catalog, so that developers can interact directly with z/OS resources. IBM z/OS Cloud Broker is packaged in the IBM Z and Cloud Modernization Stack™ which enables application owners and IT architects, in both medium to large mainframe enterprises, to jumpstart application modernization and IT automation faster, with less cost and risk." %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{# set introLinks = [
+    {
+        id: 1,
+        type: "marketing",
+        url: ""
+    }
+] #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{# set announcements = [
+    {
+    announcementText: "",
+    announcementLinkText: "",
+    announcementLinkUrl: ""
+    }
+]%}
+
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+{% set bigPictureSteps = [
+    {
+    id:1,
+    iconUrl:"https://izswebpage.mybluemix.net/images/zcb/cb big picture 1.svg",
+    iconPath: '<path id="hybrid--cloud--services_1_" d="M24,31.36H10c-0.199,0-0.36-0.161-0.36-0.36v-5c0-0.199,0.161-0.36,0.36-0.36h10.64V23.5
+	c0-0.904-0.735-1.64-1.64-1.64h-4c-1.301,0-2.36-1.059-2.36-2.36v-2.14H10c-0.199,0-0.36-0.161-0.36-0.36v-5
+	c0-0.199,0.161-0.36,0.36-0.36h14c0.199,0,0.36,0.161,0.36,0.36v5c0,0.199-0.161,0.36-0.36,0.36H13.36v2.14
+	c0,0.904,0.736,1.64,1.64,1.64h4c1.302,0,2.36,1.059,2.36,2.36v2.14H24c0.199,0,0.36,0.161,0.36,0.36v5
+	C24.36,31.199,24.199,31.36,24,31.36z M10.36,30.64h13.28v-4.28H10.36V30.64z M10.36,16.64h13.28v-4.28H10.36V16.64z M14,28.86h-2
+	v-0.72h2V28.86z M26.001,19.36v-0.72c2.818,0,4.639-1.488,4.639-3.793c0-2.432-1.949-4.487-4.257-4.487
+	c-0.199,0-0.36-0.161-0.36-0.36c0-4.845-3.896-8.64-8.868-8.64c-3.084,0-6.161,1.931-7.84,4.918
+	C9.239,6.411,9.091,6.481,8.939,6.457C8.566,6.393,8.189,6.36,7.821,6.36c-3.684,0-6.461,2.657-6.461,6.179
+	c0,3.478,2.855,6.101,6.641,6.101v0.721c-4.196,0-7.36-2.933-7.36-6.821c0-3.933,3.087-6.899,7.181-6.899
+	c0.327,0,0.659,0.023,0.991,0.068c1.83-3.087,5.078-5.068,8.342-5.068c5.258,0,9.401,3.932,9.582,9.014
+	c2.541,0.197,4.624,2.495,4.624,5.193C31.36,17.589,29.257,19.36,26.001,19.36z M14,14.86h-2v-0.72h2V14.86z"/>',
+    iconAlt:"Install z/OS software from OCP",
+    description:"Install z/OS® software into your system from Red Hat® OpenShift® Container Platform."
+    },
+    {
+    id:2,
+    iconUrl:"https://izswebpage.mybluemix.net/images/zcb/bp_cb_2.svg",
+    iconPath:'<path d="M28.5,2.1c0.3,0,0.5,0.2,0.5,0.5s-0.2,0.5-0.5,0.5S28,2.8,28,2.6S28.2,2.1,28.5,2.1z M26.5,2.1
+	c0.3,0,0.5,0.2,0.5,0.5s-0.2,0.5-0.5,0.5S26,2.8,26,2.6S26.2,2.1,26.5,2.1z M24.5,2.1c0.3,0,0.5,0.2,0.5,0.5s-0.2,0.5-0.5,0.5
+	S24,2.8,24,2.6S24.2,2.1,24.5,2.1z M31,0.7H1c-0.2,0-0.4,0.2-0.4,0.4v28c0,0.2,0.2,0.4,0.4,0.4c0,0,0,0,0,0h11v-0.7H1.4V4.4h29.3
+	v24.3H28v0.7h3c0.2,0,0.4-0.2,0.4-0.4c0,0,0,0,0,0v-28C31.4,0.9,31.2,0.7,31,0.7z M30.6,3.7H1.4V1.4h29.3V3.7z M23,19h-4.7v-5.5
+	c0-1-0.7-1.8-1.7-1.8c0,0-0.1,0-0.1,0l0,0c-1,0-1.8,0.7-1.8,1.7c0,0,0,0.1,0,0.1v10.4c-0.8-0.9-1.6-1.7-2.5-2.5
+	c-1-0.6-2.2-0.7-3.3-0.2C8.4,21.3,8,21.8,8,22.3c0,0.4,0.4,0.8,1.3,1.9l0.4,0.4c0,0,1.9,2.1,2.5,2.8c2.2,2.5,4,4.1,7.7,4.1
+	c5.6,0,6.4-3.2,6.4-6.4v-2.9C26.3,20.3,24.8,19,23,19C23,19,23,19,23,19z M25.6,25c0,3.4-1,5.7-5.7,5.7c-3.5,0-5-1.5-7.2-3.9
+	c-0.6-0.7-2.5-2.8-2.5-2.8l-0.4-0.4c-0.4-0.4-0.8-0.9-1.1-1.4c0-0.1,0.2-0.3,0.4-0.4c0.8-0.4,1.7-0.3,2.5,0.1c1.1,1,2.1,2,3,3.1
+	c0.1,0.1,0.3,0.1,0.4,0.1c0.1-0.1,0.2-0.2,0.2-0.3V13.5c-0.1-0.6,0.4-1.2,1-1.2c0.6-0.1,1.2,0.4,1.2,1c0,0.1,0,0.1,0,0.2v5.9
+	c0,0.2,0.2,0.4,0.4,0.4c0,0,0,0,0,0H23c1.4-0.1,2.5,0.9,2.6,2.3c0,0,0,0.1,0,0.1V25z M19.6,17c2-1.8,2.1-4.8,0.4-6.7
+	c-1.8-2-4.8-2.1-6.7-0.4s-2.1,4.8-0.4,6.7c0.1,0.1,0.2,0.3,0.4,0.4l0.5-0.5c-0.9-0.8-1.4-1.9-1.4-3c0-2.2,1.8-4,4-4s4,1.8,4,4
+	c0,1.1-0.5,2.2-1.4,3L19.6,17z"/>',
+    iconAlt:"Manage z/OS software from OCP",
+    description:"Manage z/OS® software from a single control plane in Red Hat® OpenShift® Container Platform, while utilizing modern dev-ops practices, and without needing extensive z/OS knowledge."
+    },
+    {
+    id:3,
+    iconUrl:"https://izswebpage.mybluemix.net/images/zcb/cb big picture 3.svg",
+    iconPath:'<path id="app--developer_1_" d="M3.254,9.254L2.746,8.746L3.991,7.5L2.746,6.254l0.509-0.509L5.009,7.5L3.254,9.254z M3,2
+	C2.724,2,2.5,2.224,2.5,2.5S2.724,3,3,3s0.5-0.224,0.5-0.5S3.276,2,3,2z M5.5,2.5C5.5,2.776,5.276,3,5,3S4.5,2.776,4.5,2.5
+	S4.724,2,5,2S5.5,2.224,5.5,2.5z M7.5,2.5C7.5,2.776,7.276,3,7,3S6.5,2.776,6.5,2.5S6.724,2,7,2S7.5,2.224,7.5,2.5z M18.5,6.5
+	C18.5,6.776,18.276,7,18,7s-0.5-0.224-0.5-0.5S17.724,6,18,6S18.5,6.224,18.5,6.5z M20.5,6.5C20.5,6.776,20.276,7,20,7
+	s-0.5-0.224-0.5-0.5S19.724,6,20,6S20.5,6.224,20.5,6.5z M22.5,6.5C22.5,6.776,22.276,7,22,7s-0.5-0.224-0.5-0.5S21.724,6,22,6
+	S22.5,6.224,22.5,6.5z M5.5,24.5C5.5,24.776,5.276,25,5,25s-0.5-0.224-0.5-0.5S4.724,24,5,24S5.5,24.224,5.5,24.5z M13,14.36H1
+	c-0.199,0-0.36-0.161-0.36-0.36V1c0-0.199,0.161-0.36,0.36-0.36h12c0.199,0,0.36,0.161,0.36,0.36v13
+	C13.36,14.199,13.199,14.36,13,14.36z M12.64,4.36H1.36v9.28h11.28C12.64,13.64,12.64,4.36,12.64,4.36z M12.64,1.36H1.36v2.281
+	h11.28C12.64,3.641,12.64,1.36,12.64,1.36z M31.36,5v17c0,0.199-0.161,0.36-0.36,0.36H19.691c-0.301,0.471-0.69,0.885-1.152,1.215
+	c2.875,1.05,4.819,3.778,4.819,6.902l0.002,0.521L22.639,31l-0.002-0.522c0-3.078-2.09-5.729-5.083-6.45
+	c-0.15-0.035-0.26-0.163-0.274-0.316s0.07-0.299,0.211-0.361c1.315-0.592,2.165-1.9,2.165-3.334c0-2.017-1.64-3.657-3.656-3.657
+	c-2.018,0-3.66,1.64-3.66,3.657c0,1.434,0.85,2.742,2.166,3.334c0.141,0.062,0.225,0.208,0.211,0.361s-0.125,0.281-0.274,0.316
+	c-2.993,0.721-5.084,3.372-5.084,6.449l0.001,0.521L8.64,31l-0.001-0.522c0-3.125,1.943-5.854,4.819-6.903
+	c-1.138-0.812-1.838-2.134-1.838-3.559c0-2.292,1.772-4.178,4.02-4.362V5c0-0.199,0.161-0.36,0.36-0.36h15
+	C31.199,4.64,31.36,4.801,31.36,5z M30.64,8.36H16.36v7.295c2.246,0.184,4.017,2.07,4.017,4.362c0,0.566-0.11,1.115-0.315,1.623
+	H30.64V8.36z M30.64,5.36H16.36v2.28h14.28V5.36z M22,11.64h-4v0.72h4V11.64z M23.64,17.5c0-1.577,1.283-2.86,2.86-2.86
+	s2.86,1.283,2.86,2.86s-1.283,2.86-2.86,2.86S23.64,19.077,23.64,17.5z M28.242,16.266l-1.383,1.383l-0.004,1.955
+	c1.01-0.171,1.784-1.046,1.784-2.104C28.64,17.04,28.49,16.615,28.242,16.266z M24.36,17.5c0,1.055,0.769,1.928,1.774,2.103
+	l0.006-2.253l1.592-1.593c-0.349-0.248-0.773-0.397-1.233-0.397C25.32,15.36,24.36,16.32,24.36,17.5z M8,9.64H5v0.72h3V9.64z
+	 M3.5,21.36h3v-0.72h-3V21.36z M3.5,19.36h3v-0.72h-3V19.36z M22,13.64h-4v0.72h4V13.64z M29,11.64h-4v0.72h4V11.64z M29,9.64h-4
+	v0.72h4V9.64z M22,9.64h-4v0.72h4V9.64z M8.36,17.584v7.832c0,0.521-0.423,0.944-0.944,0.944H2.584
+	c-0.521,0-0.944-0.424-0.944-0.944v-7.832c0-0.521,0.423-0.944,0.944-0.944h4.832C7.937,16.64,8.36,17.063,8.36,17.584z M7.64,23.36
+	H2.36v2.056c0,0.123,0.101,0.224,0.224,0.224h4.832c0.124,0,0.224-0.101,0.224-0.224C7.64,25.416,7.64,23.36,7.64,23.36z
+	 M7.64,17.584c0-0.123-0.101-0.224-0.224-0.224H2.584c-0.124,0-0.224,0.101-0.224,0.224v5.056h5.28
+	C7.64,22.64,7.64,17.584,7.64,17.584z"/>',
+    iconAlt:"Maintain full visibility and control of z/OS software",
+    description:"Maintain full visibility and control of your z/OS® resources through z/OS Cloud Broker, while never losing oversight of your system."
+    },
+    {
+    id:4,
+    iconUrl:"https://izswebpage.mybluemix.net/images/zcb/cb big picture 4.svg",
+    iconPath:'<path id="group" d="M24.36,31h-0.72v-7.5c0-3.552-2.414-6.604-5.872-7.424c-0.15-0.036-0.261-0.163-0.275-0.316
+	c-0.015-0.154,0.071-0.3,0.212-0.363c1.517-0.675,2.496-2.181,2.496-3.836c0-2.316-1.884-4.201-4.2-4.201S11.8,9.244,11.8,11.561
+	c0,1.655,0.98,3.162,2.496,3.836c0.141,0.063,0.227,0.209,0.212,0.363c-0.014,0.153-0.125,0.281-0.275,0.316
+	c-3.458,0.82-5.872,3.872-5.872,7.424V31H7.64v-7.5c0-3.592,2.257-6.718,5.585-7.879c-1.326-0.907-2.146-2.421-2.146-4.061
+	c0-1.964,1.157-3.664,2.826-4.452C14.101,6.617,14.2,6.097,14.2,5.561c0-2.316-1.884-4.201-4.2-4.201S5.799,3.244,5.799,5.561
+	c0,1.656,0.98,3.162,2.496,3.836C8.437,9.46,8.521,9.606,8.507,9.76c-0.014,0.153-0.125,0.281-0.275,0.316
+	C4.774,10.896,2.36,13.948,2.36,17.5V25H1.64v-7.5c0-3.592,2.257-6.718,5.585-7.879C5.899,8.714,5.08,7.2,5.08,5.561
+	c0-2.713,2.207-4.92,4.92-4.92s4.92,2.207,4.92,4.92c0,0.422-0.052,0.836-0.157,1.237c0.791-0.205,1.683-0.205,2.473,0
+	c-0.104-0.401-0.157-0.815-0.157-1.237c0-2.713,2.208-4.92,4.921-4.92s4.921,2.207,4.921,4.92c0,1.64-0.82,3.154-2.146,4.061
+	c3.329,1.161,5.586,4.287,5.586,7.879V25H29.64v-7.5c0-3.552-2.414-6.604-5.872-7.424c-0.15-0.036-0.261-0.163-0.275-0.316
+	c-0.015-0.154,0.071-0.3,0.212-0.363C25.221,8.722,26.2,7.216,26.2,5.561c0-2.316-1.884-4.201-4.2-4.201s-4.2,1.884-4.2,4.201
+	c0,0.536,0.099,1.056,0.295,1.548c1.669,0.789,2.826,2.488,2.826,4.452c0,1.64-0.82,3.154-2.146,4.061
+	c3.329,1.161,5.586,4.287,5.586,7.879L24.36,31L24.36,31z"/>',
+    iconAlt:"Enable application developers to access z/OS software in OCP",
+    description:"Enable application developers to easily access z/OS® resources from the OpenShift® Container Platform catalog, regardless of their experience level with mainframe development."
+    }
+]
+%}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+{% set getStartedTabs = [
+    {
+    id:1,
+    tabTitle:"Overview",
+    tabSubSections:[
+        {
+        subSectionTitle:"What is IBM® z/OS® Cloud Broker?",
+        subSectionContent:"<p>IBM® z/OS® Cloud Broker is a software product that provides access to z/OS resources and services from Red Hat® OpenShift® Container Platform, which enables you to integrate your z/OS infrastructure with hybrid multi-cloud environments and strategies.</p>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://www.ibm.com/docs/SSV97FN_2022.1.1?topic=zcbo-architecture",
+            linkText:"Learn more about z/OS Cloud Broker architecture"
+            }
+        ]
+        },
+        {
+        subSectionTitle:"How does IBM® z/OS® Cloud Broker work?",
+        subSectionContent:"<p>IBM® z/OS Cloud Broker provides an operator, which is built from the Red Hat® and Kubernetes Operator Framework. Operators are pieces of software that ease the operational complexity of running and maintaining applications and services in a Kubernetes cluster.</p>
+        <p>z/OS Cloud Broker leverages Red Hat® Ansible automation to enable the implementation of stateful management of z/OS® resources and operations through a single control plane in Red Hat® OpenShift® Container Platform.</p>
+        <p>By using z/OS Cloud Broker, cloud administrators and system programmers can expose z/OS resources in the OpenShift Container Platform catalog. Application developers can then access, the z/OS resources from the catalog, without deep mainframe expertise. In this way, z/OS Cloud Broker allows for direct interaction with z/OS resources, and it empowers developers to use z/OS in a cloud-native way.</p>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://www.redhat.com/en/technologies/cloud-computing/openshift/container-platform",
+            linkText:"Learn more about Red Hat® OpenShift® Container Platform"
+            },
+            {
+            linkUrl:"https://docs.openshift.com/container-platform/4.10/operators/index.html",
+            linkText:"Learn more about operators"
+            },
+            {
+            linkUrl:"https://www.ibm.com/docs/SSV97FN_2022.1.1?topic=overview-ansible-zos-cloud-broker",
+            linkText:"Learn more about Ansible for z/OS Cloud Broker"
+            }
+        ]
+        }
+        ]
+    },
+    {
+    id:2,
+    tabTitle:"Prerequisites",
+    tabSubSections:[
+        {
+        subSectionTitle:"System requirements",
+        subSectionContent:" <p>Before you install IBM® z/OS® Cloud Broker, you must meet the system and deployment requirements for OpenShift® Container Platform:</p>
+        <ul><li>x86 or Linux on IBM Z server that runs OpenShift Container Platform</li>
+         <li>EC12 or higher IBM Z hardware</li>
+         <li>OpenShift Container Platform 4.9 or higher</li>
+         <li>z/OS 2.3 or higher</li></ul>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://www.ibm.com/docs/SSV97FN_2022.1.1?topic=broker-zos-cloud-system-requirements",
+            linkText:"Learn more about z/OS Cloud Broker system requirements"
+            }
+        ]
+        },
+        {
+        subSectionTitle:"Deployment requirements",
+        subSectionContent:"<p>Make sure you have installed the OpenShift® command line tool. If you are using an OpenShift cluster that was deployed with the IBM Kubernetes Service, follow the instruction to install the OpenShift Origin CLI (oc) that includes a matching version of the Kubernetes CLI (kubectl).</p>
+        <p>Read about how developers can create and work with a service instance here:</p>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://docs.openshift.com/container-platform/4.10/cli_reference/openshift_cli/getting-started-cli.html",
+            linkText:"How to install the OpenShift CLI"
+            },
+            {
+            linkUrl:"https://cloud.ibm.com/docs/openshift?topic=openshift-openshift-cli#cli_oc",
+            linkText:"How to install the OpenShift Origin CLI"
+            }
+        ]
+        }
+    ]
+    },
+    {
+    id:3,
+    tabTitle:"Install and use",
+    tabSubSections:[
+        {
+        subSectionTitle:"Install IBM® z/OS® Cloud Broker",
+        subSectionContent:"<p>Install the z/OS® Cloud Broker operator by using the administrator role in the Red Hat® OpenShift® Container Platform web console. To install z/OS Cloud Broker, you must be granted the cluster-admin ClusterRole by using a ClusterRoleBinding. Only a cluster-admin role user can grant other users the cluster-admin access.</p>
+        <p>After you've installed z/OS Cloud Broker, set up your storage by creating a persistent volume claim (PVC), then create an instance of z/OS Cloud Broker by creating a ZosCloudBroker custom resource (CR) in OpenShift Container Platform.</p>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://www.ibm.com/docs/SSV97FN_2022.1.1?topic=broker-granting-role-based-access-control-rbac-authorization",
+            linkText:"How to grant role based access control authorization"
+            },
+            {
+            linkUrl:"https://www.ibm.com/docs/SSV97FN_2022.1.1?topic=izcb-installing-zos-cloud-broker",
+            linkText:"How to install z/OS Cloud Broker"
+            },
+            {
+            linkUrl:"https://www.ibm.com/docs/SSV97FN_2022.1.1?topic=pizcb-creating-openshift-container-platform-storage-zos-cloud-broker",
+            linkText:"How to create OpenShift Container Platform storage for z/OS Cloud Broker"
+            },
+            {
+            linkUrl:"https://www.ibm.com/docs/SSV97FN_2022.1.1?topic=broker-creating-zos-cloud-instance",
+            linkText:"How to create a z/OS Cloud Broker instance"
+            }
+        ]
+        },
+        {
+        subSectionTitle:"Configure IBM® z/OS® Cloud Broker",
+        subSectionContent:"<p>Before you can begin creating and managing z/OS® resources from OpenShift® Container Platform, you need to configure z/OS Cloud Broker to use Ansible by doing the following:</p>
+        <ol><li>Create your z/OS endpoint(s)</li>
+         <li>Import your operator collection</li>
+         <li>Map your z/OS endpoint(s) to your operator collection</li></ol>
+        <p>Note: An SSH key is required when you import an operator collection into IBM z/OS Cloud Broker and map the collection to z/OS endpoints. The SSH key is used to authenticate connections to the specified endpoints.</p>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://www.ibm.com/docs/SSV97FN_2022.1.1?topic=broker-importing-operator-collections",
+            linkText:"How to configure z/OS Cloud Broker"
+            },
+            {
+            linkUrl:"https://www.ibm.com/docs/SSV97FN_2022.1.1?topic=broker-creating-ssh-keys-zos-cloud",
+            linkText:"How to create SSH keys for z/OS Cloud Broker"
+            }
+        ]
+        },
+        {
+        subSectionTitle:"Use z/OS® resources and services",
+        subSectionContent:"<p>With z/OS® Cloud Broker, you can install and manage z/OS resources by creating instances of z/OS software on RedHat® OpenShift®. Through the z/OS® Cloud Broker user interface, a system programmer can import and configure an operator collection. Using the administrator role on OpenShift® Container Platform web console, a system programmer has access to more detailed information about z/OS Cloud Broker and the “sub-operators“. With the administrator role, system programmers can also access the z/OS Cloud Broker URL and install z/OS software onto z/OS by creating an instance.</p>",
+        subSectionLinks: [
+            {
+            linkUrl:"https://www.ibm.com/docs/SSV97FN_2022.1.1?topic=platform-creating-using-zos-resources",
+            linkText:"How to create and use z/OS resources on OpenShift Container Platform"
+            },
+            {
+            linkUrl:"https://cloud.ibm.com/docs/openshift?topic=openshift-openshift-cli#cli_oc",
+            linkText:"How to manage z/OS resources on OpenShift Container Platform"
+            }
+        ]
+        }
+    ]
+    }
+]
+%}
+{# END GETTING STARTED #}
+
+{# START FEATURED DOCUMENTATION #}
+{% set documentation = {
+    docTitle: "IBM Documentation",
+    docDescription: "Learn more about how to get started with z/OS Cloud Broker.",
+    docLinkUrl: "https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.4?topic=automating-zos-resources-provisioning-zos-cloud-broker",
+    docLinkText: "Read the documentation."
+}
+%}
+{# END FEATURED DOCUMENTATION #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{% set resourcesTabs = [
+    {
+    id:1,
+    tabTitle:"Other resources",
+    tabContent: [
+        {
+            resourceTitle: false,
+            resourceDescription: "Become part of the z/OS Cloud Broker community and join in the discussion.",
+            resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/topic-home?CommunityKey=5b9a5597-24a2-46b3-9993-48f6f9409657",
+            resourceLinkText: "Explore the community page",
+            resourceLinkType: "webpage",
+            resourceIcon: "https://izswebpage.mybluemix.net/images/document-white.png"
+        }
+    ]
+    },
+    {
+    id:2,
+    tabTitle: "Multimedia",
+    tabContent: [
+        {
+            resourceTitle: "z/OS Cloud Broker Overview",
+            resourceDescription: "See an overview of how z/OS Cloud Broker gives application developers access to z/OS resources for rapid, cloud-native, development.",
+            resourceLinkUrl: "https://mediacenter.ibm.com/media/Overview%20Video%20for%20Cloud%20Broker%201.3/1_t8bovehi",
+            resourceLinkText: "Watch the overview video",
+            resourceLinkType: "video",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "z/OS Cloud Broker Db2 Use Case",
+            resourceDescription: "Learn about running digital banking applications on Red Hat OpenShift Container Platform with Db2 for z/OS, accessible through z/OS Cloud Broker.",
+            resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_1sf8ncwj",
+            resourceLinkText: "Watch the video",
+            resourceLinkType: "video",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "z/OS Cloud Broker CICS Use Case",
+            resourceDescription: "Learn about creating a z/OS CICS Region to run Banking applications on Red Hat OpenShift Container Platform through z/OS Cloud Broker.",
+            resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_qrde8g54",
+            resourceLinkText: "Watch the video",
+            resourceLinkType: "video",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "z/OS Cloud Broker WLP Use Case",
+            resourceDescription: "Learn how to create a WebSphere Liberty Profile (WLP) server from OpenShift Container Platform through z/OS Cloud Broker.",
+            resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_7ydvqoav",
+            resourceLinkText: "Watch the video",
+            resourceLinkType: "video",
+            resourceIcon: false
+        },
+        {
+            resourceTitle: "z/OS Cloud Broker z/OS Connect Use Case",
+            resourceDescription: "Learn how to use the z/OS Cloud Broker to create a z/OS Connect instance and manage z/OS resources with a modern Continuous Integration pipeline.",
+            resourceLinkUrl: "https://mediacenter.ibm.com/media/t/1_ejrn5vxj",
+            resourceLinkText: "Watch the video",
+            resourceLinkType: "video",
+            resourceIcon: false
+        }
+    ]
+    }
+]
+%}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [34, 1, 14] %}
+
+{# end RELATED SOLUTIONS #}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+
+{% set updateWhatsNew = [
+{
+        sectionTitle: "June 23, 2022",
+        sectionContent: "<p>New overview video added.</p>"
+    },
+    {
+        sectionTitle: "March 14, 2022",
+        sectionContent: "<p>Page has been updated to reflect z/OS Cloud Broker version 2.1.</p>"
+    },
+    {
+        sectionTitle: "August 24, 2021",
+        sectionContent: "<p>A link to the z/OS Cloud Broker community page was added to the 'Other resources' section.</p>"
+    },
+    {
+        sectionTitle: "July 22, 2021",
+        sectionContent: "<p>Links to z/OS Cloud Broker documentation were changed to reflect the migration from Knowledge Center to IBM Documentation.</p>"
+    },
+    {
+        sectionTitle: "July 1, 2021",
+        sectionContent: "<p>Transcript added for z/OS Cloud Broker overview video.</p>"
+    },
+    {
+        sectionTitle: "June 25, 2021",
+        sectionContent: "The Big Picture section has been modified for accessibility."
+    },
+    {
+        sectionTitle: "June 18, 2021",
+        sectionContent: "The link for Learn about how z/OS Cloud Broker enables z/OS resource consumption, on the Other resources tab in the Technical resources section, was updated to find the article in the archives of the new IBM Z Hot Topics website."
+    },
+    {
+        sectionTitle: "April 27, 2021",
+        sectionContent: "A new overview video was added. <a href='https://mediacenter.ibm.com/media/Overview%20Video%20for%20Cloud%20Broker%201.3/1_t8bovehi' target='_blank'>Watch the video here.</a>"
+    },
+    {
+        sectionTitle: "March 19, 2021",
+        sectionContent: "In the Technical resources section, a link was added to the Journey to Hybrid Cloud with IBM Z content solution."
+    },
+    {
+        sectionTitle: "December 14, 2020",
+        sectionContent: "z/OS Cloud Broker version 1.3.0 is now available. Page content has been updated to reflect version 1.3.0. <a href='https://www-01.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/1/877/ENUSZP20-0621/index.html&request_locale=en' target='_blank'>Read the announcement letter here.</a>"
+    },
+    {
+        sectionTitle: "August 27, 2020",
+        sectionContent: "Added z/OS Cloud Broker z/OS Connect Use Case video to the multimedia tab in the technical resources section."
+    },
+    {
+        sectionTitle: "June 26, 2020",
+        sectionContent: "Added z/OS Cloud Broker WLP Use Case video to the multimedia tab in the technical resources section."
+    }, {
+        sectionTitle: "May 22, 2020",
+        sectionContent: "z/OS Cloud Broker version 1.2.0 now available with support for Cloud Foundry."
+    }, {
+        sectionTitle: "June 27, 2019",
+        sectionContent: "Overview video added to overview section."
+    }, {
+        sectionTitle: "Dec. 13, 2019",
+        sectionContent: "OpenShift documentation now available in Knowledge Center."
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "cloudbroker" %}
+{# END FEEDBACK #}
+
+{% set statcounter = {
+    sc_project: "11952570",
+    sc_security: "f71c0463"
+}
+ %}

@@ -1,0 +1,386 @@
+// form styles begin ============================================
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// BOTH FORMS: Field styling and commonalities.
+// Note: Select lists are common.css b/c we use them in the page shell, unless we want to duplicate them.
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// scoping styles
+.v18e {
+	.ibm-column-form, .ibm-row-form {
+
+		// SHARED STYLES.
+		input[type="email"],
+		input[type="password"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="text"],
+		input[type="url"],
+		input[type="number"],
+		textarea {
+			@extend %ibm-styled-input;
+		}
+
+
+		// INPUT specific.
+
+		// These have to be on separate blocks else browsers ignore them.
+		input::-moz-placeholder {
+			color: color('cool-gray', 50);
+		}
+
+		input:-ms-input-placeholder {
+			color: color('cool-gray', 50);
+		}
+
+		input::-webkit-input-placeholder {
+			color: color('cool-gray', 50);
+		}
+
+
+		// Set label as block element by default.
+		label {
+			display: block;
+		}
+
+		// LABELS specifically for radio & checkboxes groups.
+		// NOTE: This inherits the padding of generic <label> in column or row form. Adjust in specific type form if needed.
+		.ibm-input-group label {
+			clear: none;
+			display: inline-block;
+			float: none;
+			margin-right: 10px;
+			position: relative;
+			top: 1px;
+		}
+
+		// New checkbox spacing adjustment/override from default checkbox spacing.
+		.ibm-input-group .ibm-styled-checkbox + label,
+		.ibm-input-group .ibm-styled-radio + label {
+			margin-top: 3px;
+			margin-bottom: 3px;
+
+			&:first-of-type {
+				margin-top: 0;
+			}
+		}
+
+		//// SPECIAL shit.
+
+		// Allows a text field or textarea to be indented to line up with a checkbox or radio field's label.
+		.ibm-field-indent,
+		input.ibm-field-indent,
+		textarea.ibm-field-indent {
+			margin-left: 30px;
+		}
+
+		.ibm-field-error {
+			background: rgba(255, 0, 0, .2);
+		}
+
+		// This goes AFTER a span that has a text input field.
+		.ibm-item-note {
+			display: block;
+			margin-top: 5px;
+
+			// Add this to an ibm-item-note to make it red with the icon.
+			&[class*='-link'] {
+				padding-left: 2em;
+				position: relative;
+			}
+
+			// Add this to an ibm-item-note to make it red with the icon.
+			&.ibm-alert-link {
+				color: color('red', 50);
+			}
+		}
+
+		// Icons to go next to form fields.
+		p span {
+			a[class*="-link"] {
+				display: inline-block;
+				left: 10px;
+				line-height: $fieldHeight;
+				position: relative;
+				text-decoration: none;
+				text-indent: -9999px;
+				width: 0;
+
+				&:before {
+					text-indent: 0;
+				}
+
+				&.ibm-alert-link {
+					&:before {
+						color: color('red', 50);
+					}
+
+					&:hover:before {
+						color: color('red', 70);
+					}
+				}
+			}
+
+			// If the icon link is inside the same span container as the date picket widget, float the icon over "into" the text field.
+			input.picker__input ~ a {
+				left: -35px;
+			}
+
+		}
+
+	}
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////
+	// COLUMN FORM specifics (labels are next to fields - only difference).
+	///////////////////////////////////////////////////////////////////////////////////////////
+	.ibm-column-form {
+
+		// Make sure only the first column label is set to 190px. and not checkbox labels.
+		> p > label,
+		.ibm-column-field-label {
+			width: $columnFormFieldIndent;
+		}
+
+		label {
+			box-sizing: border-box;
+			clear: left;
+			float: left;
+			padding-right: 10px;
+
+			// Line up link text with label.
+			a {
+				position: relative;
+				top: 0;
+			}
+
+			span {
+				display: inline;
+				margin: 0px;
+			}
+		}
+
+		p {
+			clear: left;
+
+			// Clear left float so padding is always effective, even with multi line label.
+			&:after {
+				clear: left;
+				content: "";
+				display: block;
+			}
+
+			> span {
+				display: block;
+				margin-left: $columnFormFieldIndent;
+			}
+
+			label {
+				span {
+					display: inline;
+					margin: 0px;
+				}
+			}
+		}
+	}
+
+	///////////////////////////////////////////////////////////////////////////////////////////
+	// ROW FORM specifics (labels are on top of fields - only difference).
+	///////////////////////////////////////////////////////////////////////////////////////////
+	.ibm-row-form {
+		label {
+			padding-bottom: 5px;
+
+			span {
+				display: inline;
+				margin: 0px;
+			}
+		}
+	}
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////
+	// LINE FORM specifics (input fields are just an underline).
+	///////////////////////////////////////////////////////////////////////////////////////////
+	.ibm-row-form {
+
+		&.ibm-row-form--line {
+			p {
+				padding-bottom: 20px;
+			}
+
+			input[type="email"],
+			input[type="password"],
+			input[type="search"],
+			input[type="tel"],
+			input[type="text"],
+			input[type="number"],
+			input[type="url"] {
+				border: none;
+				border-bottom: 1px solid color('cool-gray', 40);
+				box-shadow: 0px 1px 0px transparent;
+				color: color('gray', 80);
+				text-indent: 0;
+
+				&.ibm-field-error {
+					background: none;
+					border-color: rgba(255, 0, 0, .4);
+				}
+
+				&:focus, &:active {
+					border-color: color('gray', 80);
+					box-shadow: 0px 1px 0px color('cool-gray', 80);
+					@include ie-box-shadow-removal;
+				}
+
+				&:hover {
+					border: none;
+					border-bottom: 1px solid color('blue', 50);
+					box-shadow: 0px 1px 0px color('blue', 50);
+					@include ie-box-shadow-removal;
+
+					&:focus {
+						border-color: color('cool-gray', 40);
+						box-shadow: 0px 1px 0px color('cool-gray', 40);
+						@include ie-box-shadow-removal;
+					}
+				}
+			}
+
+			label {
+				font-weight: $defaultBoldWeight;
+				@include transition(transform 0.4s cubic-bezier(0.2, 1, 0.2, 1));
+				padding-bottom: 0;
+				padding-left: 16px;
+			}
+
+			.ibm-coverfield label {
+				cursor: text; // nice-to-have for IE9- to show you can click.
+				pointer-events: none;
+				@include transform(translate3d(0px, 38px, 0px));
+
+				.no-csstransforms3d & {
+					bottom: -30px;
+					position: relative;
+				}
+			}
+		}
+	}
+
+
+	////////////////////////////////////////////////////////////////////////////////////
+	//  v18 /widgets/fileinput.js  styles.
+	////////////////////////////////////////////////////////////////////////////////////
+
+
+	span.ibm-fileinput {
+		display: block;
+
+		// Icons next to form fields mess this up because they are set to indent 10px
+		// So we need to not have this one instance indented.
+		a {
+			left: initial !important;
+		}
+
+		input[type="file"] {
+			opacity: 0;
+			width: 0px;
+			height: 0px;
+			position: absolute;
+		}
+
+		.ibm-column-form &,
+		.ibm-row-form & {
+			a {
+				margin: 0;
+				padding-left: 2.2em;
+			}
+		}
+
+		.ibm-column-form & {
+			margin: 0;
+			position: relative;
+
+			span {
+				display: inline-block;
+				margin: 0px;
+				position: relative;
+			}
+		}
+
+		.ibm-row-form & {
+			margin-top: 6px;
+			margin-bottom: 8px;
+
+			span {
+				margin: 10px;
+			}
+		}
+	}
+
+
+	////////////////////////////////////////////////////////////////////////////////////
+	//  Notice and Choice styles to make it look OK.
+	////////////////////////////////////////////////////////////////////////////////////
+
+	.ibm-notice-choice-container {
+		border-top: 1px dotted color('gray', 30);
+		clear: left;
+		float: none;
+		margin-bottom: 10px;
+		position: relative;
+		top: 15px;
+
+		.ibm-notice-choice-heading {
+			padding-bottom: 0;
+		}
+
+		.ibm-input-group {
+			display: block;
+			padding-top: 15px;
+
+			+ .ibm-input-group, + input[type='hidden'] + .ibm-input-group {
+				padding-top: 0;
+			}
+
+			label {
+				display: inline-block;
+			}
+		}
+
+		p {
+			padding-top: 15px;
+		}
+	}
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+//  Responsive breakpoint changes.
+//
+///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// Mobile/small screen adjustments to stack things vertically:
+@include breakpoint(gmobile) {
+	form.ibm-column-form, form.ibm-row-form {
+		// Stack labels and fields on column form, instead of horizontally
+		label {
+			float: none;
+			padding-bottom: 5px;
+			width: auto;
+		}
+
+		p {
+			padding-bottom: 30px;
+		}
+
+		p span {
+			margin-left: 0;
+		}
+	}
+}
+

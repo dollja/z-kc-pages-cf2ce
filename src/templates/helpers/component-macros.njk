@@ -1,0 +1,82 @@
+{# component documentation table #}
+{% macro twoColTable(obj) %}
+<h4 class="ibm-type-semibold ibm-mb-2">{{ obj.tableTitle }}</h4>
+<div>
+  <table class="dr-table ibm-mb-10 color-table">
+    <thead>
+      <tr>
+        {% for colTitle in obj.colTitles %}
+          <th class=" ibm-type-b ibm-type-semibold" width="{{ '35%' if loop.first else '65%' }}">{{ colTitle }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for class in obj.classes %}
+      <tr>
+        <td class="ibm-pb-2">{{ class.className | safe }}</td>
+        <td class="ibm-pb-2">{{ class.classDesc | safe }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endmacro %}
+
+{# standard content elements: p, img. will display header if passed #}
+{% macro textBlock(obj) %}
+  {% for section in obj %}
+    {% if section.header %}
+    <h2 class="ibm-type-f ibm-mb-3 {{ '' if loop.first else 'ibm-mt-10' }}">{{ section.header }}</h2>
+    {% endif %}
+    {% for para in section.paras %}
+      {% if para.text %}
+      <p class="ibm-type-c {{ 'ibm-pb-0 ibm-mb-0' if loop.last else 'ibm-mb-0' }}">{{ para.text | safe }}</p>
+      {% elif para.image %}
+      <img class="ibm-resize" src="{{ para.image }}" style="width: 75%;max-width:640px;" />
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endmacro %}
+
+{# anchor link list with ↳ as list style #}
+{% macro anchorArrowReturn(obj) %}
+  <ul class="ibm-link-list ibm-pb-0 ibm-mt-10">
+    {% for section in obj %}
+      <li><a class="ibm-arrow-return ibm-type-e" href="#{{ section | lower | replace(" ", "-") }}">{{ section }}</a></li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{# documentation tables #}
+{% macro docTables(obj) %}
+  <a class="ibm-anchor-offset" id="documentation"></a>
+  <h2 class="ibm-type-f ibm-pt-0 ibm-mt-10 ibm-mb-2">{{ obj.title if obj.title else 'Documentation' }}</h2>
+
+  {% if obj.js %}
+    <h4 class="ibm-type-semibold ibm-mb-2">JS</h4>
+    <p class="ibm-type-c ibm-type-c--tight ibm-pb-7"><a href="{{ obj.js }}" class="" target="_blank">See the JS documentation</a></p>
+  {% endif %}
+
+  {% for table in obj.tables %}
+    <h4 class="ibm-type-semibold ibm-mb-2">{{ table.tableTitle }}</h4>
+    <div>
+      <table class="dr-table ibm-mb-10 color-table">
+        <thead>
+          <tr>
+            {% for colTitle in table.colTitles %}
+              <th class=" ibm-type-b ibm-type-semibold" width="{{ '35%' if loop.first else '65%' }}">{{ colTitle }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for class in table.classes %}
+          <tr>
+            <td class="ibm-pb-2">{{ class.className | safe }}</td>
+            <td class="ibm-pb-2">{{ class.classDesc | safe }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% endfor %}
+{% endmacro %}

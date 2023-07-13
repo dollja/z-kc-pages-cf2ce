@@ -1,0 +1,179 @@
+.custom-code-example {
+  padding-left: 80px;
+  padding-right: 80px;
+  display: flex;
+  justify-content: center;
+  div {
+    min-width: 65%;
+    // for component example layouts only
+    form {
+      display: flex;
+      justify-content: center;
+    }
+    p {
+      &.ibm-ind-link {
+        & > * {
+          margin: 0 35px 32px 0;
+          &:last-of-type {
+            margin: 0;
+          }
+        }
+      }
+    }
+    button {
+      margin: 0 32px 32px 0;
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.custom-codesnippet-con {
+  position: relative;
+}
+
+.custom-codesnippet-con .syntaxhighlighter {
+  max-height: 140px;
+  transition: all 0.4s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.custom-codesnippet-copy-button {
+  a {
+    height: 40px !important;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 40px !important;
+    z-index: 2;
+    margin-bottom: 0 !important;
+    margin-right: 0 !important;
+    &:after {
+      top: 9px;
+      transform: translateX(-9%);
+      color: #171717;
+      display: none;
+    }
+    &:before {
+      top: 6px;
+      transform: translateX(-37%);
+      color: #171717;
+    }
+    &:hover {
+      background-color: color('gray', 10);
+      &:after {
+        // color: #0062ff !important;
+      }
+    }
+    &:focus {
+      background-color: none;
+      outline: #0062ff solid 2px;
+    }
+    &:active {
+      background-color: none;
+      outline: #0062ff solid 2px;
+    }
+  }
+}
+
+.custom-codesnippet-more-button {
+  width: 100%;
+  display: none;
+  border-top: 1px solid color('neutral-white', 40);
+  a {
+    padding: 7px 2rem 7px 7px;
+    color: #171717;
+    &:before {
+      right: -2px;
+    }
+  }
+}
+
+
+// code panel
+.custom-codesnippet-con {
+  .ibm-syntax-container {
+    padding-bottom: 16px;
+  }
+  &.showmore {
+    .custom-codesnippet-more-button {
+      display: block;
+      .custom-codesnippet-showless-text {
+        display: none;
+      }
+    }
+  }
+  &.expanded {
+    .custom-codesnippet-more-button {
+      .custom-codesnippet-showless-text {
+        display: inline-block;
+      }
+      .custom-codesnippet-showmore-text {
+        display: none;
+      }
+    }
+  }
+
+  // hide inserted spaces in code examples
+  // TODO: find fix for this solution - check <pre> and str.trim() in js
+  .syntaxhighlighter {
+    table {
+      td {
+        &.code {
+          .line {
+            &:first-of-type {
+              & > {
+                .spaces {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// copy to clipboard confirmation tooltip
+.bx--btn--copy__feedback {
+  position: absolute;
+  display: none;
+  top: 2.3rem;
+  left: auto;
+  right: 1.6626rem;
+  z-index: 5;
+  &:after, &:before {
+    position: absolute;
+    display: block;
+    background: #272d33;
+  }
+  &:after {
+    top: .85rem;
+    width: .6rem;
+    height: .6rem;
+    left: -.3rem;
+    border-right: 1px solid #272d33;
+    border-bottom: 1px solid #272d33;
+    content: "";
+    transform: rotate(-135deg);
+    z-index: 1;
+  }
+  &:before {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.1);
+    font-size: .75rem;
+    top: 1.1rem;
+    padding: .25rem;
+    color: #fff;
+    content: attr(data-feedback);
+    transform: translateX(-50%);
+    white-space: nowrap;
+    pointer-events: none;
+    border-radius: 4px;
+    font-weight: 400;
+    z-index: 2;
+  }
+  &.copied {
+    
+  }
+}

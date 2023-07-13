@@ -1,0 +1,41 @@
+{% set leadspaceSize = "custom-small" %}
+{% set pageTitleFontsize = "ibm-type-i" %}	
+
+{% if leadspace_size == "large" %}
+	{% set leadspaceSize = "custom-large" %}
+	{% set pageTitleFontsize = "ibm-type-j" %}
+{% elseif leadspace_size == "medium" %}
+	{% set leadspaceSize = "custom-medium" %}
+{% endif %}
+
+<div class="custom-leadspace {{ leadspaceSize }} ibm-background-black-core">
+	<div class="ibm-grid-container ibm-textcolor-gray-10">
+
+		<div class="ibm-grid-col-sm-4-0 ibm-grid-col-md-8-0 ibm-grid-col-lg-16-4"></div>
+		
+		<div class="ibm-grid-col-sm-4-4 ibm-grid-col-lg-16-12">
+			
+			<div class="ibm-flex ibm-flex--column custom-leadspace-content">
+				<div class="ibm-grid-container">
+					<div class="ibm-grid-col-sm-4-4 ibm-grid-col-lg-16-8">
+					{% if leadspace_text %}
+						<p class="custom-leadspace-text ibm-type-e ibm-mt-3 ibm-mb-2 ibm-pb-0">
+							{{leadspace_text|safe}}
+						</p>
+					{% endif %}
+
+					{% if page_sub_title %}
+						<p class="ibm-type-f ibm-mb-2">{{page_sub_title|safe}}</p>
+					{% endif %}
+					</div>
+				</div>
+
+				<div>
+					<h1 class="{{ pageTitleFontsize }} ibm-flex--self-end ibm-mb-3" id="ibm-pagetitle-h1">{{page_title|safe}}</h1>
+				</div>
+			</div>
+			
+		</div>
+
+	</div>
+</div>

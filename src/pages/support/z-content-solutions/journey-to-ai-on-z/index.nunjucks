@@ -1,0 +1,1062 @@
+{# CONTENT SOLUTION TEMPLATE #}
+{# As a general rule, all attributes should have a comma at the end, except the last item in either a {} or [] wrapped section. #}
+
+{% extends "layout-dot-com.nunjucks" %}
+
+{# Solution title #}
+{% set title = "Journey to AI on IBM zSystems and LinuxONE" %}
+{% set key = 20 %}
+
+{# META #}
+{% set meta_description = meta_description | default("Explore this page for IBM zSystems and LinuxONE use cases and technical resources to get you started on your AI journey.") %}
+{% set meta_keywords = meta_keywords | default("machine learning mainframe, real time analytic server, z machine learning, ai platforms, ai operations, open source frameworks, ai technologies, ai strategy") %}
+
+{# START INTRODUCTION #}
+
+{# Introduction image or video:
+type: 'video' or 'image'
+videoID: Currently only supports Media Center content. End of url ( example: 1_0n7p804l )
+thumbnailUrl: Full url to image, or thumbnail placeholder if video
+label: aria-text label for accessibility purposes
+#}
+{% set introMedia = {
+    id: 1,
+    type: "image",
+    thumbnailUrl: "https://izswebpage.mybluemix.net/images/aiz/aiz-0.png",
+    label: "z15"
+} %}
+
+{# Introduction image or video:
+Supports html tags, wrap each paragraph in <p></p>. Can include links if needed.
+#}
+{% set introParagraphs = "<p>Welcome to the Journey to AI on IBM zSystems and LinuxONE content solution, your homepage for technical resources.</p>
+<p>With the introduction of an integrated accelerator for AI, organizations can scale their inferencing of transactions running on IBM z16 and IBM LinuxONE Emperor 4 while continuing to meet latency and throughput requirements. Now, AI can be directly embedded with mission critical workloads for real-time insights. Use cases from fraud detection, to risk analysis and natural language processing can be optimized like never before, allowing users to extract value from every transaction.</p>
+<p>Explore this page to see the various use cases for AI on IBM zSystems and LinuxONE Emperor 4, the technologies involved, and next steps for getting hands-on with each solution.</p>
+    " %}
+
+{# Introduction links:
+type: 'marketing' - follows pattern "See what {title} can do for your business"
+      'other' - Allows for custom text, enter in field text:
+#}
+{% set introLinks = [
+    {
+        id: 1,
+        type: "other",
+        url: "https://www.ibm.com/community/z-and-cloud/use-case/ai-and-analytics/",
+        text: "Explore modernization patterns with AI on IBM zSystems and LinuxONE Emperor 4"
+
+    }
+] %}
+
+{# START FEEDBACK #}
+{# set custom link for SurveyGizmo #}
+{% set feedbackURL = "journeytoaionz" %}
+{# END FEEDBACK #}
+
+{# START INTRODUCTION SIDEBAR #}
+{# Optional call to action space in right column of the introduction. #}
+{# Will first check for Announcements, if none are set, then will display first Related Solution, if none are set, will remain empty. #}
+
+{# Announcements
+Can be either one or two cards with a short sentence descriptor (announcementText) and a link (announcementlinkText, announcementLinkUrl) #}
+
+{% set announcements = [
+    {
+    announcementText: "Do you have questions about AI on IBM zSystems and LinuxONE?  Want to know more?",
+    announcementLinkText: "Contact us now!",
+    announcementLinkUrl: "mailto:aionz@us.ibm.com?subject=Learn%20more%20about%20AI&body=I%20am%20interested%20in%20learning%20more%20about%20AI%20and%20how%20it%20relates%20to%20my%20business."
+    }
+]%}
+{# END INTRODUCTION SIDEBAR #}
+
+{# END INTRODUCTION #}
+
+
+{# START BIG PICTURE #}
+{# For each step, set:
+id: The step number
+iconUrl: Full link to the pictogram used for this step
+iconAlt: Alt text on pictogram for accessibility
+description: Text description of this step
+ #}
+
+{% set bigPictureSteps = [
+    {
+        id: 1,
+        iconUrl: "https://izswebpage.mybluemix.net/images/aiz/aiz-1.png",
+        iconPath: '<path id="analyze_1_" d="M16,31.36H6c-0.096,0-0.187-0.038-0.254-0.105l-5-5C0.678,26.188,0.64,26.096,0.64,26V11
+	c0-0.199,0.161-0.36,0.359-0.36l4.647-0.003C5.838,5.092,10.409,0.64,16,0.64c5.713,0,10.36,4.647,10.36,10.36
+	c0,2.646-0.986,5.141-2.785,7.066l7.68,7.679l-0.51,0.51l-7.679-7.68c-1.838,1.717-4.194,2.693-6.707,2.778V31
+	C16.36,31.199,16.199,31.36,16,31.36z M6.36,30.64h9.28v-9.286c-5.428-0.187-9.81-4.568-9.994-9.997L1.36,11.36v14.28H6
+	c0.199,0,0.36,0.161,0.36,0.36V30.64z M1.869,26.36l3.771,3.771V26.36H1.869z M16,1.36c-5.315,0-9.64,4.325-9.64,9.64
+	s4.325,9.64,9.64,9.64c2.574,0,4.994-1.003,6.815-2.824S25.64,13.573,25.64,11C25.64,5.685,21.315,1.36,16,1.36z M9.578,13.907
+	l-0.623-0.36l2.732-4.73c0.071-0.123,0.201-0.195,0.349-0.178c0.141,0.015,0.261,0.111,0.305,0.247l0.979,3.005l2.365-4.074
+	c0.067-0.116,0.199-0.185,0.328-0.179c0.134,0.006,0.253,0.086,0.31,0.208l1.944,4.158l3.424-5.691l0.617,0.371l-3.772,6.271
+	c-0.068,0.113-0.195,0.18-0.327,0.174c-0.133-0.007-0.251-0.086-0.308-0.207l-1.938-4.146l-2.424,4.175
+	c-0.072,0.123-0.208,0.193-0.35,0.177c-0.141-0.015-0.26-0.111-0.304-0.247l-0.978-3.002L9.578,13.907z"/>',
+        iconAlt: "pictogram for step one - identify use cases",
+        description: "Determine your best-fit use case for AI on IBM zSystems and LinuxONE"
+    },
+    {
+        id: 2,
+        iconUrl: "https://izswebpage.mybluemix.net/images/aiz/aiz-2.png",
+        iconPath: '<path d="M17.7,8H4.2V7.2h13.5V8z M17.7,17.3H4.2V18h13.5V17.3z M17.7,10.6H4.2v0.7h13.5V10.6z M17.7,14H4.2v0.7h13.5V14z M30.4,22.2
+	v5.6c0,1.4-1.2,2.6-2.6,2.6H4.2c-1.4,0-2.6-1.2-2.6-2.6V2c0-0.2,0.2-0.4,0.4-0.4h23.5c0.2,0,0.4,0.2,0.4,0.4v19.8H30
+	C30.2,21.8,30.4,22,30.4,22.2z M4.2,29.6c1,0,1.9-0.8,1.9-1.9v-5.6c0-0.2,0.2-0.4,0.4-0.4h18.7V2.4H2.4v25.4
+	C2.4,28.8,3.2,29.6,4.2,29.6z M29.6,22.5h-4.1H6.8v5.2c0,0.7-0.3,1.4-0.8,1.9h21.7c1,0,1.9-0.8,1.9-1.9V22.5z M23.3,7.2H21V8h2.2
+	V7.2z M23.3,10.6H21v0.7h2.2V10.6z M23.3,14H21v0.7h2.2V14z M23.3,17.3H21V18h2.2V17.3z"/>',
+        iconAlt: "pictogram for step two - learn about the capablities",
+        description: "Explore the technologies fitted for your use case"
+    },
+    {
+        id: 3,
+        iconUrl: "https://izswebpage.mybluemix.net/images/aiz/aiz-3.png",
+        iconPath: '<path id="target_2_" d="M16,31.36C7.53,31.36,0.64,24.47,0.64,16S7.53,0.64,16,0.64S31.36,7.53,31.36,16S24.47,31.36,16,31.36z
+	 M16,1.36C7.927,1.36,1.36,7.927,1.36,16c0,8.072,6.567,14.64,14.64,14.64c8.072,0,14.64-6.567,14.64-14.64S24.072,1.36,16,1.36z
+	 M16,26.36c-5.712,0-10.36-4.647-10.36-10.36c0-5.712,4.647-10.36,10.36-10.36S26.36,10.287,26.36,16S21.713,26.36,16,26.36z
+	 M16,6.36c-5.315,0-9.64,4.325-9.64,9.64s4.325,9.64,9.64,9.64s9.64-4.324,9.64-9.64S21.315,6.36,16,6.36z M16,21.36
+	c-2.956,0-5.36-2.405-5.36-5.36c0-2.956,2.404-5.36,5.36-5.36c2.955,0,5.36,2.404,5.36,5.36C21.36,18.955,18.955,21.36,16,21.36z
+	 M16,11.36c-2.559,0-4.64,2.082-4.64,4.64s2.082,4.64,4.64,4.64s4.64-2.081,4.64-4.64S18.559,11.36,16,11.36z M16,17
+	c0.552,0,1-0.448,1-1s-0.448-1-1-1s-1,0.448-1,1C15,16.553,15.448,17,16,17z"/>',
+        iconAlt: "pictogram for step three - choose a solution ",
+        description: "Use hands-on labs, demos, and tutorials to try out the capabilities"
+    },
+    {
+        id: 4,
+        iconUrl: "https://izswebpage.mybluemix.net/images/aiz/aiz-5.png",
+        iconPath: '<path id="windows_1_" d="M27,31.36H1c-0.199,0-0.36-0.161-0.36-0.36V12c0-0.199,0.161-0.36,0.36-0.36h3.64V1
+	c0-0.199,0.161-0.36,0.36-0.36h26c0.199,0,0.36,0.161,0.36,0.36v19c0,0.199-0.161,0.36-0.36,0.36h-3.64V31
+	C27.36,31.199,27.199,31.36,27,31.36z M1.36,30.64h25.28V15.36H1.36V30.64z M27.36,19.64h3.279V4.36H5.36v7.28H27
+	c0.199,0,0.36,0.161,0.36,0.36V19.64z M1.36,14.64h25.28v-2.28H1.36V14.64z M5.36,3.64h25.28V1.36H5.36V3.64z M29,2.5
+	C29,2.776,28.776,3,28.5,3S28,2.776,28,2.5S28.224,2,28.5,2S29,2.224,29,2.5z M26.5,2C26.224,2,26,2.224,26,2.5S26.224,3,26.5,3
+	S27,2.776,27,2.5S26.776,2,26.5,2z M24.5,2C24.224,2,24,2.224,24,2.5S24.224,3,24.5,3S25,2.776,25,2.5S24.776,2,24.5,2z M24.5,13
+	c-0.276,0-0.5,0.224-0.5,0.5s0.224,0.5,0.5,0.5s0.5-0.224,0.5-0.5S24.776,13,24.5,13z M22.5,13c-0.276,0-0.5,0.224-0.5,0.5
+	s0.224,0.5,0.5,0.5s0.5-0.224,0.5-0.5S22.776,13,22.5,13z M20.5,13c-0.276,0-0.5,0.224-0.5,0.5s0.224,0.5,0.5,0.5s0.5-0.224,0.5-0.5
+	S20.776,13,20.5,13z"/>',
+        iconAlt: "pictogram for step three - integrate into your applications",
+        description: "Integrate the solutions with your critical applications and middleware"
+    }
+] %}
+{# END BIG PICTURE #}
+
+{# START GETTING STARTED #}
+{# For each tab, set:
+id: The tab number
+tabTitle
+tabSubSections: Contains the sections within each tab.
+    subSectionTitle
+    subSectionContent: Supports full html tags. Avoid classes if possible, but when needed, any quotation marks must be single quotes instead of double.
+    subSectionLinks: Links to be listed at the bottom of each section, define both linkUrl and linkText for each.
+    subSectionImage: If the section has an image associated with it, include the url to create a column containing this off to the right
+    subSectionCaption: If the image requires a visible caption, adds a paragraph caption of small text centered below it
+    subSectionVideo: If the section has an video associated with it, include the mediaID to create a column containing this off to the right
+    subSectionVideoThumbnail: If the section has an video associated with it, include the direct url to the thumbnail image
+    subSectionMediaAlt: Alt text for accessibility for either image or video
+ #}
+
+{% set getStartedTabs = [
+    {
+        id: 1,
+        tabTitle: "Fraud prevention",
+        tabSubSections: [
+            {
+                subSectionTitle: "Use cases",
+                subSectionContent: "<p>Explore use cases and some relevant capabilities in the area of fraud prevention.</p>",
+                switchTitleOne: "IBM z16",
+                switchTitleTwo: "IBM LinuxONE Emperor 4",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "Fraud detection",
+                        accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>Fraud poses a significant risk to both consumers and businesses across a variety of industries, and creating an off-platform inferencing model to detect fraud can still leave companies exposed. The inherent latency introduces timeout issues—a significant blocker when you need to rapidly approve fair transactions. Thus, a significant portion of transactions may go unscored when trying to detect fraud.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>Achieve real-time scoring through co-locating an AI model with the IBM zSystems applications managing your transactions. This enables you to analyze 100% of transactions running through your on-premises systems, and significantly reducing risk to both your business and customers.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>Drive significant savings in exposure risk, and significant improvements in customer relationships.</p>
+                                            <p><a href='https://www.ibm.com/downloads/cas/GW75RWNQ' target='_blank'>Click here to learn more about this solution</a></p>
+                                            <p>The following capabilities are featured in this use case:</p>
+                                            <p><strong>Watson Machine Learning for z/OS (WMLz)</strong></p>
+                                            <p>Enable the rapid deployment of an AI model built for fraud detection onto the IBM zSystems platform, allowing real time insights without compromising security, performance, or resiliency. WMLz supports full model lifecycle management as well as capabilities for simplifying integration into business workloads.</p>
+                                            <p><strong>TensorFlow</strong></p>
+                                            <p>Enable the deployment of AI models built for fraud detection for use in mission critical workloads, both for real-time transactions and batch deployments.</p>
+                                            <p><a href='https://github.com/IBM/ai-on-z-fraud-detection' target='_blank'>Use TensorFlow source code for building and training credit card fraud models</a></p>
+                                            <p><strong>IBM Deep Learning Compiler + ONNX</strong></p>
+                                            <p>These capabilities together allow clients to deploy models to the IBM zSystems platform for inference use without requiring any of the AI frameworks used for model creation or training. Also available as part of WMLz.</p>
+                                            <p><a href='https://github.com/IBM/ai-on-z-samples/tree/master/onnx-conversion' target='_blank'>Use sample code for exporting or converting a model to the ONNX format</a></p>"
+                    },
+                    {
+                        accordionTitle: "Claims fraud prevention",
+                        accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>Fraudulent claims are an impediment both to insurers and consumers with legitimate claims. The claim auditing process can be manually intensive and time-consuming, making it difficult to scale prevention, and legitimate claims are often connected to an urgent need, making delays in processing a detractor from user satisfaction.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>Eliminate the manually intensive auditing process through a machine learning model trained in detecting fraud for your claims processing systems. This enables you to rapidly analyze claims and significantly reduce overall human intervention.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>Drive a significant reduction in hours spent in the auditing process, keeping customers satisfied, and allowing you to allocate resources towards higher value tasks.</p>
+                                            <p>Coupling the IBM Accelerator for AI with a variety of capabilities makes fraud prevention at scale easier than ever.</p>
+                                            <p>The following capability is featured in this use case:</p>
+                                            <p><strong>Watson Machine Learning for z/OS (WMLz)</strong></p>
+                                            <p>Enable the rapid deployment of an AI model built for fraud detection onto the IBM zSystems platform, allowing real time insights without compromising security, performance, or resiliency. WMLz supports full model lifecycle management as well as capabilities for simplifying integration into business workloads.</p>"
+                    },
+                    {
+                        accordionTitle: "Anti-money laundering (AML)",
+                        accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>With regulations around anti-money laundering varying by locality, it can be very difficult for financial institutions to remain compliant with federal policies. Moreover, it can be manually intensive to identify accounts that may be associated with money laundering activities, with business analysts often relying on the time and expertise of data science counterparts to train and deploy predictive models.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>Enable the analysis of potential money laundering accounts through simple querying against historical data, allowing users to independently identify problematic accounts and take appropriate action.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>Drive transparent, easy-to-follow business processes that free up key data science resources for higher level needs, while rapidly identifying potential money laundering accounts and allowing for greater compliance with various regulatory bodies.</p>
+                                            <p><a href='https://www.ibm.com/downloads/cas/3D7PZ1OQ' target='_blank'>Click here to learn more about this solution</a></p>
+                                            <p>AI applications running on IBM zSystems can tackle money laundering through pattern recognition at scale, helping you identify similar payment accounts or currencies to that of a suspicious transaction.</p>
+                                            <p>The following capability is featured in this use case:</p>
+                                            <p><strong>SQL Data Insights on Db2 z/OS</strong></p>
+                                            <p>Use SQL queries to determine bank accounts with similar traits to a known money laundering account. SQL Data Insights on Db2 z/OS can deliver these insights without requiring a data scientist to develop a model.</p>"
+                    },
+                    {
+                        accordionTitle: "Organized retail crime pattern recognition",
+                        accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>Organized retail crime is a sizable burden for nearly all retailers, yet it is challenging to develop a successful model for analyzing the risk of retail crime when you only have access to your own transactional data. It's difficult to share models between merchants without potentially exposing the sensitive data of customers.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>Using federated learning enables the sharing of models across retailers without exposing sensitive customer data, allowing all parties to build more effective models and improve their ability to detect bad actors.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>With federated learning, you gain opportunities to drastically improve machine learning models while contributed to a larger community of practice. In this specific use case, this enables you to more effectively combat retail crime, saving costs on inventory replenishment.</p>
+                                            <p>The following capabilities are featured in this use case:</p>
+                                            <p><strong>IBM Watson Knowledge Catalog</strong></p>
+                                            <p>Utilize a shared cloud-based metadata repository to access information to develop machine learning models for the recognition of retail crime patterns.</p>
+                                            <p><a href='https://www.ibm.com/account/reg/us-en/signup?formid=urx-34815' target='_blank'>Take the guided demo for IBM Watson Knowledge Catalog</a></p>"
+                    }
+                ],
+                subSectionAccordionSwitch: [
+                    {
+                            accordionTitle: "Fraud detection",
+                            accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>Fraud poses a significant risk to both consumers and businesses across a variety of industries, and creating an off-platform inferencing model to detect fraud can still leave companies exposed. The inherent latency introduces timeout issues—a significant blocker when you need to rapidly approve fair transactions. Thus, a significant portion of transactions may go unscored when trying to detect fraud.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>Achieve real-time scoring through co-locating an AI model with the IBM LinuxONE applications managing your transactions. This enables you to analyze 100% of transactions running through your on-premises systems, and significantly reducing risk to both your business and customers.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>Drive significant savings in exposure risk, and significant improvements in customer relationships.</p>
+                                            <p>The following capabilities are featured in this use case:</p>
+                                            <p><strong>Go, LightGBM, Python</strong></p>
+                                            <p>LightGBM is a machine learning framework with python interfaces, which is used to develop and train a machine learning model - on or off the LinuxONE Emperor 4 platform. When the model is ready to be used for inference, it is deployed to LinuxONE Emperor 4 using and using a Go based serving application. This provides for a high speed and responsive fraud detection service that, on LinuxONE Emperor 4, can scale to meet demand.</p>"
+                    },
+                    {
+                            accordionTitle: "Organized retail crime pattern recognition",
+                            accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>Organized retail crime is a sizable burden for nearly all retailers, yet it is challenging to develop a successful model for analyzing the risk of retail crime when you only have access to your own transactional data. It's difficult to share models between merchants without potentially exposing the sensitive data of customers.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>Using federated learning enables the sharing of models across retailers without exposing sensitive customer data, allowing all parties to build more effective models and improve their ability to detect bad actors.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>With federated learning, you gain opportunities to drastically improve machine learning models while contributed to a larger community of practice. In this specific use case, this enables you to more effectively combat retail crime, saving costs on inventory replenishment.</p>
+                                            <p>The following capabilities are featured in this use case:</p>
+                                            <p><strong>IBM Cloud Pak for Data + IBM Watson Federated Learning + IBM Hyper Protect Virtual Servers</strong></p>
+                                            <p>A multi-platform solution that enables the sharing of insights gathered from confidential data. Federated learning provides a mechanism to share insights across industry groups, fostering better collaboration, while not exposing confidential data outside of the owning organization.</p>"
+                    }
+                ]
+            },   
+            {
+                subSectionTitle: "IBM zSystems runtimes considerations",
+                subSectionContent: "<p>Fraud prevention is especially notable for organizations using the following runtime environments. The examples described are not unique to each runtime, but are used to illustrate some of the many possibilities, and there are also a variety of technology solutions available. For more details, see 'Infusing AI into applications' in 'Learn more'.</p>",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "IBM® CICS® Transaction Server for z/OS® (CICS TS)",
+                        accordionContent: "<p>A claims processing application running in CICS TS could, for example, extend fraud detection/prevention capabilities by invoking an AI model deployed to TensorFlow hosted in an IBM z/OS Container Extension (zCX) within z/OS.</p>"
+                    },
+                    {
+                        accordionTitle: "IBM IMS™ Transaction Manager (IMS TM)",
+                        accordionContent: "<p>A financial application running in IMS TM could, for example, call an AI model in Watson Machine Learning for z/OS (WMLz) to determine the outcome of a transaction based on a prediction of whether it is likely to be fraudulent.</p>"
+                    },
+                    {
+                        accordionTitle: "IBM WebSphere Application Server for z/OS",
+                        accordionContent: "<p>An application running in WebSphere Application Server for z/OS could, for example, invoke an AI model that uses TensorFlow on Linux on IBM zSystems in order to detect potential money laundering.</p>"
+                    },
+                    {
+                        accordionTitle: "IBM z/Transaction Processing Facility (z/TPF)",
+                        accordionContent: "<p>An electronic funds transfer system running on z/TPF could, for example, interact with a machine learning model that uses IBM Snap Machine Learning (SnapML) on Linux on IBM zSystems to identify potentially fraudulent transfers.</p>"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Business process optimization",
+        tabSubSections: [
+            {
+                subSectionTitle: "Use cases",
+                subSectionContent: "<p>Explore use cases and some relevant capabilities in the area of business process optimization.</p>",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "Clearing and settlement",
+                        accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>When processing credit card transactions, it's critical to determine which trades or transactions are highly exposed to risk before settlement—but given the manual work involved, it can be difficult to optimize this work without potentially impacting service-level agreements.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>By training a model on risk exposure and co-locating it with transactional workloads, you can unlock insights about risk on a transaction-to-transaction basis.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>Through the enhancement of a rules-based approach using the IBM zSystems platform, you can achieve a high level of analysis with no impact to service level agreements.</p>
+                                            <p>The following capabilities are featured in this use case:</p>
+                                            <p><strong>PyTorch + IBM z/OS Container Extensions (zCX) + ONNX + Watson Machine Learning for z/OS (WMLz)</strong></p>
+                                            <p>PyTorch provides a deep learning framework which may be trained off the IBM zSystems Platform by accessing data co-located on a zCX instance. The PyTorch model is then simply exported to the ONNX format and deployed using the WMLz ONNX Scoring service. This provides an endpoint that can be called from the z/OS application.</p>
+                                            <p><a href='https://github.com/IBM/ai-on-z-samples/tree/master/onnx-conversion' target='_blank'>Use sample code for exporting or converting a model to the ONNX format</a></p>"
+                    },
+                    {
+                        accordionTitle: "Enhanced loan approval",
+                        accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>The loan approval process can be lengthy and manual, and customers are expecting ever-faster response times—but introducing an approval model over a distributed system can increase the risk and exposure for both lenders and customers.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>An inferencing model for analyzing loan applications, alongside the automation of rules-based business decisions, can be co-located alongside transactional systems to achieve rapid insights, low latency, and minimal exposure of customer and lender data.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>Compared to models running on distributed systems, a solution built on top of the IBM zSystems platform can minimize loan defaults through early fraud identification, accelerate credit approval processing, and improve overall customer service and profitability.</p>
+                                            <p>The following capabilities are featured in this use case:</p>
+                                            <p><strong>Watson Machine Learning for z/OS (WMLz) + IBM Operational Decision Manager</strong></p>
+                                            <p>WMLz enables the rapid deployment of an AI model built for loan analysis onto the IBM zSystems platform, allowing real time insights without compromising security, performance, or resiliency. IBM Operational Decision Manager allows the analysis, automation and governance of rules-based business decisions, allowing for optimizations in the loan authorization process alongside insights produced through the deployed model.</p>
+                                            <p><a href='https://community.ibm.com/community/user/automation/blogs/lori-brown/2022/02/28/modernizing-zos-applications-with-odm-for-zos-and?CommunityKey=c0005a22-520b-4181-bfad-feffd8bdc022' target='_blank'>Read about modernizing z/OS apps with ODM for z/OS and ADDI</a></p>"
+                    },
+                    {
+                        accordionTitle: "Loan risk detection and mitigation",
+                        accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>A defaulted loan is a problem for both the lender and borrower. Without the ability to measure the factors leading to default in real time, lenders are always exposed to the risk of unfulfilled payments.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>Use an optimized querying process against historical transactional data to quickly and efficiently identify problematic accounts and plan appropriate action.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>By leveraging AI capabilities on the IBM Z platform, organizations can derive value from their historical transactional data in real time, and become more proactive and agile in risk mitigation practices.</p>
+                                            <p>The following capability is featured in this use case:</p>
+                                            <p><strong>SQL Data Insights on Db2 z/OS</strong></p>
+                                            <p>Use SQL queries to determine loans with similar traits to loans that have gone into forbearance. SQL Data Insights on Db2 z/OS can deliver these insights without requiring a data scientist to develop a model.</p>"
+                    },
+                    {
+                        accordionTitle: "Proactive insurance rates",
+                        accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>In highly competitive insurance markets, proactivity and speed can be key to ensuring strong customer relationships—but analyzing customer circumstances to reassign insurance rates can be a manual and time intensive process. With all the time spent determining whether new rates are appropriate, lenders are limited in how much they attention they can provide to all accounts.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>Use an optimized querying process against historical transactional data to quickly and efficiently identify opportunities to provide improved rates to customers.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>Insurers can proactively reassign insurance rates based on changes to customer circumstances, enabling greater user satisfaction and reducing the overall manual responses required by the insurer.</p>
+                                            <p>The following capability is featured in this use case:</p>
+                                            <p><strong>SQL Data Insights on Db2 z/OS</strong></p>
+                                            <p>Use SQL queries to determine appropriate rates for potential customers with similar traits to existing, highly qualified accounts. SQL Data Insights on Db2 z/OS can deliver these insights without requiring a data scientist to develop a model.</p>"
+                    },
+                    {
+                        accordionTitle: "Insurance approval based on weather data",
+                        accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>It can be enormously complex and time intensive to understand how weather patterns should impact insurance products. With different considerations across different regions, this becomes a problem of scale—that is, ensuring you have the expertise and computing power required to conduct such analysis, all while continuing to work at the speed of customer expectations.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>An inferencing model for analyzing correlations between weather patterns and insurance risk can be co-located alongside transactional systems, allowing you to achieve rapid insights.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>Insurers can size packages and evaluate exposure based meteorological data, enabling more accurate pricing and greater management of risk, while also rapidly delivering answers to awaiting customers.</p>
+                                            <p>The following capabilities are featured in this use case:</p>
+                                            <p><strong>SciKit-Learn + Watson Machine Learning for z/OS (WMLz)</strong></p>
+                                            <p>SciKit-Learn allows you to train a machine learning model based on the categorization of insurance packages against weather patterns. WMLz enables the rapid deployment of an AI model built for loan risk analysis onto the IBM zSystems platform, allowing real time insights without compromising security, performance, or resiliency.</p>
+                                            <p><a href='https://www.ibm.com/downloads/cas/EJMKVWVO' target='_blank'>Learn about accessing SciKit-Learn and other open access frameworks on IBM zSystems and LinuxONE</a></p>"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "IBM zSystems runtimes considerations",
+                subSectionContent: "<p>Business process optimization is especially notable for organizations using the following runtime environments. The examples described are not unique to each runtime, but are used to illustrate some of the many possibilities, and there are also a variety of technology solutions available. For more details, see 'Infusing AI into applications' in 'Learn more'.</p>",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "IBM® CICS® Transaction Server for z/OS® (CICS TS)",
+                        accordionContent: "<p>A loan approval application running in CICS TS could, for example, improve and accelerate decision-making by scoring a loan request within a transaction, linking to an AI model deployed to the Watson Machine Learning for z/OS (WMLz) scoring engine hosted in CICS.</p>"
+                    },
+                    {
+                        accordionTitle: "IBM IMS™ Transaction Manager (IMS TM)",
+                        accordionContent: "<p>An insurance application running in IMS TM could, for example, enhance its existing rule-based risk assessment by referencing a model in WMLz from the IBM Operational Decision Manager (ODM) rule driven by the application. The prediction from the model could enhance the decision returned by the rule and hence mitigation taken by the application.</p>"
+                    },
+                    {
+                        accordionTitle: "IBM WebSphere Application Server for z/OS",
+                        accordionContent: "<p>An insurance application running in WebSphere Liberty could, for example, enhance customer satisfaction by using an AI model hosted in WMLz within the Liberty server to determine whether to offer a discount.</p>"
+                    },
+                    {
+                        accordionTitle: "IBM z/Transaction Processing Facility (z/TPF)",
+                        accordionContent: "<p>A flight booking application in z/TPF could, for example, offer improved re-accommodations when flights are cancelled or delayed by invoking a REST service provided in a co-located Linux on IBM zSystems server to predict the likelihood of an alternative flight being acceptable. The REST service could gather additional data as input to the model, as well as calling a model deployed to PyTorch in Linux on IBM zSystems to make the prediction.</p>"
+                    }
+                ]
+            }
+        ]
+    },
+        {
+        id: 3,
+        tabTitle: "Image and text analysis",
+        tabSubSections: [
+            {
+                subSectionTitle: "Use cases",
+                subSectionContent: "<p>Explore use cases and some relevant capabilities in the area of image and text analysis.</p>",
+                switchTitleOne: "IBM z16",
+                switchTitleTwo: "IBM LinuxONE Emperor 4",
+                subSectionAccordion: [
+                    {
+                        accordionTitle: "Geospatial analysis",
+                        accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>Organizations across industries need insights about changes observed in satellite imagery to properly plan the use and development of land, however, poring over such imagery can be a manually intensive process prone to human error.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>Enable accurate analysis of satellite imagery with a machine learning model deployed to the IBM zSystems platform, ensuring the sensitive care of aerial images while driving rapid insights.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>New thresholds of accuracy, scale, and operational costs can be achieved through running a machine learning model on the IBM zSystems platform, allowing teams to rapidly understand changes to a given space and expedite their decision-making process.</p>
+                                            <p>The following capabilities are featured in this use case:</p>
+                                            <p><strong>TensorFlow + z/OS Container Extentions (zCX) + ONNX + Watson Machine Learning for z/OS (WMLz)</strong></p>
+                                            <p>TensorFlow provides a deep learning framework which may be trained off the IBM zSystems Platform by accessing data co-located on a zCX instance. The model is then simply exported to the ONNX format and deployed using the WMLz ONNX Scoring service. This provides an endpoint that can be called from the z/OS application.</p>
+                                            <p><a href='https://github.com/IBM/ai-on-z-samples/tree/master/onnx-conversion' target='_blank'>Use sample code for exporting or converting a model to the ONNX format</a></p>"
+                    },
+                    {
+                        accordionTitle: "Natural language processing",
+                        accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>In any industry, it's a challenge to meet the support demands of customers at scale. With queries arriving at all times, and subject matter expertise required to resolve specific scenarios, it's clear that manual responses alone may not be enough to meet demands.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>Natural language processing (NLP) can be leveraged in the creation of chatbots, and the data created in conversational interactions with AI can be stored in a highly secure on-premises server.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>By scaling the use of NLP and chatbots, organizations can meet the 24/7 support demands of their customers, increasing overall satisfaction in their services while ensuring the security of customer conversations with the IBM zSystems platform.</p>
+                                            <p>The following capabilities are featured in this use case:</p>
+                                            <p><strong>huggingface + RASA</strong></p>
+                                            <p>huggingface allows for the building, training, and deployment of state-of-the-art models powered by references to open source machine learning communities, while RASA allows for the automation of conversational experiences at scale.</p>"
+                    },
+                    {
+                        accordionTitle: "Medical imaging",
+                        accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>Imaging is useful across various parts of the medical industry, including both in the diagnosis of patients and in insurance determinations. But with many organizations carrying large historical records of medical images, training a model to recognize patterns and anomalies can be resource intensive.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>Effective and energy efficient computer vision for medical imaging can be achieved through the training and inferencing of AI models on the IBM zSystems platform.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>Organizations across the medical industry can achieve better accuracy, time to diagnosis, and energy efficiency, ultimately enabling greater care for patients and customers.</p>
+                                            <p>The following capabilities are featured in this use case:</p>
+                                            <p><strong>IBM Deep Learning Compiler</strong></p>
+                                            <p>Enables multiple deep learning frameworks to run on IBM z16</p>
+                                            <p><strong>PyTorch + ONNX + Watson Machine Learning for z/OS (WMLz)</strong></p>
+                                            <p>PyTorch provides a deep learning framework which may be trained off the IBM zSystems Platform. The model is then simply exported to the ONNX format and deployed using the WMLz ONNX Scoring service. This provides an endpoint that can be called from the z/OS application. This allows for real-time insights without compromising the security of patient data.</p>"
+                    }
+                ],
+                subSectionAccordionSwitch: [
+                    {
+                        accordionTitle: "Natural language processing",
+                        accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>In any industry, it's a challenge to meet the support demands of customers at scale. With queries arriving at all times, and subject matter expertise required to resolve specific scenarios, it's clear that manual responses alone may not be enough to meet demands.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>Natural language processing (NLP) can be leveraged in the creation of chatbots, and the data created in conversational interactions with AI can be stored in a highly secure on-premises server.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>By scaling the use of NLP and chatbots, organizations can meet the 24/7 support demands of their customers, increasing overall satisfaction in their services while ensuring the security of customer conversations with the IBM LinuxONE platform.</p>
+                                            <p>The following capabilities are featured in this use case:</p>
+                                            <p><strong>Red Hat OpenShift, spaCy, RASA, TensorFlow</strong></p>
+                                            <p>RASA provides an open source platform for conversational AI-like chat bots. RASA relies on highly optimized back-ends in frameworks like spaCy and TensorFlow, which can drive the execution of pre-trained Natural Language Processing (NLP) models. On LinuxONE Emperor 4, a pre-trained spaCy language model is imported to a RASA chatbot application that can provide insights to guide end users.</p>"
+                    },
+                    {
+                        accordionTitle: "Medical imaging",
+                        accordionContent: "<p><strong>The problem</strong></p>
+                                            <p>Imaging is useful across various parts of the medical industry, including both in the diagnosis of patients and in insurance determinations. But with many organizations carrying large historical records of medical images, training a model to recognize patterns and anomalies can be resource intensive.</p>
+                                            <p><strong>The solution</strong></p>
+                                            <p>Effective and energy efficient computer vision for medical imaging can be achieved through the training and inferencing of AI models on the IBM LinuxONE platform.</p>
+                                            <p><strong>The business impact</strong></p>
+                                            <p>Organizations across the medical industry can achieve better accuracy, time to diagnosis, and energy efficiency, ultimately enabling greater care for patients and customers.</p>
+                                            <p>The following capabilities are featured in this use case:</p>
+                                            <p><strong>IBM Deep Learning Compiler, ONNX, PyTorch</strong></p>
+                                            <p>PyTorch provides a deep learning framework which may be trained on or off the LinuxONE Emperor 4 platform. The model is then exported to the ONNX format and enabled on LinuxONE using the IBM Deep Learning Compiler, thus co-locating the model alongside key Linux workloads. This allows for real-time insights without compromising the security of patient data.</p>"
+                    }
+                ]
+            },
+            {
+                subSectionTitle: "IBM zSystems runtimes considerations",
+                subSectionContent: "<p>Image and text analysis use cases can be relevant to IBM zSystems runtime environments if part of the handling or processing of the images or text is carried out by applications running in one of CICS TS, IMS TM, IBM WebSphere Application Server for z/OS, or z/TPF.</p>"
+            }
+        ]
+    },
+    
+{
+        id: 4,
+        tabTitle: "Intelligent infrastructure",
+        tabSubSections: [
+            {
+                subSectionTitle: "Use cases",
+                subSectionContent: "<p>Explore use cases and some relevant capabilities in the area of intelligent infrastructure.</p>"
+            },
+            {
+                subSectionTitle: "Data redaction",
+                subSectionContent:
+                "<p><strong>The problem</strong></p>
+                <p>While organizations may rely on partnerships with vendors to analyze system diagnostic data, privacy regulations and post-processing speeds can create a significant blocker. With operational stability as a top priority, it's essential to get information in front of experts, while also taking care to protect customers' data.</p>
+                <p><strong>The solution</strong></p>
+                <p>Machine learning can be leveraged on the IBM zSystems platform to identify sensitive information and redact it from diagnostic dumps, ensuring that the resulting information allows for an inspection of system performance without creating unnecessary risk for customers.</p>
+                <p><strong>The business impact</strong></p>
+                <p>Organizations can be more agile in their operations with vendors and other supporting parties, allowing them to quickly produce diagnostic information without the work of manually removing PII. Thus, greater operational efficiency can be achieved on an ongoing basis.</p>
+                <p>The following capability is featured in this use case:</p>
+                <p><strong>IBM Z Data Privacy for Diagnostics</strong></p>
+                <p>Leverage facilities for tagging sensitive data and producing redacted diagnostic dumps which do not contain the tagged sensitive data.</p>
+                <p><a href='https://www.ibm.com/docs/en/zos/2.4.0?topic=aids-data-privacy-diagnostics-dpfd' target='_blank'>Read the documentation for IBM Z Data Privacy for Diagnostics</a></p>"
+            },
+            {
+                subSectionTitle: "IBM zSystems runtimes considerations",
+                subSectionContent: "<p>There can be opportunities to introduce intelligence into your application infrastructure on IBM zSystems by leveraging AI models.</p>"
+            }
+        ]
+    }
+] %}
+{# END GETTING STARTED #}
+
+{# SET FOR LAUNCH #}
+{% set learnMoreAccordion =
+[
+        {
+        section: "IBM zSystems and LinuxONE AI products and related solutions",
+        categories: [
+            {
+                catTitle: "AI Software",
+                content:    "<p><strong><a href='https://www.ibm.com/products/z-operations-analytics' target='_blank'>IBM Z Operations Analytics</a></strong></p>
+                                <p>Available for IBM z16</p>
+                                <p>Enable problem identification, isolation and resolution on IBM zSystems through analysis of structured and unstructured operational data.</p>
+                            <p><strong><a href='https://www.ibm.com/products/z-app-performance-management-connect' target='_blank'>IBM Z Application Performance Management Connect</a></strong></p>
+                                <p>Available for IBM z16</p>
+                                <p>Track transaction information from z/OS subsystems to APM solutions.</p>
+                            <p><strong><a href='https://www.ibm.com/products/operational-decision-manager' target='_blank'>IBM Operational Decision Manager</a></strong></p>
+                                <p>Available for IBM z16</p>
+                                <p>Discover, capture, analyze, automate and govern rules-based business decisions on premises or on the cloud.</p>
+                            <p><strong><a href='https://www.ibm.com/cloud/wazi-as-a-service' target='_blank'>IBM Wazi as a Service</a></strong></p>
+                                <p>Available for IBM z16</p>
+                                <p>Conduct cloud native development and testing for z/OS on IBM Cloud.</p>
+                            <p><strong><a href='https://www.ibm.com/downloads/cas/YBL2KLER' target='_blank'>IBM Cloud Pak for Data on IBM Z</a></strong></p>
+                                <p>Available for IBM z16 and IBM LinuxONE Emperor 4</p>
+                                <p>Confidently leverage your enterprise data within a secured, resilient IBM zSystems and LinuxONE private cloud infrastructure.</p>
+                            <p><strong><a href='https://www.ibm.com/products/db2-analytics-accelerator' target='_blank'>IBM Db2 Analytics Accelerator for z/OS</a></strong></p>
+                                <p>Available for IBM z16</p>
+                                <p>Leverage real-time insight from data at the point of origin.</p>
+                            <p><strong><a href='https://www.ibm.com/products/machine-learning-for-zos' target='_blank'>IBM Watson Machine Learning for z/OS</a></strong></p>
+                                <p>Available for IBM z16</p>
+                                <p>Utilize unprecedented AI inferencing performance for every transaction while meeting SLAs.</p>
+                            <p><strong>SQL Data Insights on Db2 z/OS</strong></p>
+                                <p>Available for IBM z16</p>
+                                <p>Uncover hidden insights in Db2 for z/OS data.</p>
+                            <p><strong><a href='https://www.ibm.com/products/db2-ai-for-zos' target='_blank'>IBM DB2 AI for z/OS</a></strong></p>
+                                <p>Available for IBM z16</p>
+                                <p>Enhance database performance with machine learning.</p>
+                            <p><strong><a href='https://www.ibm.com/downloads/cas/RDGELBZV' target='_blank'>IBM Z Data Privacy for Diagnostics</a></strong></p>
+                                <p>Available for IBM z16</p>
+                                <p>Leverage machine learning to detect and redact PII from diagnostic dumps.</p>
+                            <p><strong><a href='https://www.ibm.com/cloud/blog/watson-aiops-bringing-ai-to-it-operations-management' target='_blank'>IBM Watson AIOps</a></strong></p>
+                                <p>Available for IBM z16 and IBM LinuxONE Emperor 4</p>
+                                <p>Deploy advanced, explainable AI across the ITOps toolchain.</p>
+                             <p><strong><a href='https://www.ibm.com/products/z-anomaly-analytics' target='_blank'>IBM Z Anomaly Analytics</a></strong></p>
+                                <p>Available for IBM z16</p>
+                                <p>Proactively identify operational issues in log and metric data.</p>"
+            },
+            {
+                catTitle: "AI Hardware",
+                content:  "<p><strong><a href='https://www.ibm.com/blogs/systems/ibm-telum-processor-the-next-gen-microprocessor-for-ibm-z-and-ibm-linuxone/' target='_blank'>IBM Z Integrated Accelerator for AI and IBM Integrated Accelerator for AI on LinuxONE</a></strong></p>
+                            <p>Available for IBM z16 and IBM LinuxONE Emperor 4</p>
+                            <p>A 7 nm microprocessor engineered to meet the demands our clients face for gaining AI-based insights from their data without compromising response time for high volume transactional workloads.</p>"
+            },
+            {
+                catTitle: "Featured open source communities",
+                content:  "<p><strong><a href='https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/joe-bostian1/2021/10/27/new-home-ibm-z-linuxone-container-registry' target='_blank'>IBM Z and LinuxONE Container Image Registry</a></strong></p>
+                                <p>Available for IBM z16 and IBM LinuxONE Emperor 4</p>
+                                <p>Utilize a channel of open source container images available for use, free of charge, that can be pulled and managed through the common graphical and command line interfaces that support containerized workloads.</p>
+                            <p><strong><a href='https://onnx.ai/' target='_blank'>ONNX</a></strong></p>
+                                <p>Available for IBM z16 and IBM LinuxONE Emperor 4</p>
+                                <p>ONNX is an open standard used for converting between different machine learning frameworks.</p>
+                            <p><strong><a href='https://ibm.github.io/ai-on-z-101/tensorflow/' target='_blank'>IBM Z Optimized for TensorFlow and IBM LinuxONE Optimized for TensorFlow</a></strong></p>
+                                <p>Available for IBM z16 and IBM LinuxONE Emperor 4</p>
+                                <p>TensorFlow is a widely used end-to-end platform for machine learning and deep learning, including a large ecosystem of tools, libraries, and community resources.</p>
+                            <p><strong><a href='https://pytorch.org/' target='_blank'>PyTorch</a></strong></p>
+                                <p>Available for IBM z16 and IBM LinuxONE Emperor 4</p>
+                                <p>PyTorch is an open-source machine learning library based on the Torch library, helping to accelerate the path from research prototyping to production deployment.</p>
+                            <p><strong><a href='https://keras.io/' target='_blank'>Keras</a></strong></p>
+                                <p>Available for IBM z16 and IBM LinuxONE Emperor 4</p>
+                                <p>Keras is a Python-based deep learning library that functions as a high-level API specification for neural networks.</p>"
+
+
+            },
+            {
+                catTitle: "Third party software",
+                content:  "<p><strong><a href='https://www.ibm.com/downloads/cas/4BX6G3NZ' target='_blank'>Anaconda Commercial Edition</a></strong></p>
+                             <p>Available for IBM z16 and IBM LinuxONE Emperor 4</p>
+                             <p>Utilize the leading open-source data science platform, including open-source package distribution and environment management, all with IBM Z and LinuxONE workloads.</p>"
+            }
+        ]
+},
+        {
+        section: "Infusing AI into applications",
+        categories: [
+            {
+                catTitle: "Planning use cases with IBM zSystems runtime applications",
+                content:  "<p>The Integrated Accelerator for AI offers seamless exploitation for the IBM zSystems runtimes, in that upgrades to the runtime environment should not be required, and applications that are already leveraging suitable deep-learning AI models deployed to IBM zSystems can benefit from the acceleration without change. It also opens up new possibilities for applications to incorporate AI in their processing, benefiting from the reduced latency, and using data that might only be relevant while the transaction is running.
+                        <p>The following sections explore how each of the application runtimes can invoke AI models deployed to the various different frameworks and environments.</p>"
+            },
+            {
+                catTitle: "Using IBM Watson Machine Learning for z/OS",
+                content:  "<p>This use case works well for applications running in:</p>
+                        <ul>
+                            <li>CICS TS</li>
+                            <li>IMS TM</li>
+                            <li>IBM WebSphere Application Server for z/OS (WebSphere traditional and WebSphere Liberty)</li>
+                            <li>z/OS batch applications</li>
+
+                        </ul>
+                        <p>From the application, you can make a call that invokes an AI model deployed to the WMLz base running in z/OS or, in some cases, within the runtime itself.</p>
+                        <p>Depending on the runtime, there are a number of ways in which the WMLz scoring can be invoked:</p>
+                        <ul>
+                            <li><strong>Using CICS API commands:</strong> For CICS TS, the WMLz scoring engine can be hosted in a Liberty server within the CICS runtime, and invoked via an EXEC CICS LINK call that passes the data using CICS channels and containers.</li>
+                            <li><strong>Using WebSphere Optimized Local Adapter (WOLA) APIs:</strong> For IMS COBOL applications, and as an alternative for COBOL applications running in z/OS Batch or CICS TS, WOLA APIs can be used with a WMLz scoring server that has WOLA enabled.</li>
+                            <li><strong>Using Java API:</strong> For WebSphere traditional or WebSphere Liberty, a Java API can be used to call the WMLz scoring feature configured in the same WebSphere server as the application runs, or configured in a separate WebSphere server.</li>
+                            <li><strong>Using REST API:</strong> For z/OS batch applications, and as an alternative for CICS TS, IMS TM, and WebSphere Application Server, the model can be invoked using a REST API.</li>
+                        </ul>"
+            },
+            {
+                catTitle: "Using Operational Decision Manager with WMLz",
+                content:  "<p>This use case works well for applications running in:</p>
+                        <ul>
+                            <li>CICS TS</li>
+                            <li>IMS TM</li>
+                            <li>IBM WebSphere Application Server for z/OS (WebSphere traditional and WebSphere Liberty)</li>
+                            <li>z/OS batch applications</li>
+                        </ul>
+                        <p>An ODM rule driven by the runtime application can be enhanced to reference a model deployed to WMLz, and then use the prediction from the model in the rule. ODM uses a highly efficient interface between ODM and WMLz.</p>
+                        <p>If the application already uses ODM rules, then a rule called by the application could be enhanced with machine learning to drive an AI model deployed to WMLz. If the application does not currently use ODM rules, it could be updated to use an ODM rule that drives the AI model via WMLz, and hence include additional insight in the result from the rule. This use case has the added benefit of transparency in the use of the AI prediction, due to it being visible in the rule.</p>"
+            },
+            {
+                catTitle: "Using a community-available AI framework",
+                content:  "<p>This use case works well for applications running in:</p>
+                        <ul>
+                            <li>z/TPF</li>
+                            <li>CICS TS</li>
+                            <li>IMS TM</li>
+                            <li>IBM WebSphere Application Server for z/OS (WebSphere traditional and WebSphere Liberty)</li>
+                            <li>z/OS batch applications</li>
+                        </ul>
+                        <p>From the application, you can make a REST call to an AI model deployed in popular frameworks such as IBM Snap Machine Learning (SnapML), TensorFlow, or PyTorch, that might be hosted in a z/OS Container Extentions (zCX) instance within the z/OS environment, or hosted in Linux on IBM zSystems. When using zCX, the call uses an optimized form of access within z/OS. When using Linux on IBM zSystems, the call can use Shared Memory Communications (SMC) for efficient access.</p>
+                        <p>The REST APIs provided by the AI model can be driven from the application in a number of ways, including:</p>
+                        <ul>
+                            <li><strong>Using z/OS Connect EE:</strong> CICS, IMS and batch applications can take advantage of z/OS Connect EE and the API requester functionality to drive the REST APIs.</li>
+                            <li><strong>Using Java libraries:</strong> WebSphere traditional and WebSphere Liberty applications can use Java libraries such as ‘Rest Client for MicroProfile’ to make REST API calls.</li>
+                            <li><strong>Using z/TPF REST consumer support:</strong> z/TPF applications can make REST calls by using z/TPF REST consumer support.</li>
+                            <li><strong>Using CICS API commands:</strong> CICS TS applications can use EXEC CICS WEB SEND and WEB RECEIVE commands.</li>
+                            <li><strong>Using the z/OS client web enablement toolkit:</strong> IMS applications can take advantage of the z/OS client web enablement toolkit provided with z/OS, using the HTTP/HTTPS protocol enabler APIs to invoke the AI model and the JSON parser to interact with, create, or parse the corresponding JSON payloads.</li>
+                        </ul>"
+            }
+        ]
+}
+]
+%}
+{# END FAQs #}
+
+{# START TECHNICAL RESOURCES #}
+{# For each tab, set:
+id: The tab number
+tabTitle: Content soltuion, Other resources, Multimedia, etc.
+tabContent: Contains the resource tiles within each tab. Any of these can be set to false (no quotes around it) for the attribute to be skipped.
+    resourceTitle
+    resourceDescription
+    resourceLinkUrl
+    resourceLinkText
+    resourceLinkType: options are "knowledgeCenter", "developer", "redbook", "document", "webpage", "video", "podcast"
+    resourceIcon: Full link to the icon associated with the resource type. Will tie into resourceLinkType in future iteration.
+    resourceStatus: Use "new" to flag tile with "NEW!" text. Use "hide" to temporarily hide a tile from being displayed on the page.
+ #}
+{% set resourcesTabs = [
+    {
+        id: 1,
+        tabTitle: "General resources",
+        tabContent: [
+            {
+                resourceTitle: "Expert perspectives",
+                resourceDescription: "Learn the value of leveraging AI on the IBM zSystems and LinuxONE platform",
+                resourceLinkUrl: "https://www.ibm.com/blogs/systems/leveraging-ai-on-ibm-z-and-ibm-linuxone-for-accelerated-insights/",
+                resourceLinkText: "Read the blog",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Expert perspectives",
+                resourceDescription: "Learn how to jumpstart your experience with AI on IBM zSystems",
+                resourceLinkUrl: "https://blog.share.org/Article/jump-starting-your-experience-with-ai-on-ibm-z",
+                resourceLinkText: "Read the blog",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Use Db2 for z/OS with SQL Data Insights for AML",
+                resourceDescription: "Watch a demo on how AI applications running on IBM zSystem can tackle the money laundering problem in various ways including solving the scatter gather problem.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/1_f1vt1vve",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Use Watson Machine Learning for z/OS to detect fraudulent transactions",
+                resourceDescription: "Watch this video to see a demo on real-time detection and the prevention of credit card fraud with AI on IBM zSystems.",
+                resourceLinkUrl: "https://mediacenter.ibm.com/media/Use+Watson+Machine+Learning+for+z+OS+to+detect+fraudulent+transactions/1_79eg1y4o",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Solving fraud scenarios in real time",
+                resourceDescription: "Determine business insights during transactions using IBM z16, harnessing the scalability and speed needed to address fraud.",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/GW75RWNQ",
+                resourceLinkText: "Read the brief",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Solving anti-money laundering",
+                resourceDescription: "Learn how to use AI application on IBM z16 to identify money laundering patterns and prevent them in real time.",
+                resourceLinkUrl: "https://www.ibm.com/downloads/cas/3D7PZ1OQ",
+                resourceLinkText: "Read the brief",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "AI on IBM Z & LinuxONE Community",
+                resourceDescription: "Join a community of practitioners and experts using AI on the IBM zSystems and LinuxONE platforms",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/groups/topic-home/blog-entries?communitykey=038560b2-e962-4500-b0b5-e3745175a065&tab=blog-entries",
+                resourceLinkText: "Join the community",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "Data and AI on IBM zSystems",
+                resourceDescription: "Transform and modernize your IT approach to turn valuable IBM zSystems data into business opportunities",
+                resourceLinkUrl: "https://www.ibm.com/analytics/data-and-ai-on-ibm-z",
+                resourceLinkText: "See the value of Data and AI technology on IBM zSystems",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Db2 AI for z/OS",
+                resourceDescription: "IBM Db2 AI for z/OS (Db2ZAI) is built on the services that are provided by Watson Machine Learning for z/OS to help optimize performance.",
+                resourceLinkUrl: "https://www.youtube.com/watch?v=m-kHblLm4Ik",
+                resourceLinkText: "Watch the video",
+                resourceLinkType: "video",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    },
+    {
+        id: 2,
+        tabTitle: "Hands-on material",
+        tabContent: [
+            {
+                resourceTitle: "IBM Watson Machine Learning for z/OS Hands-on Lab",
+                resourceDescription: "Learn how to do data visualization, model creation, deployment and evaluation, and scoring with WMLz.",
+                resourceLinkUrl: "https://www.ibm.com/cloud/architecture/dte/tutorial/ibm-watson-machine-learning-zos-hands-lab",
+                resourceLinkText: "Try the lab",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Streaming SMF data real time through IzODA",
+                resourceDescription: "Sample code and hints for how you could utilize a real time data consumption strategy with your IzODA applications using the SMF Realtime Interface on z/OS ",
+                resourceLinkUrl: "https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/lora-milczewski1/2020/03/25/streaming-smf-data-real-time-through-izoda?CommunityKey=2a2f855c-5950-4a9d-8485-86645982646a&tab=recentcommunityblogsdashboard",
+                resourceLinkText: "Read the blog",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "IBM Open Data Analytics for z/OS Lab",
+                resourceDescription: "Choose Your Path: Spark and Scala or Anaconda and Python",
+                resourceLinkUrl: "https://github.com/IzODA/labs/blob/master/choose-your-path/scala-python/README.md#overview",
+                resourceLinkText: "View the labs",
+                resourceLinkType: "webpage",
+                resourceIcon: false
+            },
+            {
+                resourceTitle: "AI on IBM Z 101",
+                resourceDescription: "Find samples, containers, and other relevant resources for using AI on the IBM zSystems platform",
+                resourceLinkUrl: "https://ibm.github.io/ai-on-z-101/",
+                resourceLinkText: "Visit the site",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "GitHub repository: credit card fraud detection",
+                resourceDescription: "View sample code for running a credit card fraud detection scenario with AI on IBM zSystems",
+                resourceLinkUrl: "https://github.com/IBM/ai-on-z-fraud-detection",
+                resourceLinkText: "View the repository",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "GitHub repository: sample containers for s390x environments",
+                resourceDescription: "Access sample container build files for AI software that can be utilized in s390x environments.",
+                resourceLinkUrl: "https://github.com/IBM/ai-on-z-containers",
+                resourceLinkText: "View the repository",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Github repository: sample demonstration code",
+                resourceDescription: "Access small, useful examples to demonstrate some of the technologies available for use on IBM zSystems and LinuxONE systems.",
+                resourceLinkUrl: "https://github.com/IBM/ai-on-z-samples",
+                resourceLinkText: "View the repository",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    },
+    {
+        id: 3,
+        tabTitle: "Documentation",
+        tabContent: [
+            {
+                resourceTitle: "IBM Z Operations Analytics",
+                resourceDescription: "",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zoa/4.1.0",
+                resourceLinkText: "View the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Z Application Performance Management Connect",
+                resourceDescription: "",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zapmc/6.1.0",
+                resourceLinkText: "View the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Operational Decision Manager",
+                resourceDescription: "",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/odm/8.10",
+                resourceLinkText: "View the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Wazi as a Service",
+                resourceDescription: "",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/wazi-aas/1.0.0",
+                resourceLinkText: "View the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Cloud Pak for Data",
+                resourceDescription: "",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/cloud-paks/cp-data/4.0",
+                resourceLinkText: "View the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "DB2 Analytics Accelerator for z/OS",
+                resourceDescription: "",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/daafz/7.5",
+                resourceLinkText: "View the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Watson Machine Learning for z/OS",
+                resourceDescription: "",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/wml-for-zos/2.2.0",
+                resourceLinkText: "View the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Db2 AI for z/OS",
+                resourceDescription: "",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/db2-ai-for-zos/1.1.0",
+                resourceLinkText: "View the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Data Privacy for Diagnostics",
+                resourceDescription: "",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zos/2.4.0?topic=aids-data-privacy-diagnostics-dpfd",
+                resourceLinkText: "View the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Watson AIOps",
+                resourceDescription: "",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/watson-aiops/2.0",
+                resourceLinkText: "View the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "IBM Z Anomaly Analytics with Watson",
+                resourceDescription: "",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/z-anomaly-analytics/5.1.0",
+                resourceLinkText: "View the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    },
+    {
+        id: 4,
+        tabTitle: "Integration resources",
+        tabContent: [
+            {
+                resourceTitle: "Infusing AI into applications on IBM zSystems",
+                resourceDescription: "Technical guide for planning the infusion of AI with applications running in CICS, IMS, WebSphere Application Server for z/OS, and z/TPF.",
+                resourceLinkUrl: "https://izswebpage.mybluemix.net/docs/plan-infusing-ai-into-apps.pdf",
+                resourceLinkText: "Read the guide",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Using Watson Machine Learning for z/OS with WebSphere Optimized Local Adapter",
+                resourceDescription: "Deploying AI models for real-time inferencing in IMS transactions with the WMLz 2.4 new feature using WOLA.",
+                resourceLinkUrl: "https://medium.com/@shuangyu_76333/deploy-ai-models-for-real-time-inferencing-in-your-z-os-ims-transactions-ibm-watson-machine-54ca980476bd",
+                resourceLinkText: "Learn more",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Using Watson Machine Learning for z/OS scoring service",
+                resourceDescription: "Embedding the Watson Machine Learning for z/OS scoring service in a CICS region using the WMLz ALNSCORE program.",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/wml-for-zos/2.3.0?topic=base-preparing-models-online-scoring-cics-alnscore",
+                resourceLinkText: "Learn more",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Using Watson Machine Learning for z/OS OSCE",
+                resourceDescription: "Redpaper on Optimized Inferencing and Integration with AI on IBM zSystems - shows a CICS application using a model in WMLz to predict a credit risk score",
+                resourceLinkUrl: "http://www.redbooks.ibm.com/redpapers/pdfs/redp5661.pdf",
+                resourceLinkText: "Read the Redpaper",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Using ODM with WMLz",
+                resourceDescription: "View a tutorial that steps through enhancing ODM rules with IBM Watson Machine Learning for z/OS predictions",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/odm/8.11.0?topic=tutorials-tutorial-enhancing-rules-watson-machine-learning-zos-predictions",
+                resourceLinkText: "View the tutorial",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Using z/OS Connect and REST API",
+                resourceDescription: "Learn how to call REST APIs from z/OS applications using z/OS Connect",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zosconn/zosconnect/3.0?topic=calling-restful-apis-from-zos-applications",
+                resourceLinkText: "Read the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Using z/OS Connect and REST API",
+                resourceDescription: "View a Github sample showing a REST API call from IMS using z/OS Connect EE",
+                resourceLinkUrl: "https://github.com/imsdev/ims-zcee-api-requester",
+                resourceLinkText: "View the sample",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Using z/OS Connect and REST API",
+                resourceDescription: "View a Github sample showing a REST API call from CICS using z/OS Connect EE",
+                resourceLinkUrl: "https://github.com/zosconnect/zosconnect-sample-cobol-apirequester",
+                resourceLinkText: "View the sample",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Interact with REST APIs provided by AI models",
+                resourceDescription: "Use the z/OS client web enablement toolkit provided with z/OS to interact with the REST APIs provided by AI models",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/zos/2.5.0?topic=languages-zos-client-web-enablement-toolkit",
+                resourceLinkText: "Read the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            },
+            {
+                resourceTitle: "Using z/TPF to call a REST service",
+                resourceDescription: "Use the z/TPF client to call a REST service from a z/TPF application",
+                resourceLinkUrl: "https://www.ibm.com/docs/en/ztpf/2022?topic=rest-consumer-support",
+                resourceLinkText: "Read the documentation",
+                resourceLinkType: "webpage",
+                resourceIcon: false,
+                resourceStatus: ""
+            }
+        ]
+    }
+] %}
+{# START END RESOURCES #}
+
+{# START RELATED SOLUTIONS #}
+{# Uses keys to call related pages. First number listed will be "primary" and will be used in the introduction section if there is no banner content for the page. Find keys in either /data/pages.json or in Related Solutions Box note. #}
+{% set related = [32] %}
+
+{# START WHATS NEW #}
+{# set to true to add this section to the top navbar #}
+{% set whatsnew = true %}
+{% set updateWhatsNewDate = "September 13, 2022" %}
+
+{% set updateWhatsNew = [
+    {
+        sectionTitle: "September 13, 2022",
+        sectionContent: "<p>The use cases and products/related solutions showcased on this page have been updated to reflect the announcement of the IBM LinuxONE Emperor 4.</p>"
+    },
+    {
+        sectionTitle: "July 29, 2022",
+        sectionContent: "<p>Information about the open beta for IBM zSystems Optimized for TensorFlow has been added to the 'Featured open source communities' section.</p>"
+    },
+    {
+        sectionTitle: "June 17, 2022",
+        sectionContent: "<p>The technical resources section has been updated to include a technical guide for planning the infusion of AI with applications running in CICS, IMS, WebSphere Application Server for z/OS, and z/TPF.</p>"
+    },
+    {
+        sectionTitle: "April 5, 2022",
+        sectionContent: "<p>The page has been updated to feature a host of use cases broken out across the 'Get Started' section, with additional considerations for relevant runtimes provided.</p>
+                        <p>Additionally, two new 'Learn more' accordions have been added, one featuring the various products and capabilities available for AI on the IBM Z platform, and the other featuring methods for implementing AI with relevant runtimes.</p>
+                        <p>Lastly, a host of new resources have been added, including new demonstration videos for featured use cases, product documentation, and solution briefs.</p>"
+    },
+    {
+        sectionTitle: "July 22, 2021",
+        sectionContent: "<p>AI and Data Science availability on IBM zSystems</p>
+                        <div class='ibm-columns'>
+                            <div class='ibm-col-4-1'>
+                                <p class='ibm-ind-link ibm-textcolor-black-core'>
+                                    <a href='https://www.ibm.com/downloads/cas/4BX6G3NZ' class='ibm-forward-link'>FAQs: Anaconda on IBM Z and LinuxONE</a>
+                                </p>
+                            </div>
+                            <div class='ibm-col-4-1'>
+                                <p class='ibm-ind-link ibm-textcolor-black-core'>
+                                 <a href='https://www.ibm.com/downloads/cas/EJMKVWVO' class='ibm-forward-link'>Data Sheet: Anaconda on Linux on IBM Z and LinuxONE</a>
+                                </p>
+                            </div>
+                            <div class='ibm-col-4-1'>
+                                <p class='ibm-ind-link ibm-textcolor-black-core'>
+                                    <a href='https://www.ibm.com/downloads/cas/2LQYXQBE ' class='ibm-forward-link'>White Paper: Anaconda on IBM Z and LinuxONE</a>
+                                </p>
+                            </div>
+                         </div>"
+    }
+] %}
+{# END WHATS NEW #}
+
+{# START STATCOUNTER #}
+{# set statcounter = {
+    sc_project: "12504397",
+    sc_security: "f2466e8d"
+}
+ #}
+{# END STATCOUNTER #}
+{# START HOTJAR #}
+{#set hotjar = {
+    site_id: "2496717"
+}
+ #}
